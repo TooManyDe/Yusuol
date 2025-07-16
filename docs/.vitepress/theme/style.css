@@ -131,15 +131,6 @@ padding: 0 10px 20px
 }
 }
 
-@media (max-width: 959px) {
-	.content[data-v-850b0654] {
-padding: 0 10px 20px
-}
-.VPFooter[data-v-0be786a2] {
-    padding: 20px;
-}
-}
-
 
 /**
  * Typography
