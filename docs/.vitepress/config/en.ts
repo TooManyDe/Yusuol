@@ -3,7 +3,7 @@ import { defineConfig} from 'vitepress'
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: "Yusuol",
-  description: "Does technology make life better ?",
+  description: "",
   lang: "en-US", //语言
 
   themeConfig: {
@@ -14,7 +14,7 @@ export default defineConfig({
 			{ text: "Sponsor", link: "/en/support-me", activeMatch: '/en/support-me' },
     ],
     footer: {
-      message: '<a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener noreferrer">CC BY-NC-ND 4.0</a> © 2025 <a href="https://yusuol.com">Yusuol</a>',
+      message: '© 2024-Present <a href="https://yusuol.com">Yusuol</a>',
     },
 
     socialLinks: [
