@@ -68,6 +68,10 @@ h3 {
   display: none !important;
 }
 
+.VPDocFooter{
+    margin-top: 30px;
+}
+
 :root {
 	--vp-c-green-1: #41b349;
 	--vp-c-green-2: #41b349;
