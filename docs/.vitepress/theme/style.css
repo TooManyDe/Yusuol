@@ -77,6 +77,7 @@ h3 {
 }
 
 :root {
+	--vp-nav-height: 50px;
 	--vp-c-green-1: #41b349;
 	--vp-c-green-2: #41b349;
 	--vp-c-green-3: #41b349;
