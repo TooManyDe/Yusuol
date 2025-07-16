@@ -9,7 +9,7 @@ const hostname = "https://yusuol.com";
 export async function createRssFileZH(config: SiteConfig) {
   const feed = new Feed({
     title: 'Yusuol',
-    description: '科技让生活更美好？',
+    description: '',
     id: hostname,
     link: hostname,
     language: "zh-Hans",
@@ -61,7 +61,7 @@ export async function createRssFileEN(config: SiteConfig) {
   const feed = new Feed({
     title: "Yusuol",
     description:
-      "Does technology make life better ?",
+      "",
     id: hostname,
     link: hostname,
     language: "en-US",
