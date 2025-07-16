@@ -1,1 +1,0 @@
-<h4 align="right"><strong>简体中文</strong> |<a href="./README.en.md">English</a> </h4>
