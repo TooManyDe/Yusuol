@@ -3,7 +3,7 @@ import { type DefaultTheme, defineConfig } from 'vitepress'
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: "Yusuol",
-  description: "科技让生活更美好？",
+  description: "",
   lang: "zh-Hans", //语言
 
   themeConfig: {
@@ -14,7 +14,7 @@ export default defineConfig({
    { text: "赞赏", link: "/support-me", activeMatch: '/support-me/' },
     ],
     footer: {
-      message: '<a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener noreferrer">CC BY-NC-ND 4.0</a> © 2025 <a href="https://yusuol.com">Yusuol</a>',
+      message: '© 2024-Present <a href="https://yusuol.com">Yusuol</a>',
     },
     docFooter: {
       prev: '上一篇',
