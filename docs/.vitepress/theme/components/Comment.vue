@@ -9,7 +9,7 @@
 		v-if="loadComments && showComment"
 		:key="`${term}-${lang}-${isDark}`"
 		repo="Yusuol/Yusuol"
-		repo-id="R_kgDOOmIAD"
+		repo-id="R_kgDOOmIADw"
 		category="Announcements"
 		category-id="DIC_kwDOOmIAD84Cp583"
 		mapping="title"
