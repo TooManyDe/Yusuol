@@ -8,7 +8,7 @@
 	  <Giscus
 		v-if="loadComments && showComment"
 		:key="`${term}-${lang}-${isDark}`"
-		repo="Yusuol/WePost"
+		repo="Yusuol/Yusuol"
 		repo-id="R_kgDOOmIAD"
 		category="Announcements"
 		category-id="DIC_kwDOOmIAD84Cp583"
