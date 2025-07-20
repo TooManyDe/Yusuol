@@ -2,7 +2,7 @@ import { type DefaultTheme, defineConfig } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "Yusuol",
+  title: "冀望",
   description: "",
   lang: "zh-Hans", //语言
 
@@ -14,7 +14,7 @@ export default defineConfig({
    { text: "赞赏", link: "/support-me", activeMatch: '/support-me/' },
     ],
     footer: {
-      message: '© 2024-Present <a href="https://yusuol.com">Yusuol</a>',
+      message: '© 2024-Present <a href="https://冀望.com">冀望</a>',
     },
     docFooter: {
       prev: '上一篇',
