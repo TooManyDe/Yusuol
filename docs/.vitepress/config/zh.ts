@@ -2,7 +2,7 @@ import { type DefaultTheme, defineConfig } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "冀望",
+  title: "今夕何夕",
   description: "",
   lang: "zh-Hans", //语言
 
