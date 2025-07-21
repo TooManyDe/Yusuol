@@ -28,7 +28,7 @@ export function handleHeadMeta(context: TransformContext) {
 }
 
 export function addBase(relativePath: string) {
-  const host = 'https://Yuusol.com'
+  const host = 'https://www.xn--q6qq04c.com/'
   if (relativePath.startsWith('/')) {
     return host + relativePath
   } else {
