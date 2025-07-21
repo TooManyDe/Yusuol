@@ -2,7 +2,7 @@ import { defineConfig} from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "Yusuol",
+  title: "Never",
   description: "",
   lang: "en-US", //语言
 
@@ -14,7 +14,7 @@ export default defineConfig({
 			{ text: "Sponsor", link: "/en/support-me", activeMatch: '/en/support-me' },
     ],
     footer: {
-      message: '© 2024-Present <a href="https://yusuol.com">Yusuol</a>',
+      message: '© 2024-Present <a href="https://冀望.com">冀望</a>',
     },
 
     socialLinks: [
