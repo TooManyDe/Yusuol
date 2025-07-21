@@ -14,7 +14,7 @@ export default defineConfig({
   cleanUrls: true,
   ignoreDeadLinks: true,
   sitemap: {
-    hostname: 'https://yusuol.com'
+    hostname: 'https://www.xn--q6qq04c.com/'
   },
   head: [
     ["script", { async: "", src: "https://www.googletagmanager.com/gtag/js?id=G-MB7XVBG1TQ" }],
