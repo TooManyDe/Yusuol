@@ -8,14 +8,14 @@ const hostname = "https://yusuol.com";
 // 生成中文 RSS 文件
 export async function createRssFileZH(config: SiteConfig) {
   const feed = new Feed({
-    title: 'Yusuol',
-    description: '',
+    title: 'Never',
+    description: 'Never Resting Day nor Night',
     id: hostname,
     link: hostname,
     language: "zh-Hans",
     image: "https://techdaily.oss-cn-shanghai.aliyuncs.com/Yusuol/Yusuol.png",
     favicon: `https://techdaily.oss-cn-shanghai.aliyuncs.com/Yusuol/Yusuol.ico`,
-    copyright: "Copyright© 2025-present Yusuol",
+    copyright: "Copyright© 2024-present 冀望",
   });
 
   const posts = await createContentLoader("posts/**/*.md", {
@@ -44,8 +44,8 @@ export async function createRssFileZH(config: SiteConfig) {
       content: html,
       author: [
         {
-          name: "Yusuol",
-          link: "https://Yusuol.com",
+          name: "冀望",
+          link: "https://www.xn--q6qq04c.com/",
         },
       ],
       date, // ✅ 使用 Date 类型
@@ -59,15 +59,14 @@ export async function createRssFileZH(config: SiteConfig) {
 // 生成英文 RSS 文件
 export async function createRssFileEN(config: SiteConfig) {
   const feed = new Feed({
-    title: "Yusuol",
-    description:
-      "",
+    title: "Never",
+    description: "Never Resting Day nor Night",
     id: hostname,
     link: hostname,
     language: "en-US",
     image: "https://techdaily.oss-cn-shanghai.aliyuncs.com/Yusuol/Yusuol.png",
     favicon: `https://techdaily.oss-cn-shanghai.aliyuncs.com/Yusuol/Yusuol.ico`,
-    copyright: "Copyright© 2025-present Yusuol",
+    copyright: "Copyright© 2024-present Wang Ji",
   });
 
   const posts = await createContentLoader("en/posts/**/*.md", {
@@ -94,8 +93,8 @@ export async function createRssFileEN(config: SiteConfig) {
       content: html,
       author: [
         {
-          name: "Yusuol",
-          link: "https://Yusuol.com",
+          name: "Wang Ji",
+          link: "https://www.xn--q6qq04c.com/",
         },
       ],
       date,
