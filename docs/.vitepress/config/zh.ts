@@ -2,7 +2,7 @@ import { type DefaultTheme, defineConfig } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "不舍昼夜",
+  title: "Never Resting Day nor Night",
   description: "",
   lang: "zh-Hans", //语言
 
