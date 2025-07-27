@@ -14,7 +14,7 @@ export default defineConfig({
    { text: "赞赏", link: "/support-me", activeMatch: '/support-me/' },
     ],
     footer: {
-      message: '© 2024-Present <a href="https://冀望.com">冀望</a>',
+      message: '© 2024-Present <a href="https://的的不休.com">冀望</a>',
     },
     docFooter: {
       prev: '上一篇',
