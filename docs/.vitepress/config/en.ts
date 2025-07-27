@@ -14,7 +14,7 @@ export default defineConfig({
 			{ text: "Sponsor", link: "/en/support-me", activeMatch: '/en/support-me' },
     ],
     footer: {
-      message: '© 2024-Present <a href="https://冀望.com">冀望</a>',
+      message: '© 2024-Present <a href="https://的的不休.com">冀望</a>',
     },
 
     socialLinks: [
