@@ -3,7 +3,7 @@ import { writeFileSync } from "node:fs";
 import { Feed } from "feed";
 import { createContentLoader, type SiteConfig } from "vitepress";
 
-const hostname = "https://yusuol.com";
+const hostname = "https://xn--ihqqyx06ga.com";
 
 // 生成中文 RSS 文件
 export async function createRssFileZH(config: SiteConfig) {
@@ -45,7 +45,7 @@ export async function createRssFileZH(config: SiteConfig) {
       author: [
         {
           name: "冀望",
-          link: "https://www.xn--q6qq04c.com/",
+          link: "https://xn--ihqqyx06ga.com/",
         },
       ],
       date, // ✅ 使用 Date 类型
@@ -94,7 +94,7 @@ export async function createRssFileEN(config: SiteConfig) {
       author: [
         {
           name: "Wang Ji",
-          link: "https://www.xn--q6qq04c.com/",
+          link: "https://www.xn--ihqqyx06ga.com/",
         },
       ],
       date,
