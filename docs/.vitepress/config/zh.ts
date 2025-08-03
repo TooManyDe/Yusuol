@@ -14,12 +14,14 @@ export default defineConfig({
    { text: "赞赏", link: "/support-me", activeMatch: '/support-me/' },
     ],
     footer: {
-  message: `<a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener noreferrer">
-    <img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" width="20" alt="CC" style="vertical-align: middle; margin-right: 4px;" />
-    <img src="https://mirrors.creativecommons.org/presskit/icons/by.svg" width="20" alt="BY" style="vertical-align: middle; margin-right: 4px;" />
-    <img src="https://mirrors.creativecommons.org/presskit/icons/nc.svg" width="20" alt="NC" style="vertical-align: middle; margin-right: 4px;" />
-    <img src="https://mirrors.creativecommons.org/presskit/icons/nd.svg" width="20" alt="ND" style="vertical-align: middle; margin-right: 4px;" />
-  </a> © 2024-2025 <a href="https://的的不休.com" target="_blank">的的不休</a>`,
+  message: `<span style="display: inline-block; white-space: nowrap;">
+    <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener noreferrer">
+      <img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" width="20" alt="CC" style="vertical-align: middle; margin-right: 4px;" />
+      <img src="https://mirrors.creativecommons.org/presskit/icons/by.svg" width="20" alt="BY" style="vertical-align: middle; margin-right: 4px;" />
+      <img src="https://mirrors.creativecommons.org/presskit/icons/nc.svg" width="20" alt="NC" style="vertical-align: middle; margin-right: 4px;" />
+      <img src="https://mirrors.creativecommons.org/presskit/icons/nd.svg" width="20" alt="ND" style="vertical-align: middle; margin-right: 8px;" />
+    </a>© 2024-2025 <a href="https://的的不休.com" target="_blank">的的不休</a>
+  </span>`,
 },
     docFooter: {
       prev: '上一篇',
