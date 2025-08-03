@@ -14,7 +14,13 @@ export default defineConfig({
    { text: "赞赏", link: "/support-me", activeMatch: '/support-me/' },
     ],
     footer: {
-      message: '<a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0</a> © 2024-2025 <a href="https://的的不休.com">的的不休</a>',
+      message: '<p>
+  <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener noreferrer">
+    <img src="https://mirrors.creativecommons.org/presskit/icons/by.svg" width="20" alt="BY">
+    <img src="https://mirrors.creativecommons.org/presskit/icons/nc.svg" width="20" alt="NC">
+    <img src="https://mirrors.creativecommons.org/presskit/icons/sa.svg" width="20" alt="SA">
+  </a>
+</p> © 2024-2025 <a href="https://的的不休.com">的的不休</a>',
     },
     docFooter: {
       prev: '上一篇',
