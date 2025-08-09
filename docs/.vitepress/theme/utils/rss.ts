@@ -15,7 +15,7 @@ export async function createRssFileZH(config: SiteConfig) {
     language: "zh-Hans",
     image: "https://techdaily.oss-cn-shanghai.aliyuncs.com/Yusuol/Yusuol.png",
     favicon: `https://techdaily.oss-cn-shanghai.aliyuncs.com/Yusuol/Yusuol.ico`,
-    copyright: "Copyright© 2024-present 冀望",
+    copyright: "Copyright© 2021-present 的的不休",
   });
 
   const posts = await createContentLoader("posts/**/*.md", {
@@ -44,7 +44,7 @@ export async function createRssFileZH(config: SiteConfig) {
       content: html,
       author: [
         {
-          name: "冀望",
+          name: "的的不休",
           link: "https://xn--ihqqyx06ga.com/",
         },
       ],
@@ -66,7 +66,7 @@ export async function createRssFileEN(config: SiteConfig) {
     language: "en-US",
     image: "https://techdaily.oss-cn-shanghai.aliyuncs.com/Yusuol/Yusuol.png",
     favicon: `https://techdaily.oss-cn-shanghai.aliyuncs.com/Yusuol/Yusuol.ico`,
-    copyright: "Copyright© 2024-present Wang Ji",
+    copyright: "Copyright© 2021-present 的的不休",
   });
 
   const posts = await createContentLoader("en/posts/**/*.md", {
@@ -93,7 +93,7 @@ export async function createRssFileEN(config: SiteConfig) {
       content: html,
       author: [
         {
-          name: "Wang Ji",
+          name: "的的不休",
           link: "https://www.xn--ihqqyx06ga.com/",
         },
       ],
