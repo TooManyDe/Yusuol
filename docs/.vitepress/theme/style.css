@@ -8,9 +8,9 @@
 /** 1. 原始完整字体下载链接：https://github.com/adobe-fonts/source-han-serif/releases  */
 /** 2. 使用 http://font.ssjjss.com/font-subset/ 对字体进行子集化，这里根据我的网站只保留了这些字符：1234567890/SupportMeI'mJustin3go年 */
 @font-face {
-	font-family: "ChillRoundF";
-src: url("/assets/fonts/ChillRoundF.woff2") format("woff2"),
-url("/assets/fonts/ChillRoundF.woff") format("woff"),
+	font-family: "ChillRoundM";
+src: url("/assets/fonts/ChillRoundM.woff2") format("woff2"),
+url("/assets/fonts/ChillRoundM.woff") format("woff"),
 url("/assets/fonts/ChillRoundF.ttf");
  font-display: swap;
 }
