@@ -87,9 +87,9 @@ h3 {
 
 :root {
 	--vp-nav-height: 50px;
-	--vp-c-green-1: #ffffff;
-	--vp-c-green-2: #ffffff;
-	--vp-c-green-3: #ffffff;
+	--vp-c-green-1: #000000;
+	--vp-c-green-2: #000000;
+	--vp-c-green-3: #000000;
 	--vp-c-green-soft: rgba(110, 156, 190, 0.14);
 
 	--vp-c-green-dark-1: #41b349;
