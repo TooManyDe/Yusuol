@@ -77,6 +77,15 @@ h3 {
 }
 
 :root {
+  --vp-c-bg: #a8c8ec; 
+/* 主背景色 - 图片中的浅蓝色 */
+  --vp-c-bg-alt: #9bc2e7; 
+/* 次要背景色 - 稍深一点的蓝 */
+  --vp-c-bg-elv: #b5ceef; 
+/* 浮动元素背景 - 稍浅一点的蓝 */
+}
+
+:root {
 	--vp-nav-height: 50px;
 	--vp-c-green-1: #41b349;
 	--vp-c-green-2: #41b349;
