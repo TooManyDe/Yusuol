@@ -77,40 +77,38 @@ h3 {
 }
 
 :root {
-  --vp-c-bg: #B7E5F7; 
-  --vp-c-bg-alt: #B7E5F7; 
-  --vp-c-bg-elv: #B7E5F7; 
+  /* 背景色 */
+  --vp-c-bg: #87CEEB;        /* 标准天蓝，页面主要背景 */
+  --vp-c-bg-alt: #B0E0E6;    /* 浅天蓝，卡片或次级背景 */
+  --vp-c-bg-elv: #D6F0FA;    /* 更浅，悬浮或高层次背景 */
+
+  --vp-nav-height: 50px;
+
+  /* 主色（天蓝系列） */
+  --vp-c-blue-1: #1E90FF;    /* 主题蓝，主按钮色 */
+  --vp-c-blue-2: #187bcd;    /* 深蓝，用于悬停 */
+  --vp-c-blue-3: #145a8d;    /* 更深蓝，强调色 */
+  --vp-c-blue-soft: rgba(30, 144, 255, 0.14);
+
+  /* 深色模式主色 */
+  --vp-c-blue-dark-1: #187bcd;
+  --vp-c-blue-dark-2: #145a8d;
+  --vp-c-blue-dark-3: #0f3f5e;
+  --vp-c-blue-dark-soft: rgba(24, 123, 205, 0.14);
 }
 
 :root {
-	--vp-nav-height: 50px;
-	--vp-c-green-1: #334b63;
-	--vp-c-green-2: #334b63;
-	--vp-c-green-3: #334b63;
-	--vp-c-green-soft: rgba(110, 156, 190, 0.14);
-
-	--vp-c-green-dark-1: #41b349;
-	--vp-c-green-dark-2: #41b349;
-	--vp-c-green-dark-3: #41b349;
-	--vp-c-green-dark-soft: rgba(186, 186, 186, 0.14);
-}
-
-/**
- * Colors Theme
- * -------------------------------------------------------------------------- */
-
-:root {
-	--vp-c-brand-1: var(--vp-c-green-1);
-	--vp-c-brand-2: var(--vp-c-green-2);
-	--vp-c-brand-3: var(--vp-c-green-3);
-	--vp-c-brand-soft: var(--vp-c-green-soft);
+  --vp-c-brand-1: var(--vp-c-blue-1);
+  --vp-c-brand-2: var(--vp-c-blue-2);
+  --vp-c-brand-3: var(--vp-c-blue-3);
+  --vp-c-brand-soft: var(--vp-c-blue-soft);
 }
 
 .dark {
-	--vp-c-brand-1: var(--vp-c-green-dark-1);
-	--vp-c-brand-2: var(--vp-c-green-dark-2);
-	--vp-c-brand-3: var(--vp-c-green-dark-3);
-	--vp-c-brand-soft: var(--vp-c-green-dark-soft);
+  --vp-c-brand-1: var(--vp-c-blue-dark-1);
+  --vp-c-brand-2: var(--vp-c-blue-dark-2);
+  --vp-c-brand-3: var(--vp-c-blue-dark-3);
+  --vp-c-brand-soft: var(--vp-c-blue-dark-soft);
 }
 
 
