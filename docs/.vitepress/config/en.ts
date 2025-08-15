@@ -2,7 +2,7 @@ import { defineConfig} from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "Never",
+  title: "SKY",
   description: "Never Resting Day nor Night",
   lang: "en-US", //语言
 
