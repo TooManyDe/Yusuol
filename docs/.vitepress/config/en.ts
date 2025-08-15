@@ -2,7 +2,7 @@ import { defineConfig} from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "Never",
+  title: "DDbx",
   description: "Never Resting Day nor Night",
   lang: "en-US", //语言
 
@@ -14,7 +14,7 @@ export default defineConfig({
 			{ text: "Sponsor", link: "/en/support-me", activeMatch: '/en/support-me' },
     ],
     footer: {
-      message: '<a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0</a> © 2021-2025 <a href="https://的的不休.com">的的不休</a>',
+      message: '<a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0</a> © 2021-2025 <a href="https://ddbx.org">的的不休</a>',
     },
 
     socialLinks: [
