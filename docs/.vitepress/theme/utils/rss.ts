@@ -8,7 +8,7 @@ const hostname = "https://skywhisper.org";
 // 生成中文 RSS 文件
 export async function createRssFileZH(config: SiteConfig) {
   const feed = new Feed({
-    title: 'SW',
+    title: 'SYWR',
     description: 'Never Resting Day nor Night',
     id: hostname,
     link: hostname,
@@ -59,7 +59,7 @@ export async function createRssFileZH(config: SiteConfig) {
 // 生成英文 RSS 文件
 export async function createRssFileEN(config: SiteConfig) {
   const feed = new Feed({
-    title: "Never",
+    title: "SYWR",
     description: "Never Resting Day nor Night",
     id: hostname,
     link: hostname,
@@ -93,7 +93,7 @@ export async function createRssFileEN(config: SiteConfig) {
       content: html,
       author: [
         {
-          name: "SW",
+          name: "SYWR",
           link: "https://skywhisper.org/",
         },
       ],
