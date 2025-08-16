@@ -3,12 +3,12 @@ import { writeFileSync } from "node:fs";
 import { Feed } from "feed";
 import { createContentLoader, type SiteConfig } from "vitepress";
 
-const hostname = "https://ddbx.org";
+const hostname = "https://skywhisper.org";
 
 // 生成中文 RSS 文件
 export async function createRssFileZH(config: SiteConfig) {
   const feed = new Feed({
-    title: 'Never',
+    title: 'SW',
     description: 'Never Resting Day nor Night',
     id: hostname,
     link: hostname,
@@ -44,8 +44,8 @@ export async function createRssFileZH(config: SiteConfig) {
       content: html,
       author: [
         {
-          name: "的的不休",
-          link: "https://ddbx.org/",
+          name: "SW",
+          link: "https://skywhisper.org/",
         },
       ],
       date, // ✅ 使用 Date 类型
@@ -66,7 +66,7 @@ export async function createRssFileEN(config: SiteConfig) {
     language: "en-US",
     image: "https://techdaily.oss-cn-shanghai.aliyuncs.com/Yusuol/Yusuol.png",
     favicon: `https://techdaily.oss-cn-shanghai.aliyuncs.com/Yusuol/Yusuol.ico`,
-    copyright: "Copyright© 2021-present 的的不休",
+    copyright: "Copyright© 2021-present SkyWhisper",
   });
 
   const posts = await createContentLoader("en/posts/**/*.md", {
@@ -93,8 +93,8 @@ export async function createRssFileEN(config: SiteConfig) {
       content: html,
       author: [
         {
-          name: "的的不休",
-          link: "https://ddbx.org/",
+          name: "SW",
+          link: "https://skywhisper.org/",
         },
       ],
       date,
