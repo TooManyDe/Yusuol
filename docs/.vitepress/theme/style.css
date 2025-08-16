@@ -94,10 +94,9 @@ h3 {
 
 /* 全局背景色 */
 :root {
-  --vp-c-bg: #B7E5F7;        /* 页面背景 */
-  --vp-c-bg-alt: #EAF6FB;    /* 内容区或卡片背景 */
-  --vp-c-bg-elv: #FFFFFF;    /* 浮层背景，如导航栏、卡片 */
-  --vp-text-color: #334B63;  /* 正文字颜色 */
+  --vp-c-bg: #a8c8ec;        /* 页面背景 */
+  --vp-c-bg-alt: #a8c8ec;    /* 内容区或卡片背景 */
+  --vp-c-bg-elv: #a8c8ec;    /* 浮层背景，如导航栏、卡片 */
 }
 
 /**
