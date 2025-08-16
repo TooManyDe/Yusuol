@@ -14,10 +14,8 @@
 /** logo 字体 */
 /** 使用 http://font.ssjjss.com/font-subset/ 对字体(/assets/fonts/Niconne-Regular.ttf)进行子集化，这里根据我的网站只保留了这些字符：Justin3go */
 @font-face {
-	font-family: "ChillRoundF";
-	src: url("/assets/fonts/ChillRoundF.woff2") format("woff2"),
-       url("/assets/fonts/ChillRoundF.woff") format("woff"),
-       url("/assets/fonts/ChillRoundF.ttf") format("truetype");
+	font-family: "mvboli";
+	src: url("/assets/fonts/mvboli.ttf") format("truetype");
   font-display: swap;
 }
 
@@ -174,7 +172,7 @@ padding: 0 10px 20px
 
 /* logo 字体设置 */
 .VPNavBarTitle .title {
-	font-family: "ChillRoundF";
+	font-family: "mvboli";
 	font-size: 24px !important;
 }
 
