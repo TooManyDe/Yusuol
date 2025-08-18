@@ -79,7 +79,7 @@ h3 {
 --vp-c-green-dark-2: #41b349;  
 --vp-c-green-dark-3: #41b349;  
 --vp-c-green-dark-soft: rgba(186, 186, 186, 0.14);
-  --vp-c-bg: ##C6E6E8;       /* 主背景 */
+  --vp-c-bg: #C6E6E8;       /* 主背景 */
   --vp-c-bg-alt: #C6E6E8;   /* 交替背景 */
   --vp-c-bg-elv: #C6E6E8;   /* 提升元素背景 */
 }
