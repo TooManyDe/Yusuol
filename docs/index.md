@@ -111,7 +111,6 @@ const onCurrentChange: PaginationProps["onCurrentChange"] = (
 	position: relative;
 	top: 0;
 	left: 0;
- font-family: SourceHanSerifSC-Regular;
 
 	> a {
 		font-weight: 400;
@@ -119,7 +118,7 @@ const onCurrentChange: PaginationProps["onCurrentChange"] = (
 
 	.post-date {
 		position: absolute;
-		top: 20px;
+		top: 15px;
 		left: -10px;
 		z-index: -1;
 		opacity: .16;
