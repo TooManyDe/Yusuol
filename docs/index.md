@@ -111,9 +111,10 @@ const onCurrentChange: PaginationProps["onCurrentChange"] = (
 	position: relative;
 	top: 0;
 	left: 0;
+ font-weight: 600;
 
 	> a {
-		font-weight: 600;
+		font-weight: 400;
 	}
 
 	.post-date {
