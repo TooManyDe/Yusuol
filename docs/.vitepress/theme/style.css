@@ -38,12 +38,12 @@
   margin-bottom: 10px;
 }
 h1 {
-    font-size: 22px !important;
+    font-size: 1.8em !important;
     font-weight: 600 !important;
 }
 h2 {
-    font-size: 18px !important;
-    font-weight: 500 !important;
+    font-size: 1.6em !important;
+    font-weight: 600 !important;
 	margin: inherit !important;
 	border-top: none !important;
 }
