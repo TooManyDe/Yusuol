@@ -6,9 +6,7 @@
 /** 正文字体 */
 @font-face {
   font-family: "SourceHanSerifSC-Regular";
-  src: url("/assets/fonts/SourceHanSerifSC-Regular.otf") format("otf"),
-       url("/assets/fonts/ChillRoundF.woff") format("woff"),
-       url("/assets/fonts/ChillRoundF.ttf") format("truetype");
+  src: url("/assets/fonts/SourceHanSerifSC-Regular.otf");
   font-display: swap;
 }
 /** logo 字体 */
