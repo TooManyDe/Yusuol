@@ -5,8 +5,8 @@
 }
 /** 正文字体 */
 @font-face {
-  font-family: "ChillRoundF";
-  src: url("/assets/fonts/ChillRoundF.woff2"), format("woff2"),
+  font-family: "SourceHanSerifSC-Regular";
+  src: url("/assets/fonts/SourceHanSerifSC-Regular.otf"), format("otf"),
        url("/assets/fonts/ChillRoundF.woff") format("woff"),
        url("/assets/fonts/ChillRoundF.ttf") format("truetype");
   font-display: swap;
@@ -143,7 +143,7 @@ padding: 0 10px 20px
 
 :root {
 	/* --vp-font-family-base: "SourceHanSerifCN"; */
-	--vp-font-family-base: "ChillRoundF";
+	--vp-font-family-base: "SourceHanSerifSC-Regular";
 }
 
 :root {
