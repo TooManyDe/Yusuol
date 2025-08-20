@@ -5,8 +5,8 @@
 }
 /** 正文字体 */
 @font-face {
-  font-family: "SourceHanSerifSC-Regular";
-  src: url("/assets/fonts/SourceHanSerifSC-Regular.otf");
+ font-family: "SourceHanSerifSC-Regular";
+ src: url("/assets/fonts/SourceHanSerifSC-Regular.otf");
   font-display: swap;
 }
 /** logo 字体 */
@@ -140,8 +140,7 @@ padding: 0 10px 20px
  * -------------------------------------------------------------------------- */
 
 :root {
-	/* --vp-font-family-base: "SourceHanSerifCN"; */
-	--vp-font-family-base: "SourceHanSerifSC-Regular";
+ --vp-font-family-base: "SourceHanSerifSC-Regular";
 }
 
 :root {
