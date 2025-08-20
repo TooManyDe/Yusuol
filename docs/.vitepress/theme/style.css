@@ -1,12 +1,14 @@
 /** 代码字体 */
 @font-face {
 	font-family: "GoogleSansCode[wght]";
-	src: url("/assets/fonts/GoogleSansCode[wght].ttf");
+	src: url("/assets/fonts/GoogleSansCode[wght].ttf") format("truetype");
 }
 /** 正文字体 */
 @font-face {
- font-family: "SourceHanSerifSC-Regular";
- src: url("/assets/fonts/SourceHanSerifSC-Regular.otf");
+ font-family: "ChillRoundF";
+ src: url("/assets/fonts/ChillRoundF.woff2") format("woff2"),
+	  url("/assets/fonts/ChillRoundF.woff") format("woff"),
+	  url("/assets/fonts/ChillRoundF.ttf") format("truetype");
 }
 /** logo 字体 */
 /** 使用 http://font.ssjjss.com/font-subset/ 对字体(/assets/fonts/Niconne-Regular.ttf)进行子集化，这里根据我的网站只保留了这些字符：Justin3go */
@@ -138,7 +140,9 @@ padding: 0 10px 20px
  * -------------------------------------------------------------------------- */
 
 :root {
- --vp-font-family-base: "SourceHanSerifSC-Regular";
+ --vp-font-family-base: "ChillRoundF", -apple-system, BlinkMacSystemFont,
+		"Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji",
+		"Segoe UI Emoji", "Segoe UI Symbol" !important;
 }
 
 :root {
