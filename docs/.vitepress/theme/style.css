@@ -8,6 +8,15 @@
  font-family: "SourceHanSerifSC-Regular";
  src: url("/assets/fonts/SourceHanSerifSC-Regular.otf");
 }
+
+/** 标题字体 */
+@font-face {
+  font-family: "ChillRoundF";
+  src: url("/assets/fonts/ChillRoundF.woff2") format("woff2"),
+       url("/assets/fonts/ChillRoundF.woff") format("woff"),
+       url("/assets/fonts/ChillRoundF.ttf") format("truetype");
+｝
+
 /** logo 字体 */
 /** 使用 http://font.ssjjss.com/font-subset/ 对字体(/assets/fonts/Niconne-Regular.ttf)进行子集化，这里根据我的网站只保留了这些字符：Justin3go */
 @font-face {
@@ -35,6 +44,11 @@
   margin-top: 5px;
   margin-bottom: 10px;
 }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "ChillRoundF", "SourceHanSerifSC-Regular", sans-serif !important;
+}
+
 h1 {
     font-size: 24px !important;
     font-weight: 600 !important;
