@@ -1,18 +1,13 @@
 import { type DefaultTheme, defineConfig } from 'vitepress'
 // https://vitepress.dev/reference/site-config
 
-export default {
-  themeConfig: {
-    lastUpdated: false, // 关闭最近更新时间
-  }
-}
-
 export default defineConfig({
   title: "SkyWhisper",
   description: "不舍昼夜",
   lang: "zh-Hans", //语言
 
   themeConfig: {
+  lastUpdated: "false", // 关闭最近更新时间
     // https://vitepress.dev/reference/default-theme-config
     nav: [
 			{ text: "归档", link: "/archive", activeMatch: '/archive' },
