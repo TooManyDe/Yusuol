@@ -225,14 +225,11 @@ padding: 0 10px 20px
   border-radius: 16px;
   cursor: zoom-in;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12); /* 小阴影 */
-  outline: 2px solid var(--vp-c-brand-1);    /* 主题色边框 */
-  outline-offset: 4px;                       /* 边框与图片间距 */
-  transition: box-shadow 0.3s ease, outline-color 0.3s ease;
+  transition: box-shadow 0.3s ease;
 }
 
 .VPDoc img:hover {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
-  outline-color: var(--vp-c-brand-2); /* 悬浮时边框加深 */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18); /* 悬浮时稍微加强 */
 }
 
 /* jupyter 输出代码不换行显示 */
