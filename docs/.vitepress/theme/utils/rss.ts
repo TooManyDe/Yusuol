@@ -13,8 +13,8 @@ export async function createRssFileZH(config: SiteConfig) {
     id: hostname,
     link: hostname,
     language: "zh-Hans",
-    image: "https://techdaily.oss-cn-shanghai.aliyuncs.com/Yusuol/Yusuol.png",
-    favicon: `https://techdaily.oss-cn-shanghai.aliyuncs.com/Yusuol/Yusuol.ico`,
+    image: "https://cdn.skywhisper.org/02.png",
+    favicon: `https://cdn.skywhisper.org/01.ico`,
     copyright: "Copyright© 2021-present 的的不休",
   });
 
