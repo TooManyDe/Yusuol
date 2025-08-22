@@ -28,7 +28,7 @@ export function handleHeadMeta(context: TransformContext) {
 }
 
 export function addBase(relativePath: string) {
-  const host = 'https://xn--ihqqyx06ga.com/'
+  const host = 'https://skywhisper.org/'
   if (relativePath.startsWith('/')) {
     return host + relativePath
   } else {
