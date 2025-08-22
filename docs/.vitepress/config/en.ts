@@ -2,18 +2,13 @@ import { defineConfig} from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 
-export default {
-  themeConfig: {
-    lastUpdated: false, // 关闭最近更新时间
-  }
-}
-
 export default defineConfig({
   title: "SkyWhisper",
   description: "Never Resting Day nor Night",
   lang: "en-US", //语言
 
   themeConfig: {
+  lastUpdated: false, // 关闭最近更新时间
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: "Archive", link: "/en/archive/", activeMatch: '/en/archive/' },
