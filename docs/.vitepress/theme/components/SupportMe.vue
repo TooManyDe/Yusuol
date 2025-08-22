@@ -34,9 +34,9 @@ import { useRoute } from "vitepress";
 const route = useRoute();
 const isEN = computed(() => route.path.startsWith("/en"));
 
-const weiXinPayUrl = "https://cdn.skywhisper.org/02.jpg";
+const weiXinPayUrl = "https://cdn.skywhisper.org/03.jpg";
 const zhiFuBaoPayUrl =
-	"https://cdn.skywhisper.org/03.jpg";
+	"https://cdn.skywhisper.org/04.jpg";
 
 </script>
 <style lang="scss" scoped>
