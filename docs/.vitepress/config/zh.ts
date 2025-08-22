@@ -1,5 +1,12 @@
 import { type DefaultTheme, defineConfig } from 'vitepress'
 // https://vitepress.dev/reference/site-config
+
+export default {
+  themeConfig: {
+    lastUpdated: false, // 关闭最近更新时间
+  }
+}
+
 export default defineConfig({
   title: "SkyWhisper",
   description: "不舍昼夜",
@@ -20,7 +27,6 @@ export default defineConfig({
       next: '下一篇'
     },
     outlineTitle: "当前页面",
-    lastUpdated: false,
 
 
     socialLinks: [
