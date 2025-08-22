@@ -64,8 +64,8 @@ export async function createRssFileEN(config: SiteConfig) {
     id: hostname,
     link: hostname,
     language: "en-US",
-    image: "https://techdaily.oss-cn-shanghai.aliyuncs.com/Yusuol/Yusuol.png",
-    favicon: `https://techdaily.oss-cn-shanghai.aliyuncs.com/Yusuol/Yusuol.ico`,
+    image: "https://cdn.skywhisper.org/02.png",
+    favicon: `https://cdn.skywhisper.org/01.ico`,
     copyright: "Copyright© 2021-present SkyWhisper",
   });
 
