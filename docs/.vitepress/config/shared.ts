@@ -14,7 +14,7 @@ export default defineConfig({
   cleanUrls: true,
   ignoreDeadLinks: true,
   sitemap: {
-    hostname: 'https://www.xn--ihqqyx06ga.com/'
+    hostname: 'https://skywhisper.org/'
   },
   head: [
     ["script", { async: "", src: "https://www.googletagmanager.com/gtag/js?id=G-MB7XVBG1TQ" }],
@@ -31,7 +31,7 @@ export default defineConfig({
       "link",
       {
         rel: "icon",
-        href: "https://techdaily.oss-cn-shanghai.aliyuncs.com/Yusuol/Yusuol.ico",
+        href: "https://cdn.skywhisper.org/01.ico",
       },
     ],
   ],
