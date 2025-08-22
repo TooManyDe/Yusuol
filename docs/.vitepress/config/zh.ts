@@ -21,7 +21,6 @@ export default defineConfig({
       next: '下一篇'
     },
     outlineTitle: "当前页面",
-    lastUpdated: false
 
 
     socialLinks: [
