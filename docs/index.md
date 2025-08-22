@@ -114,7 +114,6 @@ const onCurrentChange: PaginationProps["onCurrentChange"] = (
 
 	> a {
 		font-weight: 400;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); 
 	}
 
 	.post-date {
@@ -126,6 +125,7 @@ const onCurrentChange: PaginationProps["onCurrentChange"] = (
 		font-family: "mvboli";
 		font-size: 40px;
 		font-weight: 400;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 	}
 
 	@media (max-width: 425px) {
