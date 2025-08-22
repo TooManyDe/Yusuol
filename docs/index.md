@@ -115,7 +115,6 @@ const onCurrentChange: PaginationProps["onCurrentChange"] = (
 	> a {
 		font-weight: 400;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); 
-  }
 	}
 
 	.post-date {
