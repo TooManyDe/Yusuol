@@ -255,39 +255,10 @@ h3 {
   transform: none !important;
 }
 
-/* =============================================================================
-   滚动条样式
-   ============================================================================= */
-
-/* 现代浏览器滚动条样式 */
+/** 滚动条 */
 * {
-  scrollbar-width: thin;
-  scrollbar-color: #41b349 transparent;
-}
-
-/* Webkit浏览器滚动条样式 */
-::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: transparent;
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #41b349;
-  border-radius: 4px;
-  transition: background 0.3s ease;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #379c40;
-}
-
-::-webkit-scrollbar-corner {
-  background: transparent;
+        /* scrollbar-color: rgba(0, 0, 0, 0.12) transparent; */
+        scrollbar-width: thin;
 }
 
 /* =============================================================================
