@@ -49,10 +49,12 @@ h1, h2, h3, h4, h5, h6 {
   font-family: "ChillRoundF", "SourceHanSerifSC-Regular", sans-serif !important;
 }
 
-
+.VPNavBar,
+.nav-link,
 .VPDoc a {
   font-family: "ChillRoundF", "SourceHanSerifSC-Regular", sans-serif !important;
 }
+
 
 .vp-doc strong,
 .vp-doc b {
