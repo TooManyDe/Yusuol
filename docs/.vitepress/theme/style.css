@@ -225,7 +225,7 @@ padding: 0 10px 20px
 .VPDoc img {
   border-radius: 16px;
   cursor: zoom-in;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); 
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04); 
   transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
