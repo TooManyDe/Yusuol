@@ -38,9 +38,7 @@ export const search: DefaultTheme.AlgoliaSearchOptions['locales'] = {
           recentSearchesTitle: '搜索历史',
           noRecentSearchesText: '无搜索历史',
           saveRecentSearchButtonTitle: '保存至搜索历史',
-          removeRecentSearchButtonTitle: '从搜索历史中移除',
-          favoriteSearchesTitle: '收藏',
-          removeFavoriteSearchButtonTitle: '从收藏中移除'
+          removeRecentSearchButtonTitle: '从搜索历史中移除'
         },
         errorScreen: {
           titleText: '无法获取结果',
@@ -66,22 +64,22 @@ export const search: DefaultTheme.AlgoliaSearchOptions['locales'] = {
 // 主题配置
 const themeConfig: DefaultTheme.Config = {
   nav: navConfig,
-  
+
   footer: {
     message: '<a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0</a> © 2021-2025 <a href="https://skywhisper.org">SkyWhisper</a>',
   },
-  
+
   docFooter: {
     prev: '上一篇',
     next: '下一篇'
   },
-  
+
   outlineTitle: "当前页面",
-  lastUpdatedText: "最近更新",
+  lastUpdatedText: "创建时间",   // ✅ 改成创建时间
   returnToTopLabel: "回到顶部",
   sidebarMenuLabel: "目录",
   darkModeSwitchLabel: "深色模式",
-  
+
   socialLinks: socialLinksConfig,
 }
 
@@ -91,18 +89,25 @@ export default defineConfig({
   title: "SkyWhisper",
   description: "不舍昼夜",
   lang: "zh-Hans",
-  
+
   // 主题配置
   themeConfig,
-  
+
   // 可选：SEO 优化
   head: [
     ['meta', { name: 'author', content: 'SkyWhisper' }],
     ['meta', { name: 'keywords', content: 'SkyWhisper, 博客, 技术分享' }],
     ['link', { rel: 'icon', href: '/favicon.ico' }],
   ],
-  
+
   // 可选：构建优化
   cleanUrls: true,
-  lastUpdated: true,
+  lastUpdated: false, // ✅ 禁用 Git 提交时间
+
+  // ✅ 用 frontmatter.date 作为“创建时间”
+  transformPageData(pageData) {
+    if (pageData.frontmatter.date) {
+      pageData.lastUpdated = pageData.frontmatter.date
+    }
+  }
 })
