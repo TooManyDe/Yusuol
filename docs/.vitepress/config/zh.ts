@@ -94,7 +94,7 @@ const themeConfig: DefaultTheme.Config = {
   darkModeSwitchLabel: "深色模式",
 
   socialLinks: socialLinksConfig,
-}
+},
 
 
 // 主配置
