@@ -106,7 +106,7 @@ export default defineConfig({
   
   // 构建优化
   cleanUrls: true,
-  lastUpdated: true,
+  lastUpdated: false,
   
   // 可选：国际化支持
   locales: {
