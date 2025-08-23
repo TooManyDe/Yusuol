@@ -7,7 +7,6 @@ export default defineConfig({
   lang: "zh-Hans", //语言
 
   themeConfig: {
-  lastUpdated: "false", // 关闭最近更新时间
     // https://vitepress.dev/reference/default-theme-config
     nav: [
 			{ text: "归档", link: "/archive", activeMatch: '/archive' },
