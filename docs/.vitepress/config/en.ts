@@ -92,6 +92,7 @@ export default defineConfig({
   description: "Never Resting Day nor Night",
   lang: "en-US",
   
+  titleTemplate: ':title - SkyWhisper',
   // 主题配置
   themeConfig,
   
