@@ -55,9 +55,8 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 24px !important;              /* 固定大小 */
     font-weight: 400;
     color: var(--vp-c-bg);                   /* 填充透明 */
-    -webkit-text-stroke: 1px #66A9C9;       /* 空心描边白色（Chrome/Safari） */
-    -moz-text-stroke: 1px #66A9C9;          /* 空心描边白色（Firefox） */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* 阴影增加层次 */
+    -webkit-text-stroke: 1px #ccc;       /* 空心描边白色（Chrome/Safari） */
+    -moz-text-stroke: 1px #ccc;          /* 空心描边白色（Firefox） */
     pointer-events: none;                    /* 避免遮挡点击 */
     position: relative;
     display: inline-block;
