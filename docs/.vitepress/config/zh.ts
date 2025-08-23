@@ -92,6 +92,7 @@ export default defineConfig({
   description: "不舍昼夜",
   lang: "zh-Hans",
   
+  titleTemplate: ':title - SkyWhisper',
   // 主题配置
   themeConfig,
   
