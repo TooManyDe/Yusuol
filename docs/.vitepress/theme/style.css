@@ -274,18 +274,3 @@ main > div > div > pre > code {
 #app {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
-
-/* 修改 NProgress 加载条颜色 */
-#nprogress .bar {
-  background: #41b349 !important;
-}
-
-/* 如果有加载环（spinner），一并改掉 */
-#nprogress .peg {
-  box-shadow: 0 0 10px #41b349, 0 0 5px #41b349 !important;
-}
-
-#nprogress .spinner-icon {
-  border-top-color: #41b349 !important;
-  border-left-color: #41b349 !important;
-}
