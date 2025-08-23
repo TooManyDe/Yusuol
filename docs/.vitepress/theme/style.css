@@ -55,8 +55,8 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 24px !important;              /* 固定大小 */
     font-weight: 400;
     color: var(--vp-c-bg);                   /* 填充透明 */
-    -webkit-text-stroke: 1px #ccc;       /* 空心描边白色（Chrome/Safari） */
-    -moz-text-stroke: 1px #ccc;          /* 空心描边白色（Firefox） */
+    -webkit-text-stroke: 1px;       /* 空心描边白色（Chrome/Safari） */
+    -moz-text-stroke: 1px;          /* 空心描边白色（Firefox） */
     pointer-events: none;                    /* 避免遮挡点击 */
     position: relative;
     display: inline-block;
