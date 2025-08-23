@@ -53,12 +53,6 @@ h1, h2, h3, h4, h5, h6 {
   font-family: "ChillRoundF", "SourceHanSerifSC-Regular", sans-serif !important;
 }
 
-/* 隐藏默认主题的最后更新时间 */
-div[class*="last-updated"],
-span[class*="last-updated"] {
-  display: none !important;
-}
-
 .vp-doc strong,
 .vp-doc b {
   font-family: "ChillRoundF", "SourceHanSerifSC-Regular", sans-serif !important;
