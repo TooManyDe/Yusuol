@@ -224,8 +224,13 @@ padding: 0 10px 20px
 .VPDoc img {
   border-radius: 16px;
   cursor: zoom-in;
-  border: 1px solid #ccc; /* 灰色边框 */
-  transition: border 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* 柔和阴影，增加层次感 */
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.VPDoc img:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12); /* 悬停更突出 */
+  transform: translateY(-2px); /* 轻微浮起 */
 }
 
 /* jupyter 输出代码不换行显示 */
