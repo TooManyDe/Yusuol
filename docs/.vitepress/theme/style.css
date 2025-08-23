@@ -49,6 +49,26 @@ h1, h2, h3, h4, h5, h6 {
   font-family: "ChillRoundF", "SourceHanSerifSC-Regular", sans-serif !important;
 }
 
+/* logo 空心字样式，大小固定 24px */
+.VPNavBarTitle .title {
+    font-family: "mvboli";
+    font-size: 24px !important;           /* 固定大小 */
+    font-weight: 400;
+    color: var(--vp-c-bg);                /* 填充透明 */
+    -webkit-text-stroke: 1px var(--vp-c-text-1); /* 空心描边 */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* 阴影增加层次 */
+    pointer-events: none;                  /* 避免遮挡点击 */
+    position: relative;
+    display: inline-block;
+}
+
+/* 移动端保持一致大小 */
+@media (max-width: 425px) {
+    .VPNavBarTitle .title {
+        font-size: 24px !important;       /* 不缩小 */
+    }
+}
+
 .VPDoc a {
   font-family: "ChillRoundF", "SourceHanSerifSC-Regular", sans-serif !important;
 }
