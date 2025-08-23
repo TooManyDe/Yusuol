@@ -5,6 +5,7 @@ export default defineConfig({
   title: "SkyWhisper",
   description: "不舍昼夜",
   lang: "zh-Hans", //语言
+  lastUpdated: true,
 
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
