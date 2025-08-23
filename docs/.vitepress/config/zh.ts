@@ -105,5 +105,5 @@ export default defineConfig({
   
   // 可选：构建优化
   cleanUrls: true,
-  lastUpdated: true,
+  lastUpdated: false,
 })
