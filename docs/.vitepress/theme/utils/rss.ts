@@ -15,7 +15,7 @@ export async function createRssFileZH(config: SiteConfig) {
     language: "zh-Hans",
     image: "https://cdn.skywhisper.org/02.png",
     favicon: `https://cdn.skywhisper.org/01.ico`,
-    copyright: "Copyright© 2021-present 的的不休",
+    copyright: "Copyright© 2021-present SkyWhisper",
   });
 
   const posts = await createContentLoader("posts/**/*.md", {
