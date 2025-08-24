@@ -73,6 +73,19 @@
   --vp-c-brand-soft: var(--vp-c-green-dark-soft);
 }
 
+:root {
+  --vp-c-bg: #c0d9f5 !important;
+}
+
+.VPContent,
+.VPDoc,
+.VPHome,
+.VPSidebar,
+.VPNavBar,
+body {
+  background-color: #c0d9f5 !important;
+}
+
 /* =============================================================================
    导航栏样式
    ============================================================================= */
