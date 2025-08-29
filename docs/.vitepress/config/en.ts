@@ -68,7 +68,7 @@ const themeConfig: DefaultTheme.Config = {
   nav: navConfig,
   
   footer: {
-    message: '<a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0</a> © 2021-2025 <a href="https://skywhisper.org">SkyWhisper</a>',
+    message: '<a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0</a> © 2025 <a href="https://skywhisper.org">SkyWhisper</a>',
   },
   
   docFooter: {
