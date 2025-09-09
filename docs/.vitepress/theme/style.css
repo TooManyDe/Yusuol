@@ -8,12 +8,6 @@
   src: url("/assets/fonts/GoogleSansCode[wght].ttf") format("truetype");
 }
 
-/** 正文字体 */
-@font-face {
-  font-family: "SourceHanSerifSC-Regular";
-  src: url("/assets/fonts/SourceHanSerifSC-Regular.otf");
-}
-
 /** 标题字体 */
 @font-face {
   font-family: "ChillRoundF";
