@@ -190,11 +190,6 @@ h3 {
   cursor: zoom-in;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
   transition: box-shadow 0.3s ease, transform 0.3s ease;
-  max-width: 100%;   /* 大图不会超过文章宽度 */
-  height: auto;
-  display: block;
-  margin: 0 auto;    /* 居中，可选 */
-  object-fit: contain;
 }
 
 /* =============================================================================
