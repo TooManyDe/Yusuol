@@ -17,8 +17,8 @@ isNoBackBtn: true
       :aria-label="`Permalink to &quot;${post.title}&quot;`"
       ></a
     >
+    <div class="post-date hollow-text source-han-serif">{{ post.date.string }}</div>
   </h2>
-  <div class="post-date">{{ post.date.string }}</div>
   <div v-if="post.excerpt" v-html="post.excerpt"></div>
 </template>
 
@@ -108,9 +108,30 @@ const onCurrentChange: PaginationProps["onCurrentChange"] = (
         margin-bottom: 6px;
         margin-top: 60px;
         border-top: 0px;
+        position: relative;
+        top: 0;
+        left: 0;
 
         > a {
                 font-weight: 400;
+        }
+
+        .post-date {
+                position: absolute;
+                top: 15px;
+                left: -10px;
+                z-index: -1;
+                opacity: .16;
+                font-family: "mvboli";
+                font-size: 40px;
+                font-weight: 400;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        @media (max-width: 425px) {
+                .post-date {
+                        font-size: 40px !important;
+                }
         }
 
         &:first-child {
@@ -118,9 +139,11 @@ const onCurrentChange: PaginationProps["onCurrentChange"] = (
         }
 }
 
-.post-date {
-        margin-bottom: 16px;
-        color: var(--vp-c-text-2);
-        font-size: 14px;
+.hollow-text {
+
+  /* 设置文本颜色为透明 */
+  color: var(--vp-c-bg);
+
+        -webkit-text-stroke: 1px var(--vp-c-text-1);
 }
 </style>
