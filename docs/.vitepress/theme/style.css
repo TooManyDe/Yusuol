@@ -190,14 +190,11 @@ h3 {
   cursor: zoom-in;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
   transition: box-shadow 0.3s ease, transform 0.3s ease;
-}
-
-/* 限制文档正文里的图片大小 */
-.vp-doc img {
-  max-width: 100%;
+  max-width: 100%;   /* 大图不会超过文章宽度 */
   height: auto;
   display: block;
-  margin: 0 auto; /* 可选：让图片居中 */
+  margin: 0 auto;    /* 居中，可选 */
+  object-fit: contain;
 }
 
 /* =============================================================================
