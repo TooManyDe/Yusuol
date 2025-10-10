@@ -88,7 +88,7 @@ const themeConfig: DefaultTheme.Config = {
 // 主配置
 export default defineConfig({
   // 基本信息
-  title: "SkyWhisper",
+  title: "的的不休",
   description: "不舍昼夜",
   lang: "zh-Hans",
   
