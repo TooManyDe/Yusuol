@@ -88,7 +88,7 @@ const themeConfig: DefaultTheme.Config = {
 // 主配置
 export default defineConfig({
   // 基本信息
-  title: "的的不休",
+  title: "SkyWhisper",
   description: "Never Resting Day nor Night",
   lang: "en-US",
   
