@@ -31,7 +31,7 @@
 @font-face {
   font-family: "mvboli";
   font-display: swap;
-  src: url("/assets/fonts/mvboli.ttf");
+  src: url("/assets/fonts/mvboli.ttf") format​(​"truetype"​);
 }
 
 /* =============================================================================
@@ -118,7 +118,7 @@
 
 /* Logo字体设置 */
 .VPNavBarTitle .title {
-  font-family: "ChillRoundF", sans-serif; /* 添加 fallback */
+  font-family: "mvboli", sans-serif; /* 添加 fallback */
   font-size: 22px !important;
 }
 
@@ -193,7 +193,7 @@ h3 {
 .VPDoc a,
 .vp-doc strong,
 .vp-doc b {
-  font-family: "mvboli", var(--vp-font-family-serif), sans-serif !important;
+  font-family: "ChillRoundF", var(--vp-font-family-serif), sans-serif !important;
 }
 
 .vp-doc strong,
