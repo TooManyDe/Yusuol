@@ -22,6 +22,11 @@
        url("/assets/fonts/ChillRoundF.ttf") format("truetype");
 }
 
+@font-face {
+        font-family: "SourceHanSerifSC-Regular";
+        src: local("SourceHanSerifSC-Regular.otf"), url("/assets/fonts/SourceHanSerifSC-Regular.otf");
+}
+
 /** Logo字体 */
 @font-face {
   font-family: "mvboli";
