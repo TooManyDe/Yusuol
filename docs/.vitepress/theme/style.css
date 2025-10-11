@@ -31,7 +31,7 @@
 @font-face {
   font-family: "mvboli";
   font-display: swap;
-  src: url("/assets/fonts/mvboli.ttf") format​(​"truetype"​);
+  src: url("/assets/fonts/mvboli.ttf");
 }
 
 /* =============================================================================
