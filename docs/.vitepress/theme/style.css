@@ -29,9 +29,11 @@
 
 /** Logo字体 */
 @font-face {
-  font-family: "mvboli";
+  font-family: "ChillRoundF";
   font-display: swap;
-  src: url("/assets/fonts/mvboli.ttf") format("truetype");
+  src: url("/assets/fonts/ChillRoundF.woff2") format("woff2"), /* woff2 优先 */
+       url("/assets/fonts/ChillRoundF.woff") format("woff"),
+       url("/assets/fonts/ChillRoundF.ttf") format("truetype");
 }
 
 /* =============================================================================
@@ -118,7 +120,7 @@
 
 /* Logo字体设置 */
 .VPNavBarTitle .title {
-  font-family: "mvboli", sans-serif; /* 添加 fallback */
+  font-family: "ChillRoundF", sans-serif; /* 添加 fallback */
   font-size: 22px !important;
 }
 
