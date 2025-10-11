@@ -1,19 +1,19 @@
-<template></template>
-
 <script setup lang="ts">
 import { useData } from "vitepress";
-import { nextTick, watch, onMounted } from "vue";
+import { nextTick, provide, watch } from "vue";
 
 const { isDark } = useData();
 
-// 检查浏览器是否支持 View Transition 动画
 const enableTransitions = () =>
-  "startViewTransition" in document &&
-  window.matchMedia("(prefers-reduced-motion: no-preference)").matches;
+  'startViewTransition' in document &&
+  window.matchMedia('(prefers-reduced-motion: no-preference)').matches
 
-// 点击动画核心逻辑
-const triggerTransition = async (x: number, y: number) => {
-  if (!enableTransitions()) return;
+// TDesign 暗色模式切换 - 带动画效果
+provide('toggle-appearance', async ({ clientX: x, clientY: y }: MouseEvent) => {
+  if (!enableTransitions()) {
+    isDark.value = !isDark.value
+    return
+  }
 
   const clipPath = [
     `circle(0px at ${x}px ${y}px)`,
@@ -21,40 +21,25 @@ const triggerTransition = async (x: number, y: number) => {
       Math.max(x, innerWidth - x),
       Math.max(y, innerHeight - y)
     )}px at ${x}px ${y}px)`
-  ];
+  ]
 
   await document.startViewTransition(async () => {
-    isDark.value = !isDark.value;
-    await nextTick();
-  }).ready;
+    isDark.value = !isDark.value
+    await nextTick()
+  }).ready
 
   document.documentElement.animate(
     { clipPath: isDark.value ? clipPath.reverse() : clipPath },
     {
       duration: 300,
-      easing: "ease-in",
-      fill: "forwards",
-      pseudoElement: `::view-transition-${isDark.value ? "old" : "new"}(root)`
+      easing: 'ease-in',
+      fill: 'forwards',
+      pseudoElement: `::view-transition-${isDark.value ? 'old' : 'new'}(root)`
     }
-  );
-};
+  )
+})
 
-// 监听页面中 TDesign 的主题切换按钮点击事件
-onMounted(() => {
-  // TDesign 的主题切换按钮通常有类名 .t-switch 或 .t-button
-  const possibleSelectors = [".t-switch", ".t-button", ".VPSwitchAppearance"];
-
-  possibleSelectors.forEach((selector) => {
-    document.querySelectorAll(selector).forEach((el) => {
-      el.addEventListener("click", (e) => {
-        const event = e as MouseEvent;
-        triggerTransition(event.clientX, event.clientY);
-      });
-    });
-  });
-});
-
-// 同步 TDesign 的暗色模式属性
+// 监听 isDark 变化,同步设置 theme-mode 属性
 watch(
   isDark,
   () => {
@@ -66,9 +51,15 @@ watch(
       }
     }
   },
-  { immediate: true }
+  {
+    immediate: true,
+  }
 );
 </script>
+
+<template>
+  <!-- 你的模板内容 -->
+</template>
 
 <style>
 ::view-transition-old(root),
@@ -85,5 +76,13 @@ watch(
 ::view-transition-new(root),
 .dark::view-transition-old(root) {
   z-index: 9999;
+}
+
+.VPSwitchAppearance {
+  width: 22px !important;
+}
+
+.VPSwitchAppearance .check {
+  transform: none !important;
 }
 </style>
