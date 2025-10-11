@@ -1,3 +1,6 @@
+<template><DefaultTheme.Layout />
+</template>
+
 <script setup lang="ts">
 import { useData } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
@@ -39,9 +42,6 @@ provide('toggle-appearance', async ({ clientX: x, clientY: y }: MouseEvent) => {
   )
 })
 </script>
-
-<template><DefaultTheme.Layout />
-</template>
 
 <style>
 ::view-transition-old(root),
