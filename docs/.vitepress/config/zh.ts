@@ -71,11 +71,6 @@ const themeConfig: DefaultTheme.Config = {
     message: '<a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0</a> © 2025 <a href="https://skywhisper.org">SkyWhisper</a>',
   },
   
-  docFooter: {
-    prev: '上一篇',
-    next: '下一篇'
-  },
-  
   outlineTitle: "当前页面",
   lastUpdatedText: "最近更新",
   returnToTopLabel: "回到顶部",

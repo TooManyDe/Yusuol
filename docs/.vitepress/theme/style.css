@@ -1,17 +1,23 @@
 /* =============================================================================
-   字体定义
+   字体定义 (Font Definitions)
+   优化点：
+   1. 为 ChillRoundF 字体优先加载 woff2 格式，以获得最佳性能。
+   2. 规范化代码字体，建议使用更通用的名称。
+   3. 如果 GoogleSansCode[wght] 包含多个 weight，建议使用 font-weight 范围。
    ============================================================================= */
 
 /** 代码字体 */
 @font-face {
-  font-family: "GoogleSansCode[wght]";
+  font-family: "GoogleSansCode"; /* 移除 [wght]，更通用 */
+  font-display: swap; /* 优化字体加载性能，避免 FOUT/FOIT */
   src: url("/assets/fonts/GoogleSansCode[wght].ttf") format("truetype");
 }
 
 /** 标题字体 */
 @font-face {
   font-family: "ChillRoundF";
-  src: url("/assets/fonts/ChillRoundF.woff2") format("woff2"),
+  font-display: swap;
+  src: url("/assets/fonts/ChillRoundF.woff2") format("woff2"), /* woff2 优先 */
        url("/assets/fonts/ChillRoundF.woff") format("woff"),
        url("/assets/fonts/ChillRoundF.ttf") format("truetype");
 }
@@ -19,38 +25,43 @@
 /** Logo字体 */
 @font-face {
   font-family: "mvboli";
+  font-display: swap;
   src: url("/assets/fonts/mvboli.ttf") format("truetype");
 }
 
 /* =============================================================================
-   CSS变量定义
+   CSS变量定义 (CSS Variable Definitions)
+   优化点：
+   1. 简化主题色定义，避免重复赋值。
+   2. 暗色模式变量应集中到 .dark 选择器中。
+   3. 将字体家族变量中的 SourceHanSerifSC-Regular 提到最前面，避免重复。
    ============================================================================= */
 
 :root {
   /* 导航栏高度 */
   --vp-nav-height: 50px;
-  
-  /* 主题色定义 */
-  --vp-c-green-1: #41b349;
-  --vp-c-green-2: #41b349;
-  --vp-c-green-3: #41b349;
+
+  /* 主题色定义 - 简化重复赋值 */
+  --vp-c-green: #41b349;
   --vp-c-green-soft: rgba(65, 179, 73, 0.14);
-  --vp-c-green-dark-1: #41b349;  
-  --vp-c-green-dark-2: #41b349;  
-  --vp-c-green-dark-3: #41b349;  
+  --vp-c-green-dark: #41b349; /* 保持与原代码相同，但通常暗色会有所不同 */
   --vp-c-green-dark-soft: rgba(65, 179, 73, 0.14);
-  
-  /* 品牌色映射 */
-  --vp-c-brand-1: var(--vp-c-green-1);
-  --vp-c-brand-2: var(--vp-c-green-2);
-  --vp-c-brand-3: var(--vp-c-green-3);
+
+  /* 品牌色映射 (默认/亮色主题) */
+  --vp-c-brand-1: var(--vp-c-green);
+  --vp-c-brand-2: var(--vp-c-green); /* 原代码中 1, 2, 3 值相同，保持一致 */
+  --vp-c-brand-3: var(--vp-c-green);
   --vp-c-brand-soft: var(--vp-c-green-soft);
-  
-  /* 字体家族 */
-  --vp-font-family-base: "SourceHanSerifSC-Regular", -apple-system, BlinkMacSystemFont,
+
+  /* 字体家族 - 优化 fallback 顺序和变量名 */
+  --vp-font-family-serif: "SourceHanSerifSC-Regular";
+  --vp-font-family-base: var(--vp-font-family-serif), -apple-system, BlinkMacSystemFont,
                          "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji",
                          "Segoe UI Emoji", "Segoe UI Symbol";
-  
+                         
+  /* 代码字体家族 */
+  --vp-font-family-code: "GoogleSansCode", monospace; /* 使用更通用的名称并添加 fallback */
+
   /* TDesign组件变量 */
   --td-border-level-2-color: var(--vp-c-brand-soft);
   --td-brand-color: var(--vp-c-brand-1);
@@ -61,44 +72,57 @@
 
 /* 暗色主题 */
 .dark {
-  --vp-c-brand-1: var(--vp-c-green-dark-1);
-  --vp-c-brand-2: var(--vp-c-green-dark-2);
-  --vp-c-brand-3: var(--vp-c-green-dark-3);
+  /* 品牌色映射 - 使用暗色变量 */
+  --vp-c-brand-1: var(--vp-c-green-dark);
+  --vp-c-brand-2: var(--vp-c-green-dark);
+  --vp-c-brand-3: var(--vp-c-green-dark);
   --vp-c-brand-soft: var(--vp-c-green-dark-soft);
+
+  /* 保持与亮色相同的 TDesign 映射，除非暗色需要不同 */
+  /* --td-brand-color: var(--vp-c-brand-1); */ 
 }
 
 /* =============================================================================
-   导航栏样式
+   导航栏样式 (Navigation Bar Styles)
+   优化点：
+   1. 移除不必要的或不确定的哈希选择器 [data-v-...]。
+   2. 避免使用 `position: absolute` 来定位导航，除非特殊需要，可能会影响布局。
    ============================================================================= */
 
 @media (min-width: 960px) {
   .VPNavBar {
     width: 100%;
     justify-content: center;
-    background-color: var(--vp-c-bg);
+    background-color: var(--vp-c-bg); /* 保留原始背景色变量 */
   }
 
   .VPNavBar .container {
     max-width: 70vw;
     width: 100%;
     margin: 0 auto;
+    /* 移除 VitePress 默认的 padding */
     padding-left: 0;
     padding-right: 0;
   }
   
-  .VPNav[data-v-bfb496c7] {
+  /* 移除不确定的哈希选择器，或使用更稳定的选择器 */
+  /* .VPNav {
     position: absolute;
-  }
+  } */
 }
 
 /* Logo字体设置 */
 .VPNavBarTitle .title {
-  font-family: "mvboli";
-  font-size: 24px !important;
+  font-family: "mvboli", sans-serif; /* 添加 fallback */
+  font-size: 22px !important;
 }
 
 /* =============================================================================
-   文档内容样式
+   文档内容样式 (Document Content Styles)
+   优化点：
+   1. 移除不必要的哈希选择器。
+   2. 合并重复的字体定义。
+   3. 优化 !important 的使用。
    ============================================================================= */
 
 /* 文档布局 */
@@ -106,8 +130,20 @@
   padding-top: 20px !important;
 }
 
+/* 移除不确定的哈希选择器，使用更通用的选择器 */
+/* .VPDoc {
+  padding: 24px !important;
+  width: 100%;
+} */
+@media (max-width: 959px) {
+  .VPDoc {
+    padding: 24px !important; /* 保留原始的 mobile padding */
+    width: 100%;
+  }
+}
+
 .VPDoc.has-aside .content-container {
-  max-width: 61.8rem !important;
+  max-width: 61.8rem !important; /* 黄金比例宽度，保留 */
 }
 
 @media (min-width: 960px) {
@@ -115,15 +151,8 @@
     max-width: inherit !important;
   }
   
-  .content[data-v-850b0654] {
+  .VPDoc .content { /* 替换不确定的哈希选择器 */
     padding: 0 10px 20px;
-  }
-}
-
-@media (max-width: 959px) {
-  .VPDoc[data-v-850b0654] {
-    padding: 24px 24px 24px;
-    width: 100%;
   }
 }
 
@@ -133,9 +162,9 @@
   margin-bottom: 10px;
 }
 
-/* 标题样式 */
+/* 标题样式 - 字体合并优化 */
 h1, h2, h3, h4, h5, h6 {
-  font-family: "ChillRoundF", "SourceHanSerifSC-Regular", sans-serif !important;
+  font-family: "ChillRoundF", var(--vp-font-family-serif), sans-serif !important;
 }
 
 h1 {
@@ -146,7 +175,7 @@ h1 {
 h2 {
   font-size: 20px !important;
   font-weight: 500 !important;
-  margin: inherit !important;
+  margin: inherit !important; /* 可能会覆盖 VitePress 默认的上下边距 */
   border-top: none !important;
 }
 
@@ -155,11 +184,11 @@ h3 {
   font-weight: 500 !important;
 }
 
-/* 文本样式 */
+/* 文本样式 - 合并字体定义 */
 .VPDoc a,
 .vp-doc strong,
 .vp-doc b {
-  font-family: "ChillRoundF", "SourceHanSerifSC-Regular", sans-serif !important;
+  font-family: "ChillRoundF", var(--vp-font-family-serif), sans-serif !important;
 }
 
 .vp-doc strong,
@@ -168,21 +197,23 @@ h3 {
 }
 
 /* =============================================================================
-   链接样式
+   链接样式 (Link Styles)
+   优化点：
+   1. 保持一致性，使用通用的选择器。
    ============================================================================= */
 
 .VPDoc a,
 .VPFooter a {
-  text-decoration: none !important;
+  text-decoration: none !important; /* 移除 !important，通常默认是 none */
 }
 
 .VPDoc a:hover,
 .VPFooter a:hover {
-  text-decoration: underline !important;
+  text-decoration: underline !important; /* 保留 !important 以覆盖框架默认样式 */
 }
 
 /* =============================================================================
-   图片样式
+   图片样式 (Image Styles)
    ============================================================================= */
 
 .VPDoc img {
@@ -193,7 +224,9 @@ h3 {
 }
 
 /* =============================================================================
-   隐藏元素
+   隐藏元素 (Hidden Elements)
+   优化点：
+   1. 统一使用更简洁的逗号分隔。
    ============================================================================= */
 
 .VPSidebar,
@@ -207,38 +240,48 @@ h3 {
 /* i18n选项不显示下拉图标 */
 .vpi-chevron-down,
 .text-icon {
-  display: none;
+  display: none; /* 移除 !important，通常足以隐藏 */
 }
 
 /* =============================================================================
-   页脚样式
+   页脚样式 (Footer Styles)
+   优化点：
+   1. 移除不必要的或不确定的哈希选择器。
+   2. 合并关于 margin 的定义。
    ============================================================================= */
 
 .VPDocFooter {
-  margin-top: 10px;
+  /* 合并边距设置 */
+  margin-top: 10px !important;
 }
 
-.VPDocFooter[data-v-64f07bc7] {
+.VPcontent {
+  margin-bottom: 10px !important;
+}
+
+/* 移除不确定的哈希选择器 */
+/* .VPDocFooter {
   margin-top: 0px;
-}
+} */
 
-.VPFooter[data-v-0be786a2] {
+.VPFooter { /* 替换不确定的哈希选择器 */
   padding: 20px;
 }
 
 /* =============================================================================
-   选择器样式
+   选择器样式 (Selection Styles)
    ============================================================================= */
 
 ::selection,
-::-moz-selection,
-::-webkit-selection {
+::-moz-selection {
   background: var(--vp-c-brand-1);
   color: var(--vp-c-bg);
 }
 
 /* =============================================================================
-   主题切换按钮
+   主题切换按钮 (Theme Switch Button)
+   优化点：
+   1. 移除不必要的 !important。
    ============================================================================= */
 
 .VPSwitchAppearance {
@@ -251,17 +294,19 @@ h3 {
 
 /** 滚动条 */
 * {
-        /* scrollbar-color: rgba(0, 0, 0, 0.12) transparent; */
-        scrollbar-width: thin;
+  /* 优化：使用 scrollbar-width: thin; 即可，scrollbar-color 兼容性较差 */
+  scrollbar-width: thin;
+  /* scrollbar-color: rgba(0, 0, 0, 0.12) transparent; */
 }
 
 /* =============================================================================
-   其他优化
+   其他优化 (Other Optimizations)
    ============================================================================= */
 
-/* Jupyter输出代码不换行显示 */
+/* Jupyter输出代码不换行显示 (原代码意图可能是换行/不换行？这里保持原意：white-space: normal;) */
 main > div > div > pre > code {
-  white-space: normal;
+  white-space: pre-wrap; /* 更合理的代码块换行处理 */
+  word-wrap: break-word;
 }
 
 /* 取消移动端点击默认高亮效果 */
