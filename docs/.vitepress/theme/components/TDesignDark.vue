@@ -1,88 +1,25 @@
+<template></template>
 <script setup lang="ts">
 import { useData } from "vitepress";
-import { nextTick, provide, watch } from "vue";
+import { watch } from "vue";
 
 const { isDark } = useData();
 
-const enableTransitions = () =>
-  'startViewTransition' in document &&
-  window.matchMedia('(prefers-reduced-motion: no-preference)').matches
-
-// TDesign 暗色模式切换 - 带动画效果
-provide('toggle-appearance', async ({ clientX: x, clientY: y }: MouseEvent) => {
-  if (!enableTransitions()) {
-    isDark.value = !isDark.value
-    return
-  }
-
-  const clipPath = [
-    `circle(0px at ${x}px ${y}px)`,
-    `circle(${Math.hypot(
-      Math.max(x, innerWidth - x),
-      Math.max(y, innerHeight - y)
-    )}px at ${x}px ${y}px)`
-  ]
-
-  await document.startViewTransition(async () => {
-    isDark.value = !isDark.value
-    await nextTick()
-  }).ready
-
-  document.documentElement.animate(
-    { clipPath: isDark.value ? clipPath.reverse() : clipPath },
-    {
-      duration: 300,
-      easing: 'ease-in',
-      fill: 'forwards',
-      pseudoElement: `::view-transition-${isDark.value ? 'old' : 'new'}(root)`
-    }
-  )
-})
-
-// 监听 isDark 变化,同步设置 theme-mode 属性
+// tdesign 暗色切换 https://tdesign.tencent.com/vue-next/dark-mode
 watch(
-  isDark,
-  () => {
-    if (typeof document !== "undefined") {
-      if (isDark.value) {
-        document.documentElement.setAttribute("theme-mode", "dark");
-      } else {
-        document.documentElement.removeAttribute("theme-mode");
-      }
-    }
-  },
-  {
-    immediate: true,
-  }
+        isDark,
+        () => {
+                if (typeof document !== "undefined") {
+                        // 使用document的代码
+                        if (isDark.value) {
+                                document.documentElement.setAttribute("theme-mode", "dark");
+                        } else {
+                                document.documentElement.removeAttribute("theme-mode");
+                        }
+                }
+        },
+        {
+                immediate: true,
+        }
 );
 </script>
-
-<template>
-  <!-- 你的模板内容 -->
-</template>
-
-<style>
-::view-transition-old(root),
-::view-transition-new(root) {
-  animation: none;
-  mix-blend-mode: normal;
-}
-
-::view-transition-old(root),
-.dark::view-transition-new(root) {
-  z-index: 1;
-}
-
-::view-transition-new(root),
-.dark::view-transition-old(root) {
-  z-index: 9999;
-}
-
-.VPSwitchAppearance {
-  width: 22px !important;
-}
-
-.VPSwitchAppearance .check {
-  transform: none !important;
-}
-</style>
