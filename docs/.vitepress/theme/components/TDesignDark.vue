@@ -1,31 +1,14 @@
 <script setup lang="ts">
-import { useData } from 'vitepress'
-import DefaultTheme from 'vitepress/theme'
-import { nextTick, provide, watch } from 'vue'
+import { useData } from "vitepress";
+import { nextTick, provide, watch } from "vue";
 
-const { isDark } = useData()
+const { isDark } = useData();
 
 const enableTransitions = () =>
   'startViewTransition' in document &&
   window.matchMedia('(prefers-reduced-motion: no-preference)').matches
 
-// TDesign 暗色模式切换
-watch(
-  isDark,
-  () => {
-    if (typeof document !== "undefined") {
-      if (isDark.value) {
-        document.documentElement.setAttribute("theme-mode", "dark");
-      } else {
-        document.documentElement.removeAttribute("theme-mode");
-      }
-    }
-  },
-  {
-    immediate: true,
-  }
-);
-
+// TDesign 暗色模式切换 - 带动画效果
 provide('toggle-appearance', async ({ clientX: x, clientY: y }: MouseEvent) => {
   if (!enableTransitions()) {
     isDark.value = !isDark.value
@@ -55,11 +38,24 @@ provide('toggle-appearance', async ({ clientX: x, clientY: y }: MouseEvent) => {
     }
   )
 })
-</script>
 
-<template>
-  <DefaultTheme.Layout />
-</template>
+// 监听 isDark 变化,同步设置 theme-mode 属性
+watch(
+  isDark,
+  () => {
+    if (typeof document !== "undefined") {
+      if (isDark.value) {
+        document.documentElement.setAttribute("theme-mode", "dark");
+      } else {
+        document.documentElement.removeAttribute("theme-mode");
+      }
+    }
+  },
+  {
+    immediate: true,
+  }
+);
+</script>
 
 <style>
 ::view-transition-old(root),
