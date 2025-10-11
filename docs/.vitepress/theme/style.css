@@ -1,15 +1,11 @@
 /* =============================================================================
    字体定义 (Font Definitions)
-   优化点：
-   1. 为 ChillRoundF 字体优先加载 woff2 格式，以获得最佳性能。
-   2. 规范化代码字体，建议使用更通用的名称。
-   3. 如果 GoogleSansCode[wght] 包含多个 weight，建议使用 font-weight 范围。
    ============================================================================= */
 
 /** 代码字体 */
 @font-face {
-  font-family: "GoogleSansCode"; /* 移除 [wght]，更通用 */
-  font-display: swap; /* 优化字体加载性能，避免 FOUT/FOIT */
+  font-family: "GoogleSansCode";
+  font-display: swap;
   src: url("/assets/fonts/GoogleSansCode[wght].ttf") format("truetype");
 }
 
@@ -17,14 +13,14 @@
 @font-face {
   font-family: "ChillRoundF";
   font-display: swap;
-  src: url("/assets/fonts/ChillRoundF.woff2") format("woff2"), /* woff2 优先 */
+  src: url("/assets/fonts/ChillRoundF.woff2") format("woff2"),
        url("/assets/fonts/ChillRoundF.woff") format("woff"),
        url("/assets/fonts/ChillRoundF.ttf") format("truetype");
 }
 
 @font-face {
-        font-family: "SourceHanSerifSC-Regular";
-        src: local("SourceHanSerifSC-Regular.otf"), url("/assets/fonts/SourceHanSerifSC-Regular.otf");
+  font-family: "SourceHanSerifSC-Regular";
+  src: local("SourceHanSerifSC-Regular.otf"), url("/assets/fonts/SourceHanSerifSC-Regular.otf");
 }
 
 /** Logo字体 */
@@ -36,36 +32,32 @@
 
 /* =============================================================================
    CSS变量定义 (CSS Variable Definitions)
-   优化点：
-   1. 简化主题色定义，避免重复赋值。
-   2. 暗色模式变量应集中到 .dark 选择器中。
-   3. 将字体家族变量中的 SourceHanSerifSC-Regular 提到最前面，避免重复。
    ============================================================================= */
 
 :root {
   /* 导航栏高度 */
   --vp-nav-height: 50px;
 
-  /* 主题色定义 - 简化重复赋值 */
+  /* 主题色定义 */
   --vp-c-green: #41b349;
   --vp-c-green-soft: rgba(65, 179, 73, 0.14);
-  --vp-c-green-dark: #41b349; /* 保持与原代码相同，但通常暗色会有所不同 */
+  --vp-c-green-dark: #41b349;
   --vp-c-green-dark-soft: rgba(65, 179, 73, 0.14);
 
-  /* 品牌色映射 (默认/亮色主题) */
+  /* 品牌色映射 */
   --vp-c-brand-1: var(--vp-c-green);
-  --vp-c-brand-2: var(--vp-c-green); /* 原代码中 1, 2, 3 值相同，保持一致 */
+  --vp-c-brand-2: var(--vp-c-green);
   --vp-c-brand-3: var(--vp-c-green);
   --vp-c-brand-soft: var(--vp-c-green-soft);
 
-  /* 字体家族 - 优化 fallback 顺序和变量名 */
+  /* 字体家族 */
   --vp-font-family-serif: "SourceHanSerifSC-Regular";
   --vp-font-family-base: var(--vp-font-family-serif), -apple-system, BlinkMacSystemFont,
                          "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji",
                          "Segoe UI Emoji", "Segoe UI Symbol";
                          
   /* 代码字体家族 */
-  --vp-font-family-code: "GoogleSansCode", monospace; /* 使用更通用的名称并添加 fallback */
+  --vp-font-family-code: "GoogleSansCode", "Courier New", monospace;
 
   /* TDesign组件变量 */
   --td-border-level-2-color: var(--vp-c-brand-soft);
@@ -77,87 +69,95 @@
 
 /* 暗色主题 */
 .dark {
-  /* 品牌色映射 - 使用暗色变量 */
   --vp-c-brand-1: var(--vp-c-green-dark);
   --vp-c-brand-2: var(--vp-c-green-dark);
   --vp-c-brand-3: var(--vp-c-green-dark);
   --vp-c-brand-soft: var(--vp-c-green-dark-soft);
-
-  /* 保持与亮色相同的 TDesign 映射，除非暗色需要不同 */
-  /* --td-brand-color: var(--vp-c-brand-1); */ 
 }
 
 /* =============================================================================
    导航栏样式 (Navigation Bar Styles)
-   优化点：
-   1. 移除不必要的或不确定的哈希选择器 [data-v-...]。
-   2. 避免使用 `position: absolute` 来定位导航，除非特殊需要，可能会影响布局。
+   关键优化：统一所有设备的导航栏布局
    ============================================================================= */
 
-@media (min-width: 960px) {
+/* 移动端和平板端统一样式 */
+@media (max-width: 1279px) {
+  .VPNavBar {
+    width: 100%;
+    background-color: var(--vp-c-bg);
+  }
+
+  .VPNavBar .container {
+    max-width: 100%;
+    width: 100%;
+    margin: 0 auto;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+
+/* 桌面端样式 */
+@media (min-width: 1280px) {
   .VPNavBar {
     width: 100%;
     justify-content: center;
-    background-color: var(--vp-c-bg); /* 保留原始背景色变量 */
+    background-color: var(--vp-c-bg);
   }
 
   .VPNavBar .container {
     max-width: 70vw;
     width: 100%;
     margin: 0 auto;
-    /* 移除 VitePress 默认的 padding */
     padding-left: 0;
     padding-right: 0;
   }
-  
-  /* 移除不确定的哈希选择器，或使用更稳定的选择器 */
-  /* .VPNav {
-    position: absolute;
-  } */
 }
 
 /* Logo字体设置 */
 .VPNavBarTitle .title {
-  font-family: "mvboli", sans-serif; /* 添加 fallback */
+  font-family: "mvboli", sans-serif;
   font-size: 22px !important;
 }
 
 /* =============================================================================
    文档内容样式 (Document Content Styles)
-   优化点：
-   1. 移除不必要的哈希选择器。
-   2. 合并重复的字体定义。
-   3. 优化 !important 的使用。
+   关键优化：确保移动端和平板端使用相同的布局规则
    ============================================================================= */
 
-/* 文档布局 */
+/* 所有设备通用样式 */
 .VPDoc {
   padding-top: 20px !important;
 }
 
-/* 移除不确定的哈希选择器，使用更通用的选择器 */
-/* .VPDoc {
-  padding: 24px !important;
-  width: 100%;
-} */
-@media (max-width: 959px) {
+/* 移动端和平板端统一样式 (iPad 纵向模式通常是 768px-1024px) */
+@media (max-width: 1279px) {
   .VPDoc {
-    padding: 24px !important; /* 保留原始的 mobile padding */
+    padding: 24px !important;
     width: 100%;
+  }
+
+  .VPDoc .content {
+    max-width: 100% !important;
+    padding: 0 !important;
+  }
+
+  .VPDoc .content-container {
+    max-width: 100% !important;
   }
 }
 
-.VPDoc.has-aside .content-container {
-  max-width: 61.8rem !important; /* 黄金比例宽度，保留 */
-}
-
-@media (min-width: 960px) {
+/* 桌面端样式 */
+@media (min-width: 1280px) {
   .VPDoc:not(.has-sidebar) .content {
     max-width: inherit !important;
   }
   
-  .VPDoc .content { /* 替换不确定的哈希选择器 */
+  .VPDoc .content {
     padding: 0 10px 20px;
+  }
+
+  .VPDoc.has-aside .content-container {
+    max-width: 61.8rem !important;
   }
 }
 
@@ -167,7 +167,10 @@
   margin-bottom: 10px;
 }
 
-/* 标题样式 - 字体合并优化 */
+/* =============================================================================
+   标题和文本样式 (Typography Styles)
+   ============================================================================= */
+
 h1, h2, h3, h4, h5, h6 {
   font-family: "ChillRoundF", var(--vp-font-family-serif), sans-serif !important;
 }
@@ -175,21 +178,26 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
   font-size: 22px !important;
   font-weight: 600 !important;
+  margin-top: 24px !important;
+  margin-bottom: 16px !important;
 }
 
 h2 {
   font-size: 20px !important;
   font-weight: 500 !important;
-  margin: inherit !important; /* 可能会覆盖 VitePress 默认的上下边距 */
+  margin-top: 24px !important;
+  margin-bottom: 16px !important;
   border-top: none !important;
 }
 
 h3 {
   font-size: 16px !important;
   font-weight: 500 !important;
+  margin-top: 16px !important;
+  margin-bottom: 8px !important;
 }
 
-/* 文本样式 - 合并字体定义 */
+/* 文本样式 */
 .VPDoc a,
 .vp-doc strong,
 .vp-doc b {
@@ -203,25 +211,26 @@ h3 {
 
 /* =============================================================================
    链接样式 (Link Styles)
-   优化点：
-   1. 保持一致性，使用通用的选择器。
    ============================================================================= */
 
 .VPDoc a,
 .VPFooter a {
-  text-decoration: none !important; /* 移除 !important，通常默认是 none */
+  text-decoration: none;
 }
 
 .VPDoc a:hover,
 .VPFooter a:hover {
-  text-decoration: underline !important; /* 保留 !important 以覆盖框架默认样式 */
+  text-decoration: underline !important;
 }
 
 /* =============================================================================
    图片样式 (Image Styles)
+   优化：确保图片在移动设备上正确显示
    ============================================================================= */
 
 .VPDoc img {
+  max-width: 100%;
+  height: auto;
   border-radius: 16px;
   cursor: zoom-in;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
@@ -229,9 +238,40 @@ h3 {
 }
 
 /* =============================================================================
+   代码块样式 (Code Block Styles)
+   优化：确保代码块在移动设备上正确显示和滚动
+   ============================================================================= */
+
+.vp-doc div[class*='language-'] {
+  margin: 16px 0;
+  border-radius: 8px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.vp-doc div[class*='language-'] code {
+  font-family: var(--vp-font-family-code);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* 代码块不换行显示 */
+main > div > div > pre > code {
+  white-space: pre;
+  overflow-x: auto;
+}
+
+/* 移动端代码块优化 */
+@media (max-width: 1279px) {
+  .vp-doc div[class*='language-'] {
+    margin-left: -24px;
+    margin-right: -24px;
+    border-radius: 0;
+  }
+}
+
+/* =============================================================================
    隐藏元素 (Hidden Elements)
-   优化点：
-   1. 统一使用更简洁的逗号分隔。
    ============================================================================= */
 
 .VPSidebar,
@@ -245,39 +285,41 @@ h3 {
 /* i18n选项不显示下拉图标 */
 .vpi-chevron-down,
 .text-icon {
-  display: none; /* 移除 !important，通常足以隐藏 */
+  display: none;
 }
 
 /* =============================================================================
    页脚样式 (Footer Styles)
-   优化点：
-   1. 移除不必要的或不确定的哈希选择器。
-   2. 合并关于 margin 的定义。
    ============================================================================= */
 
 .VPDocFooter {
-  /* 合并边距设置 */
   margin-top: 10px !important;
 }
 
-.VPcontent {
+.VPContent {
   margin-bottom: 10px !important;
 }
 
-/* 移除不确定的哈希选择器 */
-/* .VPDocFooter {
-  margin-top: 0px;
-} */
-
-.VPFooter { /* 替换不确定的哈希选择器 */
+.VPFooter {
   padding: 20px;
+}
+
+/* 移动端页脚优化 */
+@media (max-width: 1279px) {
+  .VPFooter {
+    padding: 20px 24px;
+  }
 }
 
 /* =============================================================================
    选择器样式 (Selection Styles)
    ============================================================================= */
 
-::selection,
+::selection {
+  background: var(--vp-c-brand-1);
+  color: var(--vp-c-bg);
+}
+
 ::-moz-selection {
   background: var(--vp-c-brand-1);
   color: var(--vp-c-bg);
@@ -285,8 +327,6 @@ h3 {
 
 /* =============================================================================
    主题切换按钮 (Theme Switch Button)
-   优化点：
-   1. 移除不必要的 !important。
    ============================================================================= */
 
 .VPSwitchAppearance {
@@ -297,24 +337,62 @@ h3 {
   transform: none !important;
 }
 
-/** 滚动条 */
+/* =============================================================================
+   滚动条样式 (Scrollbar Styles)
+   ============================================================================= */
+
 * {
-  /* 优化：使用 scrollbar-width: thin; 即可，scrollbar-color 兼容性较差 */
   scrollbar-width: thin;
-  /* scrollbar-color: rgba(0, 0, 0, 0.12) transparent; */
+  scrollbar-color: rgba(0, 0, 0, 0.12) transparent;
+}
+
+/* Webkit浏览器滚动条 */
+*::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.12);
+  border-radius: 3px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(0, 0, 0, 0.24);
 }
 
 /* =============================================================================
-   其他优化 (Other Optimizations)
+   移动端优化 (Mobile Optimizations)
    ============================================================================= */
-
-/* Jupyter输出代码不换行显示 (原代码意图可能是换行/不换行？这里保持原意：white-space: normal;) */
-main > div > div > pre > code {
-  white-space: pre-wrap; /* 更合理的代码块换行处理 */
-  word-wrap: break-word;
-}
 
 /* 取消移动端点击默认高亮效果 */
 #app {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+/* 防止移动端文本缩放 */
+@media (max-width: 1279px) {
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+}
+
+/* 触摸设备优化 */
+@media (hover: none) and (pointer: coarse) {
+  /* 增加可点击区域 */
+  .VPNavBar a,
+  .VPDoc a {
+    padding: 4px 0;
+  }
+  
+  /* 优化按钮大小 */
+  button {
+    min-height: 44px;
+    min-width: 44px;
+  }
 }
