@@ -19,7 +19,6 @@ const socialLinksConfig: DefaultTheme.SocialLink[] = [
 ]
 
 
-export​ ​const​ ​search​: ​DefaultTheme​.​
   themeConfig: {
     search: {
       provider: 'local',
@@ -78,7 +77,32 @@ export default defineConfig({
   
   titleTemplate: ':title - SkyWhisper',
   // 主题配置
-  themeConfig,
+  themeConfig: {
+    search: {
+      provider: 'local',
+      options: {
+        locales: {
+          en: {
+            translations: {
+              button: {
+                buttonText: 'Search',
+                buttonAriaLabel: 'Search'
+              },
+              modal: {
+                noResultsText: 'No results found',
+                resetButtonTitle: 'Clear the query',
+                footer: {
+                  selectText: 'Select',
+                  navigateText: 'Navigate'
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
   
   // SEO 优化
   head: [
