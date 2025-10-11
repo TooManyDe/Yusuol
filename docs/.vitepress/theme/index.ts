@@ -7,18 +7,12 @@ import 'tdesign-vue-next/es/style/index.css';
 import "./style.css";
 import Comment from "./components/Comment.vue";
 import ImageViewer from "./components/ImageViewer.vue";
-import Layout from "./Layout.vue"; // 👈 新增：导入自定义 Layout
+import Layout from "./Layout.vue";
 
 export default {
   sidebar: false,
   ...Theme,
-  Layout: () => {
-    return h(Layout, null, { // 👈 修改：使用自定义 Layout 替代 Theme.Layout
-      // https://vitepress.dev/guide/extending-default-theme#layout-slots
-      "doc-after": () => h(Comment),
-      "doc-top": () => h(ImageViewer),
-    });
-  },
+  Layout: Layout, // 👈 直接使用 Layout，不要用 h() 函数包裹
 
   enhanceApp({ app, router }: any) {
     app.component("Comment", Comment);
@@ -32,7 +26,7 @@ export default {
       }
 
       if (to.startsWith(encodeURI('/笔记/'))) {
-        const newUrl = to.replace(encodeURI('/笔记/'), '/posts/')
+        const newUrl = to.replace(encodeURI('/笔记/'), '/notes/')
         window.location.href = newUrl
       }
     }
