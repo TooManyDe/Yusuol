@@ -18,34 +18,6 @@ const socialLinksConfig: DefaultTheme.SocialLink[] = [
   },
 ]
 
-
-  themeConfig: {
-    search: {
-      provider: 'local',
-      options: {
-        locales: {
-          en: {
-            translations: {
-              button: {
-                buttonText: 'Search',
-                buttonAriaLabel: 'Search'
-              },
-              modal: {
-                noResultsText: 'No results found',
-                resetButtonTitle: 'Clear the query',
-                footer: {
-                  selectText: 'Select',
-                  navigateText: 'Navigate'
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-})
-
 // 主题配置
 const themeConfig: DefaultTheme.Config = {
   nav: navConfig,
