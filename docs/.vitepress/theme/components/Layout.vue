@@ -2,6 +2,8 @@
 import { useData } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
 import { nextTick, provide, watch } from 'vue'
+import Comment from './components/Comment.vue'
+import ImageViewer from './components/ImageViewer.vue'
 
 const { isDark } = useData()
 
@@ -59,7 +61,14 @@ provide('toggle-appearance', async ({ clientX: x, clientY: y }: MouseEvent) => {
 </script>
 
 <template>
-  <DefaultTheme.Layout />
+  <DefaultTheme.Layout>
+    <template #doc-top>
+      <ImageViewer />
+    </template>
+    <template #doc-after>
+      <Comment />
+    </template>
+  </DefaultTheme.Layout>
 </template>
 
 <style>
