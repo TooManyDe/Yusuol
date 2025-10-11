@@ -19,7 +19,7 @@ const socialLinksConfig: DefaultTheme.SocialLink[] = [
 ]
 
 
-export default defineConfig({
+export​ ​const​ ​search​: ​DefaultTheme​.​
   themeConfig: {
     search: {
       provider: 'local',
