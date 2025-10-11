@@ -18,50 +18,34 @@ const socialLinksConfig: DefaultTheme.SocialLink[] = [
   },
 ]
 
-// 搜索本地化配置（英文）
-export const search: DefaultTheme.AlgoliaSearchOptions['locales'] = {
-  root: {
-    placeholder: 'Search',
-    translations: {
-      button: {
-        buttonText: 'Search',
-        buttonAriaLabel: 'Search'
-      },
-      modal: {
-        searchBox: {
-          resetButtonTitle: 'Clear the query',
-          resetButtonAriaLabel: 'Clear the query',
-          cancelButtonText: 'Cancel',
-          cancelButtonAriaLabel: 'Cancel'
-        },
-        startScreen: {
-          recentSearchesTitle: 'Search History',
-          noRecentSearchesText: 'No recent searches',
-          saveRecentSearchButtonTitle: 'Save to search history',
-          removeRecentSearchButtonTitle: 'Remove from search history',
-          favoriteSearchesTitle: 'Favorites',
-          removeFavoriteSearchButtonTitle: 'Remove from favorites'
-        },
-        errorScreen: {
-          titleText: 'Unable to fetch results',
-          helpText: 'Network error'
-        },
-        footer: {
-          selectText: 'Select',
-          navigateText: 'Navigate',
-          closeText: 'Close',
-          searchByText: 'Search by'
-        },
-        noResultsScreen: {
-          noResultsText: 'No results found',
-          suggestedQueryText: 'Try searching for',
-          reportMissingResultsText: 'Believe this query should return results?',
-          reportMissingResultsLinkText: 'Let us know'
+
+export default defineConfig({
+  themeConfig: {
+    search: {
+      provider: 'local',
+      options: {
+        locales: {
+          en: {
+            translations: {
+              button: {
+                buttonText: 'Search',
+                buttonAriaLabel: 'Search'
+              },
+              modal: {
+                noResultsText: 'No results found',
+                resetButtonTitle: 'Clear the query',
+                footer: {
+                  selectText: 'Select',
+                  navigateText: 'Navigate'
+                }
+              }
+            }
+          }
         }
       }
     }
   }
-}
+})
 
 // 主题配置
 const themeConfig: DefaultTheme.Config = {
