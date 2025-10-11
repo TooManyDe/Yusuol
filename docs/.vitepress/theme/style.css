@@ -29,11 +29,9 @@
 
 /** Logo字体 */
 @font-face {
-  font-family: "ChillRoundF";
+  font-family: "mvboli";
   font-display: swap;
-  src: url("/assets/fonts/ChillRoundF.woff2") format("woff2"), /* woff2 优先 */
-       url("/assets/fonts/ChillRoundF.woff") format("woff"),
-       url("/assets/fonts/ChillRoundF.ttf") format("truetype");
+  src: url("/assets/fonts/mvboli.ttf");
 }
 
 /* =============================================================================
@@ -195,7 +193,7 @@ h3 {
 .VPDoc a,
 .vp-doc strong,
 .vp-doc b {
-  font-family: "ChillRoundF", var(--vp-font-family-serif), sans-serif !important;
+  font-family: "mvboli", var(--vp-font-family-serif), sans-serif !important;
 }
 
 .vp-doc strong,
