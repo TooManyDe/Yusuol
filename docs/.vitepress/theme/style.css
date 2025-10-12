@@ -27,11 +27,6 @@
         src: local("SourceHanSerifSC-Regular.otf"), url("/assets/fonts/SourceHanSerifSC-Regular.otf");
 }
 
-@font-face {
-        font-family: "SourceHanSerifCN-VF";
-        src: local("SourceHanSerifCN-VF.otf"), url("/assets/fonts/SourceHanSerifCN-VF.otf");
-}
-
 /** Logo字体 */
 @font-face {
   font-family: "mvboli";
@@ -64,7 +59,7 @@
   --vp-c-brand-soft: var(--vp-c-green-soft) !important;
 
   /* 字体家族 - 优化 fallback 顺序和变量名 */
-  --vp-font-family-serif: "SourceHanSerifSC-Regular";
+  --vp-font-family-serif: "";
   --vp-font-family-base: var(--vp-font-family-serif), -apple-system, BlinkMacSystemFont,
                          "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji",
                          "Segoe UI Emoji", "Segoe UI Symbol";
@@ -198,7 +193,7 @@ h3 {
 .VPDoc a,
 .vp-doc strong,
 .vp-doc b {
-  font-family: "SourceHanSerifCN-VF", var(--vp-font-family-serif), sans-serif !important;
+  font-family: "SourceHanSerifSC-Regular", var(--vp-font-family-serif), sans-serif !important;
 }
 
 .vp-doc strong,
