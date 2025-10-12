@@ -169,7 +169,7 @@
 
 /* 标题样式 - 字体合并优化 */
 h1, h2, h3, h4, h5, h6 {
-  font-family: "", var(--vp-font-family-serif), sans-serif !important;
+  font-family: "ChillRoundF", var(--vp-font-family-serif), sans-serif !important;
 }
 
 h1 {
