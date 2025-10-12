@@ -27,6 +27,11 @@
         src: local("SourceHanSerifSC-Regular.otf"), url("/assets/fonts/SourceHanSerifSC-Regular.otf");
 }
 
+@font-face {
+        font-family: "SourceHanSerifCN-VF";
+        src: local("SourceHanSerifCN-VF.otf"), url("/assets/fonts/SourceHanSerifCN-VF.otf");
+}
+
 /** Logo字体 */
 @font-face {
   font-family: "mvboli";
