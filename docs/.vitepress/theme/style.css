@@ -47,7 +47,7 @@
   /* 导航栏高度 */
   --vp-nav-height: 50px;
   /* 主题色定义 - 简化重复赋值 */
-  --vp-c-green: #000000;
+  --vp-c-green: #3A8DB3;
   --vp-c-green-soft: rgba(65, 179, 73, 0.14);
   --vp-c-green-dark: #ffffff; /* 保持与原代码相同，但通常暗色会有所不同 */
   --vp-c-green-dark-soft: rgba(65, 179, 73, 0.14);
