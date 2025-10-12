@@ -53,10 +53,10 @@
   --vp-c-green-dark-soft: rgba(65, 179, 73, 0.14);
 
   /* 品牌色映射 (默认/亮色主题) */
-  --vp-c-brand-1: var(--vp-c-green);
-  --vp-c-brand-2: var(--vp-c-green); /* 原代码中 1, 2, 3 值相同，保持一致 */
-  --vp-c-brand-3: var(--vp-c-green);
-  --vp-c-brand-soft: var(--vp-c-green-soft);
+  --vp-c-brand-1: var(--vp-c-green) !important;
+  --vp-c-brand-2: var(--vp-c-green) !important; /* 原代码中 1, 2, 3 值相同，保持一致 */
+  --vp-c-brand-3: var(--vp-c-green) !important;
+  --vp-c-brand-soft: var(--vp-c-green-soft) !important;
 
   /* 字体家族 - 优化 fallback 顺序和变量名 */
   --vp-font-family-serif: "SourceHanSerifSC-Regular";
@@ -68,20 +68,20 @@
   --vp-font-family-code: "GoogleSansCode", monospace; /* 使用更通用的名称并添加 fallback */
 
   /* TDesign组件变量 */
-  --td-border-level-2-color: var(--vp-c-brand-soft);
-  --td-brand-color: var(--vp-c-brand-1);
-  --td-brand-color-light: var(--vp-c-brand-soft);
-  --td-brand-color-hover: var(--vp-c-brand-1);
-  --td-brand-color-active: var(--vp-c-brand-2);
+  --td-border-level-2-color: var(--vp-c-brand-soft) !important;
+  --td-brand-color: var(--vp-c-brand-1) !important;
+  --td-brand-color-light: var(--vp-c-brand-soft) !important;
+  --td-brand-color-hover: var(--vp-c-brand-1) !important;
+  --td-brand-color-active: var(--vp-c-brand-2) !important;
 }
 
 /* 暗色主题 */
 .dark {
   /* 品牌色映射 - 使用暗色变量 */
-  --vp-c-brand-1: var(--vp-c-green-dark);
-  --vp-c-brand-2: var(--vp-c-green-dark);
-  --vp-c-brand-3: var(--vp-c-green-dark);
-  --vp-c-brand-soft: var(--vp-c-green-dark-soft);
+  --vp-c-brand-1: var(--vp-c-green-dark) !important;
+  --vp-c-brand-2: var(--vp-c-green-dark) !important;
+  --vp-c-brand-3: var(--vp-c-green-dark) !important;
+  --vp-c-brand-soft: var(--vp-c-green-dark-soft) !important;
 
   /* 保持与亮色相同的 TDesign 映射，除非暗色需要不同 */
   /* --td-brand-color: var(--vp-c-brand-1); */ 
