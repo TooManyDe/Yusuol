@@ -49,6 +49,7 @@ body, #app {
     linear-gradient(90deg, transparent 24%, rgba(0, 0, 0, 0.05) 25%, rgba(0, 0, 0, 0.05) 26%, transparent 27%, transparent 74%, rgba(0, 0, 0, 0.05) 75%, rgba(0, 0, 0, 0.05) 76%, transparent 77%, transparent);
   background-size: 50px 50px;
   background-position: 0 0;
+  background-attachment: fixed;
 }
 
 /* 暗色模式网格背景 */
@@ -58,7 +59,9 @@ body, #app {
     linear-gradient(90deg, transparent 24%, rgba(255, 255, 255, 0.05) 25%, rgba(255, 255, 255, 0.05) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, 0.05) 75%, rgba(255, 255, 255, 0.05) 76%, transparent 77%, transparent);
   background-size: 50px 50px;
   background-position: 0 0;
+  background-attachment: fixed;
 }
+
 
 
 :root {
