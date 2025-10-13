@@ -173,77 +173,18 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
   font-size: 22px !important;
   font-weight: 600 !important;
-  position: relative;
-  display: inline-block;
-}
-
-h1::before {
-  content: '';
-  position: absolute;
-  bottom: 4px;
-  left: 0;
-  right: 0;
-  height: 14px;
-  background-color: #41b349;
-  z-index: -1;
-  border-radius: 3px;
 }
 
 h2 {
   font-size: 20px !important;
   font-weight: 500 !important;
-  margin: inherit !important;
+  margin: inherit !important; /* 可能会覆盖 VitePress 默认的上下边距 */
   border-top: none !important;
-  position: relative;
-  display: inline-block;
-}
-
-h2::before {
-  content: '';
-  position: absolute;
-  bottom: 3px;
-  left: 0;
-  right: 0;
-  height: 12px;
-  background-color: #41b349;
-  z-index: -1;
-  border-radius: 3px;
 }
 
 h3 {
   font-size: 16px !important;
   font-weight: 500 !important;
-  position: relative;
-  display: inline-block;
-}
-
-h3::before {
-  content: '';
-  position: absolute;
-  bottom: 2px;
-  left: 0;
-  right: 0;
-  height: 10px;
-  background-color: #41b349;
-  z-index: -1;
-  border-radius: 2px;
-}
-
-h4, h5, h6 {
-  position: relative;
-  display: inline-block;
-}
-
-h4::before, h5::before, h6::before {
-  content: '';
-  position: absolute;
-  bottom: 1px;
-  left: 0;
-  right: 0;
-  height: 8px;
-  background-color: #41b349;
-  z-index: -1;
-  border-radius: 2px;
 }
 
 /* 文本样式 - 合并字体定义 */
