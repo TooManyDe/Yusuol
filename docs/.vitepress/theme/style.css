@@ -110,6 +110,48 @@ body, #app {
   border-top: none !important;
 }
 
+/* 导航栏侧边菜单网格背景 */
+.VPNavScreen {
+  background-image: 
+    linear-gradient(0deg, transparent 24%, rgba(0, 0, 0, 0.06) 25%, rgba(0, 0, 0, 0.06) 26%, transparent 27%, transparent 74%, rgba(0, 0, 0, 0.06) 75%, rgba(0, 0, 0, 0.06) 76%, transparent 77%, transparent),
+    linear-gradient(90deg, transparent 24%, rgba(0, 0, 0, 0.06) 25%, rgba(0, 0, 0, 0.06) 26%, transparent 27%, transparent 74%, rgba(0, 0, 0, 0.06) 75%, rgba(0, 0, 0, 0.06) 76%, transparent 77%, transparent);
+  background-size: 30px 30px;
+  background-position: 0 0;
+  background-attachment: fixed;
+}
+
+/* 暗色模式导航栏侧边菜单 */
+.dark .VPNavScreen {
+  background-image: 
+    linear-gradient(0deg, transparent 24%, rgba(255, 255, 255, 0.06) 25%, rgba(255, 255, 255, 0.06) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, 0.06) 75%, rgba(255, 255, 255, 0.06) 76%, transparent 77%, transparent),
+    linear-gradient(90deg, transparent 24%, rgba(255, 255, 255, 0.06) 25%, rgba(255, 255, 255, 0.06) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, 0.06) 75%, rgba(255, 255, 255, 0.06) 76%, transparent 77%, transparent);
+  background-size: 30px 30px;
+  background-position: 0 0;
+  background-attachment: fixed;
+}
+
+/* 移除菜单项的分割线 */
+.VPNavScreen .divider {
+  border-top: none !important;
+  border-bottom: none !important;
+  border-color: transparent !important;
+}
+
+/* 移除菜单项上下的边框 */
+.VPNavScreen .group {
+  border-top: none !important;
+  border-bottom: none !important;
+}
+
+/* 移除导航菜单项的所有分割线 */
+.VPNavScreenMenuLink {
+  border-bottom: none !important;
+}
+
+/* 通用移除所有 hr 标签 */
+.VPNavScreen hr {
+  display: none !important;
+}
 
 
 :root {
