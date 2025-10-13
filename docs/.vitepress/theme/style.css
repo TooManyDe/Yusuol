@@ -181,8 +181,8 @@ h1::before {
   content: '';
   position: absolute;
   bottom: 4px;
-  left: 0px;
-  right: 0px;
+  left: 0;
+  right: 0;
   height: 14px;
   background-color: #41b349;
   z-index: -1;
@@ -201,9 +201,9 @@ h2 {
 h2::before {
   content: '';
   position: absolute;
-  bottom: 2px;
-  left: 0px;
-  right: 0px;
+  bottom: 3px;
+  left: 0;
+  right: 0;
   height: 12px;
   background-color: #41b349;
   z-index: -1;
@@ -221,8 +221,8 @@ h3::before {
   content: '';
   position: absolute;
   bottom: 2px;
-  left: 0px;
-  right: 0px;
+  left: 0;
+  right: 0;
   height: 10px;
   background-color: #41b349;
   z-index: -1;
@@ -238,8 +238,8 @@ h4::before, h5::before, h6::before {
   content: '';
   position: absolute;
   bottom: 1px;
-  left: 0px;
-  right: 0px;
+  left: 0;
+  right: 0;
   height: 8px;
   background-color: #41b349;
   z-index: -1;
