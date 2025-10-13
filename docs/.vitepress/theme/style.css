@@ -187,7 +187,7 @@ h1::after {
   height: 8px;
   background-color: #41b349;
   border-radius: 4px;
-  z-index: -1;
+  z-index: 1;
 }
 
 h2 {
@@ -209,7 +209,7 @@ h2::after {
   height: 6px;
   background-color: #41b349;
   border-radius: 3px;
-  z-index: -1;
+  z-index: 1;
 }
 
 h3 {
@@ -229,7 +229,7 @@ h3::after {
   height: 5px;
   background-color: #41b349;
   border-radius: 2px;
-  z-index: -1;
+  z-index: 1;
 }
 
 h4, h5, h6 {
@@ -247,7 +247,7 @@ h4::after, h5::after, h6::after {
   height: 4px;
   background-color: #41b349;
   border-radius: 2px;
-  z-index: -1;
+  z-index: 1;
 }
 
 /* 文本样式 - 合并字体定义 */
