@@ -43,18 +43,16 @@
    ============================================================================= */
 
 :root {
-   --vp-c-bg​:​ ​#​f9f9f6​;
   /* 导航栏高度 */
   --vp-nav-height: 50px;
-  /* 主题色定义 - 简化重复赋值 */
   --vp-c-green: #41b349;
   --vp-c-green-soft: rgba(65, 179, 73, 0.14);
-  --vp-c-green-dark: #41b349; /* 保持与原代码相同，但通常暗色会有所不同 */
+  --vp-c-green-dark: #41b349;
   --vp-c-green-dark-soft: rgba(65, 179, 73, 0.14);
 
   /* 品牌色映射 (默认/亮色主题) */
   --vp-c-brand-1: var(--vp-c-green) !important;
-  --vp-c-brand-2: var(--vp-c-green) !important; /* 原代码中 1, 2, 3 值相同，保持一致 */
+  --vp-c-brand-2: var(--vp-c-green) !important;
   --vp-c-brand-3: var(--vp-c-green) !important;
   --vp-c-brand-soft: var(--vp-c-green-soft) !important;
 
