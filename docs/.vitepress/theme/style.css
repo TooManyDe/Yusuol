@@ -173,8 +173,9 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
   font-size: 22px !important;
   font-weight: 600 !important;
-  text-shadow: 0 4px 12px rgba(65, 179, 73, 0.25),
-               0 2px 4px rgba(65, 179, 73, 0.15);
+  text-shadow: 0 8px 0 #41b349,
+               0 12px 0 #41b349,
+               0 16px 0 #41b349;
 }
 
 h2 {
@@ -182,19 +183,23 @@ h2 {
   font-weight: 500 !important;
   margin: inherit !important;
   border-top: none !important;
-  text-shadow: 0 3px 10px rgba(65, 179, 73, 0.2),
-               0 1px 3px rgba(65, 179, 73, 0.1);
+  text-shadow: 0 6px 0 #41b349,
+               0 10px 0 #41b349,
+               0 14px 0 #41b349;
 }
 
 h3 {
   font-size: 16px !important;
   font-weight: 500 !important;
-  text-shadow: 0 2px 8px rgba(65, 179, 73, 0.15),
-               0 1px 2px rgba(65, 179, 73, 0.08);
+  text-shadow: 0 5px 0 #41b349,
+               0 8px 0 #41b349,
+               0 11px 0 #41b349;
 }
 
 h4, h5, h6 {
-  text-shadow: 0 1px 4px rgba(65, 179, 73, 0.12);
+  text-shadow: 0 4px 0 #41b349,
+               0 7px 0 #41b349,
+               0 10px 0 #41b349;
 }
 
 /* 文本样式 - 合并字体定义 */
