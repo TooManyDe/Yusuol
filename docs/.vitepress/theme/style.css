@@ -289,13 +289,12 @@ h1 {
 
 h2 {
   font-size: 20px !important;
-  font-weight: 500 !important;
   margin: inherit !important; /* 可能会覆盖 VitePress 默认的上下边距 */
   border-top: none !important;
 }
 
 h3 {
-  font-size: 16px !important;
+  font-size: 20px !important;
   font-weight: 500 !important;
 }
 
@@ -317,7 +316,6 @@ h3 {
    1. 保持一致性，使用通用的选择器。
    ============================================================================= */
 
-.VPDoc a,
 .VPFooter a {
   text-decoration: none !important; /* 移除 !important，通常默认是 none */
 }
