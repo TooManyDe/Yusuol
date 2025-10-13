@@ -175,19 +175,19 @@ h1 {
   font-weight: 600 !important;
   position: relative;
   display: inline-block;
-  padding-bottom: 8px;
 }
 
-h1::after {
+h1::before {
   content: '';
   position: absolute;
-  bottom: 0;
+  top: 50%;
   left: 0;
   right: 0;
-  height: 8px;
-  background-color: #41b349;
-  border-radius: 4px;
-  z-index: 1;
+  height: 12px;
+  background-color: rgba(65, 179, 73, 0.3);
+  transform: translateY(-50%);
+  z-index: -1;
+  border-radius: 2px;
 }
 
 h2 {
@@ -197,19 +197,19 @@ h2 {
   border-top: none !important;
   position: relative;
   display: inline-block;
-  padding-bottom: 6px;
 }
 
-h2::after {
+h2::before {
   content: '';
   position: absolute;
-  bottom: 0;
+  top: 50%;
   left: 0;
   right: 0;
-  height: 6px;
-  background-color: #41b349;
-  border-radius: 3px;
-  z-index: 1;
+  height: 10px;
+  background-color: rgba(65, 179, 73, 0.3);
+  transform: translateY(-50%);
+  z-index: -1;
+  border-radius: 2px;
 }
 
 h3 {
@@ -217,37 +217,37 @@ h3 {
   font-weight: 500 !important;
   position: relative;
   display: inline-block;
-  padding-bottom: 5px;
 }
 
-h3::after {
+h3::before {
   content: '';
   position: absolute;
-  bottom: 0;
+  top: 50%;
   left: 0;
   right: 0;
-  height: 5px;
-  background-color: #41b349;
+  height: 8px;
+  background-color: rgba(65, 179, 73, 0.3);
+  transform: translateY(-50%);
+  z-index: -1;
   border-radius: 2px;
-  z-index: 1;
 }
 
 h4, h5, h6 {
   position: relative;
   display: inline-block;
-  padding-bottom: 4px;
 }
 
-h4::after, h5::after, h6::after {
+h4::before, h5::before, h6::before {
   content: '';
   position: absolute;
-  bottom: 0;
+  top: 50%;
   left: 0;
   right: 0;
-  height: 4px;
-  background-color: #41b349;
+  height: 6px;
+  background-color: rgba(65, 179, 73, 0.3);
+  transform: translateY(-50%);
+  z-index: -1;
   border-radius: 2px;
-  z-index: 1;
 }
 
 /* 文本样式 - 合并字体定义 */
