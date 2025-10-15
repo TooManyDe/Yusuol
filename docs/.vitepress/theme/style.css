@@ -313,6 +313,11 @@ h3 {
   font-weight: 500 !important;
 }
 
+.vp-doc strong,
+.vp-doc b {
+  text-decoration: underline wavy #41b349 !important;
+}
+
 /* =============================================================================
    链接样式 (Link Styles)
    优化点：
