@@ -289,13 +289,16 @@ h1 {
 
 h2 {
   font-size: 20px !important;
-  margin: inherit !important; /* 可能会覆盖 VitePress 默认的上下边距 */
+  margin-top: 1em !important; /* 减小与上文的间距 */
+  margin-bottom: 1em !important; /* 与下文保持一致 */
   border-top: none !important;
 }
 
 h3 {
   font-size: 20px !important;
   font-weight: 500 !important;
+  margin-top: 1em !important; /* 减小与上文的间距 */
+  margin-bottom: 1em !important; /* 与下文保持一致 */
 }
 
 /* 文本样式 - 合并字体定义 */
