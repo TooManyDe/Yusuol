@@ -68,7 +68,7 @@ const themeConfig: DefaultTheme.Config = {
   nav: navConfig,
   
   footer: {
-    message: '<a href=" ">CC BY-NC-ND 4.0</a > © 2025 <a href="https://skywhisper.org">SkyWhisper</a >',
+    message: '<a href=" ">CC BY-NC-ND 4.0</a > © 2025 <a href="https://ddbx.org">DDBX</a >',
   },
   
   docFooter: {
@@ -88,20 +88,20 @@ const themeConfig: DefaultTheme.Config = {
 // 主配置
 export default defineConfig({
   // 基本信息
-  title: "SkyWhisper",
+  title: "DDBX",
   description: "Never Resting Day nor Night",
   lang: "en-US",
   
-  titleTemplate: ':title - SkyWhisper',
+  titleTemplate: ':title - ddbx',
   // 主题配置
   themeConfig,
   
   // SEO 优化
   head: [
-    ['meta', { name: 'author', content: 'SkyWhisper' }],
-    ['meta', { name: 'keywords', content: 'SkyWhisper, blog, technology, sharing' }],
+    ['meta', { name: 'author', content: 'ddbx' }],
+    ['meta', { name: 'keywords', content: 'ddbx, blog, sharing' }],
     ['link', { rel: 'icon', href: '/favicon.ico' }],
-    ['link', { rel: 'alternate', type: 'application/rss+xml', title: 'SkyWhisper RSS', href: '/feed-en.xml' }],
+    ['link', { rel: 'alternate', type: 'application/rss+xml', title: 'ddbx RSS', href: '/feed-en.xml' }],
   ],
   
   // 构建优化
