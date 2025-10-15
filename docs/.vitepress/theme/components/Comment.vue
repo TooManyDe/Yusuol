@@ -3,7 +3,7 @@
     <span
       class="comment-toggle"
       @click="toggleComments"
-      style="color: #41b349; font-family: 'ChillRoundF';"
+      style="color: #41b349; font-family: 'ChillRoundF'; text-decoration: underline wavy #41b349 !important; text-underline-offset: 3px;"
     >
       {{ loadComments ? commentText : commentText }}
     </span>
