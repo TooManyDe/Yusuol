@@ -115,7 +115,9 @@ const onCurrentChange: PaginationProps["onCurrentChange"] = (
         > a {
                 font-weight: 600; 
 text-decoration: underline wavy #41b349 !important;
+  text-decoration-thickness: 1px;
   text-underline-offset: 3px;
+}
         }
 
         .post-date {
