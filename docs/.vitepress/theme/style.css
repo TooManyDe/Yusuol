@@ -307,9 +307,28 @@ h3 {
   font-family: "ChillRoundF", var(--vp-font-family-serif), sans-serif !important;
 }
 
+/* 只作用于 Markdown 内容区域 */
 .vp-doc a {
   text-decoration: underline !important;
   text-underline-offset: 3px;
+  color: #41b349; /* 正常状态，与你博客主题色保持一致 */
+  transition: color 0.2s ease, text-decoration-thickness 0.2s ease;
+}
+
+/* 悬停时加深颜色 */
+.vp-doc a:hover {
+  color: #2a7c2b; /* 比 #41b349 深一些 */
+  text-decoration-thickness: 2px;
+}
+
+/* 点击（激活）时变浅 */
+.vp-doc a:active {
+  color: #6ddf6f; /* 浅绿色，点击时反馈 */
+}
+
+/* 移除 VitePress 默认的外链箭头图标 */
+.vp-doc a::after {
+  content: none !important;
 }
 
 .vp-doc strong,
