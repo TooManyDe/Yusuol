@@ -85,6 +85,7 @@ const postGroups = computed(() => {
 
     > a {
 		font-weight: 400;
+text-decoration: none !important;
 	}
 
   .post-date {
