@@ -275,7 +275,6 @@ body, #app {
 .vp-doc p {
   margin-top: 5px;
   margin-bottom: 5px;
-  text-indent: 2em; /* 缩进两个汉字宽度，你可以调大小 */
 }
 
 /* 标题样式 - 字体合并优化 */
