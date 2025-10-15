@@ -68,7 +68,7 @@ const themeConfig: DefaultTheme.Config = {
   nav: navConfig,
   
   footer: {
-    message: '<a href=" ">CC BY-NC-ND 4.0</a > © 2025 <a href="https://skywhisper.org">SkyWhisper</a >',
+    message: '<a href=" ">CC BY-NC-ND 4.0</a > © 2025 <a href="https://ddbx.org">的的不休</a >',
   },
   
   outlineTitle: "当前页面",
@@ -83,18 +83,18 @@ const themeConfig: DefaultTheme.Config = {
 // 主配置
 export default defineConfig({
   // 基本信息
-  title: "SkyWhisper",
+  title: "的的不休",
   description: "不舍昼夜",
   lang: "zh-Hans",
   
-  titleTemplate: ':title - SkyWhisper',
+  titleTemplate: ':title - ddbx',
   // 主题配置
   themeConfig,
   
   // 可选：SEO 优化
   head: [
-    ['meta', { name: 'author', content: 'SkyWhisper' }],
-    ['meta', { name: 'keywords', content: 'SkyWhisper, 博客, 技术分享' }],
+    ['meta', { name: 'author', content: '的的不休' }],
+    ['meta', { name: 'keywords', content: '的的不休, 博客, 分享' }],
     ['link', { rel: 'icon', href: '/favicon.ico' }],
   ],
   
