@@ -157,7 +157,7 @@ body, #app {
 :root {
   /* 导航栏高度 */
   --vp-nav-height: 50px;
-  --vp-c-green: ;
+  --vp-c-green: #41b349;
   --vp-c-green-soft: rgba(65, 179, 73, 0.14);
   --vp-c-green-dark: #41b349;
   --vp-c-green-dark-soft: rgba(65, 179, 73, 0.14);
@@ -279,7 +279,7 @@ body, #app {
 
 /* 标题样式 - 字体合并优化 */
 h1, h2, h3, h4, h5, h6 {
-  font-family: "ChillRoundF", var(--vp-font-family-serif), sans-serif !important;
+  font-family: "SourceHanSerifSC-Regular", var(--vp-font-family-serif), sans-serif !important;
 }
 
 h1 {
