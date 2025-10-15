@@ -364,6 +364,8 @@ h3 {
 .VPDoc img {
   border-radius: 16px;
   cursor: zoom-in;
+  ​box-shadow​:​ ​0​ ​4​px​ ​12​px​ ​rgba​(​0​,​ ​0​,​ ​0​,​ ​0.04​);
+  transition​:​ box-shadow ​0.3​s​ ease​,​ transform ​0.3​s​ ease;
 }
 
 /* =============================================================================
