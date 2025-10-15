@@ -293,6 +293,7 @@ h2 {
   font-size: 20px !important;
   margin: inherit !important;
   border-top: none !important;
+  text-decoration: none !important;
 }
 
 h3 {
