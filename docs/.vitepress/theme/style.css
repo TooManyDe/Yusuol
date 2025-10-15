@@ -284,12 +284,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: 30px !important;
+  font-size: 22px !important;
   font-weight: 800 !important;
 }
 
 h2 {
-  font-size: 25px !important;
+  font-size: 20px !important;
   font-weight: 800 !important;
   margin-top: none !important; /* 减小与上文的间距 */
   margin-bottom: 0.5em !important; /* 与下文保持一致 */
@@ -297,7 +297,7 @@ h2 {
 }
 
 h3 {
-  font-size: 22px !important;
+  font-size: 20px !important;
   font-weight: 500 !important;
   margin-top: none !important; /* 减小与上文的间距 */
   margin-bottom: 0.5em !important; /* 与下文保持一致 */
