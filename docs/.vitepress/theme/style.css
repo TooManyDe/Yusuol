@@ -281,12 +281,12 @@ body, #app {
 h1, h2, h3, h4, h5, h6 {
   font-family: "SourceHanSerifSC-Regular", var(--vp-font-family-serif), sans-serif !important;
   color: #41b349 !important; 
-  -webkit-box-reflect: below 2px linear-gradient(transparent, rgba(65, 179, 73, 0.2));
-  box-reflect: below 2px linear-gradient(transparent, rgba(65, 179, 73, 0.2));
 }
 
 h1 {
   font-size: 24px !important;
+  text-decoration: underline wavy #41b349 !important;
+  text-underline-offset: 2px;
 }
 
 h2 {
