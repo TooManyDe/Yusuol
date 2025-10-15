@@ -324,8 +324,7 @@ h3 {
    1. 保持一致性，使用通用的选择器。
    ============================================================================= */
 
-.VPDoc a,
-.VPFooter a {
+.VPDoc a {
   text-decoration: underline #41b349 !important;
   text-underline-offset: 3px;
 }
