@@ -81,6 +81,7 @@ watch(
 <style scoped lang="scss">
 .comments {
   margin-top: 0px;
+  text-align: center;
 }
 
 .comment-toggle {
