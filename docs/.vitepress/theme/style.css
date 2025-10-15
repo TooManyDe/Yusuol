@@ -304,7 +304,7 @@ h3 {
 .VPDoc a,
 .vp-doc strong,
 .vp-doc b {
-  font-family: "ChillRoundF", var(--vp-font-family-serif), sans-serif !important;
+  font-family: ""SourceHanSerifSC-Regular", var(--vp-font-family-serif), sans-serif !important;
 }
 
 /* 只作用于 Markdown 内容区域 */
