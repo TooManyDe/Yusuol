@@ -284,22 +284,18 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: 22px !important;
-  font-weight: 800 !important;
+  font-size: 28px !important;
 }
 
 h2 {
-  font-size: 20px !important;
-  font-weight: 800 !important;
-  padding-top: 0px !important;
-  margin-top: 0 !important; 
+  font-size: 22px !important;
+  margin: inherit !important;
   border-top: none !important;
 }
 
 h3 {
   font-size: 20px !important;
   font-weight: 500 !important;
-  padding-top: 0px !important;
 }
 
 /* 文本样式 - 合并字体定义 */
