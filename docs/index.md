@@ -113,7 +113,7 @@ const onCurrentChange: PaginationProps["onCurrentChange"] = (
         left: 0;
 
         > a {
-                font-weight: 700; 
+                font-weight: 700 !important; 
 text-decoration: underline wavy #41b349 !important;
 text-underline-offset: 3px;
         }
