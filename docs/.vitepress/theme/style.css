@@ -291,6 +291,7 @@ h1 {
 h2 {
   font-size: 20px !important;
   font-weight: 800 !important;
+  padding-top: 10px!important;
   margin-top: 0 !important; /* 减小与上文的间距 */
   margin-bottom: 0 !important; /* 与下文保持一致 */
   border-top: none !important;
@@ -299,6 +300,7 @@ h2 {
 h3 {
   font-size: 20px !important;
   font-weight: 500 !important;
+  padding-top: 10px!important;
   margin-top: 0 !important; /* 减小与上文的间距 */
   margin-bottom: 0 !important; /* 与下文保持一致 */
 }
