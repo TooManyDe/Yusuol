@@ -125,7 +125,7 @@ const onCurrentChange: PaginationProps["onCurrentChange"] = (
                 font-family: "mvboli";
                 font-size: 40px;
                 font-weight: 400;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
         }
 
         @media (max-width: 425px) {
@@ -144,6 +144,6 @@ const onCurrentChange: PaginationProps["onCurrentChange"] = (
   /* 设置文本颜色为透明 */
   color: var(--vp-c-bg);
 
-        -webkit-text-stroke: 1px var(--vp-c-text-1);
+        -webkit-text-stroke: 1.5px var(--vp-c-text-1);
 }
 </style>
