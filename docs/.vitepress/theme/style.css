@@ -169,7 +169,7 @@ body, #app {
   --vp-c-brand-soft: var(--vp-c-green-soft) !important;
 
   /* 字体家族 - 优化 fallback 顺序和变量名 */
-  --vp-font-family-serif: "SourceHanSerifSC-Regular";
+  --vp-font-family-serif: "";
   --vp-font-family-base: var(--vp-font-family-serif), -apple-system, BlinkMacSystemFont,
                          "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji",
                          "Segoe UI Emoji", "Segoe UI Symbol";
@@ -279,7 +279,7 @@ body, #app {
 
 /* 标题样式 - 字体合并优化 */
 h1, h2, h3, h4, h5, h6 {
-  font-family: "", var(--vp-font-family-serif), sans-serif !important;
+  font-family: "SourceHanSerifSC-Regular", var(--vp-font-family-serif), sans-serif !important;
 }
 
 h1 {
@@ -302,7 +302,7 @@ h3 {
 .VPDoc a,
 .vp-doc strong,
 .vp-doc b {
-  font-family: "", var(--vp-font-family-serif), sans-serif !important;
+  font-family: "SourceHanSerifSC-Regular", var(--vp-font-family-serif), sans-serif !important;
 }
 
 .vp-doc strong,
