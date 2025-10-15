@@ -325,7 +325,8 @@ h3 {
 
 .VPDoc a,
 .VPFooter a {
-  text-decoration: none !important; /* 移除 !important，通常默认是 none */
+  text-decoration: underline #41b349 !important;
+  text-underline-offset: 3px;
 }
 
 .VPDoc a:hover,
@@ -340,8 +341,6 @@ h3 {
 .VPDoc img {
   border-radius: 16px;
   cursor: zoom-in;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
 /* =============================================================================
