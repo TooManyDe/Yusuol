@@ -8,14 +8,14 @@ const hostname = "https://skywhisper.org";
 // 生成中文 RSS 文件
 export async function createRssFileZH(config: SiteConfig) {
   const feed = new Feed({
-    title: 'SYWR',
+    title: 'DDBX',
     description: 'Never Resting Day nor Night',
     id: hostname,
     link: hostname,
     language: "zh-Hans",
     image: "https://cdn.skywhisper.org/02.png",
     favicon: `https://cdn.skywhisper.org/01.ico`,
-    copyright: "Copyright© 2021-present SkyWhisper",
+    copyright: "Copyright© 2021-present DDBX",
   });
 
   const posts = await createContentLoader("posts/**/*.md", {
@@ -44,8 +44,8 @@ export async function createRssFileZH(config: SiteConfig) {
       content: html,
       author: [
         {
-          name: "SW",
-          link: "https://skywhisper.org/",
+          name: "DDBX",
+          link: "https://DDBX.org/",
         },
       ],
       date, // ✅ 使用 Date 类型
@@ -59,14 +59,14 @@ export async function createRssFileZH(config: SiteConfig) {
 // 生成英文 RSS 文件
 export async function createRssFileEN(config: SiteConfig) {
   const feed = new Feed({
-    title: "SYWR",
+    title: "DDBX",
     description: "Never Resting Day nor Night",
     id: hostname,
     link: hostname,
     language: "en-US",
     image: "https://cdn.skywhisper.org/02.png",
     favicon: `https://cdn.skywhisper.org/01.ico`,
-    copyright: "Copyright© 2021-present SkyWhisper",
+    copyright: "Copyright© 2021-present DDBX",
   });
 
   const posts = await createContentLoader("en/posts/**/*.md", {
@@ -93,8 +93,8 @@ export async function createRssFileEN(config: SiteConfig) {
       content: html,
       author: [
         {
-          name: "SYWR",
-          link: "https://skywhisper.org/",
+          name: "DDBX",
+          link: "https://ddbx.org/",
         },
       ],
       date,
