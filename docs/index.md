@@ -118,12 +118,12 @@ const onCurrentChange: PaginationProps["onCurrentChange"] = (
 
         .post-date {
                 position: absolute;
-                top: 15px;
+                top: 10px;
                 left: -10px;
                 z-index: -1;
                 opacity: .16;
                 font-family: "mvboli";
-                font-size: 60px;
+                font-size: 80px;
                 font-weight: 400;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
         }
