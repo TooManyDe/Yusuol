@@ -45,7 +45,7 @@ export async function createRssFileZH(config: SiteConfig) {
       author: [
         {
           name: "DDBX",
-          link: "https://DDBX.org/",
+          link: "https://ddbx.org/",
         },
       ],
       date, // ✅ 使用 Date 类型
