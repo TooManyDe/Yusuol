@@ -230,6 +230,7 @@ body, #app {
 .VPNavBarTitle .title {
   font-family: "mvboli", sans-serif; /* 添加 fallback */
   font-size: 22px !important;
+  color: #41b349 !important;
 }
 
 /* =============================================================================
@@ -324,11 +325,12 @@ h3 {
 .VPDoc a,
 .VPFooter a {
   text-decoration: none !important; /* 移除 !important，通常默认是 none */
+  color: #41b349 !important;
 }
 
 .VPDoc a:hover,
 .VPFooter a:hover {
-  text-decoration: underline !important; /* 保留 !important 以覆盖框架默认样式 */
+  text-decoration: underline #41b349 !important; /* 保留 !important 以覆盖框架默认样式 */
 }
 
 /* =============================================================================
