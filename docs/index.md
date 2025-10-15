@@ -118,7 +118,7 @@ const onCurrentChange: PaginationProps["onCurrentChange"] = (
 
         .post-date {
                 position: absolute;
-                top: 15px;
+                top: 10px;
                 left: -10px;
                 z-index: -1;
                 opacity: .16;
