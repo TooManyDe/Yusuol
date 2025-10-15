@@ -292,8 +292,7 @@ h2 {
   font-size: 20px !important;
   font-weight: 800 !important;
   padding-top: 10px!important;
-  margin-top: 0 !important; /* 减小与上文的间距 */
-  margin-bottom: 0 !important; /* 与下文保持一致 */
+  margin-top: 0 !important; 
   border-top: none !important;
 }
 
@@ -301,8 +300,6 @@ h3 {
   font-size: 20px !important;
   font-weight: 500 !important;
   padding-top: 10px!important;
-  margin-top: 0 !important; /* 减小与上文的间距 */
-  margin-bottom: 0 !important; /* 与下文保持一致 */
 }
 
 /* 文本样式 - 合并字体定义 */
