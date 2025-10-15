@@ -342,6 +342,14 @@ h3 {
   text-underline-offset: 3px;
 }
 
+/* 对所有文章正文段落首行缩进 */
+.markdown p {
+  text-indent: 2em; /* 缩进两个汉字宽度，你可以调大小 */
+  margin-top: 0.5em;   /* 可调段落间距 */
+  margin-bottom: 0.5em;
+  line-height: 1.6;    /* 可调行高 */
+}
+
 /* =============================================================================
    链接样式 (Link Styles)
    优化点：
