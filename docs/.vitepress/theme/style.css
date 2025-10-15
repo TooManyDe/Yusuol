@@ -316,6 +316,7 @@ h3 {
 .vp-doc strong,
 .vp-doc b {
   text-decoration: underline wavy #41b349 !important;
+  text-underline-offset: 3px;
 }
 
 /* =============================================================================
