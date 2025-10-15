@@ -1,7 +1,6 @@
 <template>
         <div class="comments" v-if="!frontmatter.isNoComment">
-        <span class="comment-toggle" @click="toggleComments" style="color: #41b349;  font-family: 'SourceHanSerifSC-Regular' text-decoration: underline wavy #41b349 !important;
-  text-underline-offset: 3px;">
+        <span class="comment-toggle" @click="toggleComments" style="color: #41b349;  font-family: 'SourceHanSerifSC-Regular'; text-decoration: underline wavy #41b349 !important; text-underline-offset: 3px;">
           {{ loadComments ? '评论/Comments' : '评论/Comments' }}
         </span>
 
