@@ -274,11 +274,8 @@ body, #app {
 /* 段落样式 */
 .vp-doc p {
   margin-top: 5px;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   text-indent: 2em; /* 缩进两个汉字宽度，你可以调大小 */
-  margin-top: 0.5em;   /* 可调段落间距 */
-  margin-bottom: 0.5em;
-  line-height: 1.6;    /* 可调行高 */
 }
 
 /* 标题样式 - 字体合并优化 */
