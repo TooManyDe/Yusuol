@@ -307,6 +307,11 @@ h3 {
   font-family: "ChillRoundF", var(--vp-font-family-serif), sans-serif !important;
 }
 
+.vp-doc a {
+  text-decoration: underline !important;
+  text-underline-offset: 3px;
+}
+
 .vp-doc strong,
 .vp-doc b {
   font-weight: 500 !important;
