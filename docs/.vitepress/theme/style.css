@@ -228,7 +228,7 @@ body, #app {
 
 /* Logo字体设置 */
 .VPNavBarTitle .title {
-  font-family: "mvboli", sans-serif; /* 添加 fallback */
+  font-family: "ChillRoundF", sans-serif; /* 添加 fallback */
   font-size: 22px !important;
 }
 
