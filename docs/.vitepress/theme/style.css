@@ -324,7 +324,6 @@ h3 {
 .VPDoc a,
 .VPFooter a {
   text-decoration: none !important; /* 移除 !important，通常默认是 none */
-  color: #41b349 !important;
 }
 
 .VPDoc a:hover,
