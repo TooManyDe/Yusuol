@@ -105,13 +105,12 @@ const onCurrentChange: PaginationProps["onCurrentChange"] = (
 }
 
 .post-title {
-        margin-bottom: 6px;
+        margin-bottom: 0px;
         margin-top: 60px;
         border-top: 0px;
         position: relative;
         top: 0;
         left: 0;
-        font-size: 24px !important;
 
         > a {
                 font-weight: 600; text-decoration: none !important;
@@ -119,19 +118,19 @@ const onCurrentChange: PaginationProps["onCurrentChange"] = (
 
         .post-date {
                 position: absolute;
-                top: 20px;
+                top: 15px;
                 left: -10px;
                 z-index: -1;
                 opacity: .16;
                 font-family: "mvboli";
-                font-size: 50px;
+                font-size: 40px;
                 font-weight: 400;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
         }
 
         @media (max-width: 425px) {
                 .post-date {
-                        font-size: 50px !important;
+                        font-size: 40px !important;
                 }
         }
 
