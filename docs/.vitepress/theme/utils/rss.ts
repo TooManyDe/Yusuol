@@ -3,7 +3,7 @@ import { writeFileSync } from "node:fs";
 import { Feed } from "feed";
 import { createContentLoader, type SiteConfig } from "vitepress";
 
-const hostname = "https://skywhisper.org";
+const hostname = "https://ddbx.org";
 
 // 生成中文 RSS 文件
 export async function createRssFileZH(config: SiteConfig) {
