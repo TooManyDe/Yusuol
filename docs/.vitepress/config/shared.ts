@@ -14,7 +14,7 @@ export default defineConfig({
   cleanUrls: true,
   ignoreDeadLinks: true,
   sitemap: {
-    hostname: 'https://skywhisper.org/'
+    hostname: 'https://ddbx.org/'
   },
   head: [
     ["script", { async: "", src: "https://www.googletagmanager.com/gtag/js?id=G-MB7XVBG1TQ" }],
@@ -31,7 +31,7 @@ export default defineConfig({
       "link",
       {
         rel: "icon",
-        href: "https://cdn.skywhisper.org/01.ico",
+        href: "https://cdn.ddbx.org/01.ico",
       },
     ],
   ],
