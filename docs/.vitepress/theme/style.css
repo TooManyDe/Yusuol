@@ -170,8 +170,8 @@ body, #app {
 
   --opacity-bg-overlay: 0.05 !important; /* 白天模式的透明度 */
   --color-cream-50: oklch(96.65% .01 90);
-  --bg-base-color: color-mix(in oklab, var(--color-cream-50) 50%, transparent) !important;
-  --vp-c-bg: var(--bg-base-color) !important; /* 应用混合背景色 */
+  --bg-base-color: var(--color-cream-50) !important; /* 明亮主题使用纯色，不透明 */
+  --vp-c-bg: var(--bg-base-color) !important; /* 应用纯色背景 */
 }
 
 /* 暗色主题 */
@@ -356,8 +356,8 @@ h3 {
 .VPDoc img {
   border-radius: 16px;
   cursor: zoom-in;
-  ​box-shadow​:​ ​0​ ​4​px​ ​12​px​ ​rgba​(​0​,​ ​0​,​ ​0​,​ ​0.04​);
-  transition​:​ box-shadow ​0.3​s​ ease​,​ transform ​0.3​s​ ease;
+  ​box-shadow​:​ ​0​ ​4​px​ ​12​px​ ​rgba​(​0​,​ ​0​,​ ​0​,​ ​0.04​);
+  transition​:​ box-shadow ​0.3​s​ ease​,​ transform ​0.3​s​ ease;
 }
 
 /* =============================================================================
