@@ -144,9 +144,9 @@ body, #app {
 
 .vp-doc hr {
   border: none;
-  height: 2px;
+  height: 1px;
   background: linear-gradient(90deg, transparent, #41b349, transparent);
-  margin: 2rem 0;
+  margin: 0.5rem 0;
 }
 
 :root {
