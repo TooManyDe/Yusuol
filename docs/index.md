@@ -114,7 +114,7 @@ const onCurrentChange: PaginationProps["onCurrentChange"] = (
 
         > a {
                 font-weight: 900 !important; 
-font-family: "SourceHanSerifSC-Regular" !important;
+font-family: "ChillRoundF" !important;
 text-decoration: none !important;
         }
 
