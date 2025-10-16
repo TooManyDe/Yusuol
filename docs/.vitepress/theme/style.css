@@ -173,7 +173,7 @@ body, #app {
 
   /* 步骤 2: 使用 color-mix() 定义混合背景色变量 */
   /* 这个变量会混合奶油色（50%）和透明色，实现半透明效果 */
-  --bg-base-color: color-mix(in oklab, var(--color-cream-50) 50%, transparent);
+  --bg-base-color: color-mix(in oklab, var(--color-cream-50) 50%, transparent) !important;
   --vp-c-bg: var(--bg-base-color) !important; /* 应用混合背景色 */
 }
 
@@ -184,11 +184,16 @@ body, #app {
   --vp-c-brand-2: var(--vp-c-green-dark) !important;
   --vp-c-brand-3: var(--vp-c-green-dark) !important;
   --vp-c-brand-soft: var(--vp-c-green-dark-soft) !important;
+  --color-dark-muted: oklch(18.92% .0075 261.45);
 
   --opacity-bg-overlay: 0.1 !important; /* 白天模式的透明度 */
+  --bg-base-color: var(--color-dark-muted) !important; /* 使用深色变量 */
+  --bg-base-lighter-color: #4f535f2e !important; /* 使用半透明深色 */
+  --vp-c-bg: var(--bg-base-color) !important;
+    
+  --vp-c-bg-soft: var(--bg-base-lighter-color) !important;
+  --vp-nav-bg-color: var(--bg-base-lighter-color) !important;
 
-  /* 保持与亮色相同的 TDesign 映射，除非暗色需要不同 */
-  /* --td-brand-color: var(--vp-c-brand-1); */ 
 }
 
 /* =============================================================================
