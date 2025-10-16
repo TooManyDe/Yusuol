@@ -205,6 +205,10 @@ body, #app {
     background-color: var(--vp-c-bg); /* 保留原始背景色变量 */
   }
 
+  .VPNav[data-v-e4ae072f] {
+    position: absolute;
+  }
+
   .VPNavBar .container {
     max-width: 70vw;
     width: 100%;
