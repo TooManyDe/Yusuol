@@ -20,8 +20,8 @@
 }
 
 @font-face {
-        font-family: "SourceHanSansSC-Heavy";
-        src: local("SourceHanSansSC-Heavy.otf"), url("/assets/fonts/SourceHanSansSC-Heavy.otf");
+        font-family: "SourceHanSerifSC-Heavy";
+        src: local("SourceHanSerifSC-Heavy.otf"), url("/assets/fonts/SourceHanSerifSC-Heavy.otf");
 }
 
 /** Logo字体 */
