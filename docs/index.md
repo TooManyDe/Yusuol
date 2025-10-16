@@ -113,9 +113,9 @@ const onCurrentChange: PaginationProps["onCurrentChange"] = (
         left: 0;
 
         > a {
-font-family: "GeistVF.woff2" !important;
+font-family: "SourceHanSansSC-Heavy.otf" !important;
 text-decoration: none !important;
-font-weight: 400 !important;
+font-weight: 500 !important;
         }
 
         .post-date {
