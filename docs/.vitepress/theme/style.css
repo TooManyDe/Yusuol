@@ -20,8 +20,8 @@
 }
 
 @font-face {
-        font-family: "GeistVF";
-        src: local("GeistVF.woff2"), url("/assets/fonts/GeistVF.woff2");
+        font-family: "SourceHanSansSC-Heavy";
+        src: local("SourceHanSansSC-Heavy.otf"), url("/assets/fonts/SourceHanSansSC-Heavy.otf");
 }
 
 /** Logo字体 */
