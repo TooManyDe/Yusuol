@@ -61,22 +61,41 @@ provide('toggle-appearance', async ({ clientX: x, clientY: y }: MouseEvent) => {
 </script>
 
 <template>
- <div class="layout-wrapper">
-    <!-- 噪点背景层 -->
-    <div 
-      class="pointer-events-none absolute inset-0 bg-[size:180px] bg-repeat opacity-[0.035] dark:opacity-[0.012] -z-10"
-      style="background-image: url(/noise.png)"
-    ></div>
-  <DefaultTheme.Layout>
-    <template #doc-top>
-      <ImageViewer />
-    </template>
-    <template #doc-after>
-      <Comment />
-    </template>
-  </DefaultTheme.Layout>
-    </div>
+  <div class="layout-wrapper">
+    <div class="noise-bg"></div>
+    
+    <DefaultTheme.Layout>
+      <template #doc-top>
+        <ImageViewer />
+      </template>
+      <template #doc-after>
+        <Comment />
+      </template>
+    </DefaultTheme.Layout>
+  </div>
 </template>
+
+<style scoped>
+.layout-wrapper {
+  position: relative;
+  min-height: 100vh;
+}
+
+.noise-bg {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  background-image: url(/noise.png);
+  background-size: 180px;
+  background-repeat: repeat;
+  opacity: 0.035;
+  z-index: -1;
+}
+
+html.dark .noise-bg {
+  opacity: 0.012;
+}
+</style>
 
 <style>
 ::view-transition-old(root),
