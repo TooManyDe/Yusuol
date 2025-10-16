@@ -20,8 +20,8 @@
 }
 
 @font-face {
-        font-family: "GeistMonoVF";
-        src: local("GeistMonoVF.woff2"), url("/assets/fonts/GeistMonoVF.woff2");
+        font-family: "GeistVF";
+        src: local("GeistVF.woff2"), url("/assets/fonts/GeistVF.woff2");
 }
 
 /** Logo字体 */
