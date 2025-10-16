@@ -13,8 +13,8 @@ export async function createRssFileZH(config: SiteConfig) {
     id: hostname,
     link: hostname,
     language: "zh-Hans",
-    image: "https://cdn.skywhisper.org/02.png",
-    favicon: `https://cdn.skywhisper.org/01.ico`,
+    image: "https://cdn.ddbx.org/02.png",
+    favicon: `https://cdn.ddbx.org/01.ico`,
     copyright: "Copyright© 2021-present DDBX",
   });
 
@@ -64,8 +64,8 @@ export async function createRssFileEN(config: SiteConfig) {
     id: hostname,
     link: hostname,
     language: "en-US",
-    image: "https://cdn.skywhisper.org/02.png",
-    favicon: `https://cdn.skywhisper.org/01.ico`,
+    image: "https://cdn.ddbx.org/02.png",
+    favicon: `https://cdn.ddbx.org/01.ico`,
     copyright: "Copyright© 2021-present DDBX",
   });
 
