@@ -284,7 +284,7 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
   font-size: 24px !important;
-  text-decoration: underline wavy #41b349 !important;
+  text-decoration: underline wavy #0751cf !important;
   text-underline-offset: 2px;
 }
 
@@ -310,7 +310,7 @@ h3 {
 .vp-doc a {
   text-decoration: underline !important;
   text-underline-offset: 3px;
-  color: #41b349;
+  color: #0751cf;
   transition: color 0.2s ease, text-decoration-thickness 0.2s ease;
 }
 
@@ -330,7 +330,7 @@ h3 {
 
 .vp-doc strong,
 .vp-doc b {
-  text-decoration: underline wavy #41b349 !important;
+  text-decoration: underline wavy #0751cf !important;
   text-underline-offset: 3px;
 }
 
