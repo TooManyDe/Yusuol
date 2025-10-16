@@ -175,8 +175,8 @@ body, #app {
   /* 这个变量会混合奶油色（50%）和透明色，实现半透明效果 */
   --bg-base-color: color-mix(in oklab, var(--color-cream-50) 50%, transparent) !important;
   --vp-c-bg: var(--bg-base-color) !important; /* 应用混合背景色 */
-  --vp-c-bg-soft: var(--color-cream-50) !important; /* 更浅的奶油色背景 */
-  --vp-nav-bg-color: var(--color-cream-50) !important; /* 导航栏使用浅奶油色背景 */
+  --vp-c-bg-soft: #f8f8f5 !important; /* 更浅的奶油色背景 */
+  --vp-nav-bg-color: #f8f8f5 !important; /* 导航栏使用浅奶油色背景 */
 }
 
 /* 暗色主题 */
