@@ -169,6 +169,11 @@ body, #app {
   --td-brand-color-active: var(--vp-c-brand-2) !important;
 
   --opacity-bg-overlay: 0.05 !important; /* 白天模式的透明度 */
+  --color-cream-50: oklch(96.65% .01 90);
+
+  /* 步骤 2: 使用 color-mix() 定义混合背景色变量 */
+  /* 这个变量会混合奶油色（50%）和透明色，实现半透明效果 */
+  --bg-base-color: color-mix(in oklab, var(--color-cream-50) 50%, transparent);
 }
 
 /* 暗色主题 */
