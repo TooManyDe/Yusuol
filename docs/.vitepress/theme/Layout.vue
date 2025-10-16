@@ -61,10 +61,12 @@ provide('toggle-appearance', async ({ clientX: x, clientY: y }: MouseEvent) => {
 </script>
 
 <template>
-  <div id="noise-overlay"
-       class="z-[-1] pointer-events-none absolute inset-0 bg-repeat bg-[size:180px] opacity-[var(--opacity-bg-overlay)]"
-       style="background-image: url('/noise.png');">
-  </div>
+ <div class="layout-wrapper">
+    <!-- 噪点背景层 -->
+    <div 
+      class="pointer-events-none absolute inset-0 bg-[size:180px] bg-repeat opacity-[0.035] dark:opacity-[0.012] -z-10"
+      style="background-image: url(/noise.png)"
+    ></div>
   <DefaultTheme.Layout>
     <template #doc-top>
       <ImageViewer />
@@ -73,6 +75,7 @@ provide('toggle-appearance', async ({ clientX: x, clientY: y }: MouseEvent) => {
       <Comment />
     </template>
   </DefaultTheme.Layout>
+    </div>
 </template>
 
 <style>
