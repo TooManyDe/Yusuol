@@ -59,7 +59,7 @@ body, #app {
   background-size: 30px 30px;
   background-position: 0 0;
   background-attachment: fixed;
-  background-color: var(--vp-c-bg);
+  background-color: var(--color-cream-50);
   border-bottom: none !important;
 }
 
