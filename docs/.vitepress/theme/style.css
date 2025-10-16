@@ -167,6 +167,8 @@ body, #app {
   --td-brand-color-light: var(--vp-c-brand-soft) !important;
   --td-brand-color-hover: var(--vp-c-brand-1) !important;
   --td-brand-color-active: var(--vp-c-brand-2) !important;
+
+  --opacity-bg-overlay: 0.05 !important; /* 白天模式的透明度 */
 }
 
 /* 暗色主题 */
@@ -176,6 +178,8 @@ body, #app {
   --vp-c-brand-2: var(--vp-c-green-dark) !important;
   --vp-c-brand-3: var(--vp-c-green-dark) !important;
   --vp-c-brand-soft: var(--vp-c-green-dark-soft) !important;
+
+  --opacity-bg-overlay: 0.1 !important; /* 白天模式的透明度 */
 
   /* 保持与亮色相同的 TDesign 映射，除非暗色需要不同 */
   /* --td-brand-color: var(--vp-c-brand-1); */ 

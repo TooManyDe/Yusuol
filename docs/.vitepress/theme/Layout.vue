@@ -63,7 +63,7 @@ provide('toggle-appearance', async ({ clientX: x, clientY: y }: MouseEvent) => {
 <template>
   <div id="noise-overlay"
        class="z-[-1] pointer-events-none absolute inset-0 bg-repeat bg-[size:180px] opacity-[var(--opacity-bg-overlay)]"
-       style="background-image: url('../public/noise.png');">
+       style="background-image: url('/noise.png');">
   </div>
   <DefaultTheme.Layout>
     <template #doc-top>
