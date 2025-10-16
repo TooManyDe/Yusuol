@@ -300,12 +300,9 @@ h3 {
   transition: color 0.2s ease, text-decoration-thickness 0.2s ease;
 }
 
-.vp-doc a:hover {
-  color: #12A182; 
-}
-
+.vp-doc a:hover,
 .vp-doc a:active {
-  color: #1A6840; 
+  color: #12A182; 
 }
 
 .vp-doc a::after {
