@@ -1,15 +1,7 @@
-/* =============================================================================
-   字体定义 (Font Definitions)
-   优化点：
-   1. 为 ChillRoundF 字体优先加载 woff2 格式，以获得最佳性能。
-   2. 规范化代码字体，建议使用更通用的名称。
-   3. 如果 GoogleSansCode[wght] 包含多个 weight，建议使用 font-weight 范围。
-   ============================================================================= */
-
 /** 代码字体 */
 @font-face {
-  font-family: "GoogleSansCode"; /* 移除 [wght]，更通用 */
-  font-display: swap; /* 优化字体加载性能，避免 FOUT/FOIT */
+  font-family: "GoogleSansCode";
+  font-display: swap; 
   src: url("/assets/fonts/GoogleSansCode[wght].ttf") format("truetype");
 }
 
@@ -17,7 +9,7 @@
 @font-face {
   font-family: "ChillRoundF";
   font-display: swap;
-  src: url("/assets/fonts/ChillRoundF.woff2") format("woff2"), /* woff2 优先 */
+  src: url("/assets/fonts/ChillRoundF.woff2") format("woff2"), 
        url("/assets/fonts/ChillRoundF.woff") format("woff"),
        url("/assets/fonts/ChillRoundF.ttf") format("truetype");
 }
@@ -33,14 +25,6 @@
   font-display: swap;
   src: url("/assets/fonts/mvboli.ttf");
 }
-
-/* =============================================================================
-   CSS变量定义 (CSS Variable Definitions)
-   优化点：
-   1. 简化主题色定义，避免重复赋值。
-   2. 暗色模式变量应集中到 .dark 选择器中。
-   3. 将字体家族变量中的 SourceHanSerifSC-Regular 提到最前面，避免重复。
-   ============================================================================= */
 
 
 body, #app {
