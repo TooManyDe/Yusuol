@@ -281,7 +281,7 @@ body, #app {
 h1, h2, h3, h4, h5, h6 {
   font-family: "SourceHanSerifSC-Regular", var(--vp-font-family-serif), sans-serif !important;
   color: #41b349 !important; 
-  font-weight: 700 !important;
+  font-weight: 900 !important;
 }
 
 h1 {
