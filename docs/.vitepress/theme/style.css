@@ -201,8 +201,8 @@ body, #app {
   --bg-base-lighter-color: #4f535f2e !important; /* 使用半透明深色 */
   --vp-c-bg: var(--bg-base-color) !important;
     
-  --vp-c-bg-soft: var(--bg-base-lighter-color) !important;
-  --vp-nav-bg-color: var(--bg-base-lighter-color) !important;
+  --vp-c-bg-soft: var(--bg-base-color) !important;
+  --vp-nav-bg-color: var(--bg-base-color) !important;
 
 }
 
