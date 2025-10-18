@@ -1,11 +1,7 @@
-/* =============================================================================
-   字体定义 (Font Definitions)
-   ============================================================================= */
-
 /** 代码字体 */
 @font-face {
   font-family: "GoogleSansCode";
-  font-display: swap;
+  font-display: swap; 
   src: url("/assets/fonts/GoogleSansCode[wght].ttf") format("truetype");
 }
 
@@ -13,12 +9,11 @@
 @font-face {
   font-family: "ChillRoundF";
   font-display: swap;
-  src: url("/assets/fonts/ChillRoundF.woff2") format("woff2"),
+  src: url("/assets/fonts/ChillRoundF.woff2") format("woff2"), 
        url("/assets/fonts/ChillRoundF.woff") format("woff"),
        url("/assets/fonts/ChillRoundF.ttf") format("truetype");
 }
 
-/** 中文正文字体 */
 @font-face {
   font-family: "SourceHanSerifSC-Regular";
   src: local("SourceHanSerifSC-Regular.otf"), url("/assets/fonts/SourceHanSerifSC-Regular.otf");
@@ -37,128 +32,114 @@
 }
 
 /* =============================================================================
-   通用网格背景 (Grid Background)
+   CSS 变量定义
    ============================================================================= */
-
 :root {
-  --grid-light: rgba(0, 0, 0, 0.06);
-  --grid-dark: rgba(255, 255, 255, 0.06);
-  --grid-size: 30px;
-}
-
-body,
-#app {
-  background:
-    linear-gradient(0deg, transparent 24%, var(--grid-light) 25%, var(--grid-light) 26%, transparent 27%, transparent 74%, var(--grid-light) 75%, var(--grid-light) 76%, transparent 77%, transparent),
-    linear-gradient(90deg, transparent 24%, var(--grid-light) 25%, var(--grid-light) 26%, transparent 27%, transparent 74%, var(--grid-light) 75%, var(--grid-light) 76%, transparent 77%, transparent);
-  background-size: var(--grid-size) var(--grid-size);
-  background-attachment: fixed;
-}
-
-.dark body,
-.dark #app {
-  background:
-    linear-gradient(0deg, transparent 24%, var(--grid-dark) 25%, var(--grid-dark) 26%, transparent 27%, transparent 74%, var(--grid-dark) 75%, var(--grid-dark) 76%, transparent 77%, transparent),
-    linear-gradient(90deg, transparent 24%, var(--grid-dark) 25%, var(--grid-dark) 26%, transparent 27%, transparent 74%, var(--grid-dark) 75%, var(--grid-dark) 76%, transparent 77%, transparent);
-  background-size: var(--grid-size) var(--grid-size);
-  background-attachment: fixed;
-}
-
-/* =============================================================================
-   导航栏与页脚统一背景 (NavBar & Footer)
-   ============================================================================= */
-
-.VPNavBar,
-.VPFooter {
-  background-color: var(--vp-c-bg);
-  background-attachment: fixed;
-  background-size: var(--grid-size) var(--grid-size);
-  background-position: 0 0;
-  border: none !important;
-}
-
-.VPNavBar {
-  background-image: inherit;
-}
-
-.VPFooter {
-  background-image: inherit;
-}
-
-.dark .VPNavBar,
-.dark .VPFooter {
-  background-image: inherit;
-}
-
-/* =============================================================================
-   侧边栏 (Sidebar)
-   ============================================================================= */
-
-.VPNavScreen {
-  background-color: var(--color-cream-50) !important;
-  background-image: inherit;
-  background-attachment: fixed;
-}
-
-.dark .VPNavScreen {
-  background-color: var(--color-dark-muted) !important;
-  background-image: inherit;
-}
-
-/* 移除侧边栏内多余线条 */
-.VPNavScreen .divider,
-.VPNavScreen .group,
-.VPNavScreenMenuLink,
-.VPNavScreen hr {
-  border: none !important;
-  display: none !important;
-}
-
-/* =============================================================================
-   全局变量与品牌色定义
-   ============================================================================= */
-
-:root {
+  /* 导航栏高度 */
   --vp-nav-height: 50px;
+  
+  /* 品牌色定义 */
   --vp-c-green: #41b349;
   --vp-c-green-soft: rgba(65, 179, 73, 0.14);
+  --vp-c-green-dark: #41b349;
+  --vp-c-green-dark-soft: rgba(65, 179, 73, 0.14);
 
-  /* 品牌主色调 */
-  --vp-c-brand-1: var(--vp-c-green);
-  --vp-c-brand-2: var(--vp-c-green);
-  --vp-c-brand-3: var(--vp-c-green);
-  --vp-c-brand-soft: var(--vp-c-green-soft);
+  /* 品牌色映射 (默认/亮色主题) */
+  --vp-c-brand-1: var(--vp-c-green) !important;
+  --vp-c-brand-2: var(--vp-c-green) !important;
+  --vp-c-brand-3: var(--vp-c-green) !important;
+  --vp-c-brand-soft: var(--vp-c-green-soft) !important;
 
-  /* 字体 */
-  --vp-font-family-serif: "SourceHanSerifSC-Regular";
-  --vp-font-family-base: var(--vp-font-family-serif), -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  /* 字体家族 */
+  --vp-font-family-serif: "";
+  --vp-font-family-base: var(--vp-font-family-serif), -apple-system, BlinkMacSystemFont,
+                         "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji",
+                         "Segoe UI Emoji", "Segoe UI Symbol";
+                         
+  /* 代码字体家族 */
   --vp-font-family-code: "GoogleSansCode", monospace;
 
-  /* 背景 */
-  --color-cream-50: oklch(96.65% .01 90);
-  --bg-base-color: color-mix(in oklab, var(--color-cream-50) 50%, transparent);
-  --vp-c-bg: var(--bg-base-color);
+  /* TDesign组件变量 */
+  --td-border-level-2-color: var(--vp-c-brand-soft) !important;
+  --td-brand-color: var(--vp-c-brand-1) !important;
+  --td-brand-color-light: var(--vp-c-brand-soft) !important;
+  --td-brand-color-hover: var(--vp-c-brand-1) !important;
+  --td-brand-color-active: var(--vp-c-brand-2) !important;
 
-  /* TDesign组件 */
-  --td-brand-color: var(--vp-c-brand-1);
-  --td-brand-color-hover: var(--vp-c-brand-2);
-  --td-brand-color-active: var(--vp-c-brand-3);
-  --td-brand-color-light: var(--vp-c-brand-soft);
+  /* 背景色定义 */
+  --opacity-bg-overlay: 0.015 !important;
+  --color-cream-50: oklch(96.65% .01 90);
+  --bg-base-color: color-mix(in oklab, var(--color-cream-50) 50%, transparent) !important;
+  --vp-c-bg: var(--bg-base-color) !important;
+  
+  /* 网格背景变量 - 亮色模式 */
+  --grid-bg-light: 
+    linear-gradient(0deg, transparent 24%, rgba(0, 0, 0, 0.06) 25%, rgba(0, 0, 0, 0.06) 26%, transparent 27%, transparent 74%, rgba(0, 0, 0, 0.06) 75%, rgba(0, 0, 0, 0.06) 76%, transparent 77%, transparent),
+    linear-gradient(90deg, transparent 24%, rgba(0, 0, 0, 0.06) 25%, rgba(0, 0, 0, 0.06) 26%, transparent 27%, transparent 74%, rgba(0, 0, 0, 0.06) 75%, rgba(0, 0, 0, 0.06) 76%, transparent 77%, transparent);
 }
 
+/* 暗色主题 */
 .dark {
-  --vp-c-brand-1: #41b349;
-  --vp-c-brand-2: #41b349;
-  --vp-c-brand-3: #41b349;
-  --vp-c-brand-soft: rgba(65, 179, 73, 0.14);
-
+  /* 品牌色映射 - 暗色模式 */
+  --vp-c-brand-1: var(--vp-c-green-dark) !important;
+  --vp-c-brand-2: var(--vp-c-green-dark) !important;
+  --vp-c-brand-3: var(--vp-c-green-dark) !important;
+  --vp-c-brand-soft: var(--vp-c-green-dark-soft) !important;
+  
+  /* 背景色定义 - 暗色模式 */
   --color-dark-muted: oklch(18.92% .0075 261.45);
-  --vp-c-bg: var(--color-dark-muted);
+  --opacity-bg-overlay: 0.015 !important;
+  --bg-base-color: var(--color-dark-muted) !important;
+  --bg-base-lighter-color: #4f535f2e !important;
+  --vp-c-bg: var(--bg-base-color) !important;
+  --vp-c-bg-soft: var(--bg-base-color) !important;
+  --vp-nav-bg-color: var(--bg-base-color) !important;
+  
+  /* 网格背景变量 - 暗色模式 */
+  --grid-bg-dark: 
+    linear-gradient(0deg, transparent 24%, rgba(255, 255, 255, 0.06) 25%, rgba(255, 255, 255, 0.06) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, 0.06) 75%, rgba(255, 255, 255, 0.06) 76%, transparent 77%, transparent),
+    linear-gradient(90deg, transparent 24%, rgba(255, 255, 255, 0.06) 25%, rgba(255, 255, 255, 0.06) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, 0.06) 75%, rgba(255, 255, 255, 0.06) 76%, transparent 77%, transparent);
 }
 
 /* =============================================================================
-   导航栏布局 (Navbar Layout)
+   网格背景样式
    ============================================================================= */
+body, 
+#app {
+  background-image: var(--grid-bg-light);
+  background-size: 30px 30px;
+  background-position: 0 0;
+  background-attachment: fixed;
+}
+
+.dark body, 
+.dark #app {
+  background-image: var(--grid-bg-dark);
+  background-size: 30px 30px;
+  background-position: 0 0;
+  background-attachment: fixed;
+}
+
+/* =============================================================================
+   导航栏样式
+   ============================================================================= */
+.VPNavBar {
+  background-image: var(--grid-bg-light);
+  background-size: 30px 30px;
+  background-position: 0 0;
+  background-attachment: fixed;
+  background-color: var(--vp-c-bg);
+  border-bottom: none !important;
+}
+
+.dark .VPNavBar {
+  background-image: var(--grid-bg-dark);
+  background-size: 30px 30px;
+  background-position: 0 0;
+  background-attachment: fixed;
+  background-color: var(--vp-c-bg);
+  border-bottom: none !important;
+}
 
 @media (min-width: 960px) {
   .VPNavBar {
@@ -167,23 +148,90 @@ body,
     background-color: var(--vp-c-bg);
   }
 
+  .VPNav[data-v-e4ae072f] {
+    position: absolute;
+  }
+
   .VPNavBar .container {
     max-width: 70vw;
+    width: 100%;
     margin: 0 auto;
-    padding: 0;
+    padding-left: 0;
+    padding-right: 0;
   }
 }
 
-/* Logo字体 */
+/* Logo字体设置 */
 .VPNavBarTitle .title {
   font-family: "ChillRoundF", sans-serif;
   font-size: 22px !important;
 }
 
 /* =============================================================================
-   文档内容样式 (Doc Styles)
+   侧边栏样式
    ============================================================================= */
+.VPNavScreen {
+  background-color: var(--color-cream-50) !important;
+  background-image: var(--grid-bg-light);
+  background-size: 30px 30px;
+  background-position: 0 0;
+  background-attachment: fixed;
+}
 
+.dark .VPNavScreen {
+  background-color: var(--color-dark-muted) !important;
+  background-image: var(--grid-bg-dark);
+  background-size: 30px 30px;
+  background-position: 0 0;
+  background-attachment: fixed;
+}
+
+/* 移除菜单项的分割线 */
+.VPNavScreen .divider,
+.VPNavScreen .group,
+.VPNavScreenMenuLink {
+  border-top: none !important;
+  border-bottom: none !important;
+  border-color: transparent !important;
+}
+
+.VPNavScreen hr {
+  display: none !important;
+}
+
+/* =============================================================================
+   页脚样式
+   ============================================================================= */
+.VPFooter {
+  background-image: var(--grid-bg-light);
+  background-size: 30px 30px;
+  background-position: 0 0;
+  background-attachment: fixed;
+  background-color: var(--vp-c-bg);
+  border-top: none !important;
+  padding: 20px;
+}
+
+.dark .VPFooter {
+  background-image: var(--grid-bg-dark);
+  background-size: 30px 30px;
+  background-position: 0 0;
+  background-attachment: fixed;
+  background-color: var(--vp-c-bg);
+  border-top: none !important;
+}
+
+.VPFooter a {
+  text-decoration: none !important;
+}
+
+.VPFooter a:hover {
+  text-decoration: underline #41b349 !important;
+}
+
+/* =============================================================================
+   文档内容样式
+   ============================================================================= */
 .VPDoc {
   padding-top: 20px !important;
 }
@@ -191,6 +239,7 @@ body,
 @media (max-width: 959px) {
   .VPDoc {
     padding: 24px !important;
+    width: 100%;
   }
 }
 
@@ -198,11 +247,35 @@ body,
   max-width: 61.8rem !important;
 }
 
-.vp-doc p {
-  margin: 5px 0;
+@media (min-width: 960px) {
+  .VPDoc:not(.has-sidebar) .content {
+    max-width: inherit !important;
+  }
+  
+  .VPDoc .content {
+    padding: 0 10px 20px;
+  }
 }
 
-/* 标题 */
+/* 文档页脚 */
+.VPDocFooter {
+  margin-top: 10px !important;
+}
+
+.VPcontent {
+  margin-bottom: 10px !important;
+}
+
+/* =============================================================================
+   文本样式
+   ============================================================================= */
+/* 段落样式 */
+.vp-doc p {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+/* 标题样式 */
 h1, h2, h3, h4, h5, h6 {
   font-family: "SourceHanSerifCN-Bold", var(--vp-font-family-serif), sans-serif !important;
 }
@@ -215,31 +288,45 @@ h1 {
 
 h2 {
   font-size: 20px !important;
+  margin: inherit !important;
+  border-top: none !important;
   text-decoration: none !important;
 }
 
-/* Markdown 链接 */
+h3 {
+  font-size: 20px !important;
+}
+
+/* 链接样式 */
 .vp-doc a {
-  color: #41b349;
-  text-decoration: underline;
+  font-family: "ChillRoundF", var(--vp-font-family-serif), sans-serif !important;
+  text-decoration: underline !important;
   text-underline-offset: 3px;
-  transition: color 0.2s ease;
+  color: #41b349;
+  transition: color 0.2s ease, text-decoration-thickness 0.2s ease;
 }
 
 .vp-doc a:hover,
-.vp-doc a:active {
-  color: #1a6840;
+.vp-doc a:active,
+.VPDoc a:hover {
+  color: #1A6840;
+  text-decoration: underline #41b349 !important;
 }
 
-/* 加粗文字 */
+.vp-doc a::after {
+  content: none !important;
+}
+
+/* 强调文本样式 */
 .vp-doc strong,
 .vp-doc b {
+  font-family: "ChillRoundF", var(--vp-font-family-serif), sans-serif !important;
   font-weight: 700 !important;
   text-decoration: underline wavy #41b349 !important;
   text-underline-offset: 3px;
 }
 
-/* 分割线样式 */
+/* 水平线样式 */
 .vp-doc hr {
   border: none;
   height: 1px;
@@ -247,7 +334,9 @@ h2 {
   margin: 0.5rem 0;
 }
 
-/* 图片优化 */
+/* =============================================================================
+   图片样式
+   ============================================================================= */
 .VPDoc img {
   border-radius: 16px;
   cursor: zoom-in;
@@ -256,38 +345,61 @@ h2 {
 }
 
 /* =============================================================================
-   其他优化 (Miscellaneous)
+   隐藏元素
    ============================================================================= */
-
-::selection {
-  background: var(--vp-c-brand-1);
-  color: var(--vp-c-bg);
-}
-
-* {
-  scrollbar-width: thin;
-}
-
-main > div > div > pre > code {
-  white-space: pre-wrap;
-  word-wrap: break-word;
-}
-
-#app {
-  -webkit-tap-highlight-color: transparent;
-}
-
-/* 隐藏多余组件 */
 .VPSidebar,
 .VPDocAside,
 .aside,
 .VPBackToTop,
+.divider-line,
 .divider,
 .VPLocalNav {
   display: none !important;
 }
 
-/* 主题切换按钮 */
+/* i18n选项不显示下拉图标 */
+.vpi-chevron-down,
+.text-icon {
+  display: none;
+}
+
+/* =============================================================================
+   主题切换按钮
+   ============================================================================= */
 .VPSwitchAppearance {
   width: 22px !important;
+}
+
+.VPSwitchAppearance .check {
+  transform: none !important;
+}
+
+/* =============================================================================
+   选择器样式
+   ============================================================================= */
+::selection,
+::-moz-selection {
+  background: var(--vp-c-brand-1);
+  color: var(--vp-c-bg);
+}
+
+/* =============================================================================
+   滚动条样式
+   ============================================================================= */
+* {
+  scrollbar-width: thin;
+}
+
+/* =============================================================================
+   其他优化
+   ============================================================================= */
+/* 代码块换行处理 */
+main > div > div > pre > code {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+/* 取消移动端点击默认高亮效果 */
+#app {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
