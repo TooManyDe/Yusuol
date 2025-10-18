@@ -1,7 +1,13 @@
+/* =============================================================================
+   🎨 字体定义 (Font Definitions)
+   优化: 优先使用 woff2, 移除不必要的 local()
+   ============================================================================= */
+
 /** 代码字体 */
 @font-face {
   font-family: "GoogleSansCode";
   font-display: swap; 
+  /* 假设 GoogleSansCode[wght].ttf 实际是 TTF 格式 */
   src: url("/assets/fonts/GoogleSansCode[wght].ttf") format("truetype");
 }
 
@@ -9,269 +15,209 @@
 @font-face {
   font-family: "ChillRoundF";
   font-display: swap;
+  /* 优先加载 woff2 */
   src: url("/assets/fonts/ChillRoundF.woff2") format("woff2"), 
        url("/assets/fonts/ChillRoundF.woff") format("woff"),
        url("/assets/fonts/ChillRoundF.ttf") format("truetype");
 }
 
+/** 正文字体 - SourceHanSerif (思源宋体) */
+/* 优化: local() 仅作为 fallback，url() 必须包含 format */
 @font-face {
-        font-family: "SourceHanSerifSC-Regular";
-        src: local("SourceHanSerifSC-Regular.otf"), url("/assets/fonts/SourceHanSerifSC-Regular.otf");
+  font-family: "SourceHanSerifSC";
+  font-weight: 400; /* Regular */
+  src: local("SourceHanSerifSC-Regular.otf"), 
+       url("/assets/fonts/SourceHanSerifSC-Regular.otf") format("opentype");
 }
 
 @font-face {
-        font-family: "SourceHanSerifCN-Bold";
-        src: local("SourceHanSerifCN-Bold.otf"), url("/assets/fonts/SourceHanSerifCN-Bold.otf");
+  font-family: "SourceHanSerifCN";
+  font-weight: 700; /* Bold */
+  src: local("SourceHanSerifCN-Bold.otf"), 
+       url("/assets/fonts/SourceHanSerifCN-Bold.otf") format("opentype");
 }
 
 /** Logo字体 */
 @font-face {
   font-family: "mvboli";
   font-display: swap;
-  src: url("/assets/fonts/mvboli.ttf");
+  src: url("/assets/fonts/mvboli.ttf") format("truetype");
 }
 
 
-body, #app {
-  background-image: 
-    linear-gradient(0deg, transparent 24%, rgba(0, 0, 0, 0.06) 25%, rgba(0, 0, 0, 0.06) 26%, transparent 27%, transparent 74%, rgba(0, 0, 0, 0.06) 75%, rgba(0, 0, 0, 0.06) 76%, transparent 77%, transparent),
-    linear-gradient(90deg, transparent 24%, rgba(0, 0, 0, 0.06) 25%, rgba(0, 0, 0, 0.06) 26%, transparent 27%, transparent 74%, rgba(0, 0, 0, 0.06) 75%, rgba(0, 0, 0, 0.06) 76%, transparent 77%, transparent);
-  background-size: 30px 30px;
-  background-position: 0 0;
-  background-attachment: fixed;
-}
+/* =============================================================================
+   📐 CSS 变量定义 (CSS Variable Definitions)
+   优化: 提取重复的网格背景样式
+   ============================================================================= */
 
-/* 暗色模式网格背景 */
-.dark body, .dark #app {
-  background-image: 
-    linear-gradient(0deg, transparent 24%, rgba(255, 255, 255, 0.06) 25%, rgba(255, 255, 255, 0.06) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, 0.06) 75%, rgba(255, 255, 255, 0.06) 76%, transparent 77%, transparent),
-    linear-gradient(90deg, transparent 24%, rgba(255, 255, 255, 0.06) 25%, rgba(255, 255, 255, 0.06) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, 0.06) 75%, rgba(255, 255, 255, 0.06) 76%, transparent 77%, transparent);
-  background-size: 30px 30px;
-  background-position: 0 0;
-  background-attachment: fixed;
-}
-
-/* 导航栏移除自定义背景，继承整体网格 */
-.VPNavBar {
-  background-image: 
-    linear-gradient(0deg, transparent 24%, rgba(0, 0, 0, 0.06) 25%, rgba(0, 0, 0, 0.06) 26%, transparent 27%, transparent 74%, rgba(0, 0, 0, 0.06) 75%, rgba(0, 0, 0, 0.06) 76%, transparent 77%, transparent),
-    linear-gradient(90deg, transparent 24%, rgba(0, 0, 0, 0.06) 25%, rgba(0, 0, 0, 0.06) 26%, transparent 27%, transparent 74%, rgba(0, 0, 0, 0.06) 75%, rgba(0, 0, 0, 0.06) 76%, transparent 77%, transparent);
-  background-size: 30px 30px;
-  background-position: 0 0;
-  background-attachment: fixed;
-  background-color: var(--vp-c-bg);
-  border-bottom: none !important;
-}
-
-/* 暗色模式导航栏 */
-.dark .VPNavBar {
-  background-image: 
-    linear-gradient(0deg, transparent 24%, rgba(255, 255, 255, 0.06) 25%, rgba(255, 255, 255, 0.06) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, 0.06) 75%, rgba(255, 255, 255, 0.06) 76%, transparent 77%, transparent),
-    linear-gradient(90deg, transparent 24%, rgba(255, 255, 255, 0.06) 25%, rgba(255, 255, 255, 0.06) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, 0.06) 75%, rgba(255, 255, 255, 0.06) 76%, transparent 77%, transparent);
-  background-size: 30px 30px;
-  background-position: 0 0;
-  background-attachment: fixed;
-  background-color: var(--vp-c-bg);
-  border-bottom: none !important;
-}
-
-/* 页脚添加网格背景 */
-.VPFooter {
-  background-image: 
-    linear-gradient(0deg, transparent 24%, rgba(0, 0, 0, 0.06) 25%, rgba(0, 0, 0, 0.06) 26%, transparent 27%, transparent 74%, rgba(0, 0, 0, 0.06) 75%, rgba(0, 0, 0, 0.06) 76%, transparent 77%, transparent),
-    linear-gradient(90deg, transparent 24%, rgba(0, 0, 0, 0.06) 25%, rgba(0, 0, 0, 0.06) 26%, transparent 27%, transparent 74%, rgba(0, 0, 0, 0.06) 75%, rgba(0, 0, 0, 0.06) 76%, transparent 77%, transparent);
-  background-size: 30px 30px;
-  background-position: 0 0;
-  background-attachment: fixed;
-  background-color: var(--vp-c-bg);
-  border-top: none !important;
-}
-
-/* 暗色模式页脚 */
-.dark .VPFooter {
-  background-image: 
-    linear-gradient(0deg, transparent 24%, rgba(255, 255, 255, 0.06) 25%, rgba(255, 255, 255, 0.06) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, 0.06) 75%, rgba(255, 255, 255, 0.06) 76%, transparent 77%, transparent),
-    linear-gradient(90deg, transparent 24%, rgba(255, 255, 255, 0.06) 25%, rgba(255, 255, 255, 0.06) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, 0.06) 75%, rgba(255, 255, 255, 0.06) 76%, transparent 77%, transparent);
-  background-size: 30px 30px;
-  background-position: 0 0;
-  background-attachment: fixed;
-  background-color: var(--vp-c-bg);
-  border-top: none !important;
-}
-
-/* 亮色模式侧边栏 */
-.VPNavScreen {
-  background-color: var(--color-cream-50) !important; /* 添加不透明底色 */
-  background-image:
-    linear-gradient(0deg, transparent 24%, rgba(0, 0, 0, 0.06) 25%, rgba(0, 0, 0, 0.06) 26%, transparent 27%, transparent 74%, rgba(0, 0, 0, 0.06) 75%, rgba(0, 0, 0, 0.06) 76%, transparent 77%, transparent),
-    linear-gradient(90deg, transparent 24%, rgba(0, 0, 0, 0.06) 25%, rgba(0, 0, 0, 0.06) 26%, transparent 27%, transparent 74%, rgba(0, 0, 0, 0.06) 75%, rgba(0, 0, 0, 0.06) 76%, transparent 77%, transparent);
-  background-size: 30px 30px;
-  background-position: 0 0;
-  background-attachment: fixed;
-}
-
-/* 暗色模式侧边栏 */
-.dark .VPNavScreen {
-  background-color: var(--color-dark-muted) !important; /* 深色底色，不透明 */
-  background-image:
-    linear-gradient(0deg, transparent 24%, rgba(255, 255, 255, 0.06) 25%, rgba(255, 255, 255, 0.06) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, 0.06) 75%, rgba(255, 255, 255, 0.06) 76%, transparent 77%, transparent),
-    linear-gradient(90deg, transparent 24%, rgba(255, 255, 255, 0.06) 25%, rgba(255, 255, 255, 0.06) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, 0.06) 75%, rgba(255, 255, 255, 0.06) 76%, transparent 77%, transparent);
-  background-size: 30px 30px;
-  background-position: 0 0;
-  background-attachment: fixed;
-}
-
-/* 移除菜单项的分割线 */
-.VPNavScreen .divider {
-  border-top: none !important;
-  border-bottom: none !important;
-  border-color: transparent !important;
-}
-
-/* 移除菜单项上下的边框 */
-.VPNavScreen .group {
-  border-top: none !important;
-  border-bottom: none !important;
-}
-
-/* 移除导航菜单项的所有分割线 */
-.VPNavScreenMenuLink {
-  border-bottom: none !important;
-}
-
-/* 通用移除所有 hr 标签 */
-.VPNavScreen hr {
-  display: none !important;
-}
-
-.vp-doc hr {
-  border: none;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, #41b349, transparent);
-  margin: 0.5rem 0;
-}
-
+/* 亮色模式网格背景变量 */
 :root {
-  /* 导航栏高度 */
+  /* 亮色网格背景图 */
+  --grid-bg-light: 
+    linear-gradient(0deg, transparent 24%, rgba(0, 0, 0, 0.06) 25%, rgba(0, 0, 0, 0.06) 26%, transparent 27%, transparent 74%, rgba(0, 0, 0, 0.06) 75%, rgba(0, 0, 0, 0.06) 76%, transparent 77%, transparent),
+    linear-gradient(90deg, transparent 24%, rgba(0, 0, 0, 0.06) 25%, rgba(0, 0, 0, 0.06) 26%, transparent 27%, transparent 74%, rgba(0, 0, 0, 0.06) 75%, rgba(0, 0, 0, 0.06) 76%, transparent 77%, transparent);
+  
+  /* 暗色网格背景图 */
+  --grid-bg-dark:
+    linear-gradient(0deg, transparent 24%, rgba(255, 255, 255, 0.06) 25%, rgba(255, 255, 255, 0.06) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, 0.06) 75%, rgba(255, 255, 255, 0.06) 76%, transparent 77%, transparent),
+    linear-gradient(90deg, transparent 24%, rgba(255, 255, 255, 0.06) 25%, rgba(255, 255, 255, 0.06) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, 0.06) 75%, rgba(255, 255, 255, 0.06) 76%, transparent 77%, transparent);
+
+  /* 通用网格背景属性 */
+  --grid-bg-size: 30px 30px;
+  --grid-bg-position: 0 0;
+  --grid-bg-attachment: fixed;
+
+  /* 其他根变量 */
   --vp-nav-height: 50px;
   --vp-c-green: #41b349;
   --vp-c-green-soft: rgba(65, 179, 73, 0.14);
   --vp-c-green-dark: #41b349;
   --vp-c-green-dark-soft: rgba(65, 179, 73, 0.14);
 
-  /* 品牌色映射 (默认/亮色主题) */
-  --vp-c-brand-1: var(--vp-c-green) !important;
-  --vp-c-brand-2: var(--vp-c-green) !important;
-  --vp-c-brand-3: var(--vp-c-green) !important;
-  --vp-c-brand-soft: var(--vp-c-green-soft) !important;
+  /* 品牌色映射 */
+  --vp-c-brand-1: var(--vp-c-green);
+  --vp-c-brand-2: var(--vp-c-green);
+  --vp-c-brand-3: var(--vp-c-green);
+  --vp-c-brand-soft: var(--vp-c-green-soft);
 
-  /* 字体家族 - 优化 fallback 顺序和变量名 */
-  --vp-font-family-serif: "";
+  /* 字体家族 - 优化 fallback 顺序 */
+  --vp-font-family-serif: "SourceHanSerifSC", serif;
   --vp-font-family-base: var(--vp-font-family-serif), -apple-system, BlinkMacSystemFont,
                          "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji",
                          "Segoe UI Emoji", "Segoe UI Symbol";
                          
   /* 代码字体家族 */
-  --vp-font-family-code: "GoogleSansCode", monospace; /* 使用更通用的名称并添加 fallback */
+  --vp-font-family-code: "GoogleSansCode", monospace;
 
   /* TDesign组件变量 */
-  --td-border-level-2-color: var(--vp-c-brand-soft) !important;
-  --td-brand-color: var(--vp-c-brand-1) !important;
-  --td-brand-color-light: var(--vp-c-brand-soft) !important;
-  --td-brand-color-hover: var(--vp-c-brand-1) !important;
-  --td-brand-color-active: var(--vp-c-brand-2) !important;
+  --td-border-level-2-color: var(--vp-c-brand-soft);
+  --td-brand-color: var(--vp-c-brand-1);
+  --td-brand-color-light: var(--vp-c-brand-soft);
+  --td-brand-color-hover: var(--vp-c-brand-1);
+  --td-brand-color-active: var(--vp-c-brand-2);
 
-  --opacity-bg-overlay: 0.015 !important; /* 白天模式的透明度 */
+  --opacity-bg-overlay: 0.015;
   --color-cream-50: oklch(96.65% .01 90);
-  --bg-base-color: color-mix(in oklab, var(--color-cream-50) 50%, transparent) !important;
-  --vp-c-bg: var(--bg-base-color) !important; /* 应用混合背景色 */
+  --bg-base-color: color-mix(in oklab, var(--color-cream-50) 50%, transparent);
+  --vp-c-bg: var(--bg-base-color);
 }
 
-/* 暗色主题 */
+/* 暗色主题变量 */
 .dark {
-  /* 品牌色映射 - 使用暗色变量 */
-  --vp-c-brand-1: var(--vp-c-green-dark) !important;
-  --vp-c-brand-2: var(--vp-c-green-dark) !important;
-  --vp-c-brand-3: var(--vp-c-green-dark) !important;
-  --vp-c-brand-soft: var(--vp-c-green-dark-soft) !important;
+  /* 品牌色映射 */
+  --vp-c-brand-1: var(--vp-c-green-dark);
+  --vp-c-brand-2: var(--vp-c-green-dark);
+  --vp-c-brand-3: var(--vp-c-green-dark);
+  --vp-c-brand-soft: var(--vp-c-green-dark-soft);
   --color-dark-muted: oklch(18.92% .0075 261.45);
 
-  --opacity-bg-overlay: 0.015 !important; /* 白天模式的透明度 */
-  --bg-base-color: var(--color-dark-muted) !important; /* 使用深色变量 */
-  --bg-base-lighter-color: #4f535f2e !important; /* 使用半透明深色 */
-  --vp-c-bg: var(--bg-base-color) !important;
-    
-  --vp-c-bg-soft: var(--bg-base-color) !important;
-  --vp-nav-bg-color: var(--bg-base-color) !important;
-
+  --bg-base-color: var(--color-dark-muted);
+  --vp-c-bg: var(--bg-base-color);
+  --vp-c-bg-soft: var(--bg-base-color);
+  --vp-nav-bg-color: var(--bg-base-color);
 }
 
 /* =============================================================================
-   导航栏样式 (Navigation Bar Styles)
-   优化点：
-   1. 移除不必要的或不确定的哈希选择器 [data-v-...]。
-   2. 避免使用 `position: absolute` 来定位导航，除非特殊需要，可能会影响布局。
+   🌐 全局网格背景应用 (Global Grid Background Application)
+   优化: 使用变量统一设置，减少重复代码
    ============================================================================= */
 
+/* 亮色模式：body 和 #app */
+body, #app {
+  background-image: var(--grid-bg-light);
+  background-size: var(--grid-bg-size);
+  background-position: var(--grid-bg-position);
+  background-attachment: var(--grid-bg-attachment);
+}
+
+/* 暗色模式：body 和 #app */
+.dark body, .dark #app {
+  background-image: var(--grid-bg-dark);
+  background-size: var(--grid-bg-size);
+  background-position: var(--grid-bg-position);
+  background-attachment: var(--grid-bg-attachment);
+}
+
+/* 亮色模式：导航栏、页脚、侧边栏 - 继承通用网格背景，并设置底层背景色 */
+.VPNavBar,
+.VPFooter,
+.VPNavScreen {
+  background-size: var(--grid-bg-size);
+  background-position: var(--grid-bg-position);
+  background-attachment: var(--grid-bg-attachment);
+  background-color: var(--vp-c-bg); /* 使用主题背景色变量 */
+}
+
+.VPNavBar, .VPFooter {
+  /* 亮色模式的网格背景 */
+  background-image: var(--grid-bg-light);
+  /* 统一移除不必要的边框 */
+  border-top: none;
+  border-bottom: none;
+}
+
+/* 亮色模式侧边栏的特殊背景色 */
+.VPNavScreen {
+  background-image: var(--grid-bg-light);
+  background-color: var(--color-cream-50) !important; 
+}
+
+
+/* 暗色模式：导航栏、页脚、侧边栏 */
+.dark .VPNavBar,
+.dark .VPFooter,
+.dark .VPNavScreen {
+  background-image: var(--grid-bg-dark);
+  background-size: var(--grid-bg-size);
+  background-position: var(--grid-bg-position);
+  background-attachment: var(--grid-bg-attachment);
+  background-color: var(--vp-c-bg);
+}
+
+.dark .VPNavScreen {
+  background-color: var(--color-dark-muted) !important;
+}
+
+/* =============================================================================
+   💻 结构和布局 (Structure and Layout)
+   ============================================================================= */
+
+/* 导航栏样式 */
 @media (min-width: 960px) {
   .VPNavBar {
     width: 100%;
     justify-content: center;
-    background-color: var(--vp-c-bg); /* 保留原始背景色变量 */
-  }
-
-  .VPNav[data-v-e4ae072f] {
-    position: absolute;
   }
 
   .VPNavBar .container {
     max-width: 70vw;
     width: 100%;
     margin: 0 auto;
-    /* 移除 VitePress 默认的 padding */
     padding-left: 0;
     padding-right: 0;
   }
-  
-  /* 移除不确定的哈希选择器，或使用更稳定的选择器 */
-  /* .VPNav {
-    position: absolute;
-  } */
 }
 
 /* Logo字体设置 */
 .VPNavBarTitle .title {
-  font-family: "ChillRoundF", sans-serif; /* 添加 fallback */
+  font-family: "ChillRoundF", sans-serif !important;
   font-size: 22px !important;
 }
-
-/* =============================================================================
-   文档内容样式 (Document Content Styles)
-   优化点：
-   1. 移除不必要的哈希选择器。
-   2. 合并重复的字体定义。
-   3. 优化 !important 的使用。
-   ============================================================================= */
 
 /* 文档布局 */
 .VPDoc {
   padding-top: 20px !important;
 }
 
-/* 移除不确定的哈希选择器，使用更通用的选择器 */
-/* .VPDoc {
-  padding: 24px !important;
-  width: 100%;
-} */
 @media (max-width: 959px) {
   .VPDoc {
-    padding: 24px !important; /* 保留原始的 mobile padding */
+    padding: 24px !important;
     width: 100%;
   }
 }
 
 .VPDoc.has-aside .content-container {
-  max-width: 61.8rem !important; /* 黄金比例宽度，保留 */
+  max-width: 61.8rem !important;
 }
 
 @media (min-width: 960px) {
@@ -279,10 +225,27 @@ body, #app {
     max-width: inherit !important;
   }
   
-  .VPDoc .content { /* 替换不确定的哈希选择器 */
+  .VPDoc .content {
     padding: 0 10px 20px;
   }
 }
+
+/* 页脚边距 */
+.VPDocFooter {
+  margin-top: 10px !important;
+}
+
+.VPcontent {
+  margin-bottom: 10px !important;
+}
+
+.VPFooter {
+  padding: 20px;
+}
+
+/* =============================================================================
+   📝 内容样式 (Content Styles)
+   ============================================================================= */
 
 /* 段落样式 */
 .vp-doc p {
@@ -292,12 +255,13 @@ body, #app {
 
 /* 标题样式 - 字体合并优化 */
 h1, h2, h3, h4, h5, h6 {
-  font-family: "SourceHanSerifCN-Bold", var(--vp-font-family-serif), sans-serif !important;
+  /* 使用 SourceHanSerifCN (Bold) 作为标题字体 */
+  font-family: "SourceHanSerifCN", var(--vp-font-family-serif), sans-serif !important;
 }
 
 h1 {
   font-size: 24px !important;
-  text-decoration: underline wavy #41b349 !important;
+  text-decoration: underline wavy var(--vp-c-green) !important;
   text-underline-offset: 2px;
 }
 
@@ -312,18 +276,18 @@ h3 {
   font-size: 20px !important;
 }
 
-/* 文本样式 - 合并字体定义 */
-.VPDoc a,
+/* 链接、粗体样式 - 字体合并优化 */
+.vp-doc a,
 .vp-doc strong,
 .vp-doc b {
   font-family: "ChillRoundF", var(--vp-font-family-serif), sans-serif !important;
 }
 
-/* 只作用于 Markdown 内容区域 */
+/* Markdown 内容区域链接 */
 .vp-doc a {
   text-decoration: underline !important;
   text-underline-offset: 3px;
-  color: #41b349;
+  color: var(--vp-c-green);
   transition: color 0.2s ease, text-decoration-thickness 0.2s ease;
 }
 
@@ -336,106 +300,90 @@ h3 {
   content: none !important;
 }
 
+/* 粗体样式 */
 .vp-doc strong,
 .vp-doc b {
   font-weight: 700 !important;
-}
-
-.vp-doc strong,
-.vp-doc b {
-  text-decoration: underline wavy #41b349 !important;
+  text-decoration: underline wavy var(--vp-c-green) !important;
   text-underline-offset: 3px;
 }
 
-/* =============================================================================
-   链接样式 (Link Styles)
-   优化点：
-   1. 保持一致性，使用通用的选择器。
-   ============================================================================= */
-
+/* 页脚链接样式 */
 .VPFooter a {
   text-decoration: none !important;
 }
 
 .VPDoc a:hover,
 .VPFooter a:hover {
-  text-decoration: underline #41b349 !important;
+  text-decoration: underline var(--vp-c-green) !important;
 }
 
-/* =============================================================================
-   图片样式 (Image Styles)
-   ============================================================================= */
-
+/* 图片样式 - 修正了非标准的字符 */
 .VPDoc img {
   border-radius: 16px;
   cursor: zoom-in;
-  ​box-shadow​:​ ​0​ ​4​px​ ​12​px​ ​rgba​(​0​,​ ​0​,​ ​0​,​ ​0.04​);
-  transition​:​ box-shadow ​0.3​s​ ease​,​ transform ​0.3​s​ ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+/* hr 标签样式 */
+.vp-doc hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--vp-c-green), transparent);
+  margin: 0.5rem 0;
+}
+
+/* 代码块换行处理 */
+main > div > div > pre > code {
+  white-space: pre-wrap;
+  word-wrap: break-word;
 }
 
 /* =============================================================================
-   隐藏元素 (Hidden Elements)
-   优化点：
-   1. 统一使用更简洁的逗号分隔。
+   🚫 隐藏/移除元素 (Hidden/Removed Elements)
+   优化: 合并选择器，移除侧边栏/导航菜单分割线
    ============================================================================= */
 
+/* 隐藏 VitePress 默认元素 */
 .VPSidebar,
 .VPDocAside,
 .aside,
 .VPBackToTop,
 .divider-line,
 .divider,
-.VPLocalNav {
+.VPLocalNav,
+/* 移除导航菜单中的所有分割线和边框 */
+.VPNavScreen .divider,
+.VPNavScreen .group,
+.VPNavScreenMenuLink,
+.VPNavScreen hr {
   display: none !important;
+  /* 覆盖所有可能的边框样式 */
+  border: none !important; 
+  border-top: none !important;
+  border-bottom: none !important;
+  border-color: transparent !important;
 }
 
 /* i18n选项不显示下拉图标 */
 .vpi-chevron-down,
 .text-icon {
-  display: none; /* 移除 !important，通常足以隐藏 */
+  display: none;
 }
 
 /* =============================================================================
-   页脚样式 (Footer Styles)
-   优化点：
-   1. 移除不必要的或不确定的哈希选择器。
-   2. 合并关于 margin 的定义。
+   ✨ 其他优化 (Miscellaneous)
    ============================================================================= */
 
-.VPDocFooter {
-  /* 合并边距设置 */
-  margin-top: 10px !important;
-}
-
-.VPcontent {
-  margin-bottom: 10px !important;
-}
-
-/* 移除不确定的哈希选择器 */
-/* .VPDocFooter {
-  margin-top: 0px;
-} */
-
-.VPFooter { /* 替换不确定的哈希选择器 */
-  padding: 20px;
-}
-
-/* =============================================================================
-   选择器样式 (Selection Styles)
-   ============================================================================= */
-
+/* 选择器样式 */
 ::selection,
 ::-moz-selection {
   background: var(--vp-c-brand-1);
   color: var(--vp-c-bg);
 }
 
-/* =============================================================================
-   主题切换按钮 (Theme Switch Button)
-   优化点：
-   1. 移除不必要的 !important。
-   ============================================================================= */
-
+/* 主题切换按钮 */
 .VPSwitchAppearance {
   width: 22px !important;
 }
@@ -446,19 +394,8 @@ h3 {
 
 /** 滚动条 */
 * {
-  /* 优化：使用 scrollbar-width: thin; 即可，scrollbar-color 兼容性较差 */
-  scrollbar-width: thin;
+  scrollbar-width: thin; /* Firefox 样式 */
   /* scrollbar-color: rgba(0, 0, 0, 0.12) transparent; */
-}
-
-/* =============================================================================
-   其他优化 (Other Optimizations)
-   ============================================================================= */
-
-/* Jupyter输出代码不换行显示 (原代码意图可能是换行/不换行？这里保持原意：white-space: normal;) */
-main > div > div > pre > code {
-  white-space: pre-wrap; /* 更合理的代码块换行处理 */
-  word-wrap: break-word;
 }
 
 /* 取消移动端点击默认高亮效果 */
