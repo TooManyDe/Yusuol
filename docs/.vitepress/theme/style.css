@@ -106,7 +106,6 @@
    ============================================================================= */
 body, 
 #app {
-  font-size: 18px;
   background-image: var(--grid-bg-light);
   background-size: 30px 30px;
   background-position: 0 0;
@@ -115,7 +114,6 @@ body,
 
 .dark body, 
 .dark #app {
-  font-size: 18px;
   background-image: var(--grid-bg-dark);
   background-size: 30px 30px;
   background-position: 0 0;
