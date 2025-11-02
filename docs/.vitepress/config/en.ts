@@ -68,7 +68,7 @@ const themeConfig: DefaultTheme.Config = {
   nav: navConfig,
   
   footer: {
-    message: '<a href=" ">CC BY-NC-ND 4.0</a > © 2025 <a href="https://ddbx.org">DDBX</a >',
+    message: '<a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.en">CC BY-NC-ND 4.0</a > © 2025 <a href="https://ddbx.org">DDBX</a >',
   },
   
   docFooter: {
