@@ -13,6 +13,7 @@ import './style.css'
 import Comment from './components/Comment.vue'
 import ImageViewer from './components/ImageViewer.vue'
 import CustomLayout from './Layout.vue' // 使用 CustomLayout 避免命名冲突
+import Magnifier from './Magnifier.vue'
 
 // --- 增强应用逻辑 (Enhance App) ---
 const enhanceApp: EnhanceApp = ({ app }) => {
@@ -32,6 +33,8 @@ export default {
   Layout: CustomLayout, 
 
   // 增强应用配置：注册全局组件等
-  enhanceApp,
+  enhanceApp({ app }) {
+    app.component('Magnifier', Magnifier)
+  }
 
 } as Theme
