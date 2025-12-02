@@ -59,7 +59,7 @@ const postGroups = computed(() => {
 }
 
 .post-title {
-	margin-bottom: 6px;
+	margin-bottom: 0px;
 	border-top: 0px;
 	position: relative;
 	top: 0;
@@ -67,7 +67,7 @@ const postGroups = computed(() => {
 
 	.post-year {
 		position: absolute;
-		top: 25px;
+		top: 15px;
 		left: -10px;
 
 		z-index: -1;
@@ -81,7 +81,7 @@ const postGroups = computed(() => {
 .post-container {
   display: flex;
   justify-content: space-between;
-  margin: 12px 0;
+  margin: 0 0;
 
     > a {
 		font-weight: 400;
