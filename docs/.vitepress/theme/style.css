@@ -130,6 +130,32 @@
   text-decoration: underline #41b349 !important;
 }
 
+/* ============================================================================
+   移除导航栏 ::before 伪元素的背景
+   ============================================================================ */
+.VPNavBar::before {
+  background: transparent !important;
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* ============================================================================
+   移除页脚 divider
+   ============================================================================ */
+.VPFooter::before,
+.VPFooter::after {
+  display: none !important;
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.VPFooter {
+  border-top: none !important;
+  box-shadow: none !important;
+}
+
 /* =============================================================================
    文档内容
    ============================================================================= */
