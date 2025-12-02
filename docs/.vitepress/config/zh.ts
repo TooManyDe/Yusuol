@@ -87,7 +87,7 @@ export default defineConfig({
   description: "不舍昼夜",
   lang: "zh-Hans",
   
-  titleTemplate: ':title - DDBX',
+  titleTemplate: ':title - ddbx',
   // 主题配置
   themeConfig,
   
