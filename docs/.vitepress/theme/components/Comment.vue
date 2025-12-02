@@ -3,7 +3,7 @@
     <span
       class="comment-toggle"
       @click="toggleComments"
-      style="color: #41b349; font-family: 'ChillRoundF'; text-decoration: underline wavy #41b349 !important; text-underline-offset: 3px;"
+      style="color: #41b349; font-family: 'SourceHanSerifCN-Bold';"
     >
       {{ loadComments ? commentText : commentText }}
     </span>
@@ -46,7 +46,7 @@ const lang = computed(() =>
 
 // 根据语言动态显示按钮文本
 const commentText = computed(() =>
-  lang.value === "en" ? "Comments" : "评论"
+  lang.value === "en" ? "Comment" : "评论"
 );
 
 const loadComments = ref(false);
