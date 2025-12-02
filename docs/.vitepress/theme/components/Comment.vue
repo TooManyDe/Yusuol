@@ -87,7 +87,7 @@ watch(
   display: inline-block;
   margin-bottom: 0px;
   cursor: pointer;
-  font-size: 18px;
+  font-size: 20px;
   text-decoration: none;
   user-select: none;
 
