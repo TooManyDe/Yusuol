@@ -122,6 +122,10 @@
   text-decoration: none !important;
 }
 
+.VPFooter {
+  padding: 20px !important;
+}
+
 .VPFooter a:hover {
   text-decoration: underline #41b349 !important;
 }
