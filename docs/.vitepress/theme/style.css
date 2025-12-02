@@ -66,18 +66,6 @@
   --td-brand-color-hover: var(--vp-c-brand-1) !important;
   --td-brand-color-active: var(--vp-c-brand-2) !important;
 
-  /* 背景色定义 */
-  --opacity-bg-overlay: 0.015 !important;
-  --color-cream-50: oklch(96.65% .01 90);
-  --bg-base-color: color-mix(in oklab, var(--color-cream-50) 50%, transparent) !important;
-  --vp-c-bg: var(--bg-base-color) !important;
-  
-  /* 网格背景变量 - 亮色模式 */
-  --grid-bg-light: 
-    linear-gradient(0deg, transparent 24%, rgba(0, 0, 0, 0.06) 25%, rgba(0, 0, 0, 0.06) 26%, transparent 27%, transparent 74%, rgba(0, 0, 0, 0.06) 75%, rgba(0, 0, 0, 0.06) 76%, transparent 77%, transparent),
-    linear-gradient(90deg, transparent 24%, rgba(0, 0, 0, 0.06) 25%, rgba(0, 0, 0, 0.06) 26%, transparent 27%, transparent 74%, rgba(0, 0, 0, 0.06) 75%, rgba(0, 0, 0, 0.06) 76%, transparent 77%, transparent);
-}
-
 /* 暗色主题 */
 .dark {
   /* 品牌色映射 - 暗色模式 */
@@ -86,60 +74,6 @@
   --vp-c-brand-3: var(--vp-c-green-dark) !important;
   --vp-c-brand-soft: var(--vp-c-green-dark-soft) !important;
   
-  /* 背景色定义 - 暗色模式 */
-  --color-dark-muted: oklch(18.92% .0075 261.45);
-  --opacity-bg-overlay: 0.015 !important;
-  --bg-base-color: var(--color-dark-muted) !important;
-  --bg-base-lighter-color: #4f535f2e !important;
-  --vp-c-bg: var(--bg-base-color) !important;
-  --vp-c-bg-soft: var(--bg-base-color) !important;
-  --vp-nav-bg-color: var(--bg-base-color) !important;
-  
-  /* 网格背景变量 - 暗色模式 */
-  --grid-bg-dark: 
-    linear-gradient(0deg, transparent 24%, rgba(255, 255, 255, 0.06) 25%, rgba(255, 255, 255, 0.06) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, 0.06) 75%, rgba(255, 255, 255, 0.06) 76%, transparent 77%, transparent),
-    linear-gradient(90deg, transparent 24%, rgba(255, 255, 255, 0.06) 25%, rgba(255, 255, 255, 0.06) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, 0.06) 75%, rgba(255, 255, 255, 0.06) 76%, transparent 77%, transparent);
-}
-
-/* =============================================================================
-   网格背景样式
-   ============================================================================= */
-body, 
-#app {
-  background-image: var(--grid-bg-light);
-  background-size: 30px 30px;
-  background-position: 0 0;
-  background-attachment: fixed;
-}
-
-.dark body, 
-.dark #app {
-  background-image: var(--grid-bg-dark);
-  background-size: 30px 30px;
-  background-position: 0 0;
-  background-attachment: fixed;
-}
-
-/* =============================================================================
-   导航栏样式
-   ============================================================================= */
-.VPNavBar {
-  background-image: var(--grid-bg-light);
-  background-size: 30px 30px;
-  background-position: 0 0;
-  background-attachment: fixed;
-  background-color: var(--vp-c-bg);
-  border-bottom: none !important;
-}
-
-.dark .VPNavBar {
-  background-image: var(--grid-bg-dark);
-  background-size: 30px 30px;
-  background-position: 0 0;
-  background-attachment: fixed;
-  background-color: var(--vp-c-bg);
-  border-bottom: none !important;
-}
 
 @media (min-width: 960px) {
   .VPNavBar {
@@ -165,26 +99,6 @@ body,
 .VPNavBarTitle .title {
   font-family: "ChillRoundF", sans-serif;
   font-size: 22px !important;
-}
-
-/* =============================================================================
-   侧边栏样式
-   ============================================================================= */
-.VPNavScreen {
-  background-color: var(--color-cream-50) !important;
-  background-image: var(--grid-bg-light);
-  background-size: 30px 30px;
-  background-position: 0 0;
-  background-attachment: fixed;
-}
-
-.dark .VPNavScreen {
-  background-color: var(--color-dark-muted) !important;
-  background-image: var(--grid-bg-dark);
-  background-size: 30px 30px;
-  background-position: 0 0;
-  background-attachment: fixed;
-}
 
 /* 移除菜单项的分割线 */
 .VPNavScreen .divider,
@@ -197,28 +111,6 @@ body,
 
 .VPNavScreen hr {
   display: none !important;
-}
-
-/* =============================================================================
-   页脚样式
-   ============================================================================= */
-.VPFooter {
-  background-image: var(--grid-bg-light);
-  background-size: 30px 30px;
-  background-position: 0 0;
-  background-attachment: fixed;
-  background-color: var(--vp-c-bg);
-  border-top: none !important;
-  padding: 20px;
-}
-
-.dark .VPFooter {
-  background-image: var(--grid-bg-dark);
-  background-size: 30px 30px;
-  background-position: 0 0;
-  background-attachment: fixed;
-  background-color: var(--vp-c-bg);
-  border-top: none !important;
 }
 
 .VPFooter a {
