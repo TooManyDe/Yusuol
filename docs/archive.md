@@ -80,7 +80,7 @@ const postGroups = computed(() => {
 .post-container {
   display: flex;
   justify-content: space-between;
-  margin: 0 0;
+  margin: 5px 0;
 
   > a {
 		font-weight: 400;
