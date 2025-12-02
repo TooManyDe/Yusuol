@@ -59,7 +59,7 @@ const postGroups = computed(() => {
 }
 
 .post-title {
-	margin-bottom: 4px;
+	margin-bottom: 0;
 	border-top: 0px;
 	position: relative;
 	top: 0;
@@ -80,7 +80,7 @@ const postGroups = computed(() => {
 .post-container {
   display: flex;
   justify-content: space-between;
-  margin: 8px 0;
+  margin: 0 0;
 
   > a {
 		font-weight: 400;
