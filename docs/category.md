@@ -54,7 +54,7 @@ const sortedCategoryGroups = computed(() => {
 
 <style lang="scss" scoped>
 .post-title {
-  margin-bottom: 6px;
+  margin-bottom: 0;
   border-top: 0px;
   position: relative;
   font-family: "ChillRoundF";
@@ -74,7 +74,7 @@ const sortedCategoryGroups = computed(() => {
 .post-container {
   display: flex;
   justify-content: space-between;
-  margin: 12px 0;
+  margin: 5px 0;
 
   > a {
     font-weight: 400;
