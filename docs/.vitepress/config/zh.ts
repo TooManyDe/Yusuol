@@ -68,7 +68,7 @@ const themeConfig: DefaultTheme.Config = {
   nav: navConfig,
   
   footer: {
-    message: '<a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.en">CC BY-NC-ND 4.0</a > © 2025 <a href="https://ddbx.org">的的不休</a >',
+    message: '© 2025 <a href="https://ddbx.org">的的不休</a >',
   },
   
   outlineTitle: "当前页面",
@@ -87,7 +87,7 @@ export default defineConfig({
   description: "不舍昼夜",
   lang: "zh-Hans",
   
-  titleTemplate: ':title - ddbx',
+  titleTemplate: ':title - DDBX',
   // 主题配置
   themeConfig,
   
