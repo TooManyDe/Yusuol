@@ -37,7 +37,7 @@
 :root {
   /* 导航栏高度 */
   --vp-nav-height: 50px;
-  
+
   /* 品牌色定义 */
   --vp-c-green: #41b349;
   --vp-c-green-soft: rgba(65, 179, 73, 0.14);
@@ -55,7 +55,7 @@
   --vp-font-family-base: var(--vp-font-family-serif), -apple-system, BlinkMacSystemFont,
                          "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji",
                          "Segoe UI Emoji", "Segoe UI Symbol";
-                         
+
   /* 代码字体家族 */
   --vp-font-family-code: "GoogleSansCode", monospace;
 
@@ -65,16 +65,19 @@
   --td-brand-color-light: var(--vp-c-brand-soft) !important;
   --td-brand-color-hover: var(--vp-c-brand-1) !important;
   --td-brand-color-active: var(--vp-c-brand-2) !important;
+}
 
 /* 暗色主题 */
 .dark {
-  /* 品牌色映射 - 暗色模式 */
   --vp-c-brand-1: var(--vp-c-green-dark) !important;
   --vp-c-brand-2: var(--vp-c-green-dark) !important;
   --vp-c-brand-3: var(--vp-c-green-dark) !important;
   --vp-c-brand-soft: var(--vp-c-green-dark-soft) !important;
-  
+}
 
+/* =============================================================================
+   Nav
+   ============================================================================= */
 @media (min-width: 960px) {
   .VPNavBar {
     width: 100%;
@@ -99,6 +102,7 @@
 .VPNavBarTitle .title {
   font-family: "ChillRoundF", sans-serif;
   font-size: 22px !important;
+}
 
 /* 移除菜单项的分割线 */
 .VPNavScreen .divider,
@@ -113,6 +117,7 @@
   display: none !important;
 }
 
+/* Footer */
 .VPFooter a {
   text-decoration: none !important;
 }
@@ -122,7 +127,7 @@
 }
 
 /* =============================================================================
-   文档内容样式
+   文档内容
    ============================================================================= */
 .VPDoc {
   padding-top: 20px !important;
@@ -143,13 +148,12 @@
   .VPDoc:not(.has-sidebar) .content {
     max-width: inherit !important;
   }
-  
+
   .VPDoc .content {
     padding: 0 10px 20px;
   }
 }
 
-/* 文档页脚 */
 .VPDocFooter {
   margin-top: 10px !important;
 }
@@ -161,13 +165,12 @@
 /* =============================================================================
    文本样式
    ============================================================================= */
-/* 段落样式 */
 .vp-doc p {
   margin-top: 5px;
   margin-bottom: 5px;
 }
 
-/* 标题样式 */
+/* 标题字体 */
 h1, h2, h3, h4, h5, h6 {
   font-family: "SourceHanSerifCN-Bold", var(--vp-font-family-serif), sans-serif !important;
 }
@@ -207,7 +210,7 @@ h3 {
   content: none !important;
 }
 
-/* 强调文本样式 */
+/* 强调文本 */
 .vp-doc strong,
 .vp-doc b {
   font-family: "ChillRoundF", var(--vp-font-family-serif), sans-serif !important;
@@ -216,7 +219,7 @@ h3 {
   text-underline-offset: 3px;
 }
 
-/* 水平线样式 */
+/* 分割线 */
 .vp-doc hr {
   border: none;
   height: 1px;
@@ -224,9 +227,7 @@ h3 {
   margin: 0.5rem 0;
 }
 
-/* =============================================================================
-   图片样式
-   ============================================================================= */
+/* 图片 */
 .VPDoc img {
   border-radius: 16px;
   cursor: zoom-in;
@@ -247,14 +248,13 @@ h3 {
   display: none !important;
 }
 
-/* i18n选项不显示下拉图标 */
 .vpi-chevron-down,
 .text-icon {
   display: none;
 }
 
 /* =============================================================================
-   主题切换按钮
+   主题按钮
    ============================================================================= */
 .VPSwitchAppearance {
   width: 22px !important;
@@ -264,32 +264,25 @@ h3 {
   transform: none !important;
 }
 
-/* =============================================================================
-   选择器样式
-   ============================================================================= */
+/* 选择文本颜色 */
 ::selection,
 ::-moz-selection {
   background: var(--vp-c-brand-1);
   color: var(--vp-c-bg);
 }
 
-/* =============================================================================
-   滚动条样式
-   ============================================================================= */
+/* 滚动条 */
 * {
   scrollbar-width: thin;
 }
 
-/* =============================================================================
-   其他优化
-   ============================================================================= */
-/* 代码块换行处理 */
+/* 代码块换行 */
 main > div > div > pre > code {
   white-space: pre-wrap;
   word-wrap: break-word;
 }
 
-/* 取消移动端点击默认高亮效果 */
+/* 移动端点击高亮去除 */
 #app {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
