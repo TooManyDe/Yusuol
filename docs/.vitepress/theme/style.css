@@ -131,16 +131,6 @@
 }
 
 /* ============================================================================
-   移除导航栏 ::before 伪元素的背景
-   ============================================================================ */
-.VPNavBar::before {
-  background: transparent !important;
-  background-color: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
-}
-
-/* ============================================================================
    移除页脚 divider
    ============================================================================ */
 .VPFooter::before,
@@ -165,7 +155,7 @@
 
 @media (max-width: 959px) {
   .VPDoc {
-    padding: 24px !important;
+    padding: 20px !important;
     width: 100%;
   }
 }
