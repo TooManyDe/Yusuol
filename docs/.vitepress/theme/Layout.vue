@@ -80,21 +80,6 @@ provide('toggle-appearance', async ({ clientX: x, clientY: y }: MouseEvent) => {
   position: relative;
   min-height: 100vh;
 }
-
-.noise-bg {
-  pointer-events: none;
-  position: absolute;
-  inset: 0;
-  background-image: url(/noise.png);
-  background-size: 180px;
-  background-repeat: repeat;
-  opacity: 0.035;
-  z-index: -1;
-}
-
-html.dark .noise-bg {
-  opacity: 0.012;
-}
 </style>
 
 <style>
