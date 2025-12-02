@@ -219,13 +219,6 @@ h3 {
   transition: color 0.2s ease, text-decoration-thickness 0.2s ease;
 }
 
-.vp-doc a:hover,
-.vp-doc a:active,
-.VPDoc a:hover {
-  color: #1A6840;
-  text-decoration: underline #41b349 !important;
-}
-
 .vp-doc a::after {
   content: none !important;
 }
