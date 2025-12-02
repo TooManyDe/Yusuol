@@ -62,8 +62,6 @@ provide('toggle-appearance', async ({ clientX: x, clientY: y }: MouseEvent) => {
 
 <template>
   <div class="layout-wrapper">
-    <div class="noise-bg"></div>
-    
     <DefaultTheme.Layout>
       <template #doc-top>
         <ImageViewer />
