@@ -219,13 +219,6 @@ h3 {
   text-underline-offset: 3px;
 }
 
-/* 分割线 */
-.vp-doc hr {
-  border: none;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, #41b349, transparent);
-  margin: 0.5rem 0;
-}
 
 /* 图片 */
 .VPDoc img {
