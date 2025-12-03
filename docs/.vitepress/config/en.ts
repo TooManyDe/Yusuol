@@ -68,7 +68,7 @@ const themeConfig: DefaultTheme.Config = {
   nav: navConfig,
   
   footer: {
-    message: '2025 © <a href="https://ddbx.org/en">DDBX</a >',
+    message: '© 2025 <a href="https://ddbx.org/en">DDBX</a >',
   },
   
   docFooter: {
