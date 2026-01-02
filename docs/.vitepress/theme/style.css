@@ -215,7 +215,6 @@ h3 {
   font-family: "ChillRoundF", var(--vp-font-family-serif), sans-serif !important;
   text-decoration: none !important;
   color: #41b349;
-  transition: color 0.2s ease;
 }
 
 .vp-doc a:hover {
