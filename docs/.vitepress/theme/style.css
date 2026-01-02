@@ -218,6 +218,7 @@ h3 {
 }
 
 .vp-doc a:hover {
+  text-decoration: underline !important;
   color: #2e8637; 
 }
 
