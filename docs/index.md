@@ -20,12 +20,9 @@ isNoBackBtn: true
     
     <div class="post-meta">
       <span class="post-date">{{ post.date.string }}</span>
-      <span class="meta-separator">/</span>
-      <span class="post-category">文章</span> </div>
+    </div>
 
     <div v-if="post.excerpt" class="post-excerpt" v-html="post.excerpt"></div>
-    
-    <a :href="post.url" class="read-more">READ MORE...</a>
   </div>
 </template>
 
@@ -87,27 +84,22 @@ const onCurrentChange: PaginationProps["onCurrentChange"] = (index) => {
 
 <style lang="scss" scoped>
 .post-item {
-  margin-bottom: 48px;
-  padding-bottom: 24px;
-  border-bottom: 1px solid var(--vp-c-divider-light);
-  
-  &:last-child {
-    border-bottom: none;
-  }
+  margin-bottom: 40px;
+  padding-bottom: 10px;
 }
 
 .post-title {
   margin-top: 0 !important;
   margin-bottom: 8px !important;
   border: none;
-  font-size: 24px;
+  font-size: 26px;
   font-weight: 500;
 
   > a {
     color: var(--vp-c-text-1);
     text-decoration: none !important;
-    font-family: "Source Serif Pro", "Source Han Serif SC", serif !important;
-    transition: color 0.2s;
+    /* 使用宋体营造图片中的人文感 */
+    font-family: "Source Serif Pro", "Source Han Serif SC", "PT Serif", serif !important;
     
     &:hover {
       color: var(--vp-c-brand);
@@ -115,51 +107,36 @@ const onCurrentChange: PaginationProps["onCurrentChange"] = (index) => {
   }
 }
 
-/* 参考图片：元数据样式（日期/分类） */
 .post-meta {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-family: "Inter", sans-serif;
-  font-size: 14px;
-  color: #999; // 较浅的灰色
   margin-bottom: 16px;
-
-  .meta-separator {
-    color: #eee;
-    font-weight: 200;
-  }
   
-  .post-category {
-    color: var(--vp-c-brand); // 分类显示为主题色，参考图片中的绿色
-    opacity: 0.8;
+  .post-date {
+    font-size: 14px;
+    color: var(--vp-c-text-3); /* 浅灰色 */
+    font-family: "Inter", sans-serif;
+    letter-spacing: 0.5px;
   }
 }
 
 .post-excerpt {
   color: var(--vp-c-text-2);
-  line-height: 1.7;
-  font-size: 15px;
-  margin-bottom: 12px;
-}
-
-.read-more {
-  display: inline-block;
-  font-size: 12px;
-  letter-spacing: 1px;
-  color: var(--vp-c-brand);
-  text-decoration: none;
-  font-weight: bold;
-  
-  &:hover {
-    text-decoration: underline;
+  line-height: 1.8;
+  font-size: 15.5px;
+  /* 调整段落间距 */
+  :deep(p) {
+    margin: 12px 0;
   }
 }
 
 .pagination-container {
-  margin-top: 40px;
+  margin-top: 50px;
   display: flex;
   justify-content: center;
-  :deep(li) { margin-top: 0px; }
+  border-top: 1px solid var(--vp-c-divider-light);
+  padding-top: 20px;
+
+  :deep(li) {
+    margin-top: 0px;
+  }
 }
 </style>
