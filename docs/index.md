@@ -8,22 +8,16 @@ isNoBackBtn: true
 ---
 
 <template v-for="post in curPosts" :key="post.url">
-  <div class="post-item">
-    <h2 :id="post.title" class="post-title">
-      <a :href="post.url">{{ post.title }}</a>
-      <a
-        class="header-anchor"
-        :href="`#${post.title}`"
-        :aria-label="`Permalink to &quot;${post.title}&quot;`"
-      ></a>
-    </h2>
-    
-    <div class="post-meta">
-      <span class="post-date">{{ post.date.string }}</span>
-    </div>
-
-    <div v-if="post.excerpt" class="post-excerpt" v-html="post.excerpt"></div>
-  </div>
+  <h2 :id="post.title" class="post-title">
+    <a :href="post.url">{{ post.title }}</a>
+    <span class="post-date-inline">{{ post.date.string }}</span>
+    <a
+      class="header-anchor"
+      :href="`#${post.title}`"
+      :aria-label="`Permalink to &quot;${post.title}&quot;`"
+    ></a>
+  </h2>
+  <div v-if="post.excerpt" v-html="post.excerpt"></div>
 </template>
 
 <div class="pagination-container">
