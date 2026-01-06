@@ -39,9 +39,11 @@ isNoBackBtn: true
 <script lang="ts" setup>
 import { ref, computed } from "vue";
 import { useRoute, useRouter } from "vitepress";
+// 非 Vue 组件需要手动引入
 import {
-  PaginationProps,
-  Pagination as TPagination,
+        MessagePlugin,
+        PaginationProps,
+        Pagination as TPagination,
 } from "tdesign-vue-next";
 
 import { data as posts } from "./.vitepress/theme/posts.data.mts";
@@ -51,7 +53,8 @@ const route = useRoute();
 
 const getPage = () => {
   const search = route.query
-  const searchParams = new URLSearchParams(search as any);
+  const searchParams = new URLSearchParams(search);
+
   return Number(searchParams.get("page") || "1");
 }
 
@@ -59,81 +62,89 @@ const current = ref(getPage())
 const pageSize = ref(10);
 const total = ref(posts.length);
 
+// 在首页有page参数时，从NAV跳转到当前页，清空了参数，但没有刷新页面内容的问题，需要手动更新current
 const router = useRouter();
 router.onAfterRouteChange = (to) => {
   current.value = getPage();
 }
 
 const curPosts = computed(() => {
-  return posts.slice(
-    (current.value - 1) * pageSize.value,
-    current.value * pageSize.value
-  );
+        return posts.slice(
+                (current.value - 1) * pageSize.value,
+                current.value * pageSize.value
+        );
 });
 
-const onCurrentChange: PaginationProps["onCurrentChange"] = (index) => {
-  const url = new URL(window.location as any);
-  url.searchParams.set("page", index.toString());
-  window.history.replaceState({}, "", url.href);
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+const onCurrentChange: PaginationProps["onCurrentChange"] = (
+        index,
+        pageInfo
+) => {
+        // MessagePlugin.success(`转到第${index}页`);
+
+        const url = new URL(window.location as any);
+        url.searchParams.set("page", index.toString());
+        window.history.replaceState({}, "", url);
+
+        window.scrollTo({
+                top: 0,
+        });
 };
 </script>
-
 <style lang="scss" scoped>
-.post-item {
-  margin-bottom: 40px;
-  padding-bottom: 10px;
+/* 去掉.vp-doc li + li 的 margin-top */
+.pagination-container {
+        margin-top: 10px;
+
+        :deep(li) {
+                margin-top: 0px;
+        }
+}
+
+.mr-2 {
+        margin-right: 2px;
 }
 
 .post-title {
-  margin-top: 0 !important;
-  margin-bottom: 8px !important;
-  border: none;
-  font-size: 26px;
-  font-weight: 500;
+        margin-bottom: 0px;
+        margin-top: 60px;
+        border-top: 0px;
+        position: relative;
+        top: 0;
+        left: 0;
 
-  > a {
-    color: var(--vp-c-text-1);
-    text-decoration: none !important;
-    /* 使用宋体营造图片中的人文感 */
-    font-family: "Source Serif Pro", "Source Han Serif SC", "PT Serif", serif !important;
-    
-    &:hover {
-      color: var(--vp-c-brand);
-    }
-  }
+        > a {
+font-family: "SourceHanSerifCN-Bold" !important;
+text-decoration: none !important;
+        }
+
+        .post-date {
+                position: absolute;
+                top: 15px;
+                left: -10px;
+                z-index: -1;
+                opacity: .16;
+                font-family: "mvboli";
+                font-size: 40px;
+                font-weight: 400;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        @media (max-width: 425px) {
+                .post-date {
+                        font-size: 40px !important;
+                }
+        }
+
+        &:first-child {
+                margin-top: 20px;
+        }
 }
 
-.post-meta {
-  margin-bottom: 16px;
-  
-  .post-date {
-    font-size: 14px;
-    color: var(--vp-c-text-3); /* 浅灰色 */
-    font-family: "Inter", sans-serif;
-    letter-spacing: 0.5px;
-  }
-}
+.hollow-text {
 
-.post-excerpt {
-  color: var(--vp-c-text-2);
-  line-height: 1.8;
-  font-size: 15.5px;
-  /* 调整段落间距 */
-  :deep(p) {
-    margin: 12px 0;
-  }
-}
+  /* 设置文本颜色为透明 */
+  color: var(--vp-c-bg);
 
-.pagination-container {
-  margin-top: 50px;
-  display: flex;
-  justify-content: center;
-  border-top: 1px solid var(--vp-c-divider-light);
-  padding-top: 20px;
-
-  :deep(li) {
-    margin-top: 0px;
-  }
+        -webkit-text-stroke: 1px var(--vp-c-text-1);
 }
 </style>
