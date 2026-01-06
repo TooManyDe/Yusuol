@@ -8,7 +8,7 @@ isNoBackBtn: true
 ---
 
 <template v-for="post in curPosts" :key="post.url">
-  <h2 :id="post.title" class="post-title">
+  <h1 :id="post.title" class="post-title">
     <a :href="post.url">{{ post.title }}</a>
     <span class="post-date-inline">{{ post.date.string }}</span>
     <a
@@ -16,7 +16,7 @@ isNoBackBtn: true
       :href="`#${post.title}`"
       :aria-label="`Permalink to &quot;${post.title}&quot;`"
     ></a>
-  </h2>
+  </h1>
   <div v-if="post.excerpt" v-html="post.excerpt"></div>
 </template>
 
