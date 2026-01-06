@@ -39,7 +39,7 @@
   --vp-nav-height: 50px;
 
   /* 品牌色定义 */
-  --vp-c-green: #000000;
+  --vp-c-green: #41b349;
   --vp-c-green-soft: rgba(65, 179, 73, 0.14);
   --vp-c-green-dark: #41b349;
   --vp-c-green-dark-soft: rgba(65, 179, 73, 0.14);
@@ -214,12 +214,12 @@ h3 {
 .vp-doc a {
   font-family: "ChillRoundF", var(--vp-font-family-serif), sans-serif !important;
   text-decoration: none !important;
-  color: #000000;
+  color: #41b349;
 }
 
 .vp-doc a:hover {
   text-decoration: underline !important;
-  color: #000000; 
+  color: #2e8637; 
 }
 
 .vp-doc a::after {
@@ -231,7 +231,7 @@ h3 {
 .vp-doc b {
   font-family: "ChillRoundF", var(--vp-font-family-serif), sans-serif !important;
   font-weight: 700 !important;
-  text-decoration: underline wavy #000000 !important;
+  text-decoration: underline wavy #41b349 !important;
   text-underline-offset: 3px;
 }
 
