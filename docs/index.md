@@ -7,22 +7,19 @@ isNoComment: true
 isNoBackBtn: true
 ---
 
-<!-- 之所以将代码写在 md 里面，而非单独封装为 Vue 组件，因为 aside 不会动态刷新，参考 https://github.com/vuejs/vitepress/issues/2686 -->
 <template v-for="post in curPosts" :key="post.url">
   <h2 :id="post.title" class="post-title">
     <a :href="post.url">{{ post.title }}</a>
+    <span class="post-date-inline">{{ post.date.string }}</span>
     <a
       class="header-anchor"
       :href="`#${post.title}`"
       :aria-label="`Permalink to &quot;${post.title}&quot;`"
-      ></a
-    >
-    <div class="post-date hollow-text source-han-serif">{{ post.date.string }}</div>
+    ></a>
   </h2>
   <div v-if="post.excerpt" v-html="post.excerpt"></div>
 </template>
 
-<!-- <Pagination /> -->
 <div class="pagination-container">
   <t-pagination
     v-model="current"
@@ -39,11 +36,9 @@ isNoBackBtn: true
 <script lang="ts" setup>
 import { ref, computed } from "vue";
 import { useRoute, useRouter } from "vitepress";
-// 非 Vue 组件需要手动引入
 import {
-        MessagePlugin,
-        PaginationProps,
-        Pagination as TPagination,
+  PaginationProps,
+  Pagination as TPagination,
 } from "tdesign-vue-next";
 
 import { data as posts } from "./.vitepress/theme/posts.data.mts";
@@ -53,8 +48,7 @@ const route = useRoute();
 
 const getPage = () => {
   const search = route.query
-  const searchParams = new URLSearchParams(search);
-
+  const searchParams = new URLSearchParams(search as any);
   return Number(searchParams.get("page") || "1");
 }
 
@@ -62,89 +56,71 @@ const current = ref(getPage())
 const pageSize = ref(10);
 const total = ref(posts.length);
 
-// 在首页有page参数时，从NAV跳转到当前页，清空了参数，但没有刷新页面内容的问题，需要手动更新current
 const router = useRouter();
 router.onAfterRouteChange = (to) => {
   current.value = getPage();
 }
 
 const curPosts = computed(() => {
-        return posts.slice(
-                (current.value - 1) * pageSize.value,
-                current.value * pageSize.value
-        );
+  return posts.slice(
+    (current.value - 1) * pageSize.value,
+    current.value * pageSize.value
+  );
 });
 
-const onCurrentChange: PaginationProps["onCurrentChange"] = (
-        index,
-        pageInfo
-) => {
-        // MessagePlugin.success(`转到第${index}页`);
+const onCurrentChange: PaginationProps["onCurrentChange"] = (index) => {
+  const url = new URL(window.location as any);
+  url.searchParams.set("page", index.toString());
+  window.history.replaceState({}, "", url.href);
 
-        const url = new URL(window.location as any);
-        url.searchParams.set("page", index.toString());
-        window.history.replaceState({}, "", url);
-
-        window.scrollTo({
-                top: 0,
-        });
+  window.scrollTo({
+    top: 0,
+  });
 };
 </script>
+
 <style lang="scss" scoped>
-/* 去掉.vp-doc li + li 的 margin-top */
 .pagination-container {
-        margin-top: 10px;
-
-        :deep(li) {
-                margin-top: 0px;
-        }
-}
-
-.mr-2 {
-        margin-right: 2px;
+  margin-top: 10px;
+  :deep(li) {
+    margin-top: 0px;
+  }
 }
 
 .post-title {
-        margin-bottom: 0px;
-        margin-top: 60px;
-        border-top: 0px;
-        position: relative;
-        top: 0;
-        left: 0;
+  margin-bottom: 0px;
+  margin-top: 60px;
+  border-top: 0px;
+  display: flex;
+  align-items: baseline; 
+  flex-wrap: wrap;       
+  gap: 12px;             
 
-        > a {
-font-family: "SourceHanSerifCN-Bold" !important;
-text-decoration: none !important;
-        }
+  > a {
+    font-family: "SourceHanSerifCN-Bold" !important;
+    text-decoration: none !important;
+    
+    /* 核心修改：使用更轻的黑色变量 */
+    color: var(--vp-c-text-2); 
+    font-weight: 600; 
+    transition: color 0.2s ease;
+    
+    &:hover {
+      color: var(--vp-c-brand);
+    }
+  }
 
-        .post-date {
-                position: absolute;
-                top: 15px;
-                left: -10px;
-                z-index: -1;
-                opacity: .16;
-                font-family: "mvboli";
-                font-size: 40px;
-                font-weight: 400;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-        }
+  .post-date-inline {
+    font-size: 0.85rem;
+    font-weight: 400;
+    /* 核心修改：日期保持淡灰色，形成对比阶梯 */
+    color: var(--vp-c-text-3); 
+    font-family: var(--vp-font-family-base);
+    opacity: 0.8; /* 增加一点透明感，更显协调 */
+  }
 
-        @media (max-width: 425px) {
-                .post-date {
-                        font-size: 40px !important;
-                }
-        }
-
-        &:first-child {
-                margin-top: 20px;
-        }
-}
-
-.hollow-text {
-
-  /* 设置文本颜色为透明 */
-  color: var(--vp-c-bg);
-
-        -webkit-text-stroke: 1px var(--vp-c-text-1);
+  &:first-child {
+    margin-top: 20px;
+  }
 }
 </style>
