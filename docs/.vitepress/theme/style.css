@@ -1,187 +1,314 @@
-/* =============================================================================
-   Threads 极简黑白灰主题
-   ============================================================================= */
-
-/** 字体保留 **/
+/** 代码字体 */
 @font-face {
   font-family: "GoogleSansCode";
   font-display: swap; 
   src: url("/assets/fonts/GoogleSansCode[wght].ttf") format("truetype");
 }
+
+/** 标题字体 */
+@font-face {
+  font-family: "ChillRoundF";
+  font-display: swap;
+  src: url("/assets/fonts/ChillRoundF.woff2") format("woff2"), 
+       url("/assets/fonts/ChillRoundF.woff") format("woff"),
+       url("/assets/fonts/ChillRoundF.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "SourceHanSerifSC-Regular";
+  src: local("SourceHanSerifSC-Regular.otf"), url("/assets/fonts/SourceHanSerifSC-Regular.otf");
+}
+
 @font-face {
   font-family: "SourceHanSerifCN-Bold";
   src: local("SourceHanSerifCN-Bold.otf"), url("/assets/fonts/SourceHanSerifCN-Bold.otf");
 }
 
+/** Logo字体 */
+@font-face {
+  font-family: "mvboli";
+  font-display: swap;
+  src: url("/assets/fonts/mvboli.ttf");
+}
+
+/* =============================================================================
+   CSS 变量定义
+   ============================================================================= */
 :root {
-  /* 基础色调：纯黑白灰 */
-  --vp-c-bg: #ffffff;           /* 页面背景 */
-  --vp-c-bg-soft: #ffffff;      /* 卡片背景 (Threads 网页版其实是全白流) */
-  --vp-c-bg-alt: #f5f5f5;       /* 辅助背景 */
-  --vp-c-gutter: #efefef;       /* 极浅细线 */
-  
-  --vp-c-text-1: #000000;       /* 纯黑正文 */
-  --vp-c-text-2: #999999;       /* 灰色辅助 */
-  --vp-c-text-3: #bbbbbb;
-  
-  --vp-c-brand-1: #000000;      /* 品牌色全黑 */
-  
-  --vp-font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  /* 导航栏高度 */
+  --vp-nav-height: 50px;
+
+  /* 品牌色定义 */
+  --vp-c-green: #41b349;
+  --vp-c-green-soft: rgba(65, 179, 73, 0.14);
+  --vp-c-green-dark: #41b349;
+  --vp-c-green-dark-soft: rgba(65, 179, 73, 0.14);
+
+  /* 品牌色映射 (默认/亮色主题) */
+  --vp-c-brand-1: var(--vp-c-green) !important;
+  --vp-c-brand-2: var(--vp-c-green) !important;
+  --vp-c-brand-3: var(--vp-c-green) !important;
+  --vp-c-brand-soft: var(--vp-c-green-soft) !important;
+
+  /* 字体家族 */
+  --vp-font-family-serif: "";
+  --vp-font-family-base: var(--vp-font-family-serif), -apple-system, BlinkMacSystemFont,
+                         "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji",
+                         "Segoe UI Emoji", "Segoe UI Symbol";
+
+  /* 代码字体家族 */
   --vp-font-family-code: "GoogleSansCode", monospace;
-  
-  --threads-max-width: 620px;   /* Threads 标志性的窄流 */
+
+  /* TDesign组件变量 */
+  --td-border-level-2-color: var(--vp-c-brand-soft) !important;
+  --td-brand-color: var(--vp-c-brand-1) !important;
+  --td-brand-color-light: var(--vp-c-brand-soft) !important;
+  --td-brand-color-hover: var(--vp-c-brand-1) !important;
+  --td-brand-color-active: var(--vp-c-brand-2) !important;
 }
 
+/* 暗色主题 */
 .dark {
-  --vp-c-bg: #101010;
-  --vp-c-bg-soft: #101010;
-  --vp-c-bg-alt: #181818;
-  --vp-c-gutter: #262626;       /* 暗色下的细分割线 */
-  
-  --vp-c-text-1: #f3f5f7;       /* 接近纯白 */
-  --vp-c-text-2: #777777;       /* 中灰 */
-  --vp-c-brand-1: #ffffff;      /* 品牌色全白 */
+  --vp-c-brand-1: var(--vp-c-green-dark) !important;
+  --vp-c-brand-2: var(--vp-c-green-dark) !important;
+  --vp-c-brand-3: var(--vp-c-green-dark) !important;
+  --vp-c-brand-soft: var(--vp-c-green-dark-soft) !important;
 }
 
 /* =============================================================================
-   导航栏优化：极致扁平化
+   Nav
    ============================================================================= */
-.VPNavBar {
-  background-color: rgba(var(--vp-c-bg-rgb), 0.8) !important;
-  backdrop-filter: blur(20px);
-  border-bottom: 1px solid var(--vp-c-gutter) !important;
-  transition: all 0.3s;
-}
-
 @media (min-width: 960px) {
+  .VPNavBar {
+    width: 100%;
+    justify-content: center;
+    background-color: var(--vp-c-bg);
+  }
+
+  .VPNav[data-v-e4ae072f] {
+    position: absolute;
+  }
+
   .VPNavBar .container {
-    max-width: var(--threads-max-width) !important;
-    padding: 0 !important;
-  }
-  .VPNavBarTitle {
-    width: 100% !important;
-    justify-content: center !important; /* Logo 居中 */
+    max-width: 56vw;
+    width: 100%;
+    margin: 0 auto;
+    padding-left: 0;
+    padding-right: 0;
   }
 }
 
+/* Logo字体设置 */
 .VPNavBarTitle .title {
-  font-weight: 800 !important;
-  font-size: 24px !important;
-  letter-spacing: -1px;
+  font-family: "ChillRoundF", sans-serif;
+  font-size: 22px !important;
 }
 
-/* 隐藏导航栏多余装饰 */
-.VPNavBarMenu, .VPNavBarExtra, .VPNavBarAppearance {
-  /* 如果想彻底像 Threads，可以只留 Logo，如需保留功能可注释掉此行 */
+/* 移除菜单项的分割线 */
+.VPNavScreen .divider,
+.VPNavScreen .group,
+.VPNavScreenMenuLink {
+  border-top: none !important;
+  border-bottom: none !important;
+  border-color: transparent !important;
 }
 
-/* =============================================================================
-   布局：单栏流式设计
-   ============================================================================= */
-.VPSidebar, .VPDocAside, .aside, .VPBackToTop, .VPLocalNav, .vpi-chevron-down {
+.VPNavScreen hr {
   display: none !important;
 }
 
-.VPDoc {
-  padding: 40px 0 !important;
-}
-
-.VPDoc .container {
-  max-width: var(--threads-max-width) !important;
-  margin: 0 auto !important;
-}
-
-.VPDoc .content-container {
-  max-width: 100% !important;
-  padding: 0 20px !important; /* 保持侧边留白 */
-}
-
-/* =============================================================================
-   文本排版：黑白灰主义
-   ============================================================================= */
-.vp-doc h1 {
-  font-family: "SourceHanSerifCN-Bold", serif !important;
-  font-size: 32px !important;
-  letter-spacing: -0.02em;
-  margin-bottom: 24px !important;
-  border: none !important;
-}
-
-.vp-doc h2, .vp-doc h3 {
-  font-family: "SourceHanSerifCN-Bold", serif !important;
-  color: var(--vp-c-text-1);
-  border: none !important;
-  margin-top: 32px !important;
-}
-
-.vp-doc p {
-  font-size: 16px;
-  line-height: 1.6;
-  color: var(--vp-c-text-1);
-}
-
-/* 链接样式：取消颜色，改用下划线 */
-.vp-doc a {
-  color: var(--vp-c-text-1) !important;
-  text-decoration: underline !important;
-  text-underline-offset: 4px;
-  text-decoration-color: var(--vp-c-text-3) !important;
-  transition: text-decoration-color 0.2s;
-}
-
-.vp-doc a:hover {
-  text-decoration-color: var(--vp-c-text-1) !important;
-}
-
-/* 强调文字：纯黑加粗，取消波浪线 */
-.vp-doc strong {
-  font-weight: 700 !important;
-  color: var(--vp-c-text-1);
+/* Footer */
+.VPFooter a {
   text-decoration: none !important;
 }
 
-/* =============================================================================
-   组件优化
-   ============================================================================= */
-
-/* 图片：Threads 风格的大圆角 */
-.VPDoc img {
-  border-radius: 20px;
-  border: 1px solid var(--vp-c-gutter);
-  margin: 24px 0;
-}
-
-/* 代码块：极致黑 */
-.vp-doc div[class*="language-"] {
-  border-radius: 16px !important;
-  background-color: #000000 !important; /* 亮暗模式下代码块都设为纯黑，很有质感 */
-  border: 1px solid #222;
-}
-
-/* 页脚：极简灰字 */
 .VPFooter {
-  border-top: 1px solid var(--vp-c-gutter) !important;
-  margin-top: 60px !important;
-  padding: 30px 0 !important;
-  background-color: transparent !important;
+  padding: 10px !important;
 }
 
-.VPFooter .message, .VPFooter .copyright {
-  font-size: 13px;
-  color: var(--vp-c-text-2);
+.VPFooter a:hover {
+  text-decoration: underline #41b349 !important;
 }
 
-/* 选中文字 */
-::selection {
-  background: #ffff00; /* 唯一的点缀色：经典荧光黄选中效果，或改为灰色 */
-  color: #000;
+/* ============================================================================
+   移除页脚 divider
+   ============================================================================ */
+.VPFooter::before,
+.VPFooter::after {
+  display: none !important;
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.VPFooter {
+  border-top: none !important;
+  box-shadow: none !important;
+}
+
+/* =============================================================================
+   文档内容
+   ============================================================================= */
+.VPDoc {
+  padding-top: 20px !important;
+}
+
+@media (max-width: 959px) {
+  .VPDoc {
+    padding: 20px !important;
+    width: 100%;
+  }
+}
+
+.VPDoc.has-aside .content-container {
+  max-width: 50rem !important;
+}
+
+@media (min-width: 960px) {
+  .VPDoc:not(.has-sidebar) .content {
+    max-width: inherit !important;
+  }
+
+  .VPDoc .content {
+    padding: 0 !important; 
+  }
+}
+
+.VPDocFooter {
+  margin-top: 10px !important;
+}
+
+.VPcontent {
+  margin-bottom: 10px !important;
+}
+
+/* =============================================================================
+   文本样式
+   ============================================================================= */
+.vp-doc p {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+/* 标题字体 */
+h1, h2, h3, h4, h5, h6 {
+  font-family: "SourceHanSerifCN-Bold", var(--vp-font-family-serif), sans-serif !important;
+}
+
+h1 {
+  font-size: 24px !important;
+}
+
+h2 {
+  font-size: 20px !important;
+  margin: inherit !important;
+  border-top: none !important;
+  text-decoration: none !important;
+}
+
+h3 {
+  font-size: 20px !important;
+}
+
+/* 链接样式 */
+.vp-doc a {
+  font-family: "ChillRoundF", var(--vp-font-family-serif), sans-serif !important;
+  text-decoration: none !important;
+  color: #41b349;
+}
+
+.vp-doc a:hover {
+  text-decoration: underline !important;
+  color: #2e8637; 
+}
+
+.vp-doc a::after {
+  content: none !important;
+}
+
+/* 强调文本 */
+.vp-doc strong,
+.vp-doc b {
+  font-family: "ChillRoundF", var(--vp-font-family-serif), sans-serif !important;
+  font-weight: 700 !important;
+  text-decoration: underline wavy #41b349 !important;
+  text-underline-offset: 3px;
+}
+
+
+/* 图片 */
+.VPDoc img {
+  border-radius: 16px;
+  cursor: zoom-in;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.table-scroll {
+  overflow-x: auto;
+  display: block;
+  width: 100%;
+  -webkit-overflow-scrolling: touch; /* 为了让移动端滑动更流畅 */
+}
+
+/* 可选：给滚动条加一点样式 */
+.table-scroll table {
+  width: max-content;
+  min-width: 100%;
+  border-collapse: collapse;
+  margin: 0;
+  white-space: nowrap; /* 这个属性可以防止文字内部换行，强制一行显示 */
+}
+
+
+/* =============================================================================
+   隐藏元素
+   ============================================================================= */
+.VPSidebar,
+.VPDocAside,
+.aside,
+.VPBackToTop,
+.divider-line,
+.divider,
+.VPLocalNav {
+  display: none !important;
+}
+
+.vpi-chevron-down,
+.text-icon {
+  display: none;
+}
+
+/* =============================================================================
+   主题按钮
+   ============================================================================= */
+.VPSwitchAppearance {
+  width: 22px !important;
+}
+
+.VPSwitchAppearance .check {
+  transform: none !important;
+}
+
+/* 选择文本颜色 */
+::selection,
+::-moz-selection {
+  background: var(--vp-c-brand-1);
+  color: var(--vp-c-bg);
 }
 
 /* 滚动条 */
-::-webkit-scrollbar {
-  width: 4px;
+* {
+  scrollbar-width: thin;
 }
-::-webkit-scrollbar-thumb {
-  background: var(--vp-c-text-3);
-  border-radius: 10px;
+
+/* 代码块换行 */
+main > div > div > pre > code {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+/* 移动端点击高亮去除 */
+#app {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
