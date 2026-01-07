@@ -1,5 +1,5 @@
 ---
-# https://vitepress.dev/reference/default-theme-home-page
+#https://vitepress.dev/reference/default-theme-home-page
 layout: doc
 editLink: false
 lastUpdated: false
@@ -9,7 +9,7 @@ isNoBackBtn: true
 
 <!-- 之所以将代码写在 md 里面，而非单独封装为 Vue 组件，因为 aside 不会动态刷新，参考 https://github.com/vuejs/vitepress/issues/2686 -->
 <template v-for="post in curPosts" :key="post.url">
-  <h1 :id="post.title" class="post-title">
+  <h2 :id="post.title" class="post-title">
     <a :href="post.url">{{ post.title }}</a>
     <a
       class="header-anchor"
@@ -18,7 +18,7 @@ isNoBackBtn: true
       ></a
     >
     <div class="post-date hollow-text source-han-serif">{{ post.date.string }}</div>
-  </h1>
+  </h2>
   <div v-if="post.excerpt" v-html="post.excerpt"></div>
 </template>
 
