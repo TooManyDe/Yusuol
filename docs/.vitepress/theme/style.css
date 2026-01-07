@@ -230,7 +230,7 @@ h3 {
 .vp-doc a {
   text-decoration: none !important;
   color: #41b349;
-  font-family: var(--vp-font-family-serif), sans-serif !important; 
+  font-family:"Noto Serif SC", var(--vp-font-family-serif), sans-serif !important; 
 }
 
 .vp-doc a:hover {
