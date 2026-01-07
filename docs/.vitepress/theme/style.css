@@ -5,7 +5,7 @@
   src: url("/assets/fonts/GoogleSansCode[wght].ttf") format("truetype");
 }
 
-/** 标题字体 */
+/** 标题/辅助字体 (本地) */
 @font-face {
   font-family: "ChillRoundF";
   font-display: swap;
@@ -14,22 +14,16 @@
        url("/assets/fonts/ChillRoundF.ttf") format("truetype");
 }
 
-@font-face {
-  font-family: "SourceHanSerifSC-Regular";
-  src: local("SourceHanSerifSC-Regular.otf"), url("/assets/fonts/SourceHanSerifSC-Regular.otf");
-}
-
-@font-face {
-  font-family: "SourceHanSerifCN-Bold";
-  src: local("SourceHanSerifCN-Bold.otf"), url("/assets/fonts/SourceHanSerifCN-Bold.otf");
-}
-
-/** Logo字体 */
+/** Logo字体 (本地) */
 @font-face {
   font-family: "mvboli";
   font-display: swap;
   src: url("/assets/fonts/mvboli.ttf");
 }
+
+/* 注：原有的 SourceHanSerifSC-Regular.otf 和 SourceHanSerifCN-Bold.otf 
+   本地引用已被删除，现在通过 head 引入的 Google Fonts 动态加载。
+*/
 
 /* =============================================================================
    CSS 变量定义
@@ -44,13 +38,13 @@
   --vp-c-green-dark: #41b349;
   --vp-c-green-dark-soft: rgba(65, 179, 73, 0.14);
 
-  /* 品牌色映射 (默认/亮色主题) */
+  /* 品牌色映射 */
   --vp-c-brand-1: var(--vp-c-green) !important;
   --vp-c-brand-2: var(--vp-c-green) !important;
   --vp-c-brand-3: var(--vp-c-green) !important;
   --vp-c-brand-soft: var(--vp-c-green-soft) !important;
 
-  /* 字体家族 */
+  /* 字体家族：使用 Google Fonts 提供的 Noto Serif SC */
   --vp-font-family-serif: "Noto Serif SC", serif;
   --vp-font-family-base: var(--vp-font-family-serif), -apple-system, BlinkMacSystemFont,
                          "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji",
@@ -130,9 +124,6 @@
   text-decoration: underline !important;
 }
 
-/* ============================================================================
-   移除页脚 divider
-   ============================================================================ */
 .VPFooter::before,
 .VPFooter::after {
   display: none !important;
@@ -147,7 +138,7 @@
 }
 
 /* =============================================================================
-   文档内容
+   文档内容布局
    ============================================================================= */
 .VPDoc {
   padding-top: 20px !important;
@@ -190,9 +181,39 @@
   margin-bottom: 5px;
 }
 
+/* 标题字体：使用 Noto Serif SC 粗体 */
 h1, h2, h3, h4, h5, h6 {
   font-family: "Noto Serif SC", var(--vp-font-family-serif), sans-serif !important;
   font-weight: 700 !important;
+}
+
+h1 {
+  font-size: 24px !important;
+}
+
+h2 {
+  font-size: 20px !important;
+  margin: inherit !important;
+  border-top: none !important;
+  text-decoration: none !important;
+}
+
+h3 {
+  font-size: 20px !important;
+}
+
+/* 链接样式 */
+.vp-doc a {
+  font-family: "ChillRoundF", var(--vp-font-family-serif), sans-serif !important;
+  text-decoration: none !important;
+}
+
+.vp-doc a:hover {
+  text-decoration: underline !important;
+}
+
+.vp-doc a::after {
+  content: none !important;
 }
 
 /* 强调文本 */
@@ -207,7 +228,6 @@ h1, h2, h3, h4, h5, h6 {
   text-underline-offset: 3px;
 }
 
-
 /* 图片 */
 .VPDoc img {
   border-radius: 16px;
@@ -216,28 +236,27 @@ h1, h2, h3, h4, h5, h6 {
   transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
+/* 表格响应式 */
 .table-scroll {
   overflow-x: auto;
   display: block;
   width: 100%;
-  -webkit-overflow-scrolling: touch; /* 为了让移动端滑动更流畅 */
+  -webkit-overflow-scrolling: touch;
 }
 
-/* 可选：给滚动条加一点样式 */
 .table-scroll table {
   width: max-content;
   min-width: 100%;
   border-collapse: collapse;
   margin: 0;
-  white-space: nowrap; /* 这个属性可以防止文字内部换行，强制一行显示 */
+  white-space: nowrap;
 }
 
-
 /* =============================================================================
-   隐藏元素
+   隐藏元素逻辑
    ============================================================================= */
 .VPSidebar,
-.VPDocAside .VPDocAsideOutline, /* 只隐藏右侧目录 */
+.VPDocAside .VPDocAsideOutline, 
 .VPBackToTop,
 .divider-line,
 .divider,
@@ -256,9 +275,7 @@ h1, h2, h3, h4, h5, h6 {
   display: none;
 }
 
-/* =============================================================================
-   主题按钮
-   ============================================================================= */
+/* 主题按钮微调 */
 .VPSwitchAppearance {
   width: 22px !important;
 }
@@ -267,9 +284,11 @@ h1, h2, h3, h4, h5, h6 {
   transform: none !important;
 }
 
-/* 选择文本颜色 */
-::selection,
-::-moz-selection {
+/* =============================================================================
+   通用细节优化
+   ============================================================================= */
+/* 选中文本颜色 */
+::selection {
   background: var(--vp-c-brand-1);
   color: var(--vp-c-bg);
 }
