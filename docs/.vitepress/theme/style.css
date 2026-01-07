@@ -14,11 +14,12 @@
        url("/assets/fonts/ChillRoundF.ttf") format("truetype");
 }
 
+/** 思源宋体 - 可变字体 */
 @font-face {
   font-family: "SourceHanSerifSC";
   font-display: swap;
   src: url("/assets/fonts/SourceHanSerifSC-VF.woff2") format("woff2");
-  font-weight: 200 900; /* 可变字体支持的字重范围 */
+  font-weight: 200 900;
 }
 
 /** Logo字体 */
@@ -49,7 +50,7 @@
 
   /* 字体家族 */
   --vp-font-family-serif: "SourceHanSerifSC";
-  --vp-font-family-base: var(--vp-font-family-serif), -apple-system, BlinkMacSystemFont,
+  --vp-font-family-base: "SourceHanSerifSC", -apple-system, BlinkMacSystemFont,
                          "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji",
                          "Segoe UI Emoji", "Segoe UI Symbol";
 
@@ -187,19 +188,6 @@
   margin-bottom: 5px;
 }
 
-body,
-.vp-doc p,
-.vp-doc li,
-.vp-doc,
-.VPDoc {
-  font-weight: 420;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: "SourceHanSerifSC", var(--vp-font-family-serif), sans-serif !important;
-  font-weight: 580;
-}
-
 h1 {
   font-size: 24px !important;
 }
@@ -235,11 +223,10 @@ h3 {
 .vp-doc strong,
 .vp-doc b {
   font-family: "ChillRoundF", var(--vp-font-family-serif), sans-serif !important;
-  font-weight: 700 !important;
-  text-decoration: underline dotted #41b349 !important;
+  font-weight: 650 !important;
+  text-decoration: underline dashed #41b349 !important;
   text-underline-offset: 3px;
 }
-
 
 /* 图片 */
 .VPDoc img {
@@ -253,18 +240,16 @@ h3 {
   overflow-x: auto;
   display: block;
   width: 100%;
-  -webkit-overflow-scrolling: touch; /* 为了让移动端滑动更流畅 */
+  -webkit-overflow-scrolling: touch;
 }
 
-/* 可选：给滚动条加一点样式 */
 .table-scroll table {
   width: max-content;
   min-width: 100%;
   border-collapse: collapse;
   margin: 0;
-  white-space: nowrap; /* 这个属性可以防止文字内部换行，强制一行显示 */
+  white-space: nowrap;
 }
-
 
 /* =============================================================================
    隐藏元素
@@ -316,4 +301,56 @@ main > div > div > pre > code {
 /* 移动端点击高亮去除 */
 #app {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+/* =============================================================================
+   强制应用思源宋体 - 添加到最底部
+   ============================================================================= */
+
+/* 正文内容强制使用宋体 */
+body,
+.vp-doc,
+.vp-doc p,
+.vp-doc div:not(.vp-code-group):not(.language-):not([class*="language-"]),
+.vp-doc li,
+.vp-doc span:not(.line):not(.vp-code-group),
+.VPDoc,
+.VPDoc .content,
+article {
+  font-family: "SourceHanSerifSC", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+  font-weight: 420 !important;
+}
+
+/* 标题使用宋体 */
+h1, h2, h3, h4, h5, h6,
+.vp-doc h1,
+.vp-doc h2,
+.vp-doc h3,
+.vp-doc h4,
+.vp-doc h5,
+.vp-doc h6 {
+  font-family: "SourceHanSerifSC", sans-serif !important;
+  font-weight: 580 !important;
+}
+
+/* 链接保持 ChillRoundF */
+.vp-doc a {
+  font-family: "ChillRoundF", sans-serif !important;
+}
+
+/* 强调文本保持 ChillRoundF */
+.vp-doc strong,
+.vp-doc b {
+  font-family: "ChillRoundF", sans-serif !important;
+}
+
+/* 代码保持 GoogleSansCode */
+code,
+pre,
+pre code,
+.vp-code,
+[class*="language-"],
+.shiki,
+.shiki span {
+  font-family: "GoogleSansCode", monospace !important;
 }
