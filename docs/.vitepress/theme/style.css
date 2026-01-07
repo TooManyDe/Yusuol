@@ -208,8 +208,10 @@ h3 {
 
 /* 链接样式 */
 .vp-doc a {
-  text-decoration: none !important;
+  text-decoration: dotted !important;
   color: #41b349;
+  font-weight: 600
+  
 }
 
 .vp-doc a:hover {
