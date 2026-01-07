@@ -195,17 +195,6 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 700 !important;
 }
 
-h1 { font-size: 24px !important; }
-
-h2 {
-  font-size: 20px !important;
-  margin: inherit !important;
-  border-top: none !important;
-  text-decoration: none !important;
-}
-
-h3 { font-size: 20px !important; }
-
 /* 链接样式 */
 .vp-doc a {
   font-family: "ChillRoundF", var(--vp-font-family-serif), sans-serif !important;
