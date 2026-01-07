@@ -70,11 +70,6 @@ const themeConfig: DefaultTheme.Config = {
   footer: {
     message: '© 2026 <a href="https://ddbx.org">的的不休</a >',
   },
-
-  docFooter: {
-    prev: '上一篇',
-    next: '下一篇'
-  },
   
   outlineTitle: "当前页面",
   lastUpdatedText: "最近更新",
