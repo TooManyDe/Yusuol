@@ -1,3 +1,7 @@
+/* =============================================================================
+   Font Face
+   ============================================================================= */
+
 /** 代码字体 */
 @font-face {
   font-family: "GoogleSansCode";
@@ -14,54 +18,59 @@
        url("/assets/fonts/ChillRoundF.ttf") format("truetype");
 }
 
-/** 思源宋体可变字体 (Variable Font) */
+/** 思源宋体 SC 可变字体 */
 @font-face {
-  font-family: "SourceHanSerifSC-VF.otf";
+  font-family: "Source Han Serif SC";
   font-display: swap;
-  /* 这里的路径请确保与你上传的文件名 SourceHanSerifSC-VF.otf.woff2 完全一致 */
-  src: url("/assets/fonts/SourceHanSerifSC-VF.otf.woff2") format("woff2-variations"),
-       url("/assets/fonts/SourceHanSerifSC-VF.otf.woff2") format("woff2");
-  /* 定义支持的粗细范围 */
+  src: url("/assets/fonts/SourceHanSerifSC-VF.otf.woff2")
+       format("woff2-variations");
   font-weight: 200 900;
   font-style: normal;
 }
 
-/** Logo字体 */
+/** Logo 字体 */
 @font-face {
   font-family: "mvboli";
   font-display: swap;
-  src: url("/assets/fonts/mvboli.ttf");
+  src: url("/assets/fonts/mvboli.ttf") format("truetype");
 }
 
 /* =============================================================================
-   CSS 变量定义
+   CSS Variables
    ============================================================================= */
+
 :root {
-  /* 导航栏高度 */
+  /* Nav */
   --vp-nav-height: 50px;
 
-  /* 品牌色定义 */
+  /* Brand Color */
   --vp-c-green: #41b349;
   --vp-c-green-soft: rgba(65, 179, 73, 0.14);
   --vp-c-green-dark: #41b349;
   --vp-c-green-dark-soft: rgba(65, 179, 73, 0.14);
 
-  /* 品牌色映射 (默认/亮色主题) */
   --vp-c-brand-1: var(--vp-c-green) !important;
   --vp-c-brand-2: var(--vp-c-green) !important;
   --vp-c-brand-3: var(--vp-c-green) !important;
   --vp-c-brand-soft: var(--vp-c-green-soft) !important;
 
-  /* 字体家族 - 使用新的可变字体 */
-  --vp-font-family-serif: "SourceHanSerifSC-VF.otf";
-  --vp-font-family-base: var(--vp-font-family-serif), -apple-system, BlinkMacSystemFont,
-                         "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji",
-                         "Segoe UI Emoji", "Segoe UI Symbol";
+  /* Font Family */
+  --vp-font-family-serif: "Source Han Serif SC";
+  --vp-font-family-base:
+    var(--vp-font-family-serif),
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Helvetica,
+    Arial,
+    sans-serif,
+    "Apple Color Emoji",
+    "Segoe UI Emoji",
+    "Segoe UI Symbol";
 
-  /* 代码字体家族 */
   --vp-font-family-code: "GoogleSansCode", monospace;
 
-  /* TDesign组件变量 */
+  /* TDesign */
   --td-border-level-2-color: var(--vp-c-brand-soft) !important;
   --td-brand-color: var(--vp-c-brand-1) !important;
   --td-brand-color-light: var(--vp-c-brand-soft) !important;
@@ -69,7 +78,6 @@
   --td-brand-color-active: var(--vp-c-brand-2) !important;
 }
 
-/* 暗色主题 */
 .dark {
   --vp-c-brand-1: var(--vp-c-green-dark) !important;
   --vp-c-brand-2: var(--vp-c-green-dark) !important;
@@ -80,6 +88,7 @@
 /* =============================================================================
    Nav
    ============================================================================= */
+
 @media (min-width: 960px) {
   .VPNavBar {
     width: 100%;
@@ -93,64 +102,52 @@
 
   .VPNavBar .container {
     max-width: 56vw;
-    width: 100%;
     margin: 0 auto;
     padding-left: 0;
     padding-right: 0;
   }
 }
 
-/* Logo字体设置 */
 .VPNavBarTitle .title {
   font-family: "ChillRoundF", sans-serif;
   font-size: 22px !important;
 }
 
-/* 移除菜单项的分割线 */
 .VPNavScreen .divider,
 .VPNavScreen .group,
-.VPNavScreenMenuLink {
-  border-top: none !important;
-  border-bottom: none !important;
-  border-color: transparent !important;
-}
-
+.VPNavScreenMenuLink,
 .VPNavScreen hr {
+  border: none !important;
   display: none !important;
 }
 
-/* Footer */
-.VPFooter a {
-  text-decoration: none !important;
-}
+/* =============================================================================
+   Footer
+   ============================================================================= */
 
 .VPFooter {
   padding: 10px !important;
+  border-top: none !important;
+  box-shadow: none !important;
+}
+
+.VPFooter a {
+  text-decoration: none !important;
 }
 
 .VPFooter a:hover {
   text-decoration: underline !important;
 }
 
-/* ============================================================================
-   移除页脚 divider
-   ============================================================================ */
 .VPFooter::before,
 .VPFooter::after {
   display: none !important;
-  background: none !important;
-  border: none !important;
-  box-shadow: none !important;
-}
-
-.VPFooter {
-  border-top: none !important;
-  box-shadow: none !important;
 }
 
 /* =============================================================================
-   文档内容
+   Document Layout
    ============================================================================= */
+
 .VPDoc {
   padding-top: 20px !important;
 }
@@ -167,10 +164,6 @@
 }
 
 @media (min-width: 960px) {
-  .VPDoc:not(.has-sidebar) .content {
-    max-width: inherit !important;
-  }
-
   .VPDoc .content {
     padding: 0 !important; 
   }
@@ -185,38 +178,34 @@
 }
 
 /* =============================================================================
-   文本样式
+   Typography
    ============================================================================= */
-/* 全局正文权重：400 */
+
+/* 正文 */
 .vp-doc {
   font-family: var(--vp-font-family-base);
-  font-weight: 400;
+  font-weight: 420;
 }
 
 .vp-doc p {
-  margin-top: 5px;
-  margin-bottom: 5px;
-  font-weight: 400; /* 确保正文为400 */
+  margin: 5px 0;
+  font-weight: 420;
 }
 
-/* 标题权重：600 */
+/* 标题 */
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--vp-font-family-serif), sans-serif !important;
-  font-weight: 600 !important; /* 强制标题使用 600 */
+  font-family: var(--vp-font-family-serif), serif !important;
+  font-weight: 560 !important;
 }
 
 h1 { font-size: 24px !important; }
-
 h2 {
   font-size: 20px !important;
-  margin: inherit !important;
   border-top: none !important;
-  text-decoration: none !important;
 }
-
 h3 { font-size: 20px !important; }
 
-/* 链接样式 */
+/* 链接 */
 .vp-doc a {
   font-family: "ChillRoundF", var(--vp-font-family-serif), sans-serif !important;
   text-decoration: none !important;
@@ -226,19 +215,22 @@ h3 { font-size: 20px !important; }
   text-decoration: underline !important;
 }
 
-/* 强调文本 */
+/* 强调 */
 .vp-doc strong,
 .vp-doc b {
   font-family: "ChillRoundF", var(--vp-font-family-serif), sans-serif !important;
   font-weight: 700 !important;
-  text-decoration-color: #41b349;
   text-decoration-line: underline;
   text-decoration-style: dashed;
   text-decoration-thickness: 1.5px;
   text-underline-offset: 3px;
+  text-decoration-color: #41b349;
 }
 
-/* 图片 */
+/* =============================================================================
+   Media
+   ============================================================================= */
+
 .VPDoc img {
   border-radius: 16px;
   cursor: zoom-in;
@@ -246,52 +238,42 @@ h3 { font-size: 20px !important; }
   transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
+/* =============================================================================
+   Table
+   ============================================================================= */
+
 .table-scroll {
   overflow-x: auto;
-  display: block;
   width: 100%;
-  -webkit-overflow-scrolling: touch;
 }
 
 .table-scroll table {
   width: max-content;
   min-width: 100%;
   border-collapse: collapse;
-  margin: 0;
   white-space: nowrap;
 }
 
 /* =============================================================================
-   隐藏元素
+   Hidden
    ============================================================================= */
+
 .VPSidebar,
-.VPDocAside .VPDocAsideOutline, 
+.VPDocAside .VPDocAsideOutline,
 .VPBackToTop,
-.divider-line,
 .divider,
-.VPLocalNav {
+.VPLocalNav,
+.vpi-chevron-down,
+.text-icon {
   display: none !important;
 }
 
-.VPDocFooter,
-.prev-next {
-  display: block !important;
-}
-
-.vpi-chevron-down,
-.text-icon {
-  display: none;
-}
-
 /* =============================================================================
-   基础样式与交互
+   Interaction
    ============================================================================= */
+
 .VPSwitchAppearance {
   width: 22px !important;
-}
-
-.VPSwitchAppearance .check {
-  transform: none !important;
 }
 
 ::selection {
@@ -303,11 +285,11 @@ h3 { font-size: 20px !important; }
   scrollbar-width: thin;
 }
 
-main > div > div > pre > code {
+pre code {
   white-space: pre-wrap;
   word-wrap: break-word;
 }
 
 #app {
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: transparent;
 }
