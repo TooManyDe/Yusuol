@@ -17,7 +17,7 @@
 @font-face {
   font-family: "SourceHanSerifSC";
   font-display: swap;
-  src: url("/assets/fonts/SourceHanSerifSC-VF.otf.woff2") format("woff2");
+  src: url("/assets/fonts/SourceHanSerifSC-VF.woff2") format("woff2");
   font-weight: 200 900; /* 可变字体支持的字重范围 */
 }
 
