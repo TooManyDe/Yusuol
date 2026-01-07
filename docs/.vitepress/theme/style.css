@@ -15,13 +15,10 @@
 }
 
 @font-face {
-  font-family: "SourceHanSerifSC-Regular";
-  src: local("SourceHanSerifSC-Regular.otf"), url("/assets/fonts/SourceHanSerifSC-Regular.otf");
-}
-
-@font-face {
-  font-family: "SourceHanSerifCN-Bold";
-  src: local("SourceHanSerifCN-Bold.otf"), url("/assets/fonts/SourceHanSerifCN-Bold.otf");
+  font-family: "SourceHanSerifSC";
+  font-display: swap;
+  src: url("/assets/fonts/SourceHanSerifSC-VF.otf.woff2") format("woff2");
+  font-weight: 200 900; /* 可变字体支持的字重范围 */
 }
 
 /** Logo字体 */
@@ -51,7 +48,7 @@
   --vp-c-brand-soft: var(--vp-c-green-soft) !important;
 
   /* 字体家族 */
-  --vp-font-family-serif: "SourceHanSerifSC-Regular";
+  --vp-font-family-serif: "SourceHanSerifSC";
   --vp-font-family-base: var(--vp-font-family-serif), -apple-system, BlinkMacSystemFont,
                          "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji",
                          "Segoe UI Emoji", "Segoe UI Symbol";
@@ -190,9 +187,18 @@
   margin-bottom: 5px;
 }
 
-/* 标题字体 */
+* 正文字重 */
+body,
+.vp-doc p,
+.vp-doc li,
+.vp-doc,
+.VPDoc {
+  font-weight: 420;
+}
+
 h1, h2, h3, h4, h5, h6 {
-  font-family: "SourceHanSerifCN-Bold", var(--vp-font-family-serif), sans-serif !important;
+  font-family: "SourceHanSerifSC", var(--vp-font-family-serif), sans-serif !important;
+  font-weight: 580;
 }
 
 h1 {
