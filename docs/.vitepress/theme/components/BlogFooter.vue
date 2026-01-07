@@ -1,13 +1,13 @@
 <script setup>
 import { useData, withBase } from 'vitepress'
-import { data as posts } from '../posts.data.mts' // 引入刚才的数据文件
+// 路径修正：因为此文件在 components 目录下，posts.data.mts 在上一级
+import { data as posts } from '../posts.data.mts' 
 import { computed } from 'vue'
 
 const { page } = useData()
 
 const prevNext = computed(() => {
   // 查找当前文章在列表中的索引
-  // 注意：page.value.url 可能带 .html 或不带，取决于 cleanUrls 设置
   const curUrl = page.value.relativeByPath 
     ? '/' + page.value.relativeByPath.replace('.md', '') 
     : page.value.url.replace(/\.html$/, '')
@@ -16,12 +16,12 @@ const prevNext = computed(() => {
 
   if (index === -1) return { prev: null, next: null }
 
-  // 因为 data 是按时间倒序排的（新在前）：
-  // 下一篇 (更旧的) = index + 1
-  // 上一篇 (更新的) = index - 1
+  // 排序逻辑同步：由于 data 是倒序排的（最新的在 index 0）
+  // 上一篇 (更新的文章) = index - 1
+  // 下一篇 (更旧的文章) = index + 1
   return {
-    next: posts[index + 1] || null,
-    prev: posts[index - 1] || null
+    prev: posts[index - 1] || null,
+    next: posts[index + 1] || null
   }
 })
 </script>
@@ -50,7 +50,10 @@ const prevNext = computed(() => {
 .blog-footer {
   margin-top: 40px;
   padding-top: 20px;
+  /* 使用你全局定义的虚线分割 */
   border-top: 1px dashed var(--vp-c-divider);
+  /* 确保字体符合你的全局设置 */
+  font-family: "ChillRoundF", var(--vp-font-family-base);
 }
 
 .pager {
@@ -63,10 +66,11 @@ const prevNext = computed(() => {
   display: flex;
   flex-direction: column;
   padding: 12px 16px;
+  /* 使用你的品牌绿色变量 */
   border: 1px solid var(--vp-c-brand-soft);
   border-radius: 12px;
-  text-decoration: none;
-  transition: all 0.2s;
+  text-decoration: none !important;
+  transition: all 0.2s ease;
 }
 
 .pager-item a:hover {
@@ -86,5 +90,7 @@ const prevNext = computed(() => {
   margin-top: 4px;
 }
 
-.next { text-align: right; }
+.next { 
+  text-align: right; 
+}
 </style>
