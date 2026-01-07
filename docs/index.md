@@ -17,12 +17,8 @@ isNoBackBtn: true
     ></a>
   </h2>
 
-  <!-- 日期 + 分类 -->
-  <div class="post-meta">
-    <span class="post-date">{{ post.date.string }}</span>
-    <span class="post-category" v-if="post.category">
-      {{ post.category }}
-    </span>
+  <div class="post-date literary-date">
+    {{ post.date.string }}
   </div>
 
   <div v-if="post.excerpt" v-html="post.excerpt"></div>
@@ -112,6 +108,7 @@ const onCurrentChange: PaginationProps["onCurrentChange"] = (
     transition: color 0.2s;
   }
 
+  /* 悬停和点击时变绿 */
   > a:hover,
   > a:active {
     color: #41b349;
@@ -122,17 +119,13 @@ const onCurrentChange: PaginationProps["onCurrentChange"] = (
   }
 }
 
-/* 日期 + 分类 */
-.post-meta {
+/* 日期（灰色 + 代码字体） */
+.post-date.literary-date {
   margin-top: 4px;
+  color: #999;
   font-family: Consolas, Menlo, Monaco, "Courier New", monospace;
   font-size: 13px;
-  color: #999;
-
-  .post-category {
-    margin-left: 8px; /* 日期和分类间隔 */
-    opacity: 0.8;
-  }
+  line-height: 1.4;
 }
 
 /* 空心文字（保留原有） */
