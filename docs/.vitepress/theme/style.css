@@ -1,18 +1,3 @@
-/** * 1. 字体声明 (@font-face)
- * 将物理文件 SourceHanSerifSC-VF.otf.woff2 映射为 CSS 标识符 "SourceHanSerifSC-VF"
- */
-
-/** 思源宋体可变字体 */
-@font-face {
-  font-family: "SourceHanSerifSC-VF";
-  font-display: swap;
-  /* 这里的 url 必须是文件的真实物理路径和完整文件名 */
-  src: url("/assets/fonts/SourceHanSerifSC-VF.otf.woff2") format("woff2");
-  /* 可变字体支持的权重范围 */
-  font-weight: 200 900;
-  font-style: normal;
-}
-
 /** 代码字体 */
 @font-face {
   font-family: "GoogleSansCode";
@@ -20,7 +5,7 @@
   src: url("/assets/fonts/GoogleSansCode[wght].ttf") format("truetype");
 }
 
-/** 标题装饰字体 */
+/** 标题字体 */
 @font-face {
   font-family: "ChillRoundF";
   font-display: swap;
@@ -29,90 +14,98 @@
        url("/assets/fonts/ChillRoundF.ttf") format("truetype");
 }
 
+@font-face {
+  font-family: "SourceHanSerifSC-Regular";
+  font-display: swap;
+  src: local("SourceHanSerifSC-Regular.otf"),
+       url("/assets/fonts/SourceHanSerifSC-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "SourceHanSerifCN-Bold";
+  font-display: swap;
+  src: local("SourceHanSerifCN-Bold.otf"),
+       url("/assets/fonts/SourceHanSerifCN-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+}
+
 /** Logo字体 */
 @font-face {
   font-family: "mvboli";
   font-display: swap;
-  src: url("/assets/fonts/mvboli.ttf");
+  src: url("/assets/fonts/mvboli.ttf") format("truetype");
 }
 
 /* =============================================================================
-   2. CSS 变量定义
+   CSS 变量定义
    ============================================================================= */
 :root {
-  /* 导航栏高度 */
   --vp-nav-height: 50px;
 
-  /* 品牌色定义 */
   --vp-c-green: #41b349;
   --vp-c-green-soft: rgba(65, 179, 73, 0.14);
+  --vp-c-green-dark: #41b349;
+  --vp-c-green-dark-soft: rgba(65, 179, 73, 0.14);
+
   --vp-c-brand-1: var(--vp-c-green) !important;
+  --vp-c-brand-2: var(--vp-c-green) !important;
+  --vp-c-brand-3: var(--vp-c-green) !important;
   --vp-c-brand-soft: var(--vp-c-green-soft) !important;
 
-  /* 字体家族变量 - 引用上面定义的标识符 */
-  --vp-font-family-serif: "SourceHanSerifSC-VF";
-  --vp-font-family-base: var(--vp-font-family-serif), serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  /* ✅ 修复点：不要留空 */
+  --vp-font-family-serif: "SourceHanSerifSC-Regular";
 
-  /* 代码字体家族 */
+  --vp-font-family-base:
+    var(--vp-font-family-serif),
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Helvetica,
+    Arial,
+    sans-serif,
+    "Apple Color Emoji",
+    "Segoe UI Emoji",
+    "Segoe UI Symbol";
+
   --vp-font-family-code: "GoogleSansCode", monospace;
 
-  /* TDesign组件变量 */
+  --td-border-level-2-color: var(--vp-c-brand-soft) !important;
   --td-brand-color: var(--vp-c-brand-1) !important;
+  --td-brand-color-light: var(--vp-c-brand-soft) !important;
+  --td-brand-color-hover: var(--vp-c-brand-1) !important;
+  --td-brand-color-active: var(--vp-c-brand-2) !important;
 }
 
 /* 暗色主题 */
 .dark {
-  --vp-c-brand-1: var(--vp-c-green) !important;
+  --vp-c-brand-1: var(--vp-c-green-dark) !important;
+  --vp-c-brand-2: var(--vp-c-green-dark) !important;
+  --vp-c-brand-3: var(--vp-c-green-dark) !important;
+  --vp-c-brand-soft: var(--vp-c-green-dark-soft) !important;
 }
 
 /* =============================================================================
-   3. 布局与组件样式
-   ============================================================================= */
-@media (min-width: 960px) {
-  .VPNavBar { width: 100%; justify-content: center; background-color: var(--vp-c-bg); }
-  .VPNav { position: absolute; }
-  .VPNavBar .container { max-width: 56vw; width: 100%; margin: 0 auto; padding: 0; }
-}
-
-/* Logo字体设置 */
-.VPNavBarTitle .title {
-  font-family: "ChillRoundF", sans-serif;
-  font-size: 22px !important;
-}
-
-/* 移除不需要的装饰线 */
-.VPNavScreen .divider, .VPNavScreen .group, .VPNavScreenMenuLink, .VPNavScreen hr,
-.VPFooter::before, .VPFooter::after {
-  display: none !important;
-}
-
-.VPFooter { border-top: none !important; box-shadow: none !important; padding: 10px !important; }
-.VPFooter a { text-decoration: none !important; }
-.VPFooter a:hover { text-decoration: underline !important; }
-
-/* 文档内容区域 */
-.VPDoc { padding-top: 20px !important; }
-@media (max-width: 959px) { .VPDoc { padding: 20px !important; width: 100%; } }
-.VPDoc.has-aside .content-container { max-width: 50rem !important; }
-@media (min-width: 960px) { .VPDoc:not(.has-sidebar) .content { max-width: inherit !important; } }
-
-/* =============================================================================
-   4. 文本权重与字体应用 (核心修改区)
+   文本样式
    ============================================================================= */
 
-/* 正文：思源宋体，权重 400 */
-.vp-doc p, .vp-doc li, .vp-doc span:not(.token) {
-  font-family: var(--vp-font-family-base) !important;
-  font-weight: 400 !important;
+/* ✅ 明确正文使用 Regular */
+.vp-doc {
+  font-family: var(--vp-font-family-base);
+  font-weight: 400;
+}
+
+.vp-doc p {
   margin-top: 5px;
   margin-bottom: 5px;
+  font-family: "SourceHanSerifSC-Regular", var(--vp-font-family-base);
 }
 
-/* 标题：思源宋体，权重 600 */
-h1, h2, h3, h4, h5, h6,
-.vp-doc h1, .vp-doc h2, .vp-doc h3, .vp-doc h4, .vp-doc h5, .vp-doc h6 {
-  font-family: var(--vp-font-family-serif), serif !important;
-  font-weight: 600 !important; /* 强制标题使用 600 权重 */
+/* 标题字体（保持你原来的设计） */
+h1, h2, h3, h4, h5, h6 {
+  font-family: "SourceHanSerifCN-Bold", var(--vp-font-family-serif), sans-serif !important;
 }
 
 h1 { font-size: 24px !important; }
