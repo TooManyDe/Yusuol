@@ -208,9 +208,9 @@ h3 {
 
 /* 链接样式 */
 .vp-doc a {
-  text-decoration: dotted !important;
+  text-decoration: none !important;
   color: #41b349;
-  font-weight: 600
+  font-family: "ChillRoundF" !important;
   
 }
 
