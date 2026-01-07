@@ -16,7 +16,7 @@
 
 /** 思源宋体可变字体 (Variable Font) */
 @font-face {
-  font-family: "SourceHanSerifSC-VF";
+  font-family: "SourceHanSerifSC-VF.otf";
   font-display: swap;
   /* 这里的路径请确保与你上传的文件名 SourceHanSerifSC-VF.otf.woff2 完全一致 */
   src: url("/assets/fonts/SourceHanSerifSC-VF.otf.woff2") format("woff2-variations"),
@@ -53,7 +53,7 @@
   --vp-c-brand-soft: var(--vp-c-green-soft) !important;
 
   /* 字体家族 - 使用新的可变字体 */
-  --vp-font-family-serif: "SourceHanSerifSC-VF";
+  --vp-font-family-serif: "SourceHanSerifSC-VF.otf";
   --vp-font-family-base: var(--vp-font-family-serif), -apple-system, BlinkMacSystemFont,
                          "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji",
                          "Segoe UI Emoji", "Segoe UI Symbol";
