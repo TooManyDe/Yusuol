@@ -21,13 +21,6 @@
 }
 
 @font-face {
-  font-family: 'Source Han Sans SC VF';
-  src: url('/assets/fonts/SourceHanSansSC-VF.woff2') format('woff2-variations'),
-       url('./fonts/SourceHanSansSC-VF.woff2') format('woff2');
-  font-weight: 100 900; 
-}
-
-@font-face {
   font-family: "mvboli";
   font-display: swap;
   src: url("/assets/fonts/mvboli.ttf");
@@ -53,7 +46,7 @@
   --vp-c-brand-soft: var(--vp-c-green-soft) !important;
 
   /* 字体家族 */
-  --vp-font-family-serif: "Source Han Sans SC VF";
+  --vp-font-family-serif: "Noto Serif SC";
   --vp-font-family-base: var(--vp-font-family-serif), -apple-system, BlinkMacSystemFont,
                          "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji",
                          "Segoe UI Emoji", "Segoe UI Symbol";
@@ -196,7 +189,7 @@
 
 .vp-doc strong,
 .vp-doc b {
-  font-family: "Noto Serif SC", var(--vp-font-family-serif), sans-serif !important;
+  var(--vp-font-family-serif), sans-serif !important;
   font-weight: 580 !important;
   text-decoration: underline dotted #41b349 !important;
   text-underline-offset: 3px;
