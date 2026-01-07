@@ -57,7 +57,7 @@ const sortedCategoryGroups = computed(() => {
   margin-bottom: 0;
   border-top: 0px;
   position: relative;
-  font-family: "Noto Serif SC";
+  font-family: "ChillRoundF";
 
   .post-year {
     position: absolute;
@@ -65,7 +65,7 @@ const sortedCategoryGroups = computed(() => {
     left: -10px;
     z-index: -1;
     opacity: .16;
-    font-family: "Noto Serif SC";
+    font-family: "ChillRoundF";
     font-size: 40px;
     font-weight: 600;
   }
