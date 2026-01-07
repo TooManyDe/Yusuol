@@ -4,7 +4,8 @@ import DefaultTheme from 'vitepress/theme'
 import { nextTick, provide, watch } from 'vue'
 import Comment from './components/Comment.vue'
 import ImageViewer from './components/ImageViewer.vue'
-import BlogFooter from './components/BlogFooter.vue' // [导入你的组件]
+// [修正路径]：引用 components 目录下的组件
+import BlogFooter from './components/BlogFooter.vue'
 
 const { isDark } = useData()
 
