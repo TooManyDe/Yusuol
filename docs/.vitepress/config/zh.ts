@@ -95,6 +95,19 @@ export default defineConfig({
     ['meta', { name: 'author', content: '的的不休' }],
     ['meta', { name: 'keywords', content: '的的不休, 博客, 分享' }],
     ['link', { rel: 'icon', href: '/favicon.ico' }],
+    // --- 新增：思源宋体 (Noto Serif SC) 加速引入 ---
+    // 1. 预连接，提速域名解析
+    ['link', { rel: 'preconnect', href: 'https://fonts.googleapis.com' }],
+    ['link', { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' }],
+    // 2. 引入字体（这里使用字节跳动镜像 fonts.bytecdns.com，国内访问极快）
+    [
+      'link', 
+      { 
+        rel: 'stylesheet', 
+        href: 'https://fonts.bytecdns.com/css2?family=Noto+Serif+SC:wght@400;700&display=swap' 
+      }
+    ],
+    // -------------------------------------------
   ],
   
   // 可选：构建优化
