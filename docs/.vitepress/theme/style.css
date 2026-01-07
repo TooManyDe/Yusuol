@@ -188,28 +188,8 @@
   margin-bottom: 5px;
 }
 
-/* 正文使用 Noto Serif SC - 字重 420 */
-body,
-.vp-doc,
-.vp-doc p,
-.vp-doc div:not(.vp-code-group):not(.language-):not([class*="language-"]),
-.vp-doc li,
-.vp-doc span:not(.line):not(.vp-code-group),
-.VPDoc,
-.VPDoc .content,
-article {
-  font-family: "Noto Serif SC", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
-  font-weight: 420 !important;
-}
 
-/* 标题使用 Noto Serif SC - 字重 580 */
-h1, h2, h3, h4, h5, h6,
-.vp-doc h1,
-.vp-doc h2,
-.vp-doc h3,
-.vp-doc h4,
-.vp-doc h5,
-.vp-doc h6 {
+h1, h2, h3, h4, h5, h6 {
   font-family: "Noto Serif SC", sans-serif !important;
   font-weight: 580 !important;
 }
