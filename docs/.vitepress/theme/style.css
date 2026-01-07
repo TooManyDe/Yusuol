@@ -15,8 +15,8 @@
 }
 
 @font-face {
-  font-family: "SourceHanSerifSC-Regular";
-  src: local("SourceHanSerifSC-Regular.otf"), url("/assets/fonts/SourceHanSerifSC-Regular.otf");
+  font-family: "SourceHanSerifCN-VF";
+  src: local("SourceHanSerifCN-VF.otf"), url("/assets/fonts/SourceHanSerifCN-VF.otf");
 }
 
 @font-face {
@@ -51,7 +51,7 @@
   --vp-c-brand-soft: var(--vp-c-green-soft) !important;
 
   /* 字体家族 */
-  --vp-font-family-serif: "";
+  --vp-font-family-serif: "SourceHanSerifCN-VF";
   --vp-font-family-base: var(--vp-font-family-serif), -apple-system, BlinkMacSystemFont,
                          "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji",
                          "Segoe UI Emoji", "Segoe UI Symbol";
