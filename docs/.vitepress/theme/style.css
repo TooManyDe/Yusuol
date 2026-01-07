@@ -14,15 +14,16 @@
        url("/assets/fonts/ChillRoundF.ttf") format("truetype");
 }
 
+/** ==================== 修改这里 ==================== **/
+/** 思源宋体变量字体 - 正确声明 **/
 @font-face {
-  font-family: "SourceHanSerifCN-VF";
-  src: local("SourceHanSerifCN-VF.otf"), url("/assets/fonts/SourceHanSerifCN-VF.otf");
+  font-family: "SourceHanSerifCN";
+  src: url("/fonts/SourceHanSerifSC-VF.otf.woff2") format("woff2-variations");
+  font-weight: 200 900;  /* 变量字体支持200-900的所有字重 */
+  font-style: normal;
+  font-display: swap;
 }
-
-@font-face {
-  font-family: "SourceHanSerifCN-Bold";
-  src: local("SourceHanSerifCN-Bold.otf"), url("/assets/fonts/SourceHanSerifCN-Bold.otf");
-}
+/** ==================== 修改结束 ==================== **/
 
 /** Logo字体 */
 @font-face {
@@ -50,11 +51,13 @@
   --vp-c-brand-3: var(--vp-c-green) !important;
   --vp-c-brand-soft: var(--vp-c-green-soft) !important;
 
+  /* ==================== 修改这里 ==================== */
   /* 字体家族 */
-  --vp-font-family-serif: "SourceHanSerifCN-VF";
+  --vp-font-family-serif: "SourceHanSerifCN", "Noto Serif SC", "Songti SC", "SimSun", serif;
   --vp-font-family-base: var(--vp-font-family-serif), -apple-system, BlinkMacSystemFont,
                          "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji",
                          "Segoe UI Emoji", "Segoe UI Symbol";
+  /* ==================== 修改结束 ==================== */
 
   /* 代码字体家族 */
   --vp-font-family-code: "GoogleSansCode", monospace;
@@ -183,17 +186,51 @@
 }
 
 /* =============================================================================
-   文本样式
+   文本样式 - 应用思源宋体
    ============================================================================= */
-.vp-doc p {
-  margin-top: 5px;
-  margin-bottom: 5px;
+
+/* ==================== 修改这里 ==================== */
+/* 正文：使用思源宋体 Regular (400) */
+body,
+.vp-doc,
+.vp-doc p,
+.vp-doc li,
+.vp-doc td,
+.vp-doc th,
+.VPContent,
+.VPDoc {
+  font-family: var(--vp-font-family-base) !important;
+  font-weight: 400 !important; /* Regular 字重 */
+  font-feature-settings: 
+    "kern" 1,           /* 字距调整 */
+    "liga" 1,           /* 连字 */
+    "clig" 1,           /* 上下文连字 */
+    "calt" 1;           /* 上下文替代 */
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* 标题字体 */
-h1, h2, h3, h4, h5, h6 {
-  font-family: "SourceHanSerifCN-Bold", var(--vp-font-family-serif), sans-serif !important;
+/* 标题：使用思源宋体 SemiBold (600) */
+h1, h2, h3, h4, h5, h6,
+.VPHome .VPHomeHero .name,
+.VPHome .VPHomeHero .text,
+.VPFeature .title,
+.VPDoc .content h1,
+.VPDoc .content h2,
+.VPDoc .content h3,
+.VPDoc .content h4,
+.VPDoc .content h5,
+.VPDoc .content h6 {
+  font-family: var(--vp-font-family-serif) !important;
+  font-weight: 600 !important; /* SemiBold 字重 */
+  font-feature-settings: 
+    "kern" 1,
+    "liga" 1,
+    "clig" 1,
+    "calt" 1;
 }
+/* ==================== 修改结束 ==================== */
 
 h1 {
   font-size: 24px !important;
@@ -228,7 +265,7 @@ h3 {
 .vp-doc strong,
 .vp-doc b {
   font-family: "ChillRoundF", var(--vp-font-family-serif), sans-serif !important;
-  font-weight: 700 !important;
+  font-weight: 700 !important; /* Bold 字重 */
   text-decoration-color: #41b349;
   text-decoration-line: underline;
   text-decoration-style: dashed;
@@ -236,6 +273,53 @@ h3 {
   text-underline-offset: 3px;
 }
 
+/* ==================== 新增：其他文本元素 ==================== */
+/* 导航和侧边栏 */
+.VPNavBar,
+.VPSidebar,
+.VPLocalNav,
+.VPDocAside {
+  font-family: var(--vp-font-family-base) !important;
+  font-weight: 400 !important;
+}
+
+/* 按钮和标签 */
+.VPButton,
+.VPNavBarMenuLink,
+.VPSidebarItem,
+.VPDocFooter .link,
+.VPDocFooter .pager-link,
+.VPDocAside .outline-link {
+  font-family: var(--vp-font-family-base) !important;
+}
+
+/* 代码相关 */
+.vp-doc code,
+.vp-doc pre code,
+.vp-doc div[class*="language-"] {
+  font-family: var(--vp-font-family-code) !important;
+  font-weight: normal !important;
+}
+
+/* 引用块 */
+.vp-doc blockquote {
+  font-family: var(--vp-font-family-serif) !important;
+  font-weight: 400 !important;
+  font-style: italic;
+}
+
+/* 表格 */
+.vp-doc table {
+  font-family: var(--vp-font-family-base) !important;
+}
+
+.vp-doc table th {
+  font-weight: 600 !important; /* 表格标题用 SemiBold */
+}
+
+.vp-doc table td {
+  font-weight: 400 !important;
+}
 
 /* 图片 */
 .VPDoc img {
@@ -260,7 +344,6 @@ h3 {
   margin: 0;
   white-space: nowrap; /* 这个属性可以防止文字内部换行，强制一行显示 */
 }
-
 
 /* =============================================================================
    隐藏元素
@@ -317,4 +400,59 @@ main > div > div > pre > code {
 /* 移动端点击高亮去除 */
 #app {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+/* ==================== 新增：中文字体优化 ==================== */
+/* 确保中文内容特别优化 */
+[lang="zh-Hans"],
+[lang="zh-CN"],
+:lang(zh) {
+  font-family: var(--vp-font-family-serif) !important;
+  font-weight: 400 !important;
+  
+  /* 更好的中文排版 */
+  line-height: 1.8 !important;
+  letter-spacing: 0.02em !important;
+  word-spacing: 0.1em !important;
+}
+
+/* 中文标题优化 */
+[lang="zh-Hans"] h1,
+[lang="zh-CN"] h1,
+:lang(zh) h1,
+[lang="zh-Hans"] h2,
+[lang="zh-CN"] h2,
+:lang(zh) h2,
+[lang="zh-Hans"] h3,
+[lang="zh-CN"] h3,
+:lang(zh) h3 {
+  line-height: 1.5 !important;
+  margin-top: 1.5em !important;
+  margin-bottom: 0.8em !important;
+}
+
+/* 中文段落优化 */
+[lang="zh-Hans"] p,
+[lang="zh-CN"] p,
+:lang(zh) p {
+  text-align: justify !important;
+  text-justify: inter-ideograph !important;
+  margin-bottom: 1.2em !important;
+}
+
+/* 变量字体特性支持检测 */
+@supports (font-variation-settings: normal) {
+  .vp-doc,
+  body {
+    font-variation-settings: "wght" 400;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-variation-settings: "wght" 600;
+  }
+  
+  .vp-doc strong,
+  .vp-doc b {
+    font-variation-settings: "wght" 700;
+  }
 }
