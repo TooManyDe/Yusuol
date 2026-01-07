@@ -102,9 +102,8 @@ const onCurrentChange: PaginationProps["onCurrentChange"] = (
   border-top: 0px;
 
   > a {
-    font-family: "SourceHanSerifCN" !important;
     text-decoration: none !important;
-    color: #000; /* 默认黑色 */
+    color: #000;
     transition: color 0.2s;
   }
 
