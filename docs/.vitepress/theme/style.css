@@ -1,11 +1,11 @@
-/** 代码字体 */
+/** 代码字体 - 本地加载 */
 @font-face {
   font-family: "GoogleSansCode";
   font-display: swap; 
   src: url("/assets/fonts/GoogleSansCode[wght].ttf") format("truetype");
 }
 
-/** 标题/辅助字体 (本地) */
+/** 辅助设计字体 (Logo/链接) - 本地加载 */
 @font-face {
   font-family: "ChillRoundF";
   font-display: swap;
@@ -14,15 +14,16 @@
        url("/assets/fonts/ChillRoundF.ttf") format("truetype");
 }
 
-/** Logo字体 (本地) */
+/** Logo字体 */
 @font-face {
   font-family: "mvboli";
   font-display: swap;
   src: url("/assets/fonts/mvboli.ttf");
 }
 
-/* 注：原有的 SourceHanSerifSC-Regular.otf 和 SourceHanSerifCN-Bold.otf 
-   本地引用已被删除，现在通过 head 引入的 Google Fonts 动态加载。
+/* 注意：此处已删除原有的本地 SourceHanSerif 引用。
+   请确保已经在 config.ts 的 head 中引入了 Google Fonts 链接：
+   https://fonts.bytecdns.com/css2?family=Noto+Serif+SC:wght@700&display=swap 
 */
 
 /* =============================================================================
@@ -44,11 +45,9 @@
   --vp-c-brand-3: var(--vp-c-green) !important;
   --vp-c-brand-soft: var(--vp-c-green-soft) !important;
 
-  /* 字体家族：使用 Google Fonts 提供的 Noto Serif SC */
-  --vp-font-family-serif: "Noto Serif SC", serif;
-  --vp-font-family-base: var(--vp-font-family-serif), -apple-system, BlinkMacSystemFont,
-                         "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji",
-                         "Segoe UI Emoji", "Segoe UI Symbol";
+  /* 正文字体：设为空，自动回退到系统默认无衬线字体 (黑体/苹方/雅黑) */
+  --vp-font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, 
+                         sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 
   /* 代码字体家族 */
   --vp-font-family-code: "GoogleSansCode", monospace;
@@ -70,7 +69,7 @@
 }
 
 /* =============================================================================
-   Nav
+   Nav (导航栏)
    ============================================================================= */
 @media (min-width: 960px) {
   .VPNavBar {
@@ -78,100 +77,41 @@
     justify-content: center;
     background-color: var(--vp-c-bg);
   }
-
-  .VPNav[data-v-e4ae072f] {
-    position: absolute;
-  }
-
+  .VPNav[data-v-e4ae072f] { position: absolute; }
   .VPNavBar .container {
     max-width: 56vw;
     width: 100%;
     margin: 0 auto;
-    padding-left: 0;
-    padding-right: 0;
+    padding: 0;
   }
 }
 
-/* Logo字体设置 */
 .VPNavBarTitle .title {
   font-family: "ChillRoundF", sans-serif;
   font-size: 22px !important;
 }
 
-/* 移除菜单项的分割线 */
-.VPNavScreen .divider,
-.VPNavScreen .group,
-.VPNavScreenMenuLink {
-  border-top: none !important;
-  border-bottom: none !important;
-  border-color: transparent !important;
+.VPNavScreen .divider, .VPNavScreen .group, .VPNavScreenMenuLink {
+  border: none !important;
 }
-
-.VPNavScreen hr {
-  display: none !important;
-}
+.VPNavScreen hr { display: none !important; }
 
 /* Footer */
-.VPFooter a {
-  text-decoration: none !important;
-}
-
-.VPFooter {
-  padding: 10px !important;
-}
-
-.VPFooter a:hover {
-  text-decoration: underline !important;
-}
-
-.VPFooter::before,
-.VPFooter::after {
-  display: none !important;
-  background: none !important;
-  border: none !important;
-  box-shadow: none !important;
-}
-
-.VPFooter {
-  border-top: none !important;
-  box-shadow: none !important;
-}
+.VPFooter, .VPFooter a { text-decoration: none !important; }
+.VPFooter { padding: 10px !important; border-top: none !important; box-shadow: none !important; }
+.VPFooter::before, .VPFooter::after { display: none !important; }
 
 /* =============================================================================
    文档内容布局
    ============================================================================= */
-.VPDoc {
-  padding-top: 20px !important;
-}
-
-@media (max-width: 959px) {
-  .VPDoc {
-    padding: 20px !important;
-    width: 100%;
-  }
-}
-
-.VPDoc.has-aside .content-container {
-  max-width: 50rem !important;
-}
-
+.VPDoc { padding-top: 20px !important; }
+@media (max-width: 959px) { .VPDoc { padding: 20px !important; width: 100%; } }
+.VPDoc.has-aside .content-container { max-width: 50rem !important; }
 @media (min-width: 960px) {
-  .VPDoc:not(.has-sidebar) .content {
-    max-width: inherit !important;
-  }
-
-  .VPDoc .content {
-    padding: 0 !important; 
-  }
+  .VPDoc:not(.has-sidebar) .content { max-width: inherit !important; }
+  .VPDoc .content { padding: 0 !important; }
 }
-
-.VPDocFooter {
-  margin-top: 10px !important;
-}
-
-.VPcontent {
-  margin-bottom: 10px !important;
-}
+.VPDocFooter { margin-top: 10px !important; }
 
 /* =============================================================================
    文本样式
@@ -179,132 +119,56 @@
 .vp-doc p {
   margin-top: 5px;
   margin-bottom: 5px;
+  /* 此处将自动继承 --vp-font-family-base 的默认系统字体 */
 }
 
-/* 标题字体：使用 Noto Serif SC 粗体 */
+/* 只有标题使用思源宋体 (Noto Serif SC) */
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Noto Serif SC", var(--vp-font-family-serif), sans-serif !important;
-  font-weight: 700 !important;
+  font-family: "Noto Serif SC", serif !important;
+  font-weight: 700 !important; /* 确保加载的是粗体 */
 }
 
-h1 {
-  font-size: 24px !important;
-}
-
-h2 {
-  font-size: 20px !important;
-  margin: inherit !important;
-  border-top: none !important;
-  text-decoration: none !important;
-}
-
-h3 {
-  font-size: 20px !important;
-}
+h1 { font-size: 24px !important; }
+h2 { font-size: 20px !important; border-top: none !important; }
+h3 { font-size: 20px !important; }
 
 /* 链接样式 */
 .vp-doc a {
-  font-family: "ChillRoundF", var(--vp-font-family-serif), sans-serif !important;
+  font-family: "ChillRoundF", sans-serif !important;
   text-decoration: none !important;
 }
+.vp-doc a:hover { text-decoration: underline !important; }
 
-.vp-doc a:hover {
-  text-decoration: underline !important;
-}
-
-.vp-doc a::after {
-  content: none !important;
-}
-
-/* 强调文本 */
-.vp-doc strong,
-.vp-doc b {
-  font-family: "ChillRoundF", var(--vp-font-family-serif), sans-serif !important;
+/* 强调文本 (加粗部分) */
+.vp-doc strong, .vp-doc b {
+  font-family: "ChillRoundF", sans-serif !important;
   font-weight: 700 !important;
-  text-decoration-color: #41b349;
-  text-decoration-line: underline;
-  text-decoration-style: dashed;
-  text-decoration-thickness: 1.5px;
+  text-decoration: underline dashed #41b349 1.5px;
   text-underline-offset: 3px;
 }
 
-/* 图片 */
+/* 图片 & 表格 */
 .VPDoc img {
   border-radius: 16px;
-  cursor: zoom-in;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
-
-/* 表格响应式 */
-.table-scroll {
-  overflow-x: auto;
-  display: block;
-  width: 100%;
-  -webkit-overflow-scrolling: touch;
-}
-
-.table-scroll table {
-  width: max-content;
-  min-width: 100%;
-  border-collapse: collapse;
-  margin: 0;
-  white-space: nowrap;
-}
+.table-scroll { overflow-x: auto; display: block; width: 100%; }
+.table-scroll table { width: max-content; min-width: 100%; white-space: nowrap; }
 
 /* =============================================================================
-   隐藏元素逻辑
+   隐藏元素 & 其他微调
    ============================================================================= */
-.VPSidebar,
-.VPDocAside .VPDocAsideOutline, 
-.VPBackToTop,
-.divider-line,
-.divider,
-.VPLocalNav {
+.VPSidebar, .VPDocAside .VPDocAsideOutline, .VPBackToTop, 
+.divider-line, .divider, .VPLocalNav, .vpi-chevron-down, .text-icon {
   display: none !important;
 }
 
-/* 确保上下篇导航显示 */
-.VPDocFooter,
-.prev-next {
-  display: block !important;
-}
+.VPDocFooter, .prev-next { display: block !important; }
 
-.vpi-chevron-down,
-.text-icon {
-  display: none;
-}
+.VPSwitchAppearance { width: 22px !important; }
+.VPSwitchAppearance .check { transform: none !important; }
 
-/* 主题按钮微调 */
-.VPSwitchAppearance {
-  width: 22px !important;
-}
-
-.VPSwitchAppearance .check {
-  transform: none !important;
-}
-
-/* =============================================================================
-   通用细节优化
-   ============================================================================= */
-/* 选中文本颜色 */
-::selection {
-  background: var(--vp-c-brand-1);
-  color: var(--vp-c-bg);
-}
-
-/* 滚动条 */
-* {
-  scrollbar-width: thin;
-}
-
-/* 代码块换行 */
-main > div > div > pre > code {
-  white-space: pre-wrap;
-  word-wrap: break-word;
-}
-
-/* 移动端点击高亮去除 */
-#app {
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-}
+::selection { background: var(--vp-c-brand-1); color: var(--vp-c-bg); }
+* { scrollbar-width: thin; }
+main > div > div > pre > code { white-space: pre-wrap; word-wrap: break-word; }
+#app { -webkit-tap-highlight-color: transparent; }
