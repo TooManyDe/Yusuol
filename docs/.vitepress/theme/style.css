@@ -265,13 +265,18 @@ h3 {
    隐藏元素
    ============================================================================= */
 .VPSidebar,
-.VPDocAside,
-.aside,
+.VPDocAside .VPDocAsideOutline, /* 只隐藏右侧目录 */
 .VPBackToTop,
 .divider-line,
 .divider,
 .VPLocalNav {
   display: none !important;
+}
+
+/* 确保上下篇导航显示 */
+.VPDocFooter,
+.prev-next {
+  display: block !important;
 }
 
 .vpi-chevron-down,
