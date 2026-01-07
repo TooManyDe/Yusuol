@@ -193,15 +193,17 @@
 .vp-doc p {
   margin-top: 5px;
   margin-bottom: 5px;
-  font-weight: 400 !important;
+  font-weight: 380 !important;
 }
 
 .vp-doc strong,
 .vp-doc b {
+  font-family: var(--vp-font-family-serif), sans-serif !important;
   font-weight: 580 !important;
   text-decoration: underline dotted #41b349 !important;
   text-underline-offset: 3px;
 }
+
 
 /* 标题字体 */
 h1, h2, h3, h4, h5, h6 {
