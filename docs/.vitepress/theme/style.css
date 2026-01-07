@@ -1,83 +1,106 @@
+/* =============================================================================
+   字体定义
+   ============================================================================= */
+
 /** 代码字体 */
 @font-face {
   font-family: "GoogleSansCode";
-  font-display: swap; 
-  src: url("/assets/fonts/GoogleSansCode[wght].ttf") format("truetype");
+  font-display: swap;
+  font-weight: 100 900;
+  src: url("/assets/fonts/GoogleSansCode[wght].ttf") format("truetype-variations");
 }
 
 /** 标题字体 */
 @font-face {
   font-family: "ChillRoundF";
   font-display: swap;
-  src: url("/assets/fonts/ChillRoundF.woff2") format("woff2"), 
+  src: url("/assets/fonts/ChillRoundF.woff2") format("woff2"),
        url("/assets/fonts/ChillRoundF.woff") format("woff"),
        url("/assets/fonts/ChillRoundF.ttf") format("truetype");
 }
 
+/** 正文字体 */
 @font-face {
-  font-family: "SourceHanSerifSC-Regular";
-  src: local("SourceHanSerifSC-Regular.otf"), url("/assets/fonts/SourceHanSerifSC-Regular.otf");
+  font-family: "SourceHanSerifSC";
+  font-display: swap;
+  font-weight: 400;
+  src: local("Source Han Serif SC Regular"),
+       local("SourceHanSerifSC-Regular"),
+       url("/assets/fonts/SourceHanSerifSC-Regular.otf") format("opentype");
 }
 
 @font-face {
-  font-family: "SourceHanSerifCN-Bold";
-  src: local("SourceHanSerifCN-Bold.otf"), url("/assets/fonts/SourceHanSerifCN-Bold.otf");
+  font-family: "SourceHanSerifSC";
+  font-display: swap;
+  font-weight: 700;
+  src: local("Source Han Serif CN Bold"),
+       local("SourceHanSerifCN-Bold"),
+       url("/assets/fonts/SourceHanSerifCN-Bold.otf") format("opentype");
 }
 
-/** Logo字体 */
+/** Logo 字体 */
 @font-face {
   font-family: "mvboli";
   font-display: swap;
-  src: url("/assets/fonts/mvboli.ttf");
+  src: url("/assets/fonts/mvboli.ttf") format("truetype");
 }
 
 /* =============================================================================
    CSS 变量定义
    ============================================================================= */
+
 :root {
   /* 导航栏高度 */
   --vp-nav-height: 50px;
 
   /* 品牌色定义 */
   --vp-c-green: #41b349;
+  --vp-c-green-hover: #2e8637;
   --vp-c-green-soft: rgba(65, 179, 73, 0.14);
-  --vp-c-green-dark: #41b349;
-  --vp-c-green-dark-soft: rgba(65, 179, 73, 0.14);
 
-  /* 品牌色映射 (默认/亮色主题) */
-  --vp-c-brand-1: var(--vp-c-green) !important;
-  --vp-c-brand-2: var(--vp-c-green) !important;
-  --vp-c-brand-3: var(--vp-c-green) !important;
-  --vp-c-brand-soft: var(--vp-c-green-soft) !important;
+  /* 品牌色映射 */
+  --vp-c-brand-1: var(--vp-c-green);
+  --vp-c-brand-2: var(--vp-c-green);
+  --vp-c-brand-3: var(--vp-c-green);
+  --vp-c-brand-soft: var(--vp-c-green-soft);
 
   /* 字体家族 */
-  --vp-font-family-serif: "";
+  --vp-font-family-serif: "SourceHanSerifSC";
   --vp-font-family-base: var(--vp-font-family-serif), -apple-system, BlinkMacSystemFont,
-                         "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji",
-                         "Segoe UI Emoji", "Segoe UI Symbol";
+                         "Segoe UI", Helvetica, Arial, sans-serif,
+                         "Apple Color Emoji", "Segoe UI Emoji";
+  --vp-font-family-code: "GoogleSansCode", "Consolas", "Monaco", monospace;
+  --vp-font-family-heading: "SourceHanSerifSC", var(--vp-font-family-serif), sans-serif;
+  --vp-font-family-accent: "ChillRoundF", var(--vp-font-family-serif), sans-serif;
 
-  /* 代码字体家族 */
-  --vp-font-family-code: "GoogleSansCode", monospace;
+  /* TDesign 组件变量 */
+  --td-border-level-2-color: var(--vp-c-brand-soft);
+  --td-brand-color: var(--vp-c-brand-1);
+  --td-brand-color-light: var(--vp-c-brand-soft);
+  --td-brand-color-hover: var(--vp-c-brand-1);
+  --td-brand-color-active: var(--vp-c-brand-2);
 
-  /* TDesign组件变量 */
-  --td-border-level-2-color: var(--vp-c-brand-soft) !important;
-  --td-brand-color: var(--vp-c-brand-1) !important;
-  --td-brand-color-light: var(--vp-c-brand-soft) !important;
-  --td-brand-color-hover: var(--vp-c-brand-1) !important;
-  --td-brand-color-active: var(--vp-c-brand-2) !important;
+  /* 间距 */
+  --spacing-xs: 5px;
+  --spacing-sm: 10px;
+  --spacing-md: 20px;
+
+  /* 边框圆角 */
+  --border-radius: 16px;
 }
 
 /* 暗色主题 */
 .dark {
-  --vp-c-brand-1: var(--vp-c-green-dark) !important;
-  --vp-c-brand-2: var(--vp-c-green-dark) !important;
-  --vp-c-brand-3: var(--vp-c-green-dark) !important;
-  --vp-c-brand-soft: var(--vp-c-green-dark-soft) !important;
+  --vp-c-brand-1: var(--vp-c-green);
+  --vp-c-brand-2: var(--vp-c-green);
+  --vp-c-brand-3: var(--vp-c-green);
+  --vp-c-brand-soft: var(--vp-c-green-soft);
 }
 
 /* =============================================================================
-   Nav
+   导航栏
    ============================================================================= */
+
 @media (min-width: 960px) {
   .VPNavBar {
     width: 100%;
@@ -93,210 +116,220 @@
     max-width: 56vw;
     width: 100%;
     margin: 0 auto;
-    padding-left: 0;
-    padding-right: 0;
+    padding: 0;
   }
 }
 
-/* Logo字体设置 */
+/* Logo 字体设置 */
 .VPNavBarTitle .title {
-  font-family: "ChillRoundF", sans-serif;
-  font-size: 22px !important;
+  font-family: var(--vp-font-family-accent);
+  font-size: 22px;
 }
 
-/* 移除菜单项的分割线 */
+/* 移除菜单项分割线 */
 .VPNavScreen .divider,
 .VPNavScreen .group,
-.VPNavScreenMenuLink {
-  border-top: none !important;
-  border-bottom: none !important;
-  border-color: transparent !important;
-}
-
+.VPNavScreenMenuLink,
 .VPNavScreen hr {
-  display: none !important;
+  display: none;
+  border: none;
 }
 
-/* Footer */
-.VPFooter a {
-  text-decoration: none !important;
-}
+/* =============================================================================
+   页脚
+   ============================================================================= */
 
 .VPFooter {
-  padding: 10px !important;
+  padding: var(--spacing-sm);
+  border-top: none;
+  box-shadow: none;
+}
+
+.VPFooter::before,
+.VPFooter::after {
+  display: none;
+}
+
+.VPFooter a {
+  text-decoration: none;
+  transition: text-decoration 0.2s ease;
 }
 
 .VPFooter a:hover {
-  text-decoration: underline #41b349 !important;
-}
-
-/* ============================================================================
-   移除页脚 divider
-   ============================================================================ */
-.VPFooter::before,
-.VPFooter::after {
-  display: none !important;
-  background: none !important;
-  border: none !important;
-  box-shadow: none !important;
-}
-
-.VPFooter {
-  border-top: none !important;
-  box-shadow: none !important;
+  text-decoration: underline;
+  text-decoration-color: var(--vp-c-brand-1);
 }
 
 /* =============================================================================
    文档内容
    ============================================================================= */
+
 .VPDoc {
-  padding-top: 20px !important;
+  padding-top: var(--spacing-md);
 }
 
 @media (max-width: 959px) {
   .VPDoc {
-    padding: 20px !important;
+    padding: var(--spacing-md);
     width: 100%;
   }
 }
 
 .VPDoc.has-aside .content-container {
-  max-width: 50rem !important;
+  max-width: 50rem;
 }
 
 @media (min-width: 960px) {
   .VPDoc:not(.has-sidebar) .content {
-    max-width: inherit !important;
+    max-width: inherit;
   }
 
   .VPDoc .content {
-    padding: 0 !important; 
+    padding: 0;
   }
 }
 
 .VPDocFooter {
-  margin-top: 10px !important;
+  margin-top: var(--spacing-sm);
+  display: block;
 }
 
 .VPcontent {
-  margin-bottom: 10px !important;
+  margin-bottom: var(--spacing-sm);
 }
 
 /* =============================================================================
    文本样式
    ============================================================================= */
+
 .vp-doc p {
-  margin-top: 5px;
-  margin-bottom: 5px;
+  margin: var(--spacing-xs) 0;
 }
 
-/* 标题字体 */
-h1, h2, h3, h4, h5, h6 {
-  font-family: "SourceHanSerifCN-Bold", var(--vp-font-family-serif), sans-serif !important;
+/* 标题 */
+.vp-doc h1,
+.vp-doc h2,
+.vp-doc h3,
+.vp-doc h4,
+.vp-doc h5,
+.vp-doc h6 {
+  font-family: var(--vp-font-family-heading);
+  font-weight: 700;
 }
 
-h1 {
-  font-size: 24px !important;
+.vp-doc h1 {
+  font-size: 24px;
 }
 
-h2 {
-  font-size: 20px !important;
-  margin: inherit !important;
-  border-top: none !important;
-  text-decoration: none !important;
+.vp-doc h2 {
+  font-size: 20px;
+  margin: inherit;
+  border-top: none;
+  text-decoration: none;
 }
 
-h3 {
-  font-size: 20px !important;
+.vp-doc h3 {
+  font-size: 20px;
 }
 
-/* 链接样式 */
+/* 链接 */
 .vp-doc a {
-  font-family: "ChillRoundF", var(--vp-font-family-serif), sans-serif !important;
-  text-decoration: none !important;
-  color: #41b349;
+  font-family: var(--vp-font-family-accent);
+  text-decoration: none;
+  color: var(--vp-c-brand-1);
+  transition: color 0.2s ease, text-decoration 0.2s ease;
 }
 
 .vp-doc a:hover {
-  text-decoration: underline !important;
-  color: #2e8637; 
+  text-decoration: underline;
+  color: var(--vp-c-green-hover);
 }
 
 .vp-doc a::after {
-  content: none !important;
+  content: none;
 }
 
 /* 强调文本 */
 .vp-doc strong,
 .vp-doc b {
-  font-family: "ChillRoundF", var(--vp-font-family-serif), sans-serif !important;
-  font-weight: 700 !important;
-  text-decoration: underline wavy #41b349 !important;
+  font-family: var(--vp-font-family-accent);
+  font-weight: 700;
+  text-decoration: underline wavy var(--vp-c-brand-1);
   text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
 }
-
 
 /* 图片 */
 .VPDoc img {
-  border-radius: 16px;
+  border-radius: var(--border-radius);
   cursor: zoom-in;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
   transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
+.VPDoc img:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+}
+
+/* 表格滚动 */
 .table-scroll {
   overflow-x: auto;
   display: block;
   width: 100%;
-  -webkit-overflow-scrolling: touch; /* 为了让移动端滑动更流畅 */
+  -webkit-overflow-scrolling: touch;
 }
 
-/* 可选：给滚动条加一点样式 */
 .table-scroll table {
   width: max-content;
   min-width: 100%;
   border-collapse: collapse;
   margin: 0;
-  white-space: nowrap; /* 这个属性可以防止文字内部换行，强制一行显示 */
+  white-space: nowrap;
 }
-
 
 /* =============================================================================
    隐藏元素
    ============================================================================= */
+
 .VPSidebar,
-.VPDocAside .VPDocAsideOutline, /* 只隐藏右侧目录 */
+.VPDocAside .VPDocAsideOutline,
 .VPBackToTop,
 .divider-line,
 .divider,
-.VPLocalNav {
-  display: none !important;
-}
-
-/* 确保上下篇导航显示 */
-.VPDocFooter,
-.prev-next {
-  display: block !important;
-}
-
+.VPLocalNav,
 .vpi-chevron-down,
 .text-icon {
   display: none;
 }
 
+/* 确保上下篇导航显示 */
+.prev-next {
+  display: block;
+}
+
 /* =============================================================================
-   主题按钮
+   主题切换
    ============================================================================= */
+
 .VPSwitchAppearance {
-  width: 22px !important;
+  width: 22px;
 }
 
 .VPSwitchAppearance .check {
-  transform: none !important;
+  transform: none;
 }
 
+/* =============================================================================
+   通用样式
+   ============================================================================= */
+
 /* 选择文本颜色 */
-::selection,
+::selection {
+  background: var(--vp-c-brand-1);
+  color: var(--vp-c-bg);
+}
+
 ::-moz-selection {
   background: var(--vp-c-brand-1);
   color: var(--vp-c-bg);
@@ -305,15 +338,46 @@ h3 {
 /* 滚动条 */
 * {
   scrollbar-width: thin;
+  scrollbar-color: var(--vp-c-brand-soft) transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: var(--vp-c-brand-soft);
+  border-radius: 4px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: var(--vp-c-brand-1);
 }
 
 /* 代码块换行 */
 main > div > div > pre > code {
   white-space: pre-wrap;
   word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 /* 移动端点击高亮去除 */
 #app {
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* 无障碍:减少动画 */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
