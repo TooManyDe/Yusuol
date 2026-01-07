@@ -4,8 +4,6 @@ import DefaultTheme from 'vitepress/theme'
 import { nextTick, provide, watch } from 'vue'
 import Comment from './components/Comment.vue'
 import ImageViewer from './components/ImageViewer.vue'
-// [修正路径]：引用 components 目录下的组件
-import BlogFooter from './components/BlogFooter.vue'
 
 const { isDark } = useData()
 
@@ -68,11 +66,6 @@ provide('toggle-appearance', async ({ clientX: x, clientY: y }: MouseEvent) => {
       <template #doc-top>
         <ImageViewer />
       </template>
-
-      <template #doc-footer-before>
-        <BlogFooter />
-      </template>
-
       <template #doc-after>
         <Comment />
       </template>
