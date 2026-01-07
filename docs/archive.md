@@ -71,7 +71,7 @@ const postGroups = computed(() => {
 		left: -10px;
 		z-index: -1;
 		opacity: .16;
-    font-family: "Noto Serif SC";
+   font-family: "ChillRoundF";
 		font-size: 40px;
 		font-weight: 600;
 	}
