@@ -1,11 +1,11 @@
-/** 代码字体 - 本地加载 */
+/** 代码字体 */
 @font-face {
   font-family: "GoogleSansCode";
   font-display: swap; 
   src: url("/assets/fonts/GoogleSansCode[wght].ttf") format("truetype");
 }
 
-/** 辅助设计字体 (Logo/链接) - 本地加载 */
+/** 标题字体 */
 @font-face {
   font-family: "ChillRoundF";
   font-display: swap;
@@ -14,17 +14,22 @@
        url("/assets/fonts/ChillRoundF.ttf") format("truetype");
 }
 
+@font-face {
+  font-family: "SourceHanSerifSC-Regular";
+  src: local("SourceHanSerifSC-Regular.otf"), url("/assets/fonts/SourceHanSerifSC-Regular.otf");
+}
+
+@font-face {
+  font-family: "SourceHanSerifCN-Bold";
+  src: local("SourceHanSerifCN-Bold.otf"), url("/assets/fonts/SourceHanSerifCN-Bold.otf");
+}
+
 /** Logo字体 */
 @font-face {
   font-family: "mvboli";
   font-display: swap;
   src: url("/assets/fonts/mvboli.ttf");
 }
-
-/* 注意：此处已删除原有的本地 SourceHanSerif 引用。
-   请确保已经在 config.ts 的 head 中引入了 Google Fonts 链接：
-   https://fonts.bytecdns.com/css2?family=Noto+Serif+SC:wght@700&display=swap 
-*/
 
 /* =============================================================================
    CSS 变量定义
@@ -39,15 +44,17 @@
   --vp-c-green-dark: #41b349;
   --vp-c-green-dark-soft: rgba(65, 179, 73, 0.14);
 
-  /* 品牌色映射 */
+  /* 品牌色映射 (默认/亮色主题) */
   --vp-c-brand-1: var(--vp-c-green) !important;
   --vp-c-brand-2: var(--vp-c-green) !important;
   --vp-c-brand-3: var(--vp-c-green) !important;
   --vp-c-brand-soft: var(--vp-c-green-soft) !important;
 
-  /* 正文字体：设为空，自动回退到系统默认无衬线字体 (黑体/苹方/雅黑) */
-  --vp-font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, 
-                         sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  /* 字体家族 */
+  --vp-font-family-serif: "";
+  --vp-font-family-base: var(--vp-font-family-serif), -apple-system, BlinkMacSystemFont,
+                         "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji",
+                         "Segoe UI Emoji", "Segoe UI Symbol";
 
   /* 代码字体家族 */
   --vp-font-family-code: "GoogleSansCode", monospace;
@@ -69,7 +76,7 @@
 }
 
 /* =============================================================================
-   Nav (导航栏)
+   Nav
    ============================================================================= */
 @media (min-width: 960px) {
   .VPNavBar {
@@ -77,41 +84,103 @@
     justify-content: center;
     background-color: var(--vp-c-bg);
   }
-  .VPNav[data-v-e4ae072f] { position: absolute; }
+
+  .VPNav[data-v-e4ae072f] {
+    position: absolute;
+  }
+
   .VPNavBar .container {
     max-width: 56vw;
     width: 100%;
     margin: 0 auto;
-    padding: 0;
+    padding-left: 0;
+    padding-right: 0;
   }
 }
 
+/* Logo字体设置 */
 .VPNavBarTitle .title {
   font-family: "ChillRoundF", sans-serif;
   font-size: 22px !important;
 }
 
-.VPNavScreen .divider, .VPNavScreen .group, .VPNavScreenMenuLink {
-  border: none !important;
+/* 移除菜单项的分割线 */
+.VPNavScreen .divider,
+.VPNavScreen .group,
+.VPNavScreenMenuLink {
+  border-top: none !important;
+  border-bottom: none !important;
+  border-color: transparent !important;
 }
-.VPNavScreen hr { display: none !important; }
+
+.VPNavScreen hr {
+  display: none !important;
+}
 
 /* Footer */
-.VPFooter, .VPFooter a { text-decoration: none !important; }
-.VPFooter { padding: 10px !important; border-top: none !important; box-shadow: none !important; }
-.VPFooter::before, .VPFooter::after { display: none !important; }
+.VPFooter a {
+  text-decoration: none !important;
+}
+
+.VPFooter {
+  padding: 10px !important;
+}
+
+.VPFooter a:hover {
+  text-decoration: underline !important;
+}
+
+/* ============================================================================
+   移除页脚 divider
+   ============================================================================ */
+.VPFooter::before,
+.VPFooter::after {
+  display: none !important;
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.VPFooter {
+  border-top: none !important;
+  box-shadow: none !important;
+}
 
 /* =============================================================================
-   文档内容布局
+   文档内容
    ============================================================================= */
-.VPDoc { padding-top: 20px !important; }
-@media (max-width: 959px) { .VPDoc { padding: 20px !important; width: 100%; } }
-.VPDoc.has-aside .content-container { max-width: 50rem !important; }
-@media (min-width: 960px) {
-  .VPDoc:not(.has-sidebar) .content { max-width: inherit !important; }
-  .VPDoc .content { padding: 0 !important; }
+.VPDoc {
+  padding-top: 20px !important;
 }
-.VPDocFooter { margin-top: 10px !important; }
+
+@media (max-width: 959px) {
+  .VPDoc {
+    padding: 20px !important;
+    width: 100%;
+  }
+}
+
+.VPDoc.has-aside .content-container {
+  max-width: 50rem !important;
+}
+
+@media (min-width: 960px) {
+  .VPDoc:not(.has-sidebar) .content {
+    max-width: inherit !important;
+  }
+
+  .VPDoc .content {
+    padding: 0 !important; 
+  }
+}
+
+.VPDocFooter {
+  margin-top: 10px !important;
+}
+
+.VPcontent {
+  margin-bottom: 10px !important;
+}
 
 /* =============================================================================
    文本样式
@@ -119,56 +188,133 @@
 .vp-doc p {
   margin-top: 5px;
   margin-bottom: 5px;
-  /* 此处将自动继承 --vp-font-family-base 的默认系统字体 */
 }
 
-/* 只有标题使用思源宋体 (Noto Serif SC) */
+/* 标题字体 */
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Noto Serif SC", serif !important;
-  font-weight: 700 !important; /* 确保加载的是粗体 */
+  font-family: "SourceHanSerifCN-Bold", var(--vp-font-family-serif), sans-serif !important;
 }
 
-h1 { font-size: 24px !important; }
-h2 { font-size: 20px !important; border-top: none !important; }
-h3 { font-size: 20px !important; }
+h1 {
+  font-size: 24px !important;
+}
+
+h2 {
+  font-size: 20px !important;
+  margin: inherit !important;
+  border-top: none !important;
+  text-decoration: none !important;
+}
+
+h3 {
+  font-size: 20px !important;
+}
 
 /* 链接样式 */
 .vp-doc a {
-  font-family: "ChillRoundF", sans-serif !important;
+  font-family: "ChillRoundF", var(--vp-font-family-serif), sans-serif !important;
   text-decoration: none !important;
 }
-.vp-doc a:hover { text-decoration: underline !important; }
 
-/* 强调文本 (加粗部分) */
-.vp-doc strong, .vp-doc b {
-  font-family: "ChillRoundF", sans-serif !important;
+.vp-doc a:hover {
+  text-decoration: underline !important;
+}
+
+.vp-doc a::after {
+  content: none !important;
+}
+
+/* 强调文本 */
+.vp-doc strong,
+.vp-doc b {
+  font-family: "ChillRoundF", var(--vp-font-family-serif), sans-serif !important;
   font-weight: 700 !important;
-  text-decoration: underline dashed #41b349 1.5px;
+  text-decoration-color: #41b349;
+  text-decoration-line: underline;
+  text-decoration-style: dashed;
+  text-decoration-thickness: 1.5px;
   text-underline-offset: 3px;
 }
 
-/* 图片 & 表格 */
+
+/* 图片 */
 .VPDoc img {
   border-radius: 16px;
+  cursor: zoom-in;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
-.table-scroll { overflow-x: auto; display: block; width: 100%; }
-.table-scroll table { width: max-content; min-width: 100%; white-space: nowrap; }
+
+.table-scroll {
+  overflow-x: auto;
+  display: block;
+  width: 100%;
+  -webkit-overflow-scrolling: touch; /* 为了让移动端滑动更流畅 */
+}
+
+/* 可选：给滚动条加一点样式 */
+.table-scroll table {
+  width: max-content;
+  min-width: 100%;
+  border-collapse: collapse;
+  margin: 0;
+  white-space: nowrap; /* 这个属性可以防止文字内部换行，强制一行显示 */
+}
+
 
 /* =============================================================================
-   隐藏元素 & 其他微调
+   隐藏元素
    ============================================================================= */
-.VPSidebar, .VPDocAside .VPDocAsideOutline, .VPBackToTop, 
-.divider-line, .divider, .VPLocalNav, .vpi-chevron-down, .text-icon {
+.VPSidebar,
+.VPDocAside .VPDocAsideOutline, /* 只隐藏右侧目录 */
+.VPBackToTop,
+.divider-line,
+.divider,
+.VPLocalNav {
   display: none !important;
 }
 
-.VPDocFooter, .prev-next { display: block !important; }
+/* 确保上下篇导航显示 */
+.VPDocFooter,
+.prev-next {
+  display: block !important;
+}
 
-.VPSwitchAppearance { width: 22px !important; }
-.VPSwitchAppearance .check { transform: none !important; }
+.vpi-chevron-down,
+.text-icon {
+  display: none;
+}
 
-::selection { background: var(--vp-c-brand-1); color: var(--vp-c-bg); }
-* { scrollbar-width: thin; }
-main > div > div > pre > code { white-space: pre-wrap; word-wrap: break-word; }
-#app { -webkit-tap-highlight-color: transparent; }
+/* =============================================================================
+   主题按钮
+   ============================================================================= */
+.VPSwitchAppearance {
+  width: 22px !important;
+}
+
+.VPSwitchAppearance .check {
+  transform: none !important;
+}
+
+/* 选择文本颜色 */
+::selection,
+::-moz-selection {
+  background: var(--vp-c-brand-1);
+  color: var(--vp-c-bg);
+}
+
+/* 滚动条 */
+* {
+  scrollbar-width: thin;
+}
+
+/* 代码块换行 */
+main > div > div > pre > code {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+/* 移动端点击高亮去除 */
+#app {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
