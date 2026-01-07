@@ -14,12 +14,14 @@
        url("/assets/fonts/ChillRoundF.ttf") format("truetype");
 }
 
-/** Noto Serif SC - 可变字体 */
 @font-face {
-  font-family: "Noto Serif SC";
-  font-display: swap;
-  src: url("/assets/fonts/NotoSerifSC-VariableFont_wght.ttf") format("truetype");
-  font-weight: 200 900;
+  font-family: "SourceHanSerifSC-Regular";
+  src: local("SourceHanSerifSC-Regular.otf"), url("/assets/fonts/SourceHanSerifSC-Regular.otf");
+}
+
+@font-face {
+  font-family: "SourceHanSerifCN-Bold";
+  src: local("SourceHanSerifCN-Bold.otf"), url("/assets/fonts/SourceHanSerifCN-Bold.otf");
 }
 
 /** Logo字体 */
@@ -49,8 +51,8 @@
   --vp-c-brand-soft: var(--vp-c-green-soft) !important;
 
   /* 字体家族 */
-  --vp-font-family-serif: "Noto Serif SC";
-  --vp-font-family-base: "Noto Serif SC", -apple-system, BlinkMacSystemFont,
+  --vp-font-family-serif: "";
+  --vp-font-family-base: var(--vp-font-family-serif), -apple-system, BlinkMacSystemFont,
                          "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji",
                          "Segoe UI Emoji", "Segoe UI Symbol";
 
@@ -188,10 +190,9 @@
   margin-bottom: 5px;
 }
 
-
+/* 标题字体 */
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Noto Serif SC", sans-serif !important;
-  font-weight: 580 !important;
+  font-family: "SourceHanSerifCN-Bold", var(--vp-font-family-serif), sans-serif !important;
 }
 
 h1 {
@@ -230,9 +231,10 @@ h3 {
 .vp-doc b {
   font-family: "ChillRoundF", var(--vp-font-family-serif), sans-serif !important;
   font-weight: 700 !important;
-  text-decoration: underline dotted #41b349 !important;
+  text-decoration: underline wavy #41b349 !important;
   text-underline-offset: 3px;
 }
+
 
 /* 图片 */
 .VPDoc img {
@@ -246,16 +248,18 @@ h3 {
   overflow-x: auto;
   display: block;
   width: 100%;
-  -webkit-overflow-scrolling: touch;
+  -webkit-overflow-scrolling: touch; /* 为了让移动端滑动更流畅 */
 }
 
+/* 可选：给滚动条加一点样式 */
 .table-scroll table {
   width: max-content;
   min-width: 100%;
   border-collapse: collapse;
   margin: 0;
-  white-space: nowrap;
+  white-space: nowrap; /* 这个属性可以防止文字内部换行，强制一行显示 */
 }
+
 
 /* =============================================================================
    隐藏元素
@@ -302,17 +306,6 @@ h3 {
 main > div > div > pre > code {
   white-space: pre-wrap;
   word-wrap: break-word;
-}
-
-/* 代码保持 GoogleSansCode */
-code,
-pre,
-pre code,
-.vp-code,
-[class*="language-"],
-.shiki,
-.shiki span {
-  font-family: "GoogleSansCode", monospace !important;
 }
 
 /* 移动端点击高亮去除 */
