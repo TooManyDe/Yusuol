@@ -1,6 +1,6 @@
 <script setup>
 import { useData, withBase } from 'vitepress'
-import { data as posts } from '../posts.data' // 引入刚才的数据文件
+import { data as posts } from '../posts.data.mts' // 引入刚才的数据文件
 import { computed } from 'vue'
 
 const { page } = useData()
