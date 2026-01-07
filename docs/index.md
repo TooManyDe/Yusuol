@@ -1,5 +1,5 @@
 ---
-#https://vitepress.dev/reference/default-theme-home-page
+# https://vitepress.dev/reference/default-theme-home-page
 layout: doc
 editLink: false
 lastUpdated: false
@@ -17,8 +17,10 @@ isNoBackBtn: true
       :aria-label="`Permalink to &quot;${post.title}&quot;`"
       ></a
     >
-    <div class="post-date hollow-text source-han-serif">{{ post.date.string }}</div>
   </h2>
+  <div class="post-date literary-date">
+    {{ post.date.string }}
+  </div>
   <div v-if="post.excerpt" v-html="post.excerpt"></div>
 </template>
 
