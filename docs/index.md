@@ -13,16 +13,16 @@ isNoBackBtn: true
 https://github.com/vuejs/vitepress/issues/2686
 -->
 <template v-for="post in curPosts" :key="post.url">
-  <h2 :id="post.title" class="post-title">
+  <h1 :id="post.title" class="post-title">
     <a :href="post.url">{{ post.title }}</a>
     <a
       class="header-anchor"
       :href="`#${post.title}`"
       :aria-label="`Permalink to &quot;${post.title}&quot;`"
     ></a>
-  </h2>
+  </h1>
 
-  <!-- 文学灰阶日期 -->
+  <!-- 日期：使用默认字体 -->
   <div class="post-date literary-date">
     {{ post.date.string }}
   </div>
@@ -100,12 +100,14 @@ const onCurrentChange: PaginationProps["onCurrentChange"] = (index) => {
   }
 }
 
-/* 标题 */
+/* 标题（h1） */
 .post-title {
   margin-top: 60px;
   margin-bottom: 2px;
   border-top: 0;
-  position: relative;
+
+  font-size: 1.6rem;
+  line-height: 1.25;
 
   > a {
     font-family: "SourceHanSerifCN-Bold" !important;
@@ -117,7 +119,7 @@ const onCurrentChange: PaginationProps["onCurrentChange"] = (index) => {
   }
 }
 
-/* 文学灰阶日期 */
+/* 日期：默认字体的文学灰阶 */
 .literary-date {
   margin-top: 6px;
   margin-bottom: 14px;
@@ -126,7 +128,8 @@ const onCurrentChange: PaginationProps["onCurrentChange"] = (index) => {
   line-height: 1.4;
   letter-spacing: 0.04em;
 
-  font-family: "mvboli", "SourceHanSerifCN-Regular", serif;
+  /* 使用主题 / 系统默认字体 */
+  font-family: inherit;
   font-weight: 400;
 
   color: color-mix(
@@ -141,6 +144,10 @@ const onCurrentChange: PaginationProps["onCurrentChange"] = (index) => {
 
 /* 移动端微调 */
 @media (max-width: 425px) {
+  .post-title {
+    font-size: 1.45rem;
+  }
+
   .literary-date {
     font-size: 12px;
     letter-spacing: 0.03em;
