@@ -39,7 +39,7 @@
   --vp-nav-height: 50px;
 
   /* 品牌色定义 */
-  --vp-c-green: #5E616D;
+  --vp-c-green: #1772B4;
   --vp-c-green-soft: rgba(65, 179, 73, 0.14);
   --vp-c-green-dark: #41b349;
   --vp-c-green-dark-soft: rgba(65, 179, 73, 0.14);
@@ -127,7 +127,7 @@
 }
 
 .VPFooter a:hover {
-  text-decoration: underline #5E616D !important;
+  text-decoration: underline #1772B4 !important;
 }
 
 /* ============================================================================
@@ -232,7 +232,7 @@ h3 {
 
   text-decoration-line: underline;
   text-decoration-style: dashed;
-  text-decoration-color: #5E616D;
+  text-decoration-color: #1772B4;
   text-decoration-thickness: 1.5px;
   text-underline-offset: 3px;
 }
