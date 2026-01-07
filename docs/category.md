@@ -57,7 +57,7 @@ const sortedCategoryGroups = computed(() => {
   margin-bottom: 0;
   border-top: 0px;
   position: relative;
-  font-family: "Noto Serif SC";
+  font-family: "Noto Serif SC" !important;
 
   .post-year {
     position: absolute;
