@@ -229,14 +229,13 @@ h3 {
 /* 链接样式 */
 .vp-doc a {
   text-decoration: none !important;
-  color: #1A6840;
-  font-family: "ChillRoundF" !important;
-  
+  color: #41b349;
+  font-family: var(--vp-font-family-serif), sans-serif !important; 
 }
 
 .vp-doc a:hover {
   text-decoration: underline !important;
-  color: #41349; 
+  color: #1A6840; 
 }
 
 .vp-doc a::after {
