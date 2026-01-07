@@ -236,7 +236,7 @@ h3 {
 .vp-doc b {
   font-family: "ChillRoundF", var(--vp-font-family-serif), sans-serif !important;
   font-weight: 700 !important;
-  text-decoration: underline wavy #41b349 !important;
+  text-decoration: underline dotted #41b349 !important;
   text-underline-offset: 3px;
 }
 
