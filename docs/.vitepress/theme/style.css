@@ -301,6 +301,10 @@ h3 {
   scrollbar-width: thin;
 }
 
+.responsive-table {
+  overflow-x: auto;
+}
+
 /* 代码块换行 */
 main > div > div > pre > code {
   white-space: pre-wrap;
