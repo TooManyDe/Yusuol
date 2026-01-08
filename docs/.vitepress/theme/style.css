@@ -252,6 +252,11 @@ h3 {
   transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
+.vp-doc .table-scroll td,
+.vp-doc .table-scroll th {
+  white-space: nowrap;     
+  word-break: keep-all;    
+
 .table-scroll {
   overflow-x: auto;
   display: block;
@@ -299,10 +304,6 @@ h3 {
 /* 滚动条 */
 * {
   scrollbar-width: thin;
-}
-
-.responsive-table {
-  overflow-x: auto;
 }
 
 /* 代码块换行 */
