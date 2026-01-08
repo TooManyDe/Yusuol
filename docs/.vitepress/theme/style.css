@@ -256,6 +256,7 @@ h3 {
 .vp-doc .table-scroll th {
   white-space: nowrap;     
   word-break: keep-all;    
+}
 
 .table-scroll {
   overflow-x: auto;
