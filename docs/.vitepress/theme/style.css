@@ -34,27 +34,17 @@
   src: url("/assets/fonts/mvboli.ttf");
 }
 
-/* --- 神里绫华 配色方案变量 --- */
 :root {
+  --vp-c-text-1: #495366;
   --vp-nav-height: 50px;
-  
-  /* 绫华核心色彩 */
-  --ayaka-blue-dark: #364561;   /* 绀青 */
-  --ayaka-blue-main: #495366;   /* 要求的正文色 */
-  --ayaka-ice: #98C9F1;         /* 冰元素蓝 */
-  --ayaka-ice-soft: rgba(152, 201, 241, 0.15);
-  --ayaka-sakura: #EEB8C5;      /* 樱花粉 */
-  
-  /* 覆盖框架变量 */
-  --vp-c-brand-1: var(--ayaka-ice) !important;
-  --vp-c-brand-2: var(--ayaka-sakura) !important;
-  --vp-c-brand-3: #7fb8e6 !important;
-  --vp-c-brand-soft: var(--ayaka-ice-soft) !important;
-  
-  /* 文本颜色控制 */
-  --text-main: var(--ayaka-blue-main);
-  --text-title: var(--ayaka-blue-dark);
-
+  --vp-c-green: #41b349;
+  --vp-c-green-soft: rgba(65, 179, 73, 0.14);
+  --vp-c-green-dark: #41b349;
+  --vp-c-green-dark-soft: rgba(65, 179, 73, 0.14);
+  --vp-c-brand-1: var(--vp-c-green) !important;
+  --vp-c-brand-2: var(--vp-c-green) !important;
+  --vp-c-brand-3: var(--vp-c-green) !important;
+  --vp-c-brand-soft: var(--vp-c-green-soft) !important;
   --vp-font-family-serif: "Noto Sans SC";
   --vp-font-family-base: var(--vp-font-family-serif), -apple-system, BlinkMacSystemFont,
                          "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji",
@@ -63,16 +53,16 @@
   --td-border-level-2-color: var(--vp-c-brand-soft) !important;
   --td-brand-color: var(--vp-c-brand-1) !important;
   --td-brand-color-light: var(--vp-c-brand-soft) !important;
+  --td-brand-color-hover: var(--vp-c-brand-1) !important;
+  --td-brand-color-active: var(--vp-c-brand-2) !important;
 }
 
-/* --- 深色模式适配 --- */
 .dark {
-  /* 深色模式下降低对比度，保护眼睛，使用更浅的雪蓝色 */
-  --text-main: #C9D1D9; 
-  --text-title: #E3EBF5;
-  --ayaka-ice: #A5D1F7;
-  --vp-c-brand-1: var(--ayaka-ice) !important;
-  --vp-c-brand-soft: rgba(165, 209, 247, 0.1) !important;
+  --vp-c-text-1: #C9D1D9;
+  --vp-c-brand-1: var(--vp-c-green-dark) !important;
+  --vp-c-brand-2: var(--vp-c-green-dark) !important;
+  --vp-c-brand-3: var(--vp-c-green-dark) !important;
+  --vp-c-brand-soft: var(--vp-c-green-dark-soft) !important;
 }
 
 @media (min-width: 960px) {
@@ -81,7 +71,11 @@
     justify-content: center;
     background-color: var(--vp-c-bg);
   }
-  .VPNav[data-v-e4ae072f] { position: absolute; }
+
+  .VPNav[data-v-e4ae072f] {
+    position: absolute;
+  }
+
   .VPNavBar .container {
     max-width: 56vw;
     width: 100%;
@@ -94,88 +88,143 @@
 .VPNavBarTitle .title {
   font-family: "ChillRoundF", sans-serif;
   font-size: 22px !important;
-  color: var(--text-title); /* 标题色适配 */
 }
 
-/* 导航与链接 */
-.VPNavScreen .divider, .VPNavScreen .group, .VPNavScreenMenuLink {
-  border: none !important;
+.VPNavScreen .divider,
+.VPNavScreen .group,
+.VPNavScreenMenuLink {
+  border-top: none !important;
+  border-bottom: none !important;
+  border-color: transparent !important;
 }
-.VPNavScreen hr { display: none !important; }
+
+.VPNavScreen hr {
+  display: none !important;
+}
 
 /* Footer */
-.VPFooter a { text-decoration: none !important; }
-.VPFooter { padding: 10px !important; border-top: none !important; box-shadow: none !important; }
-.VPFooter a:hover { text-decoration: underline var(--ayaka-ice) !important; }
-.VPFooter::before, .VPFooter::after { display: none !important; }
-
-/* Document Layout */
-.VPDoc { padding-top: 20px !important; }
-@media (max-width: 959px) { .VPDoc { padding: 20px !important; width: 100%; } }
-.VPDoc.has-aside .content-container { max-width: 50rem !important; }
-@media (min-width: 960px) {
-  .VPDoc:not(.has-sidebar) .content { max-width: inherit !important; }
-  .VPDoc .content { padding: 0 !important; }
+.VPFooter a {
+  text-decoration: none !important;
 }
 
-/* --- 正文与标题颜色修正 --- */
+.VPFooter {
+  padding: 10px !important;
+}
+
+.VPFooter a:hover {
+  text-decoration: underline #41b349 !important;
+}
+
+.VPFooter::before,
+.VPFooter::after {
+  display: none !important;
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.VPFooter {
+  border-top: none !important;
+  box-shadow: none !important;
+}
+
+.VPDoc {
+  padding-top: 20px !important;
+}
+
+@media (max-width: 959px) {
+  .VPDoc {
+    padding: 20px !important;
+    width: 100%;
+  }
+}
+
+.VPDoc.has-aside .content-container {
+  max-width: 50rem !important;
+}
+
+@media (min-width: 960px) {
+  .VPDoc:not(.has-sidebar) .content {
+    max-width: inherit !important;
+  }
+
+  .VPDoc .content {
+    padding: 0 !important; 
+  }
+}
+
+.VPDocFooter {
+  margin-top: 10px !important;
+}
+
+.VPcontent {
+  margin-bottom: 10px !important;
+}
+
 .vp-doc li,
 .vp-doc p {
   margin-top: 5px;
   margin-bottom: 5px;
   font-weight: 380 !important;
-  color: var(--text-main) !important; /* 动态适配正文色 */
+}
+
+.vp-doc strong,
+.vp-doc b {
+  font-family: "ChillRoundF", var(--vp-font-family-serif), sans-serif !important;
+  text-decoration: underline dotted #41b349 !important;
+  text-underline-offset: 3px;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: "Noto Serif SC", var(--vp-font-family-serif), sans-serif !important;
   font-weight: 580 !important;
-  color: var(--text-title) !important; /* 动态适配标题色 */
 }
 
-h1 { font-size: 22px !important; }
-h2 { font-size: 20px !important; margin: inherit !important; border-top: none !important; }
-h3 { font-size: 18px !important; }
-
-/* 强调文字：神里流·冰华 风格 */
-.vp-doc strong,
-.vp-doc b {
-  font-family: "ChillRoundF", var(--vp-font-family-serif), sans-serif !important;
-  color: var(--ayaka-ice);
-  text-decoration: underline dotted var(--ayaka-sakura) !important;
-  text-underline-offset: 3px;
+h1 {
+  font-size: 22px !important;
 }
 
-/* 链接适配 */
+h2 {
+  font-size: 20px !important;
+  margin: inherit !important;
+  border-top: none !important;
+  text-decoration: none !important;
+}
+
+h3 {
+  font-size: 18px !important;
+}
+
 .vp-doc a {
   text-decoration: none !important;
-  color: var(--ayaka-ice);
+  color: #41b349;
   font-family: "ChillRoundF", var(--vp-font-family-serif), sans-serif !important; 
   font-weight: 580 !important;
 }
 
 .vp-doc a:hover {
   text-decoration: underline !important;
-  color: var(--ayaka-sakura); /* 悬停变为樱花粉 */
+  color: #1A6840; 
 }
 
-/* 图片样式 */
+.vp-doc a::after {
+  content: none !important;
+  color: #1A6840;
+}
+
 .VPDoc img {
   border-radius: 16px;
   cursor: zoom-in;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
-  transition: all 0.3s ease;
-}
-.dark .VPDoc img {
-  box-shadow: 0 4px 15px rgba(152, 201, 241, 0.1); /* 深色模式下的微弱冰蓝光 */
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
-/* 表格适配 */
 .vp-doc .table-scroll td,
 .vp-doc .table-scroll th {
   white-space: nowrap;     
   word-break: keep-all;    
 }
+
 .table-scroll {
   overflow-x: auto;
   display: block;
@@ -183,26 +232,45 @@ h3 { font-size: 18px !important; }
   -webkit-overflow-scrolling: touch; 
 }
 
-/* 隐藏不必要的元素 */
-.VPSidebar, .VPDocAside, .aside, .VPBackToTop, .divider-line, .divider, .VPLocalNav {
+
+.VPSidebar,
+.VPDocAside,
+.aside,
+.VPBackToTop,
+.divider-line,
+.divider,
+.VPLocalNav {
   display: none !important;
 }
-.vpi-chevron-down, .text-icon { display: none; }
 
-/* 切换按钮 */
-.VPSwitchAppearance { width: 22px !important; }
-.VPSwitchAppearance .check { transform: none !important; }
-
-::selection, ::-moz-selection {
-  background: var(--ayaka-ice-soft);
-  color: var(--ayaka-ice);
+.vpi-chevron-down,
+.text-icon {
+  display: none;
 }
 
-* { scrollbar-width: thin; }
+.VPSwitchAppearance {
+  width: 22px !important;
+}
+
+.VPSwitchAppearance .check {
+  transform: none !important;
+}
+
+::selection,
+::-moz-selection {
+  background: var(--vp-c-brand-1);
+  color: var(--vp-c-bg);
+}
+
+* {
+  scrollbar-width: thin;
+}
 
 main > div > div > pre > code {
   white-space: pre-wrap;
   word-wrap: break-word;
 }
 
-#app { -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
+#app {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
