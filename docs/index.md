@@ -1,4 +1,3 @@
----
 # https://vitepress.dev/reference/default-theme-home-page
 layout: doc
 editLink: false
@@ -123,11 +122,10 @@ font-weight: 600 !important;
                 top: 15px;
                 left: -10px;
                 z-index: -1;
-                opacity: .16;
+                opacity: .08;
                 font-family: "mvboli";
                 font-size: 40px;
                 font-weight: 400;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
         }
 
         @media (max-width: 425px) {
@@ -142,10 +140,7 @@ font-weight: 600 !important;
 }
 
 .hollow-text {
-
-  /* 设置文本颜色为透明 */
-  color: var(--vp-c-bg);
-
-        -webkit-text-stroke: 1px var(--vp-c-text-1);
+  color: var(--vp-c-text-1);
+        -webkit-text-stroke: 0.5px var(--vp-c-text-1);
 }
 </style>
