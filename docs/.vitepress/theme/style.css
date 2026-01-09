@@ -179,18 +179,18 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: 24px !important;
+  font-size: 22px !important;
 }
 
 h2 {
-  font-size: 22px !important;
+  font-size: 20px !important;
   margin: inherit !important;
   border-top: none !important;
   text-decoration: none !important;
 }
 
 h3 {
-  font-size: 20px !important;
+  font-size: 18px !important;
 }
 
 .vp-doc a {
