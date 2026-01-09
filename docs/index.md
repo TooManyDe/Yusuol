@@ -123,7 +123,7 @@ font-weight: 600 !important;
                 top: 15px;
                 left: -10px;
                 z-index: -1;
-                opacity: .08;
+                opacity: 1;
                 font-family: "mvboli";
                 font-size: 40px;
                 font-weight: 400;
@@ -142,6 +142,6 @@ font-weight: 600 !important;
 
 .hollow-text {
   color: transparent;
-        -webkit-text-stroke: 0.5px var(--vp-c-text-1);
+        -webkit-text-stroke: 1px var(--vp-c-divider);
 }
 </style>
