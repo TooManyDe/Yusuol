@@ -123,10 +123,11 @@ font-weight: 600 !important;
                 top: 15px;
                 left: -10px;
                 z-index: -1;
-                opacity: 1;
+                opacity: .16;
                 font-family: "mvboli";
                 font-size: 40px;
                 font-weight: 400;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
         }
 
         @media (max-width: 425px) {
@@ -141,7 +142,9 @@ font-weight: 600 !important;
 }
 
 .hollow-text {
-  color: transparent;
-        -webkit-text-stroke: 1px var(--c-date-light);
+
+  /* 设置文本颜色为透明 */
+  color: var(--vp-c-bg);
+        -webkit-text-stroke: 1px var(--vp-c-text-1);
 }
 </style>
