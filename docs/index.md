@@ -9,7 +9,7 @@ isNoBackBtn: true
 
 <template v-for="post in curPosts" :key="post.url">
   <h2 :id="post.title" class="post-title">
-    <div class="post-date hollow-text source-han-serif">{{ post.date.string }}</div> 
+    <div class="post-date hollow-text source-han-serif">{{ post.date.string }}</div>   
     <a :href="post.url">{{ post.title }}</a>
     <a
       class="header-anchor"
@@ -17,7 +17,7 @@ isNoBackBtn: true
       :aria-label="`Permalink to &quot;${post.title}&quot;`"
     ></a>
   </h2>
-  <div v-if="post.excerpt" v-html="post.excerpt"></div>
+  <div v-if="post.excerpt" class="post-excerpt" v-html="post.excerpt"></div>
 </template>
 
 <div class="pagination-container">
@@ -83,46 +83,51 @@ const onCurrentChange: PaginationProps["onCurrentChange"] = (index) => {
 }
 
 .post-title {
-        margin-bottom: 0px;
-        margin-top: 50px; /* 适当调小顶部距离 */
+        margin-top: 60px;
+        margin-bottom: 8px; /* 标题距离下方正文更近 */
         border-top: 0px;
         display: flex;
-        flex-direction: column; /* 纵向排列：日期在上，标题在下 */
+        flex-direction: column;
         align-items: flex-start;
 
         > a {
             font-family: "Noto Serif SC" !important;
             text-decoration: none !important;
             font-weight: 600 !important;
-            line-height: 1.4;
-            margin-top: -10px; /* 让标题往上提一点，靠近日期背景 */
+            line-height: 1.2;
+            margin-top: 15px; /* 关键：增加标题与上方日期之间的间距 */
             position: relative;
             z-index: 2;
         }
 
         .post-date {
-                /* 关键：取消绝对定位，使其按文档流排列 */
                 position: static; 
                 opacity: .16;
                 font-family: "mvboli";
                 font-size: 44px;
                 font-weight: 400;
                 line-height: 1;
-                margin-left: -8px;
+                margin-left: -5px;
                 user-select: none;
-                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
         }
 
         @media (max-width: 425px) {
                 .post-date {
                         font-size: 36px !important;
                 }
-                margin-top: 30px;
+                margin-top: 40px;
+                > a { margin-top: 10px; }
         }
 
         &:first-child {
-                margin-top: 10px;
+                margin-top: 20px;
         }
+}
+
+/* 确保正文摘要没有过大的上边距 */
+.post-excerpt {
+    margin-top: 0;
+    line-height: 1.6;
 }
 
 .hollow-text {
