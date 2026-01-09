@@ -141,7 +141,7 @@ font-weight: 600 !important;
 }
 
 .hollow-text {
-  color: var(--vp-c-text-1);
+  color: transparent;
         -webkit-text-stroke: 0.5px var(--vp-c-text-1);
 }
 </style>
