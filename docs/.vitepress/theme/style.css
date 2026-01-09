@@ -34,7 +34,13 @@
   src: url("/assets/fonts/mvboli.ttf");
 }
 
+/* 全局背景与颜色配置 */
 :root {
+  /* 背景颜色设置为 f5f2eb */
+  --vp-c-bg: #f5f2eb !important;
+  --vp-c-bg-soft: #f5f2eb !important;
+  --vp-c-bg-mute: #e8e4d9 !important;
+
   --vp-nav-height: 50px;
   --vp-c-green: #41b349;
   --vp-c-green-soft: rgba(65, 179, 73, 0.14);
@@ -56,18 +62,34 @@
   --td-brand-color-active: var(--vp-c-brand-2) !important;
 }
 
+/* 噪声背景应用 */
+html, body {
+  background-color: #f5f2eb !important;
+  background-image: url("/noise.png") !important;
+  background-repeat: repeat !important;
+  background-attachment: fixed; /* 滚动时背景固定，质感更好 */
+}
+
+#app {
+  background-color: transparent !important;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
 .dark {
+  --vp-c-bg: #1b1b1f !important; /* 深色模式保持深色底 */
   --vp-c-brand-1: var(--vp-c-green-dark) !important;
   --vp-c-brand-2: var(--vp-c-green-dark) !important;
   --vp-c-brand-3: var(--vp-c-green-dark) !important;
   --vp-c-brand-soft: var(--vp-c-green-dark-soft) !important;
 }
 
+/* 导航栏适配噪声背景 */
 @media (min-width: 960px) {
   .VPNavBar {
     width: 100%;
     justify-content: center;
-    background-color: var(--vp-c-bg);
+    background-color: var(--vp-c-bg) !important;
+    background-image: url("/noise.png") !important; /* 确保导航栏也有噪声纹理 */
   }
 
   .VPNav[data-v-e4ae072f] {
@@ -107,6 +129,7 @@
 
 .VPFooter {
   padding: 10px !important;
+  background-color: transparent !important; /* 让背景透出来 */
 }
 
 .VPFooter a:hover {
@@ -128,6 +151,7 @@
 
 .VPDoc {
   padding-top: 20px !important;
+  background-color: transparent !important;
 }
 
 @media (max-width: 959px) {
@@ -230,7 +254,7 @@ h3 {
   -webkit-overflow-scrolling: touch; 
 }
 
-
+/* 隐藏部分 UI 元素，确保背景纯净 */
 .VPSidebar,
 .VPDocAside,
 .aside,
@@ -267,8 +291,4 @@ h3 {
 main > div > div > pre > code {
   white-space: pre-wrap;
   word-wrap: break-word;
-}
-
-#app {
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
