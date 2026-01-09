@@ -9,7 +9,7 @@ isNoBackBtn: true
 
 <!-- 之所以将代码写在 md 里面，而非单独封装为 Vue 组件，因为 aside 不会动态刷新，参考 https://github.com/vuejs/vitepress/issues/2686 -->
 <template v-for="post in curPosts" :key="post.url">
-  <div :id="post.title" class="post-title">
+  <h2 :id="post.title" class="post-title">
     <a :href="post.url">{{ post.title }}</a>
     <a
       class="header-anchor"
@@ -18,7 +18,7 @@ isNoBackBtn: true
       ></a
     >
     <div class="post-date hollow-text source-han-serif">{{ post.date.string }}</div>
-  </div>
+  </h2>
   <div v-if="post.excerpt" v-html="post.excerpt"></div>
 </template>
 
@@ -109,9 +109,9 @@ const onCurrentChange: PaginationProps["onCurrentChange"] = (
         margin-top: 60px;
         border-top: 0px;
         position: relative;
-        font-size: 22px;
         top: 0;
         left: 0;
+        font-size: 22px !important;
 
         > a {
 font-family: "Noto Serif SC" !important;
