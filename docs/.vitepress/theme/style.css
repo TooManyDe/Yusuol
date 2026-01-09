@@ -35,15 +35,29 @@
 }
 
 :root {
+  /* 原神配色方案 */
   --vp-nav-height: 50px;
-  --vp-c-green: #41b349;
-  --vp-c-green-soft: rgba(65, 179, 73, 0.14);
-  --vp-c-green-dark: #41b349;
-  --vp-c-green-dark-soft: rgba(65, 179, 73, 0.14);
-  --vp-c-brand-1: var(--vp-c-green) !important;
-  --vp-c-brand-2: var(--vp-c-green) !important;
-  --vp-c-brand-3: var(--vp-c-green) !important;
+  --genshin-gold: #ECE5D8;
+  --genshin-gold-dark: #d4c5a9;
+  --genshin-blue: #4A5366;
+  --genshin-accent: #00D4FF;
+  --genshin-purple: #9D8FCC;
+  --genshin-border: #3d4555;
+  
+  --vp-c-green: var(--genshin-accent);
+  --vp-c-green-soft: rgba(0, 212, 255, 0.14);
+  --vp-c-green-dark: var(--genshin-accent);
+  --vp-c-green-dark-soft: rgba(0, 212, 255, 0.14);
+  --vp-c-brand-1: var(--genshin-accent) !important;
+  --vp-c-brand-2: var(--genshin-purple) !important;
+  --vp-c-brand-3: var(--genshin-accent) !important;
   --vp-c-brand-soft: var(--vp-c-green-soft) !important;
+  
+  /* 原神风格背景 */
+  --vp-c-bg: #F5F2EA !important;
+  --vp-c-bg-soft: #EDE5D3 !important;
+  --vp-c-bg-alt: #E8E1CF !important;
+  
   --vp-font-family-serif: "Noto Sans SC";
   --vp-font-family-base: var(--vp-font-family-serif), -apple-system, BlinkMacSystemFont,
                          "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji",
@@ -57,17 +71,31 @@
 }
 
 .dark {
-  --vp-c-brand-1: var(--vp-c-green-dark) !important;
-  --vp-c-brand-2: var(--vp-c-green-dark) !important;
-  --vp-c-brand-3: var(--vp-c-green-dark) !important;
+  --vp-c-brand-1: var(--genshin-accent) !important;
+  --vp-c-brand-2: var(--genshin-purple) !important;
+  --vp-c-brand-3: var(--genshin-accent) !important;
   --vp-c-brand-soft: var(--vp-c-green-dark-soft) !important;
+  --vp-c-bg: #2B2E3B !important;
+  --vp-c-bg-soft: #353847 !important;
+  --vp-c-bg-alt: #3d4555 !important;
+}
+
+/* 整体背景纹理效果 */
+body {
+  background-image: 
+    radial-gradient(circle at 20% 50%, rgba(157, 143, 204, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(0, 212, 255, 0.03) 0%, transparent 50%);
+  background-attachment: fixed;
 }
 
 @media (min-width: 960px) {
   .VPNavBar {
     width: 100%;
     justify-content: center;
-    background-color: var(--vp-c-bg);
+    background: linear-gradient(180deg, rgba(245, 242, 234, 0.95) 0%, rgba(245, 242, 234, 0.85) 100%);
+    backdrop-filter: blur(10px);
+    border-bottom: 2px solid var(--genshin-border);
+    box-shadow: 0 4px 12px rgba(61, 69, 85, 0.08);
   }
 
   .VPNav[data-v-e4ae072f] {
@@ -86,6 +114,14 @@
 .VPNavBarTitle .title {
   font-family: "ChillRoundF", sans-serif;
   font-size: 22px !important;
+  color: var(--genshin-blue);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.VPNavBarTitle .title:hover {
+  color: var(--genshin-accent);
+  transform: translateY(-1px);
 }
 
 .VPNavScreen .divider,
@@ -100,32 +136,44 @@
   display: none !important;
 }
 
-/* Footer */
-.VPFooter a {
-  text-decoration: none !important;
+/* Footer - 原神风格 */
+.VPFooter {
+  background: linear-gradient(to top, var(--genshin-gold-dark), var(--genshin-gold));
+  border-top: 2px solid var(--genshin-border) !important;
+  padding: 20px !important;
+  position: relative;
 }
 
-.VPFooter {
-  padding: 10px !important;
+.VPFooter::before {
+  content: '' !important;
+  display: block !important;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--genshin-accent), transparent);
+}
+
+.VPFooter a {
+  text-decoration: none !important;
+  color: var(--genshin-blue);
+  font-weight: 500;
+  transition: all 0.3s ease;
 }
 
 .VPFooter a:hover {
-  text-decoration: underline #41b349 !important;
+  color: var(--genshin-accent);
+  text-decoration: underline var(--genshin-accent) !important;
+  text-shadow: 0 0 8px rgba(0, 212, 255, 0.3);
 }
 
-.VPFooter::before,
 .VPFooter::after {
   display: none !important;
-  background: none !important;
-  border: none !important;
-  box-shadow: none !important;
 }
 
-.VPFooter {
-  border-top: none !important;
-  box-shadow: none !important;
-}
-
+/* 内容区域 - 卡片式设计 */
 .VPDoc {
   padding-top: 20px !important;
 }
@@ -139,11 +187,23 @@
 
 .VPDoc.has-aside .content-container {
   max-width: 50rem !important;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 30px;
+  border: 2px solid var(--genshin-border);
+  box-shadow: 0 8px 32px rgba(61, 69, 85, 0.12);
 }
 
 @media (min-width: 960px) {
   .VPDoc:not(.has-sidebar) .content {
     max-width: inherit !important;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    padding: 30px !important;
+    border: 2px solid var(--genshin-border);
+    box-shadow: 0 8px 32px rgba(61, 69, 85, 0.12);
   }
 
   .VPDoc .content {
@@ -152,7 +212,9 @@
 }
 
 .VPDocFooter {
-  margin-top: 10px !important;
+  margin-top: 30px !important;
+  padding-top: 20px !important;
+  border-top: 1px solid rgba(61, 69, 85, 0.2);
 }
 
 .VPcontent {
@@ -161,66 +223,128 @@
 
 .vp-doc li,
 .vp-doc p {
-  margin-top: 5px;
-  margin-bottom: 5px;
+  margin-top: 8px;
+  margin-bottom: 8px;
   font-weight: 380 !important;
+  line-height: 1.8;
+  color: var(--genshin-blue);
 }
 
 .vp-doc strong,
 .vp-doc b {
   font-family: "ChillRoundF", var(--vp-font-family-serif), sans-serif !important;
-  text-decoration: underline dotted #41b349 !important;
+  color: var(--genshin-accent);
+  text-decoration: underline dotted var(--genshin-purple) !important;
   text-underline-offset: 3px;
+  font-weight: 600 !important;
 }
 
+/* 标题 - 原神风格装饰 */
 h1, h2, h3, h4, h5, h6 {
   font-family: "Noto Serif SC", var(--vp-font-family-serif), sans-serif !important;
-  font-weight: 580 !important;
+  font-weight: 600 !important;
+  color: var(--genshin-blue);
+  position: relative;
+  padding-left: 12px;
+}
+
+h1::before, h2::before, h3::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 70%;
+  background: linear-gradient(180deg, var(--genshin-accent), var(--genshin-purple));
+  border-radius: 2px;
 }
 
 h1 {
-  font-size: 22px !important;
+  font-size: 24px !important;
+  padding-bottom: 12px;
+  border-bottom: 2px solid rgba(61, 69, 85, 0.1);
 }
 
 h2 {
   font-size: 20px !important;
-  margin: inherit !important;
+  margin: 24px 0 16px 0 !important;
   border-top: none !important;
   text-decoration: none !important;
 }
 
 h3 {
   font-size: 18px !important;
+  margin: 20px 0 12px 0 !important;
 }
 
+/* 链接样式 */
 .vp-doc a {
   text-decoration: none !important;
-  color: #41b349;
+  color: var(--genshin-accent);
   font-family: "ChillRoundF", var(--vp-font-family-serif), sans-serif !important; 
   font-weight: 580 !important;
+  position: relative;
+  transition: all 0.3s ease;
 }
 
 .vp-doc a:hover {
-  text-decoration: underline !important;
-  color: #1A6840; 
+  text-decoration: none !important;
+  color: var(--genshin-purple); 
+  text-shadow: 0 0 8px rgba(157, 143, 204, 0.4);
 }
 
 .vp-doc a::after {
-  content: none !important;
-  color: #1A6840;
+  content: '→' !important;
+  color: var(--genshin-accent);
+  margin-left: 4px;
+  opacity: 0;
+  transform: translateX(-5px);
+  transition: all 0.3s ease;
 }
 
+.vp-doc a:hover::after {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* 图片样式 - 原神卡片效果 */
 .VPDoc img {
-  border-radius: 16px;
+  border-radius: 12px;
   cursor: zoom-in;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  border: 3px solid var(--genshin-border);
+  box-shadow: 0 8px 24px rgba(61, 69, 85, 0.15);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  background: var(--genshin-gold);
+  padding: 8px;
 }
 
+.VPDoc img:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 12px 36px rgba(0, 212, 255, 0.25);
+  border-color: var(--genshin-accent);
+}
+
+/* 表格样式 */
 .vp-doc .table-scroll td,
 .vp-doc .table-scroll th {
   white-space: nowrap;     
-  word-break: keep-all;    
+  word-break: keep-all;
+  border-color: rgba(61, 69, 85, 0.2) !important;
+}
+
+.vp-doc table {
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 2px solid var(--genshin-border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.vp-doc th {
+  background: linear-gradient(180deg, var(--genshin-gold), var(--genshin-gold-dark));
+  color: var(--genshin-blue);
+  font-weight: 600;
 }
 
 .table-scroll {
@@ -228,9 +352,23 @@ h3 {
   display: block;
   width: 100%;
   -webkit-overflow-scrolling: touch; 
+  border-radius: 8px;
 }
 
+/* 代码块 - 原神风格 */
+.vp-doc div[class*='language-'] {
+  border: 2px solid var(--genshin-border);
+  border-radius: 12px;
+  background: rgba(43, 46, 59, 0.95) !important;
+  box-shadow: 0 4px 16px rgba(61, 69, 85, 0.2);
+}
 
+.vp-doc div[class*='language-']::before {
+  color: var(--genshin-accent);
+  font-weight: 600;
+}
+
+/* 隐藏元素 */
 .VPSidebar,
 .VPDocAside,
 .aside,
@@ -254,14 +392,38 @@ h3 {
   transform: none !important;
 }
 
+/* 选中文本样式 */
 ::selection,
 ::-moz-selection {
-  background: var(--vp-c-brand-1);
-  color: var(--vp-c-bg);
+  background: var(--genshin-accent);
+  color: white;
+  text-shadow: 0 0 8px rgba(0, 212, 255, 0.5);
 }
 
+/* 滚动条样式 */
 * {
   scrollbar-width: thin;
+  scrollbar-color: var(--genshin-accent) var(--genshin-gold);
+}
+
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--genshin-gold);
+  border-radius: 4px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--genshin-accent), var(--genshin-purple));
+  border-radius: 4px;
+  border: 2px solid var(--genshin-gold);
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: var(--genshin-purple);
 }
 
 main > div > div > pre > code {
@@ -271,4 +433,23 @@ main > div > div > pre > code {
 
 #app {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+/* 暗黑模式优化 */
+.dark .VPNavBar {
+  background: linear-gradient(180deg, rgba(43, 46, 59, 0.95) 0%, rgba(43, 46, 59, 0.85) 100%);
+}
+
+.dark .VPDoc.has-aside .content-container,
+.dark .VPDoc:not(.has-sidebar) .content {
+  background: rgba(53, 56, 71, 0.8);
+}
+
+.dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6 {
+  color: var(--genshin-gold);
+}
+
+.dark .vp-doc li,
+.dark .vp-doc p {
+  color: var(--genshin-gold-dark);
 }
