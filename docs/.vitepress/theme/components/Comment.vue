@@ -3,7 +3,7 @@
     <span
       class="comment-toggle"
       @click="toggleComments"
-      style="color: #41b349; font-family: 'Noto Serif SC'; font-weight: 600;"
+      style="color: #41b349; font-family: 'Noto Serif SC'; font-weight: 500;"
     >
       {{ loadComments ? commentText : commentText }}
     </span>
@@ -87,7 +87,7 @@ watch(
   display: inline-block;
   margin-bottom: 0px;
   cursor: pointer;
-  font-size: 20px;
+  font-size: 18px;
   text-decoration: none;
   user-select: none;
 
