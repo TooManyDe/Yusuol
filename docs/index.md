@@ -143,13 +143,11 @@ font-weight: 580 !important;
 
 .hollow-text {
 
-  /* 设置文本颜色为透明 */
   color: var(--vp-c-bg);
         -webkit-text-stroke: 1px var(--vp-c-text-1);
 }
 
-/* 缩小标题与摘要之间的间距 */
 .post-title + div {
-  margin-top: 0px; // 可改为 4px / 8px 按审美微调
+  margin-top: -10px; 
 }
 </style>
