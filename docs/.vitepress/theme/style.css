@@ -34,241 +34,103 @@
   src: url("/assets/fonts/mvboli.ttf");
 }
 
+/* 1. 字体引入：原神官方常用字体类似：汉仪文黑 / 标楷体 */
+/* 建议将 "ChillRoundF" 或 "Noto Sans SC" 作为基准，
+   原神标题多用：HYWenHei-85W (汉仪文黑) */
+
 :root {
-  --vp-nav-height: 50px;
-  --vp-c-green: #41b349;
-  --vp-c-green-soft: rgba(65, 179, 73, 0.14);
-  --vp-c-green-dark: #41b349;
-  --vp-c-green-dark-soft: rgba(65, 179, 73, 0.14);
-  --vp-c-brand-1: var(--vp-c-green) !important;
-  --vp-c-brand-2: var(--vp-c-green) !important;
-  --vp-c-brand-3: var(--vp-c-green) !important;
-  --vp-c-brand-soft: var(--vp-c-green-soft) !important;
-  --vp-font-family-serif: "Noto Sans SC";
-  --vp-font-family-base: var(--vp-font-family-serif), -apple-system, BlinkMacSystemFont,
-                         "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji",
-                         "Segoe UI Emoji", "Segoe UI Symbol";
-  --vp-font-family-code: "GoogleSansCode", monospace;
-  --td-border-level-2-color: var(--vp-c-brand-soft) !important;
-  --td-brand-color: var(--vp-c-brand-1) !important;
-  --td-brand-color-light: var(--vp-c-brand-soft) !important;
-  --td-brand-color-hover: var(--vp-c-brand-1) !important;
-  --td-brand-color-active: var(--vp-c-brand-2) !important;
+  /* 原神 UI 经典配色 */
+  --gs-gold: #ece5d8;      /* 背景米黄色 */
+  --gs-gold-dark: #d3bc8e; /* 经典的金色边框/文字 */
+  --gs-dark: #3b4254;      /* 深蓝色背景/文字 */
+  --gs-white: #f0f0f0;     /* 纯净白 */
+  --gs-accent: #ffc107;    /* 强调金 */
+  
+  --vp-c-brand-1: var(--gs-gold-dark) !important;
+  --vp-c-brand-2: #c4a86a !important;
+  --vp-c-brand-3: #b0955a !important;
+  --vp-c-brand-soft: rgba(211, 188, 142, 0.15) !important;
+  
+  /* 字体设置：优先使用圆润且厚重的字体 */
+  --vp-font-family-base: "ChillRoundF", "Noto Sans SC", sans-serif;
+  --vp-font-family-serif: "Noto Serif SC", serif;
+  
+  --vp-c-bg: #f9f6f2; /* 类似原神菜单的底色 */
+  --vp-c-text-1: #3b4254;
 }
 
 .dark {
-  --vp-c-brand-1: var(--vp-c-green-dark) !important;
-  --vp-c-brand-2: var(--vp-c-green-dark) !important;
-  --vp-c-brand-3: var(--vp-c-green-dark) !important;
-  --vp-c-brand-soft: var(--vp-c-green-dark-soft) !important;
+  --vp-c-bg: #22252d; /* 暗色模式采用原神祈愿界面深色 */
+  --vp-c-text-1: var(--gs-gold);
+  --vp-c-brand-1: var(--gs-gold-dark) !important;
 }
 
-@media (min-width: 960px) {
-  .VPNavBar {
-    width: 100%;
-    justify-content: center;
-    background-color: var(--vp-c-bg);
-  }
-
-  .VPNav[data-v-e4ae072f] {
-    position: absolute;
-  }
-
-  .VPNavBar .container {
-    max-width: 56vw;
-    width: 100%;
-    margin: 0 auto;
-    padding-left: 0;
-    padding-right: 0;
-  }
+/* 2. 标题风格：原神标志性的金色加粗与间距 */
+h1, h2, h3 {
+  color: var(--gs-dark) !important;
+  letter-spacing: 1px;
+  text-transform: uppercase;
 }
 
-.VPNavBarTitle .title {
-  font-family: "ChillRoundF", sans-serif;
-  font-size: 22px !important;
+.dark h1, .dark h2, .dark h3 {
+  color: var(--gs-gold-dark) !important;
 }
 
-.VPNavScreen .divider,
-.VPNavScreen .group,
-.VPNavScreenMenuLink {
-  border-top: none !important;
-  border-bottom: none !important;
-  border-color: transparent !important;
-}
-
-.VPNavScreen hr {
-  display: none !important;
-}
-
-/* Footer */
-.VPFooter a {
-  text-decoration: none !important;
-}
-
-.VPFooter {
-  padding: 10px !important;
-}
-
-.VPFooter a:hover {
-  text-decoration: underline #41b349 !important;
-}
-
-.VPFooter::before,
-.VPFooter::after {
-  display: none !important;
-  background: none !important;
-  border: none !important;
-  box-shadow: none !important;
-}
-
-.VPFooter {
-  border-top: none !important;
-  box-shadow: none !important;
-}
-
-.VPDoc {
-  padding-top: 20px !important;
-}
-
-@media (max-width: 959px) {
-  .VPDoc {
-    padding: 20px !important;
-    width: 100%;
-  }
-}
-
-.VPDoc.has-aside .content-container {
-  max-width: 50rem !important;
-}
-
-@media (min-width: 960px) {
-  .VPDoc:not(.has-sidebar) .content {
-    max-width: inherit !important;
-  }
-
-  .VPDoc .content {
-    padding: 0 !important; 
-  }
-}
-
-.VPDocFooter {
-  margin-top: 10px !important;
-}
-
-.VPcontent {
-  margin-bottom: 10px !important;
-}
-
-.vp-doc li,
-.vp-doc p {
-  margin-top: 5px;
-  margin-bottom: 5px;
-  font-weight: 380 !important;
-}
-
-.vp-doc strong,
-.vp-doc b {
-  font-family: "ChillRoundF", var(--vp-font-family-serif), sans-serif !important;
-  text-decoration: underline dotted #41b349 !important;
-  text-underline-offset: 3px;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: "Noto Serif SC", var(--vp-font-family-serif), sans-serif !important;
-  font-weight: 580 !important;
-}
-
-h1 {
-  font-size: 22px !important;
-}
-
-h2 {
-  font-size: 20px !important;
-  margin: inherit !important;
-  border-top: none !important;
-  text-decoration: none !important;
-}
-
-h3 {
-  font-size: 18px !important;
-}
-
+/* 3. 仿原神按钮与链接：虚线下划线 */
 .vp-doc a {
+  color: var(--gs-gold-dark);
   text-decoration: none !important;
-  color: #41b349;
-  font-family: "ChillRoundF", var(--vp-font-family-serif), sans-serif !important; 
-  font-weight: 580 !important;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s ease;
 }
 
 .vp-doc a:hover {
-  text-decoration: underline !important;
-  color: #1A6840; 
+  border-bottom: 2px solid var(--gs-gold-dark);
+  filter: brightness(1.2);
 }
 
-.vp-doc a::after {
-  content: none !important;
-  color: #1A6840;
+/* 4. 重点强调（Strong）：模仿原神对话框中的黄色高亮 */
+.vp-doc strong, .vp-doc b {
+  color: #ffc107 !important;
+  background-color: rgba(0,0,0,0.05);
+  padding: 0 4px;
+  border-radius: 4px;
+  text-decoration: none !important; /* 取消点状下划线 */
 }
 
+/* 5. 图片样式：增加原神 UI 的圆角和微弱金光 */
 .VPDoc img {
-  border-radius: 16px;
-  cursor: zoom-in;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  border: 2px solid var(--gs-gold-dark);
+  border-radius: 8px; /* 原神 UI 圆角通常较小且硬朗 */
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
 }
 
-.vp-doc .table-scroll td,
-.vp-doc .table-scroll th {
-  white-space: nowrap;     
-  word-break: keep-all;    
+/* 6. 导航栏修改：半透明毛玻璃感 */
+@media (min-width: 960px) {
+  .VPNavBar {
+    background-color: rgba(255, 255, 255, 0.7) !important;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--gs-gold-dark) !important;
+  }
 }
 
-.table-scroll {
-  overflow-x: auto;
-  display: block;
-  width: 100%;
-  -webkit-overflow-scrolling: touch; 
+/* 7. 卡片与引用：左侧厚边框 */
+.vp-doc blockquote {
+  border-left: 4px solid var(--gs-gold-dark) !important;
+  background-color: var(--vp-c-brand-soft);
+  color: var(--gs-dark);
+  padding: 1rem;
+  border-radius: 0 8px 8px 0;
 }
 
-
-.VPSidebar,
-.VPDocAside,
-.aside,
-.VPBackToTop,
-.divider-line,
-.divider,
-.VPLocalNav {
-  display: none !important;
+/* 8. 滚动条美化 */
+::-webkit-scrollbar {
+  width: 8px;
 }
-
-.vpi-chevron-down,
-.text-icon {
-  display: none;
+::-webkit-scrollbar-thumb {
+  background: var(--gs-gold-dark);
+  border-radius: 10px;
 }
-
-.VPSwitchAppearance {
-  width: 22px !important;
-}
-
-.VPSwitchAppearance .check {
-  transform: none !important;
-}
-
-::selection,
-::-moz-selection {
-  background: var(--vp-c-brand-1);
-  color: var(--vp-c-bg);
-}
-
-* {
-  scrollbar-width: thin;
-}
-
-main > div > div > pre > code {
-  white-space: pre-wrap;
-  word-wrap: break-word;
-}
-
-#app {
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+::-webkit-scrollbar-track {
+  background: var(--vp-c-bg);
 }
