@@ -148,6 +148,6 @@ font-weight: 580 !important;
 }
 
 .post-title + div {
-  margin-top: -10px; 
+  margin-top: -6px; 
 }
 </style>
