@@ -35,35 +35,21 @@
   src: url("/assets/fonts/mvboli.ttf");
 }
 
-/* =============================================================================
-   CSS 变量定义
-   ============================================================================= */
 :root {
-  /* 导航栏高度 */
   --vp-nav-height: 50px;
-
-  /* 品牌色定义 */
   --vp-c-green: #41b349;
   --vp-c-green-soft: rgba(65, 179, 73, 0.14);
   --vp-c-green-dark: #41b349;
   --vp-c-green-dark-soft: rgba(65, 179, 73, 0.14);
-
-  /* 品牌色映射 (默认/亮色主题) */
   --vp-c-brand-1: var(--vp-c-green) !important;
   --vp-c-brand-2: var(--vp-c-green) !important;
   --vp-c-brand-3: var(--vp-c-green) !important;
   --vp-c-brand-soft: var(--vp-c-green-soft) !important;
-
-  /* 字体家族 */
   --vp-font-family-serif: "Noto Sans SC";
   --vp-font-family-base: var(--vp-font-family-serif), -apple-system, BlinkMacSystemFont,
                          "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji",
                          "Segoe UI Emoji", "Segoe UI Symbol";
-
-  /* 代码字体家族 */
   --vp-font-family-code: "GoogleSansCode", monospace;
-
-  /* TDesign组件变量 */
   --td-border-level-2-color: var(--vp-c-brand-soft) !important;
   --td-brand-color: var(--vp-c-brand-1) !important;
   --td-brand-color-light: var(--vp-c-brand-soft) !important;
@@ -71,7 +57,6 @@
   --td-brand-color-active: var(--vp-c-brand-2) !important;
 }
 
-/* 暗色主题 */
 .dark {
   --vp-c-brand-1: var(--vp-c-green-dark) !important;
   --vp-c-brand-2: var(--vp-c-green-dark) !important;
@@ -79,9 +64,6 @@
   --vp-c-brand-soft: var(--vp-c-green-dark-soft) !important;
 }
 
-/* =============================================================================
-   Nav
-   ============================================================================= */
 @media (min-width: 960px) {
   .VPNavBar {
     width: 100%;
@@ -102,13 +84,11 @@
   }
 }
 
-/* Logo字体设置 */
 .VPNavBarTitle .title {
   font-family: "ChillRoundF", sans-serif;
   font-size: 22px !important;
 }
 
-/* 移除菜单项的分割线 */
 .VPNavScreen .divider,
 .VPNavScreen .group,
 .VPNavScreenMenuLink {
@@ -134,9 +114,6 @@
   text-decoration: underline #41b349 !important;
 }
 
-/* ============================================================================
-   移除页脚 divider
-   ============================================================================ */
 .VPFooter::before,
 .VPFooter::after {
   display: none !important;
@@ -150,9 +127,6 @@
   box-shadow: none !important;
 }
 
-/* =============================================================================
-   文档内容
-   ============================================================================= */
 .VPDoc {
   padding-top: 20px !important;
 }
@@ -186,9 +160,6 @@
   margin-bottom: 10px !important;
 }
 
-/* =============================================================================
-   文本样式
-   ============================================================================= */
 .vp-doc li,
 .vp-doc p {
   margin-top: 5px;
@@ -203,8 +174,6 @@
   text-underline-offset: 3px;
 }
 
-
-/* 标题字体 */
 h1, h2, h3, h4, h5, h6 {
   font-family: "Noto Serif SC", var(--vp-font-family-serif), sans-serif !important;
   font-weight: 580 !important;
@@ -225,7 +194,6 @@ h3 {
   font-size: 20px !important;
 }
 
-/* 链接样式 */
 .vp-doc a {
   text-decoration: none !important;
   color: #41b349;
@@ -243,8 +211,6 @@ h3 {
   color: #1A6840;
 }
 
-
-/* 图片 */
 .VPDoc img {
   border-radius: 16px;
   cursor: zoom-in;
@@ -262,13 +228,10 @@ h3 {
   overflow-x: auto;
   display: block;
   width: 100%;
-  -webkit-overflow-scrolling: touch; /* 为了让移动端滑动更流畅 */
+  -webkit-overflow-scrolling: touch; 
 }
 
 
-/* =============================================================================
-   隐藏元素
-   ============================================================================= */
 .VPSidebar,
 .VPDocAside,
 .aside,
@@ -284,9 +247,6 @@ h3 {
   display: none;
 }
 
-/* =============================================================================
-   主题按钮
-   ============================================================================= */
 .VPSwitchAppearance {
   width: 22px !important;
 }
@@ -295,25 +255,21 @@ h3 {
   transform: none !important;
 }
 
-/* 选择文本颜色 */
 ::selection,
 ::-moz-selection {
   background: var(--vp-c-brand-1);
   color: var(--vp-c-bg);
 }
 
-/* 滚动条 */
 * {
   scrollbar-width: thin;
 }
 
-/* 代码块换行 */
 main > div > div > pre > code {
   white-space: pre-wrap;
   word-wrap: break-word;
 }
 
-/* 移动端点击高亮去除 */
 #app {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
