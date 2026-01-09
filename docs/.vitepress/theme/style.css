@@ -36,7 +36,7 @@
 
 /* 全局背景与颜色配置 */
 :root {
-  /* 背景颜色设置为 f5f2eb */
+  /* 背景颜色固定为 f5f2eb */
   --vp-c-bg: #f5f2eb !important;
   --vp-c-bg-soft: #f5f2eb !important;
   --vp-c-bg-mute: #e8e4d9 !important;
@@ -62,12 +62,10 @@
   --td-brand-color-active: var(--vp-c-brand-2) !important;
 }
 
-/* 噪声背景应用 */
+/* 移除噪声图片，仅保留底色 */
 html, body {
   background-color: #f5f2eb !important;
-  background-image: url("/noise.png") !important;
-  background-repeat: repeat !important;
-  background-attachment: fixed; /* 滚动时背景固定，质感更好 */
+  background-image: none !important;
 }
 
 #app {
@@ -76,20 +74,20 @@ html, body {
 }
 
 .dark {
-  --vp-c-bg: #1b1b1f !important; /* 深色模式保持深色底 */
+  --vp-c-bg: #1b1b1f !important;
   --vp-c-brand-1: var(--vp-c-green-dark) !important;
   --vp-c-brand-2: var(--vp-c-green-dark) !important;
   --vp-c-brand-3: var(--vp-c-green-dark) !important;
   --vp-c-brand-soft: var(--vp-c-green-dark-soft) !important;
 }
 
-/* 导航栏适配噪声背景 */
+/* 导航栏适配 */
 @media (min-width: 960px) {
   .VPNavBar {
     width: 100%;
     justify-content: center;
     background-color: var(--vp-c-bg) !important;
-    background-image: url("/noise.png") !important; /* 确保导航栏也有噪声纹理 */
+    background-image: none !important;
   }
 
   .VPNav[data-v-e4ae072f] {
@@ -129,7 +127,7 @@ html, body {
 
 .VPFooter {
   padding: 10px !important;
-  background-color: transparent !important; /* 让背景透出来 */
+  background-color: transparent !important;
 }
 
 .VPFooter a:hover {
@@ -254,7 +252,6 @@ h3 {
   -webkit-overflow-scrolling: touch; 
 }
 
-/* 隐藏部分 UI 元素，确保背景纯净 */
 .VPSidebar,
 .VPDocAside,
 .aside,
