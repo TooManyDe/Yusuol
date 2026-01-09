@@ -35,6 +35,7 @@
 }
 
 :root {
+  --vp-c-text-1: #495366;
   --vp-nav-height: 50px;
   --vp-c-green: #41b349;
   --vp-c-green-soft: rgba(65, 179, 73, 0.14);
