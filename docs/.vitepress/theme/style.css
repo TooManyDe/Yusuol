@@ -34,13 +34,7 @@
   src: url("/assets/fonts/mvboli.ttf");
 }
 
-/* 全局背景与颜色配置 */
 :root {
-  /* 背景颜色固定为 f5f2eb */
-  --vp-c-bg: #f5f2eb !important;
-  --vp-c-bg-soft: #f5f2eb !important;
-  --vp-c-bg-mute: #e8e4d9 !important;
-
   --vp-nav-height: 50px;
   --vp-c-green: #41b349;
   --vp-c-green-soft: rgba(65, 179, 73, 0.14);
@@ -62,32 +56,18 @@
   --td-brand-color-active: var(--vp-c-brand-2) !important;
 }
 
-/* 移除噪声图片，仅保留底色 */
-html, body {
-  background-color: #f5f2eb !important;
-  background-image: none !important;
-}
-
-#app {
-  background-color: transparent !important;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-}
-
 .dark {
-  --vp-c-bg: #1b1b1f !important;
   --vp-c-brand-1: var(--vp-c-green-dark) !important;
   --vp-c-brand-2: var(--vp-c-green-dark) !important;
   --vp-c-brand-3: var(--vp-c-green-dark) !important;
   --vp-c-brand-soft: var(--vp-c-green-dark-soft) !important;
 }
 
-/* 导航栏适配 */
 @media (min-width: 960px) {
   .VPNavBar {
     width: 100%;
     justify-content: center;
-    background-color: var(--vp-c-bg) !important;
-    background-image: none !important;
+    background-color: var(--vp-c-bg);
   }
 
   .VPNav[data-v-e4ae072f] {
@@ -127,7 +107,6 @@ html, body {
 
 .VPFooter {
   padding: 10px !important;
-  background-color: transparent !important;
 }
 
 .VPFooter a:hover {
@@ -149,7 +128,6 @@ html, body {
 
 .VPDoc {
   padding-top: 20px !important;
-  background-color: transparent !important;
 }
 
 @media (max-width: 959px) {
@@ -252,6 +230,7 @@ h3 {
   -webkit-overflow-scrolling: touch; 
 }
 
+
 .VPSidebar,
 .VPDocAside,
 .aside,
@@ -288,4 +267,8 @@ h3 {
 main > div > div > pre > code {
   white-space: pre-wrap;
   word-wrap: break-word;
+}
+
+#app {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
