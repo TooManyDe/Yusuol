@@ -9,8 +9,7 @@ isNoBackBtn: true
 
 <template v-for="post in curPosts" :key="post.url">
   <h2 :id="post.title" class="post-title">
-    <div class="post-date hollow-text source-han-serif">{{ post.date.string }}</div>
-    
+    <div class="post-date hollow-text source-han-serif">{{ post.date.string }}</div> 
     <a :href="post.url">{{ post.title }}</a>
     <a
       class="header-anchor"
