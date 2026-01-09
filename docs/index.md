@@ -147,4 +147,9 @@ font-weight: 580 !important;
   color: var(--vp-c-bg);
         -webkit-text-stroke: 1px var(--vp-c-text-1);
 }
+
+/* 缩小标题与摘要之间的间距 */
+.post-title + div {
+  margin-top: 6px; // 可改为 4px / 8px 按审美微调
+}
 </style>
