@@ -35,34 +35,21 @@
 }
 
 :root {
-  /* ===== 文学 / 公告风配色 ===== */
-  --paper-bg: #FAF8F3;
-  --text-body-soft: #A18B74;
-  --text-heading-soft: #7A564A;
-
-  /* ===== VitePress 原有变量 ===== */
-  --vp-c-bg: var(--paper-bg);
   --vp-c-text-1: #495366;
   --vp-nav-height: 50px;
-
   --vp-c-green: #41b349;
   --vp-c-green-soft: rgba(65, 179, 73, 0.14);
   --vp-c-green-dark: #41b349;
   --vp-c-green-dark-soft: rgba(65, 179, 73, 0.14);
-
   --vp-c-brand-1: var(--vp-c-green) !important;
   --vp-c-brand-2: var(--vp-c-green) !important;
   --vp-c-brand-3: var(--vp-c-green) !important;
   --vp-c-brand-soft: var(--vp-c-green-soft) !important;
-
   --vp-font-family-serif: "Noto Sans SC";
-  --vp-font-family-base: var(--vp-font-family-serif),
-    -apple-system, BlinkMacSystemFont,
-    "Segoe UI", Helvetica, Arial, sans-serif,
-    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-
+  --vp-font-family-base: var(--vp-font-family-serif), -apple-system, BlinkMacSystemFont,
+                         "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji",
+                         "Segoe UI Emoji", "Segoe UI Symbol";
   --vp-font-family-code: "GoogleSansCode", monospace;
-
   --td-border-level-2-color: var(--vp-c-brand-soft) !important;
   --td-brand-color: var(--vp-c-brand-1) !important;
   --td-brand-color-light: var(--vp-c-brand-soft) !important;
@@ -71,7 +58,6 @@
 }
 
 .dark {
-  --vp-c-bg: #0d1117;
   --vp-c-text-1: #C9D1D9;
   --vp-c-brand-1: var(--vp-c-green-dark) !important;
   --vp-c-brand-2: var(--vp-c-green-dark) !important;
@@ -79,7 +65,6 @@
   --vp-c-brand-soft: var(--vp-c-green-dark-soft) !important;
 }
 
-/* ===== 顶部导航 ===== */
 @media (min-width: 960px) {
   .VPNavBar {
     width: 100%;
@@ -105,15 +90,25 @@
   font-size: 22px !important;
 }
 
-/* ===== Footer ===== */
-.VPFooter {
-  padding: 10px !important;
+.VPNavScreen .divider,
+.VPNavScreen .group,
+.VPNavScreenMenuLink {
   border-top: none !important;
-  box-shadow: none !important;
+  border-bottom: none !important;
+  border-color: transparent !important;
 }
 
+.VPNavScreen hr {
+  display: none !important;
+}
+
+/* Footer */
 .VPFooter a {
   text-decoration: none !important;
+}
+
+.VPFooter {
+  padding: 10px !important;
 }
 
 .VPFooter a:hover {
@@ -123,9 +118,16 @@
 .VPFooter::before,
 .VPFooter::after {
   display: none !important;
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
 }
 
-/* ===== 文档主体布局 ===== */
+.VPFooter {
+  border-top: none !important;
+  box-shadow: none !important;
+}
+
 .VPDoc {
   padding-top: 20px !important;
 }
@@ -151,16 +153,21 @@
   }
 }
 
-/* ===== 正文文字（关键） ===== */
-.vp-doc p,
-.vp-doc li {
+.VPDocFooter {
+  margin-top: 10px !important;
+}
+
+.VPcontent {
+  margin-bottom: 10px !important;
+}
+
+.vp-doc li,
+.vp-doc p {
   margin-top: 5px;
   margin-bottom: 5px;
   font-weight: 380 !important;
-  color: var(--text-body-soft);
 }
 
-/* ===== 强调文字 ===== */
 .vp-doc strong,
 .vp-doc b {
   font-family: "ChillRoundF", var(--vp-font-family-serif), sans-serif !important;
@@ -168,18 +175,26 @@
   text-underline-offset: 3px;
 }
 
-/* ===== 标题 ===== */
 h1, h2, h3, h4, h5, h6 {
   font-family: "Noto Serif SC", var(--vp-font-family-serif), sans-serif !important;
   font-weight: 580 !important;
-  color: var(--text-heading-soft);
 }
 
-h1 { font-size: 22px !important; }
-h2 { font-size: 20px !important; }
-h3 { font-size: 18px !important; }
+h1 {
+  font-size: 22px !important;
+}
 
-/* ===== 链接（保持品牌绿） ===== */
+h2 {
+  font-size: 20px !important;
+  margin: inherit !important;
+  border-top: none !important;
+  text-decoration: none !important;
+}
+
+h3 {
+  font-size: 18px !important;
+}
+
 .vp-doc a {
   text-decoration: none !important;
   color: #41b349;
@@ -194,9 +209,9 @@ h3 { font-size: 18px !important; }
 
 .vp-doc a::after {
   content: none !important;
+  color: #1A6840;
 }
 
-/* ===== 图片 ===== */
 .VPDoc img {
   border-radius: 16px;
   cursor: zoom-in;
@@ -204,26 +219,56 @@ h3 { font-size: 18px !important; }
   transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
-/* ===== 其余清理 ===== */
+.vp-doc .table-scroll td,
+.vp-doc .table-scroll th {
+  white-space: nowrap;     
+  word-break: keep-all;    
+}
+
+.table-scroll {
+  overflow-x: auto;
+  display: block;
+  width: 100%;
+  -webkit-overflow-scrolling: touch; 
+}
+
+
 .VPSidebar,
 .VPDocAside,
 .aside,
 .VPBackToTop,
 .divider-line,
 .divider,
-.VPLocalNav,
-.vpi-chevron-down,
-.text-icon {
+.VPLocalNav {
   display: none !important;
 }
 
-::selection {
+.vpi-chevron-down,
+.text-icon {
+  display: none;
+}
+
+.VPSwitchAppearance {
+  width: 22px !important;
+}
+
+.VPSwitchAppearance .check {
+  transform: none !important;
+}
+
+::selection,
+::-moz-selection {
   background: var(--vp-c-brand-1);
   color: var(--vp-c-bg);
 }
 
 * {
   scrollbar-width: thin;
+}
+
+main > div > div > pre > code {
+  white-space: pre-wrap;
+  word-wrap: break-word;
 }
 
 #app {
