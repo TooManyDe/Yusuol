@@ -67,7 +67,7 @@ const themeConfig: DefaultTheme.Config = {
   nav: navConfig,
   
   footer: {
-    message: '© 2026 <a href="https://ddbx.org">的的不休</a >',
+    message: '© 2026 <a href="https://ddbx.org">🌱的的不休</a >',
   },
   
   outlineTitle: "当前页面",
@@ -82,7 +82,7 @@ const themeConfig: DefaultTheme.Config = {
 // 主配置
 export default defineConfig({
   // 基本信息
-  title: "的的不休",
+  title: "🌱的的不休",
   description: "不舍昼夜",
   lang: "zh-Hans",
   
