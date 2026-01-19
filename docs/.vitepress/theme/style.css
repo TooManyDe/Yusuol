@@ -26,15 +26,6 @@
 }
 
 @font-face {
-  font-family: 'Noto Sans SC';
-  src: url('/assets/fonts/NotoSansSC-VariableFont_wght.ttf') format('truetype-variations');
-  font-weight: 100 900; 
-  font-stretch: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
   font-family: "mvboli";
   font-display: swap;
   src: url("/assets/fonts/mvboli.ttf");
