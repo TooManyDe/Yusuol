@@ -67,7 +67,7 @@ const themeConfig: DefaultTheme.Config = {
   nav: navConfig,
   
   footer: {
-    message: '© 2026 <a href="https://ddbx.org/en">DDBX</a >',
+    message: '© 2026 <a href="https://ddbx.org/en">的的不休</a >',
   },
   
   docFooter: {
@@ -87,7 +87,7 @@ const themeConfig: DefaultTheme.Config = {
 // 主配置
 export default defineConfig({
   // 基本信息
-  title: "DDBX",
+  title: "的的不休",
   description: "Never Resting Day nor Night",
   lang: "en-US",
   
