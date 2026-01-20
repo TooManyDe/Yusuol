@@ -129,6 +129,33 @@
   padding-top: 20px !important;
 }
 
+/* 正文中的外部链接箭头 */
+.vp-doc a.external {
+  position: relative;
+  padding-right: 1.1em;
+}
+
+/* 箭头图标 */
+.vp-doc a.external::after {
+  content: "";
+  display: inline-block;
+  width: 0.9em;
+  height: 0.9em;
+  margin-left: 0.25em;
+  vertical-align: -0.12em;
+
+  background-color: currentColor;
+
+  mask-image: url("data:image/svg+xml;utf8,\
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'>\
+<path d='M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42 9.3-9.29H14V3z'/>\
+<path d='M5 5h5V3H3v7h2V5z'/>\
+</svg>");
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: contain;
+}
+
 @media (max-width: 959px) {
   .VPDoc {
     padding: 20px !important;
