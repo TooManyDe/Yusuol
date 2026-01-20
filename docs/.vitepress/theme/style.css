@@ -34,7 +34,7 @@
 :root {
   --vp-c-text-1: #2f5169;
   --vp-nav-height: 50px;
-  --vp-c-green: #75bbe9;
+  --vp-c-green: #41b349;
   --vp-c-green-soft: rgba(65, 179, 73, 0.14);
   --vp-c-green-dark: #41b349;
   --vp-c-green-dark-soft: rgba(65, 179, 73, 0.14);
@@ -129,32 +129,6 @@
   padding-top: 20px !important;
 }
 
-/* 正文中的外部链接箭头 */
-.vp-doc a.external {
-  position: relative;
-  padding-right: 1.1em;
-}
-
-/* 箭头图标 */
-.vp-doc a.external::after {
-  content: "";
-  display: inline-block;
-  width: 0.9em;
-  height: 0.9em;
-  margin-left: 0.25em;
-  vertical-align: -0.12em;
-
-  background-color: currentColor;
-
-  mask-image: url("data:image/svg+xml;utf8,\
-<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'>\
-<path d='M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42 9.3-9.29H14V3z'/>\
-<path d='M5 5h5V3H3v7h2V5z'/>\
-</svg>");
-  mask-repeat: no-repeat;
-  mask-position: center;
-  mask-size: contain;
-}
 
 @media (max-width: 959px) {
   .VPDoc {
@@ -221,7 +195,7 @@ h3 {
 
 .vp-doc a {
   text-decoration: none !important;
-  color: #2f5169;
+  color: #41b349;
   font-family: "ChillRoundF", var(--vp-font-family-serif), sans-serif !important; 
   font-weight: 580 !important;
 }
