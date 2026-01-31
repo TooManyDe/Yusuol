@@ -1,8 +1,21 @@
-/* 1. 保留你的自定义字体定义 */
 @font-face {
   font-family: "GoogleSansCode";
   font-display: swap; 
   src: url("/assets/fonts/GoogleSansCode[wght].ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "PingFang";
+  font-display: swap; 
+  src: url("/assets/fonts/PingFang-Medium.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "ChillRoundF";
+  font-display: swap;
+  src: url("/assets/fonts/ChillRoundF.woff2") format("woff2"), 
+       url("/assets/fonts/ChillRoundF.woff") format("woff"),
+       url("/assets/fonts/ChillRoundF.ttf") format("truetype");
 }
 
 @font-face {
@@ -13,178 +26,249 @@
 }
 
 @font-face {
-  font-family: "ChillRoundF";
+  font-family: "mvboli";
   font-display: swap;
-  src: url("/assets/fonts/ChillRoundF.woff2") format("woff2");
+  src: url("/assets/fonts/mvboli.ttf");
 }
 
-/* 2. 核心变量重设：纽约时报黑白配色 */
 :root {
-  --vp-c-brand-1: #121212 !important;
-  --vp-c-text-1: #121212 !important;
-  --vp-c-text-2: #333333 !important;
-  --vp-nav-height: 60px;
-  
-  /* 衬线体作为基础字体 */
-  --vp-font-family-serif: "Noto Serif SC", "Georgia", "Times New Roman", serif;
-  --vp-font-family-base: var(--vp-font-family-serif), -apple-system, sans-serif;
+  --vp-c-text-1: #495366;
+  --vp-nav-height: 50px;
+  --vp-c-green: #41b349;
+  --vp-c-green-soft: rgba(65, 179, 73, 0.14);
+  --vp-c-green-dark: #41b349;
+  --vp-c-green-dark-soft: rgba(65, 179, 73, 0.14);
+  --vp-c-brand-1: var(--vp-c-green) !important;
+  --vp-c-brand-2: var(--vp-c-green) !important;
+  --vp-c-brand-3: var(--vp-c-green) !important;
+  --vp-c-brand-soft: var(--vp-c-green-soft) !important;
+  --vp-font-family-serif: "PingFang";
+  --vp-font-family-base: var(--vp-font-family-serif), -apple-system, BlinkMacSystemFont,
+                         "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji",
+                         "Segoe UI Emoji", "Segoe UI Symbol";
   --vp-font-family-code: "GoogleSansCode", monospace;
-  
-  /* 背景色微调为偏纸张的浅灰色或纯白 */
-  --vp-c-bg: #ffffff;
+  --td-border-level-2-color: var(--vp-c-brand-soft) !important;
+  --td-brand-color: var(--vp-c-brand-1) !important;
+  --td-brand-color-light: var(--vp-c-brand-soft) !important;
+  --td-brand-color-hover: var(--vp-c-brand-1) !important;
+  --td-brand-color-active: var(--vp-c-brand-2) !important;
 }
 
 .dark {
-  --vp-c-brand-1: #ffffff !important;
-  --vp-c-text-1: #e2e2e2 !important;
-  --vp-c-bg: #121212;
+  --vp-c-text-1: #C9D1D9;
+  --vp-c-brand-1: var(--vp-c-green-dark) !important;
+  --vp-c-brand-2: var(--vp-c-green-dark) !important;
+  --vp-c-brand-3: var(--vp-c-green-dark) !important;
+  --vp-c-brand-soft: var(--vp-c-green-dark-soft) !important;
 }
 
-/* 3. 导航栏：模拟报纸页眉布局 */
 @media (min-width: 960px) {
   .VPNavBar {
     width: 100%;
     justify-content: center;
     background-color: var(--vp-c-bg);
-    border-bottom: 1px solid #000 !important; /* 单细线 */
+  }
+
+  .VPNav[data-v-e4ae072f] {
+    position: absolute;
   }
 
   .VPNavBar .container {
-    max-width: 65vw;
+    max-width: 56vw;
     width: 100%;
     margin: 0 auto;
-    /* 核心特征：双重边线装饰 */
-    border-bottom: 4px double #121212; 
-    padding-bottom: 5px;
+    padding-left: 0;
+    padding-right: 0;
   }
 }
 
 .VPNavBarTitle .title {
-  font-family: "Noto Serif SC", serif !important;
-  font-weight: 900 !important;
-  font-size: 26px !important;
-  letter-spacing: -0.5px;
-  text-transform: uppercase;
+  font-family: "ChillRoundF", sans-serif;
+  font-size: 22px !important;
 }
 
-/* 4. 文章主体排版 */
-.VPDoc {
-  padding-top: 40px !important;
+.VPNavScreen .divider,
+.VPNavScreen .group,
+.VPNavScreenMenuLink {
+  border-top: none !important;
+  border-bottom: none !important;
+  border-color: transparent !important;
 }
 
-.VPDoc.has-aside .content-container {
-  max-width: 700px !important; /* 限制宽度，模拟专栏阅读体验 */
-  margin: 0 auto;
+.VPNavScreen hr {
+  display: none !important;
 }
 
-/* 文章标题：大而醒目，居中处理 */
-h1 {
-  font-family: "Noto Serif SC", serif !important;
-  font-size: 40px !important;
-  line-height: 1.1 !important;
-  font-weight: 800 !important;
-  text-align: center;
-  margin-bottom: 40px !important;
-  border: none !important;
-}
-
-h2 {
-  font-family: "Noto Serif SC", serif !important;
-  font-size: 24px !important;
-  font-weight: 700 !important;
-  margin-top: 40px !important;
-  padding-bottom: 8px !important;
-  border-bottom: 1px solid #121212 !important; /* 章节分割线 */
-  text-transform: uppercase;
-}
-
-h3 {
-  font-family: "Noto Serif SC", serif !important;
-  font-size: 20px !important;
-  font-weight: 700 !important;
-}
-
-/* 5. 正文内容细节 */
-.vp-doc p, .vp-doc li {
-  font-size: 18px !important;
-  line-height: 1.65 !important;
-  margin-top: 1.2em;
-  margin-bottom: 1.2em;
-  color: #2f2f2f;
-}
-
-/* 强调文字：移除之前的绿色波浪线，改为传统的粗体 */
-.vp-doc strong, .vp-doc b {
-  font-family: var(--vp-font-family-serif) !important;
-  font-weight: 700 !important;
+/* Footer */
+.VPFooter a {
   text-decoration: none !important;
 }
 
-/* 链接样式：NYT 蓝色或纯黑带下划线 */
-.vp-doc a {
-  text-decoration: underline !important;
-  text-decoration-thickness: 1px !important;
-  text-underline-offset: 3px;
-  color: #326891 !important;
+.VPFooter {
+  padding: 10px !important;
+}
+
+.VPFooter a:hover {
+  text-decoration: underline #41b349 !important;
+}
+
+.VPFooter::before,
+.VPFooter::after {
+  display: none !important;
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.VPFooter {
+  border-top: none !important;
+  box-shadow: none !important;
+}
+
+.VPDoc {
+  padding-top: 20px !important;
+}
+
+
+@media (max-width: 959px) {
+  .VPDoc {
+    padding: 20px !important;
+    width: 100%;
+  }
+}
+
+.VPDoc.has-aside .content-container {
+  max-width: 50rem !important;
+}
+
+@media (min-width: 960px) {
+  .VPDoc:not(.has-sidebar) .content {
+    max-width: inherit !important;
+  }
+
+  .VPDoc .content {
+    padding: 0 !important; 
+  }
+}
+
+.VPDocFooter {
+  margin-top: 10px !important;
+}
+
+.VPcontent {
+  margin-bottom: 10px !important;
+}
+
+.vp-doc li,
+.vp-doc p {
+  margin-top: 5px;
+  margin-bottom: 5px;
   font-weight: 400 !important;
 }
 
+.vp-doc strong,
+.vp-doc b {
+  font-family: "ChillRoundF", var(--vp-font-family-serif), sans-serif !important;
+  text-decoration: underline dotted #41b349 !important;
+  text-underline-offset: 3px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Noto Serif SC", var(--vp-font-family-serif), sans-serif !important;
+  font-weight: 580 !important;
+}
+
+h1 {
+  font-size: 22px !important;
+}
+
+h2 {
+  font-size: 20px !important;
+  margin: inherit !important;
+  border-top: none !important;
+  text-decoration: none !important;
+}
+
+h3 {
+  font-size: 18px !important;
+}
+
+.vp-doc a {
+  text-decoration: none !important;
+  color: #41b349;
+  font-family: "ChillRoundF", var(--vp-font-family-serif), sans-serif !important; 
+  font-weight: 580 !important;
+}
+
 .vp-doc a:hover {
-  color: #121212 !important;
-  text-decoration-thickness: 2px !important;
+  text-decoration: underline !important;
+  color: #1A6840; 
 }
 
-/* 6. 引用块（Blockquote）：报纸摘要感 */
-.vp-doc blockquote {
-  border-left: none !important;
-  border-top: 1px solid #000;
-  border-bottom: 1px solid #000;
-  margin: 40px 0 !important;
-  padding: 20px 10px !important;
-  text-align: center;
-  font-style: italic;
+.vp-doc a::after {
+  content: none !important;
+  color: #1A6840;
 }
 
-/* 7. 图片：去除圆角，增加硬朗感 */
 .VPDoc img {
-  border-radius: 0px !important;
-  box-shadow: none !important;
-  border: 1px solid #eee;
-  margin: 0 auto;
+  border-radius: 16px;
+  cursor: zoom-in;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
-/* 8. 隐藏冗余元素（保留原逻辑） */
+.vp-doc .table-scroll td,
+.vp-doc .table-scroll th {
+  white-space: nowrap;     
+  word-break: keep-all;    
+}
+
+.table-scroll {
+  overflow-x: auto;
+  display: block;
+  width: 100%;
+  -webkit-overflow-scrolling: touch; 
+}
+
+
 .VPSidebar,
 .VPDocAside,
 .aside,
 .VPBackToTop,
 .divider-line,
 .divider,
-.VPLocalNav,
-.vpi-chevron-down,
-.text-icon {
+.VPLocalNav {
   display: none !important;
 }
 
-/* 9. 页脚：简约横线 */
-.VPFooter {
-  border-top: 1px solid #121212 !important;
-  padding: 20px !important;
-  margin-top: 60px !important;
-  font-family: var(--vp-font-family-serif);
-  text-transform: uppercase;
-  font-size: 12px;
-  letter-spacing: 1px;
+.vpi-chevron-down,
+.text-icon {
+  display: none;
 }
 
-/* 10. 代码块保持原本的现代感，但在纸张风格下做微调 */
+.VPSwitchAppearance {
+  width: 22px !important;
+}
+
+.VPSwitchAppearance .check {
+  transform: none !important;
+}
+
+::selection,
+::-moz-selection {
+  background: var(--vp-c-brand-1);
+  color: var(--vp-c-bg);
+}
+
+* {
+  scrollbar-width: thin;
+}
+
 main > div > div > pre > code {
   white-space: pre-wrap;
   word-wrap: break-word;
-  font-family: var(--vp-font-family-code) !important;
 }
 
-::selection {
-  background: #121212;
-  color: #fff;
+#app {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
