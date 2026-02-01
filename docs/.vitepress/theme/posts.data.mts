@@ -1,4 +1,4 @@
-Import { createContentLoader } from 'vitepress'
+import { createContentLoader } from 'vitepress'
 
 interface Post {
   title: string
@@ -6,7 +6,7 @@ interface Post {
   date: {
     time: number
     string: string
-    year: string 
+    year: string
     monthDay: string
   }
   category: string
@@ -24,7 +24,7 @@ export default createContentLoader('posts/**/*.md', {
         url,
         excerpt,
         date: formatDate(frontmatter.date),
-        category: frontmatter.category || '未分类' 
+        category: frontmatter.category || '未分类'
       }))
       .sort((a, b) => b.date.time - a.date.time)
   }
@@ -51,7 +51,7 @@ function formatDate(raw: any): Post['date'] {
   }
 
   const pad = (n: number) => String(n).padStart(2, '0')
-  
+
   const formattedString = `${date.getFullYear()}年${pad(date.getMonth() + 1)}月${pad(date.getDate())}日${pad(date.getHours())}:${pad(date.getMinutes())}`
 
   return {
