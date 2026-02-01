@@ -12,15 +12,11 @@ isNoBackBtn: true
       v-for="[category, postGroup] in sortedCategoryGroups"
       :key="category"
       class="category-block"
-    >
-      <h1 :id="category" class="category-title">{{ category }}</h1>
-
-      <div v-for="(post, index) in postGroup" :key="post.url" class="post-item">
+    ><h1 :id="category" class="category-title">{{ category }}</h1><div v-for="(post, index) in postGroup" :key="post.url" class="post-item">
         <div v-if="index !== 0" class="post-divider"></div>
         <div class="post-row">
           <h2 class="post-title">
-            <a :href="post.url">{{ post.title }}</a>
-          </h2>
+         <a :href="post.url">{{ post.title }}</a></h2>
           <div class="post-date">{{ post.date?.string }}</div>
         </div>
       </div>
