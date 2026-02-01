@@ -190,7 +190,7 @@ h3 {
   font-size: 18px !important;
 }
 
-VC-divider.vp-doc a {
+.vp-doc a {
   text-decoration: none !important;
   color: #000000;
   font-family: "ChillRoundF", var(--vp-font-family-serif), sans-serif !important;
