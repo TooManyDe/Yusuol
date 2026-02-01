@@ -22,7 +22,7 @@ isNoBackBtn: true
   <div v-if="post.excerpt" class="post-excerpt" v-html="post.excerpt"></div>
 
   <div class="post-date">
-    发表于：{{ post.date.string }}
+    {{ post.date.string }}
   </div>
 </template>
 
