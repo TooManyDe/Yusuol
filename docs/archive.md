@@ -132,7 +132,7 @@ const sortedCategoryGroups = computed(() => {
   .post-item {
     padding: 10px 0;
     /* 如果手机端想保持一行，注释掉下面这句；如果想换行，保留。建议紧凑型列表不换行 */
-    /* flex-direction: column; */ 
+    flex-direction: column;
   }
 
   .post-title > a {
