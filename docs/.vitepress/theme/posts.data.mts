@@ -1,56 +1,21 @@
-import { createContentLoader } from 'vitepress'
-
-interface Post {
-  title: string
-  url: string
-  date: {
-    time: number
-    string: string
-    year: string 
-    monthDay: string
-  }
-  category: string
-  excerpt: string | undefined
-}
-
-export declare const data: Post[]
-
-export default createContentLoader('posts/**/*.md', {
-  excerpt: excerptFn,
-  transform(raw): Post[] {
-    return raw
-      .map(({ url, frontmatter, excerpt }) => ({
-        title: frontmatter.title,
-        url,
-        excerpt,
-        date: formatDate(frontmatter.date),
-        category: frontmatter.category || '未分类' 
-      }))
-      .sort((a, b) => b.date.time - a.date.time)
-  }
-})
-
-function excerptFn(file: { data: { [key: string]: any }; content: string; excerpt?: string }, options?: any) {
-  file.excerpt = file.content.split('<!--Yusuol-->')[1];
-}
-
 function formatDate(raw: string): Post['date'] {
+  // 1. 直接通过 raw 字符串创建日期对象，它会保留 MD 中写的时分
+  // 如果 raw 是 "2026-01-01 21:59"，new Date() 会按本地时间解析
   const date = new Date(raw)
-  date.setUTCHours(12)
+
+  // 2. 检查日期是否有效
+  if (isNaN(date.getTime())) {
+    return { time: 0, string: '无效日期', year: '', monthDay: '' }
+  }
+
+  // 3. 这里的 string 需要包含时分：2026-01-01 21:59
+  const pad = (n: number) => String(n).padStart(2, '0')
+  const formattedString = `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())} ${pad(date.getHours())}:${pad(date.getMinutes())}`
+
   return {
     time: +date,
-    string: date.toLocaleDateString('zh-Hans', {
-      year: 'numeric',
-      month: '2-digit',
-      day: '2-digit'
-    }),
-    year: date.toLocaleDateString('zh-Hans', {
-      year: 'numeric'
-    }),
-    monthDay: date.toLocaleDateString('zh-Hans', {
-      month: '2-digit',
-      day: '2-digit'
-    })
+    string: formattedString, // 这里的 string 现在有了具体时间
+    year: String(date.getFullYear()),
+    monthDay: `${pad(date.getMonth() + 1)}-${pad(date.getDate())}`
   }
 }
-
