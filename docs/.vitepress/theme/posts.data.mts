@@ -52,7 +52,7 @@ function formatDate(raw: any): Post['date'] {
 
   const pad = (n: number) => String(n).padStart(2, '0')
 
-  const formattedString = `${date.getFullYear()}年${pad(date.getMonth() + 1)}月${pad(date.getDate())}日${pad(date.getHours())}:${pad(date.getMinutes())}`
+  const formattedString = `${date.getFullYear()}年${pad(date.getMonth() + 1)}月${pad(date.getDate())}日 ${pad(date.getHours())}:${pad(date.getMinutes())}`
 
   return {
     time: +date,
