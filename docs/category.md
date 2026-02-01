@@ -124,9 +124,11 @@ const sortedCategoryGroups = computed(() => {
     font-weight: 580 !important;
     text-decoration: none !important;
     color: var(--vp-c-text-2);
-
     &:hover {
-      opacity: 0.85;
+      color: var(--vp-c-text-1);
+    }
+    &:active {
+      color: var(--vp-c-text-1);
     }
   }
 }
