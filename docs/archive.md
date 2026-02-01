@@ -7,7 +7,6 @@ isNoBackBtn: true
 ---
 
 <template>
-  <div :key="$route.path" class="category-list">
     <div
       v-for="([category, postGroup], gIndex) in sortedCategoryGroups"
       :key="category"
@@ -32,7 +31,6 @@ isNoBackBtn: true
         </div>
       </div>
     </div>
-  </div>
 </template>
 
 <script setup lang="ts">
