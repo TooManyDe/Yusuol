@@ -17,8 +17,7 @@ isNoBackBtn: true
         ></a>
         {{ category }}
       </h2>
-
-      <div v-for="post in postGroup" :key="post.url" class="post-item">
+<div v-for="post in postGroup" :key="post.url" class="post-item">
         <div class="post-content-main">
           <h2 class="post-title">
 <a :href="withBase(post.url)">{{ post.title }}</a>
