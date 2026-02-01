@@ -1,3 +1,11 @@
+---
+layout: doc
+editLink: false
+lastUpdated: false
+isNoComment: true
+isNoBackBtn: true
+---
+
 <template>
   <div class="category-list">
     <div
