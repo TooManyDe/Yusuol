@@ -17,29 +17,20 @@ isNoBackBtn: true
       <h1 :id="category" class="category-title">
         {{ category }}
         <span class="category-count">{{ postGroup.length }}</span>
-      </h1>
-
-      <!-- Posts -->
+      </h1><!-- Posts -->
       <div
         v-for="(post, index) in postGroup"
         :key="post.url"
         class="post-item"
-      >
-        <div v-if="index !== 0" class="post-divider"></div>
-
-        <!-- ✅ Title + Date Row -->
+      ><div v-if="index !== 0" class="post-divider"></div>
         <div class="post-row">
           <h2 class="post-title">
-            <a :href="post.url">{{ post.title }}</a>
-          </h2>
-
-          <div class="post-date">
+         <a :href="post.url">{{ post.title }}</a></h2> <div class="post-date">
             {{ post.date.string }}
           </div>
         </div>
       </div>
-
-      <div class="category-divider"></div>
+<div class="category-divider"></div>
     </div>
   </div>
 </template>
