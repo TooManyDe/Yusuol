@@ -87,7 +87,6 @@
   font-size: 22px !important;
 }
 
-.VPNavScreen .divider,
 .VPNavScreen .group,
 .VPNavScreenMenuLink {
   border-top: none !important;
@@ -233,8 +232,6 @@ h3 {
 .VPDocAside,
 .aside,
 .VPBackToTop,
-.divider-line,
-.divider,
 .VPLocalNav {
   display: none !important;
 }
