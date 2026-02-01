@@ -1,4 +1,6 @@
-import { createContentLoader } from 'vitepress'
+
+
+Import { createContentLoader } from 'vitepress'
 
 interface Post {
   title: string
@@ -31,8 +33,7 @@ export default createContentLoader('posts/**/*.md', {
 })
 
 function excerptFn(file: { data: { [key: string]: any }; content: string; excerpt?: string }, options?: any) {
-  // 这里的分割符需与你文档中的一致
-  file.excerpt = file.content.split('')[1];
+  file.excerpt = file.content.split('<!--Yusuol-->')[1];
 }
 
 function formatDate(raw: any): Post['date'] {
@@ -49,14 +50,12 @@ function formatDate(raw: any): Post['date'] {
     date = new Date(String(raw).replace(/-/g, '/'));
   }
 
-  // 如果解析失败，回退到原始解析
   if (isNaN(date.getTime())) {
     date = new Date(raw);
   }
 
   const pad = (n: number) => String(n).padStart(2, '0')
   
-  // 严格输出：2026-01-01 21:59
   const formattedString = `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())} ${pad(date.getHours())}:${pad(date.getMinutes())}`
 
   return {
