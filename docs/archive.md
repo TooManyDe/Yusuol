@@ -74,15 +74,13 @@ const sortedCategoryGroups = computed(() => {
   flex-direction: row;
   justify-content: space-between;
   align-items: baseline;      /* baseline 对齐，文字底部齐平 */
-  gap: 12px;
 }
 
 .post-title {
   margin: 0 !important;
   min-width: 0;               /* 允许 flex 子项截断 */
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;        /* 强制单行，超长时省略号截断 */
+  overflow: visible;
+  text-overflow: unset;
 
   > a {
     font-family: "Noto Serif SC", "Source Han Serif", serif !important;
