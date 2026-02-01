@@ -91,6 +91,27 @@ const onCurrentChange: PaginationProps["onCurrentChange"] = (index) => {
   margin: 12px 0; /* 缩小线前后的外边距 */
 }
 
+/* ─── 标题 (紧凑化) ─── */
+.post-title {
+  margin-top: 0 !important; 
+  margin-bottom: 4px !important;
+  border-top: none !important;
+  padding-top: 0 !important;
+  line-height: 1.2;
+
+  > a {
+    font-family: "Noto Serif SC", "Source Han Serif", serif !important;
+    text-decoration: none !important;
+    font-weight: 580 !important;
+    font-size: 22px; 
+    color: var(--vp-c-text-1);
+    
+    &:hover {
+      color: var(--vp-c-brand-1);
+    }
+  }
+}
+
 /* ─── 摘要 ─── */
 .post-excerpt {
   margin: 0 0 4px; /* 压缩下方间距 */
