@@ -74,7 +74,7 @@ const sortedCategoryGroups = computed(() => {
   gap: 10px;
 
   font-family: "ChillRoundF", serif;
-  font-size: 22px;
+  font-size: 36px;
   font-weight: 650;
   letter-spacing: 0.09em;
   text-transform: uppercase;
@@ -97,7 +97,7 @@ const sortedCategoryGroups = computed(() => {
 
   > a:first-child {
     font-family: "Noto Serif SC", "Source Han Serif", serif !important;
-    font-size: 21px;
+    font-size: 18px;
     font-weight: 580 !important;
     text-decoration: none !important;
     color: var(--vp-c-text-1);
@@ -144,8 +144,8 @@ const sortedCategoryGroups = computed(() => {
 .category-divider {
   width: 100%;
   height: 1px;
-  background-color: var(--vp-c-divider);
+  background-color: var(--vp-c-text-1);
   opacity: 0.18;
-  margin: 28px 0 6px;
+  margin: 20px 0 10px;
 }
 </style>
