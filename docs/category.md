@@ -99,7 +99,6 @@ const sortedCategoryGroups = computed(() => {
   gap: 12px;
 }
 
-/* 📱 Mobile: wrap into two lines */
 @media (max-width: 768px) {
   .post-row {
     flex-direction: column;
