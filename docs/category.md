@@ -128,7 +128,7 @@ const sortedCategoryGroups = computed(() => {
 
 .category-divider {
   width: 100%;
-  height: 2px;
+  height: 1px;
   background-color: var(--vp-c-text-1);
   margin: 10px 0 10px;
 }
