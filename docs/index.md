@@ -83,15 +83,13 @@ const onCurrentChange: PaginationProps["onCurrentChange"] = (index) => {
 </script>
 
 <style lang="scss" scoped>
-/* ─── 分隔线 (变细且间距缩小) ─── */
 .post-divider {
   width: 100%;
   height: 1px; 
   background-color: var(--vp-c-divider);
-  margin: 12px 0; /* 缩小线前后的外边距 */
+  margin: 10px 0; 
 }
 
-/* ─── 标题 (紧凑化) ─── */
 .post-title {
   margin-top: 0 !important; 
   margin-bottom: 6px !important;
@@ -103,7 +101,7 @@ const onCurrentChange: PaginationProps["onCurrentChange"] = (index) => {
     font-family: "Noto Serif SC", "Source Han Serif", serif !important;
     text-decoration: none !important;
     font-weight: 800 !important;
-    font-size: 1.65rem; /* 稍微调小一点，更显精致 */
+    font-size: 22px; 
     color: var(--vp-c-text-1);
     
     &:hover {
@@ -118,9 +116,8 @@ const onCurrentChange: PaginationProps["onCurrentChange"] = (index) => {
   }
 }
 
-/* ─── 摘要 ─── */
 .post-excerpt {
-  margin: 0 0 4px; /* 压缩下方间距 */
+  margin: 0 0 4px; 
   font-size: 15px;
   line-height: 1.5;
   color: var(--vp-c-text-1);
@@ -131,16 +128,14 @@ const onCurrentChange: PaginationProps["onCurrentChange"] = (index) => {
   }
 }
 
-/* ─── 发表于 (超紧凑) ─── */
 .post-date {
-  font-size: 12px;
+  font-size: 14px;
   color: var(--vp-c-text-3);
   font-weight: 400;
-  margin-bottom: 12px; /* 压缩每篇文章底部的留白 */
+  margin-bottom: 10px; 
   letter-spacing: 0.01em;
 }
 
-/* 分页容器 */
 .pagination-container {
   margin-top: 8px;
   display: flex;
