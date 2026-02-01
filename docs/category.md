@@ -74,7 +74,7 @@ const sortedCategoryGroups = computed(() => {
   gap: 10px;
 
   font-family: "ChillRoundF", serif;
-  font-size: 36px !important;
+  font-size: 24px !important;
   font-weight: 700 !important;
   letter-spacing: 0.06em;
   text-transform: uppercase;
