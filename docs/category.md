@@ -7,13 +7,18 @@ isNoBackBtn: true
 ---
 
 <template>
-  <div class="category-list">
+  <div class="category-list" :key="route.path">
+    <!-- ✅ Loading 防止首次空白 -->
+    <div v-if="posts.length === 0" class="loading">
+      Loading...
+    </div>
+ <!-- ✅ 分类内容 -->
     <div
+      v-else
       v-for="[category, postGroup] in sortedCategoryGroups"
       :key="category"
       class="category-block"
-    >
-      <!-- Category Header -->
+    ><!-- Category Header -->
       <h1 :id="category" class="category-title">
         {{ category }}
         <span class="category-count">{{ postGroup.length }}</span>
@@ -22,27 +27,41 @@ isNoBackBtn: true
         v-for="(post, index) in postGroup"
         :key="post.url"
         class="post-item"
-      ><div v-if="index !== 0" class="post-divider"></div>
+      ><div v-if="index !== 0" class="post-divider"></div><!-- ✅ Title + Date Row -->
         <div class="post-row">
-          <h2 class="post-title">
-         <a :href="post.url">{{ post.title }}</a></h2> <div class="post-date">
+          <h2 class="post-title"><!-- ✅ RouterLink 替代 a，避免 SPA 空白 -->
+            <RouterLink :to="post.url">
+              {{ post.title }}
+            </RouterLink>
+          </h2><div class="post-date">
             {{ post.date.string }}
           </div>
         </div>
-      </div>
-<div class="category-divider"></div>
+      </div><div class="category-divider"></div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { computed } from "vue";
-import { data as posts } from "./.vitepress/theme/posts.data.mts";
+import { ref, computed, onMounted } from "vue";
+import { useRoute } from "vitepress";
+import { RouterLink } from "vue-router";
 
+const route = useRoute();
+
+/* ✅ 解决首次进入空白：mounted 后再加载数据 */
+const posts = ref<any[]>([]);
+
+onMounted(async () => {
+  const mod = await import("./.vitepress/theme/posts.data.mts");
+  posts.value = mod.data;
+});
+
+/* ✅ 分类排序 */
 const sortedCategoryGroups = computed(() => {
-  const map = new Map<string, typeof posts>();
+  const map = new Map<string, any[]>();
 
-  posts.forEach((post) => {
+  posts.value.forEach((post) => {
     const category = post.category || "未分类";
     if (!map.has(category)) map.set(category, []);
     map.get(category)!.push(post);
@@ -58,6 +77,14 @@ const sortedCategoryGroups = computed(() => {
 </script>
 
 <style lang="scss" scoped>
+/* ───────── Loading ───────── */
+.loading {
+  padding: 40px 0;
+  font-size: 14px;
+  opacity: 0.6;
+  text-align: center;
+}
+
 /* ───────── Category Header ───────── */
 .category-header {
   margin-top: 20px;
@@ -99,6 +126,7 @@ const sortedCategoryGroups = computed(() => {
   gap: 12px;
 }
 
+/* 📱 Mobile 换行 */
 @media (max-width: 768px) {
   .post-row {
     flex-direction: column;
@@ -118,15 +146,21 @@ const sortedCategoryGroups = computed(() => {
   border: none !important;
   line-height: 1.5;
 
-  > a:first-child {
+  > a {
     font-family: "Noto Serif SC", "Source Han Serif", serif !important;
     font-size: 16px !important;
     font-weight: 580 !important;
     text-decoration: none !important;
+
+    /* 默认颜色 */
     color: var(--vp-c-text-2);
+
+    /* ✅ hover 变深 */
     &:hover {
       color: var(--vp-c-text-1);
     }
+
+    /* ✅ active 点击变深 */
     &:active {
       color: var(--vp-c-text-1);
     }
