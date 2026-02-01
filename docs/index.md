@@ -84,6 +84,8 @@ const onCurrentChange: PaginationProps["onCurrentChange"] = (index) => {
 
 <style lang="scss" scoped>
 .post-divider {
+  width: 100%;
+  height: 0.5px; 
   background-color: var(--vp-c-divider);
   margin: 6px 0; 
 }
@@ -138,7 +140,7 @@ const onCurrentChange: PaginationProps["onCurrentChange"] = (index) => {
   margin-top: 8px;
   display: flex;
   justify-content: center;
-  border-top: 0.5px var(--vp-c-divider);
+  border-top: 1px solid var(--vp-c-divider);
   padding-top: 10px;
 
   :deep(li) {
