@@ -67,6 +67,7 @@ const sortedCategoryGroups = computed(() => {
   font-size: 22px;
   color: var(--vp-c-text-1);
   border-bottom: 2px solid var(--vp-c-brand);
+  display: inline-block;
 }
 
 .post-divider {
@@ -77,7 +78,7 @@ const sortedCategoryGroups = computed(() => {
 }
 
 .post-item {
-  padding: 12px 0;
+  padding: 5px 0;
   display: flex;
   flex-direction: row;        /* 默认横向排列 */
   justify-content: space-between; /* 左右两端对齐 */
@@ -123,7 +124,7 @@ const sortedCategoryGroups = computed(() => {
   color: var(--vp-c-text-3);
   font-weight: 400;
   white-space: nowrap;        /* 强制日期不换行 */
-  margin-top: 6px;            /* 微调使其与第一行标题视觉对齐 */
+  margin-top: 5px;            /* 微调使其与第一行标题视觉对齐 */
   letter-spacing: 0.01em;
 }
 
@@ -131,7 +132,6 @@ const sortedCategoryGroups = computed(() => {
 @media (max-width: 768px) {
   .post-item {
     flex-direction: column;   /* 移动端改为垂直排列 */
-    gap: 8px;
     padding: 10px 0;
   }
 
