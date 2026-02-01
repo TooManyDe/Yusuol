@@ -140,8 +140,8 @@ const onCurrentChange: PaginationProps["onCurrentChange"] = (index) => {
   margin-top: 8px;
   display: flex;
   justify-content: center;
-  border-top: 1px solid var(--vp-c-divider);
-  padding-top: 16px;
+  border-top: 2px solid var(--vp-c-text-1);
+  padding-top: 10px;
 
   :deep(li) {
     margin-top: 0px !important;
