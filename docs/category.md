@@ -57,7 +57,7 @@ const sortedCategoryGroups = computed(() => {
 <style lang="scss" scoped>
 /* ───────── Category Header ───────── */
 .category-header {
-  margin-top: 42px;
+  margin-top: 20px;
 
   &:first-child {
     margin-top: 0;
@@ -74,8 +74,8 @@ const sortedCategoryGroups = computed(() => {
   gap: 10px;
 
   font-family: "ChillRoundF", serif;
-  font-size: 36px;
-  font-weight: 700;
+  font-size: 36px !important;
+  font-weight: 700 !important;
   letter-spacing: 0.06em;
   text-transform: uppercase;
 
@@ -97,7 +97,7 @@ const sortedCategoryGroups = computed(() => {
 
   > a:first-child {
     font-family: "Noto Serif SC", "Source Han Serif", serif !important;
-    font-size: 16px;
+    font-size: 16px !important;
     font-weight: 580 !important;
     text-decoration: none !important;
     color: var(--vp-c-text-2);
@@ -129,7 +129,7 @@ const sortedCategoryGroups = computed(() => {
 .category-divider {
   width: 100%;
   height: 1px;
-  background-color: var(--vp-c-text-1);
+  background-color: var(--vp-c-divider);
   margin: 10px 0 10px;
 }
 </style>
