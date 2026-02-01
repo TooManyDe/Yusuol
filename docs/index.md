@@ -101,7 +101,7 @@ const onCurrentChange: PaginationProps["onCurrentChange"] = (index) => {
     font-family: "Noto Serif SC", "Source Han Serif", serif !important;
     text-decoration: none !important;
     font-weight: 580 !important;
-    font-size: 22px; 
+    font-size: 20px; 
     color: #326891;
     
     &:hover {
@@ -111,14 +111,14 @@ const onCurrentChange: PaginationProps["onCurrentChange"] = (index) => {
 
   @media (max-width: 425px) {
     > a {
-      font-size: 22px;
+      font-size: 20px;
     }
   }
 }
 
 .post-excerpt {
   margin: 0 0 4px; 
-  font-size: 15px;
+  font-size: 16px;
   line-height: 1.5;
   color: var(--vp-c-text-1);
 
