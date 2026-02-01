@@ -87,7 +87,12 @@
   font-size: 22px !important;
 }
 
-.VPNavScreen .divider,
+.VPNavScreen .divider {
+  height: 2px !important;
+  background-color: #121212 !important;
+  border: none !important; 
+}
+
 .VPNavScreen .group,
 .VPNavScreenMenuLink {
   border-top: none !important;
