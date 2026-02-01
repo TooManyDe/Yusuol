@@ -31,20 +31,32 @@ export default createContentLoader('posts/**/*.md', {
 })
 
 function excerptFn(file: { data: { [key: string]: any }; content: string; excerpt?: string }, options?: any) {
+  // 这里的分割符需与你文档中的一致
   file.excerpt = file.content.split('')[1];
 }
 
-function formatDate(raw: string): Post['date'] {
-  // 直接解析原始字符串，避免 UTC 转换偏差
-  const date = new Date(raw.replace(/-/g, '/'))
-  
+function formatDate(raw: any): Post['date'] {
+  if (!raw) {
+    return { time: 0, string: '无日期', year: '', monthDay: '' }
+  }
+
+  // 核心修复：处理 raw 可能已经是 Date 对象的情况
+  let date: Date;
+  if (raw instanceof Date) {
+    date = raw;
+  } else {
+    // 强制转为字符串并替换，兼容不同浏览器的解析习惯
+    date = new Date(String(raw).replace(/-/g, '/'));
+  }
+
+  // 如果解析失败，回退到原始解析
   if (isNaN(date.getTime())) {
-    return { time: 0, string: '无效日期', year: '', monthDay: '' }
+    date = new Date(raw);
   }
 
   const pad = (n: number) => String(n).padStart(2, '0')
   
-  // 生成格式为：2026-01-01 21:59
+  // 严格输出：2026-01-01 21:59
   const formattedString = `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())} ${pad(date.getHours())}:${pad(date.getMinutes())}`
 
   return {
