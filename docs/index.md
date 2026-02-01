@@ -10,14 +10,14 @@ isNoBackBtn: true
 <template v-for="(post, index) in curPosts" :key="post.url">
   <div v-if="index !== 0" class="post-divider"></div>
 
-  <h2 :id="post.title" class="post-title">
+  <h1 :id="post.title" class="post-title">
     <a :href="post.url">{{ post.title }}</a>
     <a
       class="header-anchor"
       :href="`#${post.title}`"
       :aria-label="`Permalink to &quot;${post.title}&quot;`"
     ></a>
-  </h2>
+  </h1>
 
   <div v-if="post.excerpt" class="post-excerpt" v-html="post.excerpt"></div>
 
@@ -89,33 +89,6 @@ const onCurrentChange: PaginationProps["onCurrentChange"] = (index) => {
   height: 1px; 
   background-color: var(--vp-c-divider);
   margin: 12px 0; /* 缩小线前后的外边距 */
-}
-
-/* ─── 标题 (紧凑化) ─── */
-.post-title {
-  margin-top: 0 !important; 
-  margin-bottom: 4px !important;
-  border-top: none !important;
-  padding-top: 0 !important;
-  line-height: 1.2;
-
-  > a {
-    font-family: "Noto Serif SC", "Source Han Serif", serif !important;
-    text-decoration: none !important;
-    font-weight: 580 !important;
-    font-size: 1.65rem; /* 稍微调小一点，更显精致 */
-    color: var(--vp-c-text-1);
-    
-    &:hover {
-      color: var(--vp-c-brand-1);
-    }
-  }
-
-  @media (max-width: 425px) {
-    > a {
-      font-size: 1.35rem;
-    }
-  }
 }
 
 /* ─── 摘要 ─── */
