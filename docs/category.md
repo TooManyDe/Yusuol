@@ -74,12 +74,12 @@ const sortedCategoryGroups = computed(() => {
   gap: 10px;
 
   font-family: "ChillRoundF", serif;
-  font-size: 15px;
-  font-weight: 500;
-  letter-spacing: 0.08em;
+  font-size: 22px;
+  font-weight: 650;
+  letter-spacing: 0.09em;
   text-transform: uppercase;
 
-  color: var(--vp-c-text-3);
+  color: var(--vp-c-text-1);
 }
 
 .category-count {
