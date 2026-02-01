@@ -8,6 +8,8 @@ isNoBackBtn: true
 ---
 
 <template v-for="(post, index) in curPosts" :key="post.url">
+  <div v-if="index !== 0" class="post-divider"></div>
+
   <h1 :id="post.title" class="post-title">
     <a :href="post.url">{{ post.title }}</a>
     <a
@@ -16,8 +18,6 @@ isNoBackBtn: true
       :aria-label="`Permalink to &quot;${post.title}&quot;`"
     ></a>
   </h1>
-
-  <div class="post-divider"></div>
 
   <div v-if="post.excerpt" class="post-excerpt" v-html="post.excerpt"></div>
 
@@ -87,12 +87,12 @@ const onCurrentChange: PaginationProps["onCurrentChange"] = (index) => {
   width: 100%;
   height: 2px; 
   background-color: var(--vp-c-text-1);
-  margin: 4px 0 14px 0; /* 紧贴上方标题，下方留出间距给摘要 */
+  margin: 10px 0; 
 }
 
 .post-title {
-  margin-top: 28px !important; /* 增加每一项顶部的间距 */
-  margin-bottom: 0 !important; 
+  margin-top: 0 !important; 
+  margin-bottom: 6px !important;
   border-top: none !important;
   padding-top: 0 !important;
   line-height: 1.5;
@@ -117,9 +117,9 @@ const onCurrentChange: PaginationProps["onCurrentChange"] = (index) => {
 }
 
 .post-excerpt {
-  margin: 0 0 6px; 
+  margin: 0 0 4px; 
   font-size: 15px;
-  line-height: 1.6;
+  line-height: 1.5;
   color: var(--vp-c-text-1);
 
   :deep(p) {
@@ -132,16 +132,16 @@ const onCurrentChange: PaginationProps["onCurrentChange"] = (index) => {
   font-size: 14px;
   color: var(--vp-c-text-3);
   font-weight: 400;
-  margin-bottom: 12px; 
+  margin-bottom: 10px; 
   letter-spacing: 0.01em;
 }
 
 .pagination-container {
-  margin-top: 20px;
+  margin-top: 8px;
   display: flex;
   justify-content: center;
   border-top: 2px solid var(--vp-c-text-1);
-  padding-top: 15px;
+  padding-top: 10px;
 
   :deep(li) {
     margin-top: 0px !important;
