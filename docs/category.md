@@ -24,12 +24,8 @@ isNoBackBtn: true
         :key="post.url"
         class="post-item"
       ><div v-if="index !== 0" class="post-divider"></div>
- <h3 class="post-title">
-        <a :href="post.url">{{ post.title }}</a></h3><div
-          v-if="post.excerpt"
-          class="post-excerpt"
-          v-html="post.excerpt"
-        ></div><div class="post-date">
+ <h1 class="post-title">
+        <a :href="post.url">{{ post.title }}</a></h1><div class="post-date">
           {{ post.date.string }}
         </div>
       </div><div class="category-divider"></div>
