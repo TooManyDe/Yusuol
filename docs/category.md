@@ -14,18 +14,18 @@ isNoBackBtn: true
       class="category-block"
     >
       <!-- Category Header -->
-      <h2 :id="category" class="category-title">
+      <h1 :id="category" class="category-title">
         {{ category }}
         <span class="category-count">{{ postGroup.length }}</span>
-      </h2>
+      </h1>
 <!-- Posts -->
       <div
         v-for="(post, index) in postGroup"
         :key="post.url"
         class="post-item"
       ><div v-if="index !== 0" class="post-divider"></div>
- <h1 class="post-title">
-        <a :href="post.url">{{ post.title }}</a></h1><div class="post-date">
+ <h2 class="post-title">
+        <a :href="post.url">{{ post.title }}</a></h2><div class="post-date">
           {{ post.date.string }}
         </div>
       </div><div class="category-divider"></div>
@@ -65,7 +65,7 @@ const sortedCategoryGroups = computed(() => {
 }
 
 .category-title {
-  margin: 0 0 18px !important;
+  margin: 0 0 10px !important;
   padding: 0 !important;
   border: none !important;
 
@@ -75,8 +75,8 @@ const sortedCategoryGroups = computed(() => {
 
   font-family: "ChillRoundF", serif;
   font-size: 36px;
-  font-weight: 650;
-  letter-spacing: 0.09em;
+  font-weight: 700;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
 
   color: var(--vp-c-text-1);
@@ -108,19 +108,6 @@ const sortedCategoryGroups = computed(() => {
   }
 }
 
-/* ───────── Excerpt ───────── */
-.post-excerpt {
-  margin: 6px 0 2px;
-  font-size: 15px;
-  line-height: 1.75;
-  color: var(--vp-c-text-2);
-
-  :deep(p) {
-    margin: 0;
-    font-weight: 420 !important;
-  }
-}
-
 /* ───────── Date ───────── */
 .post-date {
   margin-top: 4px;
@@ -129,7 +116,6 @@ const sortedCategoryGroups = computed(() => {
   font-size: 14px;
   letter-spacing: 0.02em;
   color: var(--vp-c-text-3);
-  opacity: 0.65;
 }
 
 /* ───────── Dividers ───────── */
@@ -142,7 +128,7 @@ const sortedCategoryGroups = computed(() => {
 
 .category-divider {
   width: 100%;
-  height: 1px;
+  height: 2px;
   background-color: var(--vp-c-text-1);
   margin: 10px 0 10px;
 }
