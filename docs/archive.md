@@ -17,13 +17,8 @@ isNoBackBtn: true
   </h2><template v-for="(post, index) in postGroup" :key="post.url">
     <div v-if="index !== 0" class="post-divider"></div>
 <div class="post-item">
-      <div class="post-content-main">
-        <h2 class="post-title"><a :href="withBase(post.url)">{{ post.title }}</a>
-        </h2>
-      </div>
-<div class="post-date">
-        {{ post.date.string }}
-      </div>
+      <h2 class="post-title"><a :href="withBase(post.url)">{{ post.title }}</a></h2>
+      <span class="post-date">{{ post.date.string }}</span>
     </div>
   </template>
 </template>
@@ -31,7 +26,6 @@ isNoBackBtn: true
 <script lang="ts" setup>
 import { computed } from "vue";
 import { withBase } from "vitepress";
-// 引入你的数据文件
 import { data as posts } from "./.vitepress/theme/posts.data.mts";
 
 const sortedCategoryGroups = computed(() => {
@@ -61,8 +55,8 @@ const sortedCategoryGroups = computed(() => {
 
 <style lang="scss" scoped>
 .category-title {
-  margin-top: 10px !important;
-  margin-bottom: 10px !important;
+  margin-top: 8px !important;
+  margin-bottom: 6px !important;
   font-family: "Noto Serif SC", "Source Han Serif", serif;
   font-size: 22px;
   color: var(--vp-c-text-1);
@@ -72,50 +66,37 @@ const sortedCategoryGroups = computed(() => {
 
 .post-divider {
   width: 100%;
-  height: 1px; 
+  height: 1px;
   background-color: var(--vp-c-divider);
-  margin: 6px 0; 
+  margin: 2px 0;
 }
 
 .post-item {
-  padding: 5px 0;
+  padding: 3px 0;
   display: flex;
-  flex-direction: row;        /* 默认横向排列 */
-  justify-content: space-between; /* 左右两端对齐 */
-  align-items: flex-start;    /* 顶部对齐 */
-  gap: 10px;                  /* 标题和日期之间的最小间距 */
-}
-
-.post-content-main {
-  flex: 1;                    /* 占据剩余的所有宽度 */
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;      /* baseline 对齐，文字底部齐平 */
+  gap: 12px;
 }
 
 .post-title {
-  margin: 0 !important;       /* 移除默认边距以配合 Flex 对齐 */
-  line-height: 1.5;
+  margin: 0 !important;
+  min-width: 0;               /* 允许 flex 子项截断 */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;        /* 强制单行，超长时省略号截断 */
 
   > a {
     font-family: "Noto Serif SC", "Source Han Serif", serif !important;
     text-decoration: none !important;
     font-weight: 580 !important;
-    font-size: 20px; 
+    font-size: 20px;
     color: #326891;
-    
+
     &:hover {
       color: #326891;
     }
-  }
-}
-
-.post-excerpt {
-  margin: 4px 0 0; 
-  font-size: 16px;
-  line-height: 1.5;
-  color: var(--vp-c-text-1);
-
-  :deep(p) {
-    margin: 0;
-    font-weight: 400 !important;
   }
 }
 
@@ -123,21 +104,20 @@ const sortedCategoryGroups = computed(() => {
   font-size: 14px;
   color: var(--vp-c-text-3);
   font-weight: 400;
-  white-space: nowrap;        /* 强制日期不换行 */
-  margin-top: 5px;            /* 微调使其与第一行标题视觉对齐 */
-  letter-spacing: 0.01em;
+  white-space: nowrap;
+  flex-shrink: 0;             /* 日期不收缩，始终完整显示 */
 }
 
-/* 适配移动端 */
 @media (max-width: 768px) {
   .post-item {
-    flex-direction: column;   /* 移动端改为垂直排列 */
-    padding: 10px 0;
+    flex-direction: column;
+    gap: 2px;
+    padding: 4px 0;
   }
 
-  .post-date {
-    margin-top: 0;
-    margin-bottom: 4px;
+  .post-title {
+    white-space: normal;      /* 移动端允许换行 */
+    overflow: visible;
   }
 
   .post-title > a {
@@ -145,7 +125,7 @@ const sortedCategoryGroups = computed(() => {
   }
 
   .category-title {
-    font-size: 22px;
+    font-size: 20px;
   }
 }
 </style>
