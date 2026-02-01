@@ -7,22 +7,25 @@ isNoComment: true
 isNoBackBtn: true
 ---
 
-<!-- 之所以将代码写在 md 里面，而非单独封装为 Vue 组件，因为 aside 不会动态刷新，参考 https://github.com/vuejs/vitepress/issues/2686 -->
 <template v-for="post in curPosts" :key="post.url">
+  <div class="post-divider"></div>
+
   <h2 :id="post.title" class="post-title">
     <a :href="post.url">{{ post.title }}</a>
     <a
       class="header-anchor"
       :href="`#${post.title}`"
       :aria-label="`Permalink to &quot;${post.title}&quot;`"
-      ></a
-    >
-    <div class="post-date hollow-text source-han-serif">{{ post.date.string }}</div>
+    ></a>
   </h2>
-  <div v-if="post.excerpt" v-html="post.excerpt"></div>
+
+  <div v-if="post.excerpt" class="post-excerpt" v-html="post.excerpt"></div>
+
+  <div class="post-date">
+    发表时间：{{ post.date.string }}
+  </div>
 </template>
 
-<!-- <Pagination /> -->
 <div class="pagination-container">
   <t-pagination
     v-model="current"
@@ -39,115 +42,118 @@ isNoBackBtn: true
 <script lang="ts" setup>
 import { ref, computed } from "vue";
 import { useRoute, useRouter } from "vitepress";
-// 非 Vue 组件需要手动引入
 import {
-        MessagePlugin,
-        PaginationProps,
-        Pagination as TPagination,
+  Pagination as TPagination,
+  type PaginationProps
 } from "tdesign-vue-next";
 
 import { data as posts } from "./.vitepress/theme/posts.data.mts";
 import { isMobile } from "./.vitepress/theme/utils/mobile.ts";
 
 const route = useRoute();
+const router = useRouter();
 
 const getPage = () => {
-  const search = route.query
-  const searchParams = new URLSearchParams(search);
-
+  const search = route.query;
+  const searchParams = new URLSearchParams(search as any);
   return Number(searchParams.get("page") || "1");
 }
 
-const current = ref(getPage())
+const current = ref(getPage());
 const pageSize = ref(10);
 const total = ref(posts.length);
 
-// 在首页有page参数时，从NAV跳转到当前页，清空了参数，但没有刷新页面内容的问题，需要手动更新current
-const router = useRouter();
 router.onAfterRouteChange = (to) => {
   current.value = getPage();
 }
 
 const curPosts = computed(() => {
-        return posts.slice(
-                (current.value - 1) * pageSize.value,
-                current.value * pageSize.value
-        );
+  return posts.slice(
+    (current.value - 1) * pageSize.value,
+    current.value * pageSize.value
+  );
 });
 
-const onCurrentChange: PaginationProps["onCurrentChange"] = (
-        index,
-        pageInfo
-) => {
-        // MessagePlugin.success(`转到第${index}页`);
-
-        const url = new URL(window.location as any);
-        url.searchParams.set("page", index.toString());
-        window.history.replaceState({}, "", url);
-
-        window.scrollTo({
-                top: 0,
-        });
+const onCurrentChange: PaginationProps["onCurrentChange"] = (index) => {
+  const url = new URL(window.location as any);
+  url.searchParams.set("page", index.toString());
+  window.history.replaceState({}, "", url);
+  window.scrollTo({ top: 0 });
 };
 </script>
+
 <style lang="scss" scoped>
-/* 去掉.vp-doc li + li 的 margin-top */
-.pagination-container {
-        margin-top: 10px;
-
-        :deep(li) {
-                margin-top: 0px;
-        }
+/* ─── 分隔线 ─── */
+.post-divider {
+  width: 100%;
+  height: 1px;
+  background-color: var(--vp-c-divider);
+  margin: 0;
 }
 
-.mr-2 {
-        margin-right: 2px;
-}
-
+/* ─── 标题 ─── */
 .post-title {
-        margin-bottom: 0px;
-        margin-top: 60px;
-        border-top: 0px;
-        position: relative;
-        top: 0;
-        left: 0;
+  margin-top: 28px !important; /* 强制覆盖原有样式 */
+  margin-bottom: 14px !important;
+  border-top: none !important;
+  padding-top: 0 !important;
+  line-height: 1.3;
+  position: relative;
 
-        > a {
-font-family: "Noto Serif SC" !important;
-text-decoration: none !important;
-font-weight: 580 !important;
-        }
+  > a {
+    font-family: "Noto Serif SC", "Source Han Serif", serif !important;
+    text-decoration: none !important;
+    font-weight: 700 !important;
+    font-size: 1.75rem;
+    color: var(--vp-c-text-1);
+    transition: color 0.2s;
 
-        .post-date {
-                position: absolute;
-                top: 15px;
-                left: -10px;
-                z-index: -1;
-                opacity: .16;
-                font-family: "mvboli";
-                font-size: 40px;
-                font-weight: 400;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-        }
+    &:hover {
+      color: var(--vp-c-brand-1);
+    }
+  }
 
-        @media (max-width: 425px) {
-                .post-date {
-                        font-size: 40px !important;
-                }
-        }
-
-        &:first-child {
-                margin-top: 20px;
-        }
+  @media (max-width: 425px) {
+    > a {
+      font-size: 1.4rem;
+    }
+  }
 }
 
-.hollow-text {
+/* ─── 摘要 ─── */
+.post-excerpt {
+  margin: 0 0 14px;
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--vp-c-text-2);
 
-  color: var(--vp-c-bg);
-        -webkit-text-stroke: 1px var(--vp-c-text-1);
+  :deep(p) {
+    margin: 0;
+    font-size: 15px;
+    color: var(--vp-c-text-2);
+    font-weight: 400 !important;
+  }
 }
 
-.post-title + div {
-  margin-top: -6px; 
+/* ─── 发表时间 ─── */
+.post-date {
+  font-size: 13px;
+  color: var(--vp-c-text-3);
+  font-weight: 400;
+  margin-bottom: 32px; /* 拉开与下一条线的距离 */
+  letter-spacing: 0.02em;
+}
+
+/* 分页容器 */
+.pagination-container {
+  margin-top: 32px;
+  display: flex;
+  justify-content: center;
+  border-top: 1px solid var(--vp-c-divider);
+  padding-top: 32px;
+
+  :deep(li) {
+    margin-top: 0px !important;
+  }
 }
 </style>
