@@ -1,5 +1,4 @@
 ---
-# https://vitepress.dev/reference/default-theme-home-page
 layout: doc
 editLink: false
 lastUpdated: false
@@ -7,117 +6,132 @@ isNoComment: true
 isNoBackBtn: true
 ---
 
-<template v-for="(post, index) in curPosts" :key="post.url">
-  <div v-if="index !== 0" class="post-divider"></div>
-
-  <h1 :id="post.title" class="post-title">
-    <a :href="post.url">{{ post.title }}</a>
-    <a
-      class="header-anchor"
-      :href="`#${post.title}`"
-      :aria-label="`Permalink to &quot;${post.title}&quot;`"
-    ></a>
-  </h1>
-
-  <div v-if="post.excerpt" class="post-excerpt" v-html="post.excerpt"></div>
-
-  <div class="post-date">
-    {{ post.date.string }}
+<template v-for="[category, postGroup] in sortedCategoryGroups" :key="category">
+  <!-- Category Header -->
+  <div class="category-header">
+    <h2 :id="category" class="category-title">
+      <a
+        class="header-anchor"
+        :href="`#${category}`"
+        :aria-label="`Permalink to &quot;${category}&quot;`"
+      >​</a>
+      <span class="category-label">{{ category }}</span>
+      <span class="category-count">{{ postGroup.length }}</span>
+    </h2>
   </div>
+
+  <!-- Posts in this category -->
+  <template v-for="(post, index) in postGroup" :key="post.url">
+    <div v-if="index !== 0" class="post-divider"></div>
+
+    <h3 :id="post.title" class="post-title">
+      <a :href="post.url">{{ post.title }}</a>
+      <a
+        class="header-anchor"
+        :href="`#${post.title}`"
+        :aria-label="`Permalink to &quot;${post.title}&quot;`"
+      ></a>
+    </h3>
+
+    <div v-if="post.excerpt" class="post-excerpt" v-html="post.excerpt"></div>
+
+    <div class="post-date">
+      {{ post.date.string }}
+    </div>
+  </template>
+
+  <!-- Category separator -->
+  <div class="category-divider"></div>
 </template>
 
-<div class="pagination-container">
-  <t-pagination
-    v-model="current"
-    v-model:pageSize="pageSize"
-    :total="total"
-    size="small"
-    :showPageSize="false"
-    :showPageNumber="!isMobile()"
-    :showJumper="isMobile()"
-    @current-change="onCurrentChange"
-  />
-</div>
-
 <script lang="ts" setup>
-import { ref, computed } from "vue";
-import { useRoute, useRouter } from "vitepress";
-import {
-  Pagination as TPagination,
-  type PaginationProps
-} from "tdesign-vue-next";
-
+import { computed } from "vue";
 import { data as posts } from "./.vitepress/theme/posts.data.mts";
-import { isMobile } from "./.vitepress/theme/utils/mobile.ts";
 
-const route = useRoute();
-const router = useRouter();
+const sortedCategoryGroups = computed(() => {
+  const map = new Map<string, typeof posts>();
 
-const getPage = () => {
-  const search = route.query;
-  const searchParams = new URLSearchParams(search as any);
-  return Number(searchParams.get("page") || "1");
-}
+  posts.forEach((post) => {
+    const category = post.category || "未分类";
+    if (!map.has(category)) {
+      map.set(category, []);
+    }
+    map.get(category)?.push(post);
+  });
 
-const current = ref(getPage());
-const pageSize = ref(10);
-const total = ref(posts.length);
+  const sortedEntries = Array.from(map.entries()).map(([category, group]) => {
+    group.sort((a, b) => b.date.time - a.date.time);
+    return [category, group] as const;
+  });
 
-router.onAfterRouteChange = (to) => {
-  current.value = getPage();
-}
+  // Sort categories by their most recent post
+  sortedEntries.sort((a, b) => b[1][0].date.time - a[1][0].date.time);
 
-const curPosts = computed(() => {
-  return posts.slice(
-    (current.value - 1) * pageSize.value,
-    current.value * pageSize.value
-  );
+  return sortedEntries;
 });
-
-const onCurrentChange: PaginationProps["onCurrentChange"] = (index) => {
-  const url = new URL(window.location as any);
-  url.searchParams.set("page", index.toString());
-  window.history.replaceState({}, "", url);
-  window.scrollTo({ top: 0 });
-};
 </script>
 
 <style lang="scss" scoped>
-.post-divider {
-  width: 100%;
-  height: 1px; 
-  background-color: var(--vp-c-divider);
-  margin: 6px 0; 
+/* ── Category Header ── */
+.category-header {
+  margin-top: 28px;
+
+  &:first-child {
+    margin-top: 0;
+  }
 }
 
+.category-title {
+  position: relative;
+  margin-bottom: 12px !important;
+  border-top: none !important;
+  padding-top: 0 !important;
+  font-family: "ChillRoundF", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--vp-c-text-2);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.category-label {
+  letter-spacing: 0.02em;
+}
+
+.category-count {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--vp-c-text-3);
+  background-color: var(--vp-c-gray-light-3);
+  padding: 2px 7px;
+  border-radius: 10px;
+}
+
+/* ── Post Title ── */
 .post-title {
-  margin-top: 0 !important; 
+  margin-top: 0 !important;
   margin-bottom: 6px !important;
   border-top: none !important;
   padding-top: 0 !important;
   line-height: 1.5;
 
-  > a {
+  > a:first-child {
     font-family: "Noto Serif SC", "Source Han Serif", serif !important;
     text-decoration: none !important;
     font-weight: 580 !important;
-    font-size: 22px; 
+    font-size: 20px;
     color: var(--vp-c-text-1);
-    
+
     &:hover {
       color: var(--vp-c-brand-1);
     }
   }
-
-  @media (max-width: 425px) {
-    > a {
-      font-size: 22px;
-    }
-  }
 }
 
+/* ── Post Excerpt ── */
 .post-excerpt {
-  margin: 0 0 4px; 
+  margin: 0 0 4px;
   font-size: 15px;
   line-height: 1.5;
   color: var(--vp-c-text-1);
@@ -128,23 +142,28 @@ const onCurrentChange: PaginationProps["onCurrentChange"] = (index) => {
   }
 }
 
+/* ── Post Date ── */
 .post-date {
   font-size: 14px;
   color: var(--vp-c-text-3);
   font-weight: 400;
-  margin-bottom: 10px; 
+  margin-bottom: 10px;
   letter-spacing: 0.01em;
 }
 
-.pagination-container {
-  margin-top: 8px;
-  display: flex;
-  justify-content: center;
-  border-top: 1px solid var(--vp-c-divider);
-  padding-top: 10px;
+/* ── Dividers ── */
+.post-divider {
+  width: 100%;
+  height: 1px;
+  background-color: var(--vp-c-divider);
+  margin: 6px 0;
+}
 
-  :deep(li) {
-    margin-top: 0px !important;
-  }
+.category-divider {
+  width: 100%;
+  height: 1px;
+  background-color: var(--vp-c-divider);
+  margin: 18px 0 4px;
+  opacity: 0.5;
 }
 </style>
