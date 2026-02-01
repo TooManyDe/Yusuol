@@ -82,22 +82,13 @@ const onCurrentChange: PaginationProps["onCurrentChange"] = (index) => {
 };
 </script>
 
-<style lang="scss" scoped>
-/* ─── 更黑更粗的分隔线 ─── */
-.post-divider {
-  width: 100%;
-  height: 1.5px; /* 增加粗度 */
-  background-color: #333; /* 调深颜色，夜间模式会自动适配 */
-  margin: 0;
-}
-
 .dark .post-divider {
   background-color: var(--vp-c-divider); /* 夜间模式保持适中亮度 */
 }
 
 /* ─── 标题 ─── */
 .post-title {
-  margin-top: 24px !important; 
+  margin-top: 22px !important; 
   margin-bottom: 12px !important;
   border-top: none !important;
   padding-top: 0 !important;
@@ -106,7 +97,7 @@ const onCurrentChange: PaginationProps["onCurrentChange"] = (index) => {
   > a {
     font-family: "Noto Serif SC", "Source Han Serif", serif !important;
     text-decoration: none !important;
-    font-weight: 800 !important; /* 增加字重，更接近原图 */
+    font-weight: 600 !important; /* 增加字重，更接近原图 */
     font-size: 1.85rem;
     color: var(--vp-c-text-1);
     
@@ -124,7 +115,7 @@ const onCurrentChange: PaginationProps["onCurrentChange"] = (index) => {
 
 /* ─── 摘要 ─── */
 .post-excerpt {
-  margin: 0 0 10px; /* 进一步压缩与时间的间距 */
+  margin: 0 0 5px; /* 进一步压缩与时间的间距 */
   font-size: 16px;
   line-height: 1.6;
   color: var(--vp-c-text-1); /* 提高摘要对比度 */
@@ -140,7 +131,7 @@ const onCurrentChange: PaginationProps["onCurrentChange"] = (index) => {
   font-size: 13px;
   color: #888;
   font-weight: 400;
-  margin-bottom: 28px; /* 底部预留出与下一道线的空间 */
+  margin-bottom: 10px; /* 底部预留出与下一道线的空间 */
   letter-spacing: 0.01em;
 }
 
