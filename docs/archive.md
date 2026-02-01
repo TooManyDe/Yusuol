@@ -20,7 +20,6 @@ isNoBackBtn: true
       <div class="post-content-main">
         <h3 class="post-title"><a :href="withBase(post.url)">{{ post.title }}</a>
         </h3>
-        <div v-if="post.excerpt" class="post-excerpt" v-html="post.excerpt"></div>
       </div>
 <div class="post-date">
         {{ post.date.string }}
@@ -65,7 +64,7 @@ const sortedCategoryGroups = computed(() => {
   margin-top: 2.5rem !important;
   margin-bottom: 1rem !important;
   font-family: "Noto Serif SC", "Source Han Serif", serif;
-  font-size: 24px;
+  font-size: 22px;
   color: var(--vp-c-text-1);
   border-bottom: 2px solid var(--vp-c-brand);
   display: inline-block;
@@ -103,7 +102,7 @@ const sortedCategoryGroups = computed(() => {
     color: #326891;
     
     &:hover {
-      color: #004488;
+      color: #326891;
     }
   }
 }
