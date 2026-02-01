@@ -1,4 +1,5 @@
 ---
+# https://vitepress.dev/reference/default-theme-home-page
 layout: doc
 editLink: false
 lastUpdated: false
@@ -82,26 +83,27 @@ const onCurrentChange: PaginationProps["onCurrentChange"] = (index) => {
 </script>
 
 <style lang="scss" scoped>
-/* ─── 极简分隔线 ─── */
+/* ─── 分隔线 (变细且间距缩小) ─── */
 .post-divider {
   width: 100%;
-  height: 1px;
+  height: 1px; 
   background-color: var(--vp-c-divider);
-  margin: 12px 0; /* 控制文章之间的间距 */
+  margin: 12px 0; /* 缩小线前后的外边距 */
 }
 
-/* ─── 紧凑标题 ─── */
+/* ─── 标题 (紧凑化) ─── */
 .post-title {
-  margin: 0 0 4px !important; 
+  margin-top: 0 !important; 
+  margin-bottom: 4px !important;
   border-top: none !important;
   padding-top: 0 !important;
-  line-height: 1.25;
+  line-height: 1.2;
 
   > a {
     font-family: "Noto Serif SC", "Source Han Serif", serif !important;
     text-decoration: none !important;
     font-weight: 800 !important;
-    font-size: 1.65rem;
+    font-size: 1.65rem; /* 稍微调小一点，更显精致 */
     color: var(--vp-c-text-1);
     
     &:hover {
@@ -110,16 +112,18 @@ const onCurrentChange: PaginationProps["onCurrentChange"] = (index) => {
   }
 
   @media (max-width: 425px) {
-    > a { font-size: 1.4rem; }
+    > a {
+      font-size: 1.35rem;
+    }
   }
 }
 
 /* ─── 摘要 ─── */
 .post-excerpt {
-  margin: 0 0 4px;
+  margin: 0 0 4px; /* 压缩下方间距 */
   font-size: 15px;
   line-height: 1.5;
-  color: var(--vp-c-text-1);
+  color: var(--vp-c-text-2);
 
   :deep(p) {
     margin: 0;
@@ -127,20 +131,22 @@ const onCurrentChange: PaginationProps["onCurrentChange"] = (index) => {
   }
 }
 
-/* ─── 时间 (紧凑) ─── */
+/* ─── 发表于 (超紧凑) ─── */
 .post-date {
   font-size: 12px;
   color: var(--vp-c-text-3);
-  margin-bottom: 12px; /* 距离下一条线的距离 */
+  font-weight: 400;
+  margin-bottom: 12px; /* 压缩每篇文章底部的留白 */
+  letter-spacing: 0.01em;
 }
 
 /* 分页容器 */
 .pagination-container {
-  margin-top: 10px;
+  margin-top: 8px;
   display: flex;
   justify-content: center;
   border-top: 1px solid var(--vp-c-divider);
-  padding-top: 20px;
+  padding-top: 16px;
 
   :deep(li) {
     margin-top: 0px !important;
