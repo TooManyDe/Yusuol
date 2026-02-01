@@ -262,3 +262,7 @@ main > div > div > pre > code {
   white-space: pre-wrap;
   word-wrap: break-word;
 }
+
+#app {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
