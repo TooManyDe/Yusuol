@@ -98,6 +98,10 @@
   display: none !important;
 }
 
+.vp-doc hr {
+  border-color: #121212;
+}
+
 /* Footer */
 .VPFooter a {
   text-decoration: none !important;
