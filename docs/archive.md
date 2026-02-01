@@ -79,7 +79,7 @@ const sortedCategoryGroups = computed(() => {
 .post-title {
   margin: 0 !important;
   min-width: 0;               
-  white-space: normal
+  white-space: normal;
 
   > a {
     font-family: "Noto Serif SC", "Source Han Serif", serif !important;
