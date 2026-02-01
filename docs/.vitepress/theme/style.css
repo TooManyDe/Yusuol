@@ -107,7 +107,7 @@
 }
 
 .VPFooter a:hover {
-  text-decoration: underline #326891 !important;
+  text-decoration: underline #000000 !important;
 }
 
 .VPFooter::before,
