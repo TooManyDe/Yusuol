@@ -69,7 +69,7 @@ const sortedCategoryGroups = computed(() => {
   gap: 8px;
 
   font-family: "Noto Serif SC", "Source Han Serif", serif !important;
-  font-size: 20px !important;
+  font-size: 22px !important;
   font-weight: 580 !important;
   line-height: 1.5;
   color: #326891;
@@ -109,7 +109,7 @@ const sortedCategoryGroups = computed(() => {
     font-size: 16px !important;
     font-weight: 580 !important;
     text-decoration: none !important;
-    color: var(--vp-c-text-2);
+    color: var(--vp-c-text-1);
 
     &:hover {
       color: var(--vp-c-brand-1);
