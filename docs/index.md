@@ -8,7 +8,7 @@ isNoBackBtn: true
 ---
 
 <template v-for="post in curPosts" :key="post.url">
-  <div class="article-card"> 
+  <div class="article-card">
     <h2 :id="post.title" class="article-title">
       <a :href="post.url">{{ post.title }}</a>
       <a
@@ -77,7 +77,7 @@ const onCurrentChange = (index) => {
         const url = new URL(window.location as any);
         url.searchParams.set("page", index.toString());
         window.history.replaceState({}, "", url);
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        window.scrollTo({ top: 0, behavior: 'auto' });
 };
 </script>
 
@@ -85,27 +85,13 @@ const onCurrentChange = (index) => {
 .article-card {
   margin: 3rem 0;
   padding: 1.8rem 0;
-  /* 上下两条极细分割线 */
   border-top: 1px solid var(--vp-c-divider);
   border-bottom: 1px solid var(--vp-c-divider);
-  transition: all 0.3s ease;
+  transition: border-color 0.3s ease;
 
   &:first-of-type {
     margin-top: 1.5rem;
   }
-
-  &:hover {
-    border-color: var(--vp-c-brand-1);
-  }
-}
-
-.article-category {
-  font-family: "Noto Serif SC", serif;
-  font-size: 15px;
-  font-weight: 700;
-  color: var(--vp-c-text-1);
-  margin-bottom: 0.8rem;
-  letter-spacing: 0.05em;
 }
 
 .article-title {
@@ -133,15 +119,18 @@ const onCurrentChange = (index) => {
   font-size: 17px;
   line-height: 1.7;
   color: var(--vp-c-text-2);
-  /* 图片中的灰色质感 */
   opacity: 0.85;
+
+  :deep(p) {
+    margin: 0;
+  }
 }
 
 .article-footer {
   margin-top: 1.5rem;
   font-family: "PingFang", sans-serif;
   font-size: 14px;
-  color: #888;
+  color: #999;
 }
 
 .pagination-container {
@@ -154,7 +143,6 @@ const onCurrentChange = (index) => {
   }
 }
 
-/* 移动端适配 */
 @media (max-width: 768px) {
   .article-title a {
     font-size: 22px !important;
