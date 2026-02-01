@@ -86,8 +86,8 @@ const onCurrentChange: PaginationProps["onCurrentChange"] = (index) => {
 .post-divider {
   width: 100%;
   height: 0.5px; 
-  background-color: var(--vp-c-text-1);
-  margin: 10px 0; 
+  background-color: var(--vp-c-divider);
+  margin: 6px 0; 
 }
 
 .post-title {
