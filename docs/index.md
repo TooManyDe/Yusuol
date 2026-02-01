@@ -7,22 +7,27 @@ isNoComment: true
 isNoBackBtn: true
 ---
 
-<!-- 之所以将代码写在 md 里面，而非单独封装为 Vue 组件，因为 aside 不会动态刷新，参考 https://github.com/vuejs/vitepress/issues/2686 -->
 <template v-for="post in curPosts" :key="post.url">
-  <h2 :id="post.title" class="post-title">
-    <a :href="post.url">{{ post.title }}</a>
-    <a
-      class="header-anchor"
-      :href="`#${post.title}`"
-      :aria-label="`Permalink to &quot;${post.title}&quot;`"
-      ></a
-    >
-    <div class="post-date hollow-text source-han-serif">{{ post.date.string }}</div>
-  </h2>
-  <div v-if="post.excerpt" v-html="post.excerpt"></div>
+  <div class="article-card">
+    <div class="article-category">分析</div>
+    
+    <h2 :id="post.title" class="article-title">
+      <a :href="post.url">{{ post.title }}</a>
+      <a
+        class="header-anchor"
+        :href="`#${post.title}`"
+        :aria-label="`Permalink to &quot;${post.title}&quot;`"
+      ></a>
+    </h2>
+
+    <div v-if="post.excerpt" class="article-excerpt" v-html="post.excerpt"></div>
+
+    <div class="article-footer">
+      发表时间：{{ post.date.string }}
+    </div>
+  </div>
 </template>
 
-<!-- <Pagination /> -->
 <div class="pagination-container">
   <t-pagination
     v-model="current"
@@ -39,10 +44,7 @@ isNoBackBtn: true
 <script lang="ts" setup>
 import { ref, computed } from "vue";
 import { useRoute, useRouter } from "vitepress";
-// 非 Vue 组件需要手动引入
 import {
-        MessagePlugin,
-        PaginationProps,
         Pagination as TPagination,
 } from "tdesign-vue-next";
 
@@ -50,11 +52,11 @@ import { data as posts } from "./.vitepress/theme/posts.data.mts";
 import { isMobile } from "./.vitepress/theme/utils/mobile.ts";
 
 const route = useRoute();
+const router = useRouter();
 
 const getPage = () => {
   const search = route.query
   const searchParams = new URLSearchParams(search);
-
   return Number(searchParams.get("page") || "1");
 }
 
@@ -62,8 +64,6 @@ const current = ref(getPage())
 const pageSize = ref(10);
 const total = ref(posts.length);
 
-// 在首页有page参数时，从NAV跳转到当前页，清空了参数，但没有刷新页面内容的问题，需要手动更新current
-const router = useRouter();
 router.onAfterRouteChange = (to) => {
   current.value = getPage();
 }
@@ -75,79 +75,99 @@ const curPosts = computed(() => {
         );
 });
 
-const onCurrentChange: PaginationProps["onCurrentChange"] = (
-        index,
-        pageInfo
-) => {
-        // MessagePlugin.success(`转到第${index}页`);
-
+const onCurrentChange = (index) => {
         const url = new URL(window.location as any);
         url.searchParams.set("page", index.toString());
         window.history.replaceState({}, "", url);
-
-        window.scrollTo({
-                top: 0,
-        });
+        window.scrollTo({ top: 0, behavior: 'smooth' });
 };
 </script>
+
 <style lang="scss" scoped>
-/* 去掉.vp-doc li + li 的 margin-top */
+.article-card {
+  margin: 3rem 0;
+  padding: 1.8rem 0;
+  /* 上下两条极细分割线 */
+  border-top: 1px solid var(--vp-c-divider);
+  border-bottom: 1px solid var(--vp-c-divider);
+  transition: all 0.3s ease;
+
+  &:first-of-type {
+    margin-top: 1.5rem;
+  }
+
+  &:hover {
+    border-color: var(--vp-c-brand-1);
+  }
+}
+
+.article-category {
+  font-family: "Noto Serif SC", serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--vp-c-text-1);
+  margin-bottom: 0.8rem;
+  letter-spacing: 0.05em;
+}
+
+.article-title {
+  margin: 0 !important;
+  border: none !important;
+  padding: 0 !important;
+  line-height: 1.35;
+
+  a {
+    font-family: "Noto Serif SC", serif !important;
+    font-size: 28px !important;
+    font-weight: 800 !important;
+    color: var(--vp-c-text-1) !important;
+    text-decoration: none !important;
+    
+    &:hover {
+      color: var(--vp-c-brand-1) !important;
+    }
+  }
+}
+
+.article-excerpt {
+  margin-top: 1.2rem;
+  font-family: "PingFang", var(--vp-font-family-serif);
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--vp-c-text-2);
+  /* 图片中的灰色质感 */
+  opacity: 0.85;
+}
+
+.article-footer {
+  margin-top: 1.5rem;
+  font-family: "PingFang", sans-serif;
+  font-size: 14px;
+  color: #888;
+}
+
 .pagination-container {
-        margin-top: 10px;
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
 
-        :deep(li) {
-                margin-top: 0px;
-        }
+  :deep(li) {
+    margin-top: 0px !important;
+  }
 }
 
-.mr-2 {
-        margin-right: 2px;
-}
-
-.post-title {
-        margin-bottom: 0px;
-        margin-top: 60px;
-        border-top: 0px;
-        position: relative;
-        top: 0;
-        left: 0;
-
-        > a {
-font-family: "Noto Serif SC" !important;
-text-decoration: none !important;
-font-weight: 580 !important;
-        }
-
-        .post-date {
-                position: absolute;
-                top: 15px;
-                left: -10px;
-                z-index: -1;
-                opacity: .16;
-                font-family: "mvboli";
-                font-size: 40px;
-                font-weight: 400;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-        }
-
-        @media (max-width: 425px) {
-                .post-date {
-                        font-size: 40px !important;
-                }
-        }
-
-        &:first-child {
-                margin-top: 20px;
-        }
-}
-
-.hollow-text {
-
-  color: var(--vp-c-bg);
-        -webkit-text-stroke: 1px var(--vp-c-text-1);
-}
-
-.post-title + div {
-  margin-top: -6px; 
+/* 移动端适配 */
+@media (max-width: 768px) {
+  .article-title a {
+    font-size: 22px !important;
+  }
+  .article-excerpt {
+    font-size: 15px;
+    line-height: 1.6;
+  }
+  .article-card {
+    margin: 2rem 0;
+    padding: 1.2rem 0;
+  }
 }
 </style>
