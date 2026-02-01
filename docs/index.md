@@ -10,14 +10,14 @@ isNoBackBtn: true
 <template v-for="(post, index) in curPosts" :key="post.url">
   <div v-if="index !== 0" class="post-divider"></div>
 
-  <h2 :id="post.title" class="post-title">
+  <h1 :id="post.title" class="post-title">
     <a :href="post.url">{{ post.title }}</a>
     <a
       class="header-anchor"
       :href="`#${post.title}`"
       :aria-label="`Permalink to &quot;${post.title}&quot;`"
     ></a>
-  </h2>
+  </h1>
 
   <div v-if="post.excerpt" class="post-excerpt" v-html="post.excerpt"></div>
 
@@ -94,10 +94,10 @@ const onCurrentChange: PaginationProps["onCurrentChange"] = (index) => {
 /* ─── 标题 (紧凑化) ─── */
 .post-title {
   margin-top: 0 !important; 
-  margin-bottom: 4px !important;
+  margin-bottom: 6px !important;
   border-top: none !important;
   padding-top: 0 !important;
-  line-height: 1.2;
+  line-height: 1.5;
 
   > a {
     font-family: "Noto Serif SC", "Source Han Serif", serif !important;
@@ -123,7 +123,7 @@ const onCurrentChange: PaginationProps["onCurrentChange"] = (index) => {
   margin: 0 0 4px; /* 压缩下方间距 */
   font-size: 15px;
   line-height: 1.5;
-  color: var(--vp-c-text-2);
+  color: var(--vp-c-text-1);
 
   :deep(p) {
     margin: 0;
