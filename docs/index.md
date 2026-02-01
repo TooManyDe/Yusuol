@@ -8,9 +8,7 @@ isNoBackBtn: true
 ---
 
 <template v-for="post in curPosts" :key="post.url">
-  <div class="article-card">
-    <div class="article-category">分析</div>
-    
+  <div class="article-card"> 
     <h2 :id="post.title" class="article-title">
       <a :href="post.url">{{ post.title }}</a>
       <a
