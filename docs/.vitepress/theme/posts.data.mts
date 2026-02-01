@@ -39,12 +39,10 @@ function formatDate(raw: any): Post['date'] {
     return { time: 0, string: '无日期', year: '', monthDay: '' }
   }
 
-  // 核心修复：处理 raw 可能已经是 Date 对象的情况
   let date: Date;
   if (raw instanceof Date) {
     date = raw;
   } else {
-    // 强制转为字符串并替换，兼容不同浏览器的解析习惯
     date = new Date(String(raw).replace(/-/g, '/'));
   }
 
@@ -54,7 +52,7 @@ function formatDate(raw: any): Post['date'] {
 
   const pad = (n: number) => String(n).padStart(2, '0')
   
-  const formattedString = `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())} ${pad(date.getHours())}:${pad(date.getMinutes())}`
+  const formattedString = `${date.getFullYear()}年${pad(date.getMonth() + 1)}月${pad(date.getDate())}日${pad(date.getHours())}:${pad(date.getMinutes())}`
 
   return {
     time: +date,
