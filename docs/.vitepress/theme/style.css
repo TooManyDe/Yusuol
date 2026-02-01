@@ -98,8 +98,8 @@
   display: none !important;
 }
 
-.vp-doc hr {
-  border-color: #121212;
+.VPNavBar {
+  border-bottom-color: #121212;
 }
 
 /* Footer */
