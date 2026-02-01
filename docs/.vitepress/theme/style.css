@@ -87,12 +87,7 @@
   font-size: 22px !important;
 }
 
-.VPNavScreen .divider {
-  border-top: none !important;
-  border-bottom: 2px solid #121212 !important;
-  border-color: #121212 !important;
-}
-
+.VPNavScreen .divider,
 .VPNavScreen .group,
 .VPNavScreenMenuLink {
   border-top: none !important;
@@ -101,10 +96,7 @@
 }
 
 .VPNavScreen hr {
-  display: block !important;
-  border: none;
-  border-top: 2px solid #121212;
-  margin: 8px 0;
+  display: none !important;
 }
 
 /* Footer */
