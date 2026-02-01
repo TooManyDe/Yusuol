@@ -102,7 +102,7 @@ const onCurrentChange: PaginationProps["onCurrentChange"] = (index) => {
   > a {
     font-family: "Noto Serif SC", "Source Han Serif", serif !important;
     text-decoration: none !important;
-    font-weight: 800 !important;
+    font-weight: 580 !important;
     font-size: 1.65rem; /* 稍微调小一点，更显精致 */
     color: var(--vp-c-text-1);
     
@@ -121,7 +121,7 @@ const onCurrentChange: PaginationProps["onCurrentChange"] = (index) => {
 /* ─── 摘要 ─── */
 .post-excerpt {
   margin: 0 0 4px; /* 压缩下方间距 */
-  font-size: 15px;
+  font-size: 16px;
   line-height: 1.5;
   color: var(--vp-c-text-2);
 
@@ -133,7 +133,7 @@ const onCurrentChange: PaginationProps["onCurrentChange"] = (index) => {
 
 /* ─── 发表于 (超紧凑) ─── */
 .post-date {
-  font-size: 12px;
+  font-size: 14px;
   color: var(--vp-c-text-3);
   font-weight: 400;
   margin-bottom: 12px; /* 压缩每篇文章底部的留白 */
