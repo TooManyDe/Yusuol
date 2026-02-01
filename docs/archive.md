@@ -107,7 +107,7 @@ const sortedCategoryGroups = computed(() => {
 
 @media (max-width: 768px) {
   .post-item {
-    flex-direction: column;
+    flex-direction: row;
     gap: 2px;
     padding: 4px 0;
   }
@@ -115,14 +115,15 @@ const sortedCategoryGroups = computed(() => {
   .post-title {
     white-space: normal;      /* 移动端允许换行 */
     overflow: visible;
+    text-overflow: unset;
   }
 
   .post-title > a {
-    font-size: 18px;
+    font-size: 16px;
   }
 
   .category-title {
-    font-size: 20px;
+    font-size: 24px;
   }
 }
 </style>
