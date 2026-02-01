@@ -18,17 +18,28 @@ isNoBackBtn: true
         {{ category }}
         <span class="category-count">{{ postGroup.length }}</span>
       </h1>
-<!-- Posts -->
+
+      <!-- Posts -->
       <div
         v-for="(post, index) in postGroup"
         :key="post.url"
         class="post-item"
-      ><div v-if="index !== 0" class="post-divider"></div>
- <h2 class="post-title">
-        <a :href="post.url">{{ post.title }}</a></h2><div class="post-date">
-          {{ post.date.string }}
+      >
+        <div v-if="index !== 0" class="post-divider"></div>
+
+        <!-- ✅ Title + Date Row -->
+        <div class="post-row">
+          <h2 class="post-title">
+            <a :href="post.url">{{ post.title }}</a>
+          </h2>
+
+          <div class="post-date">
+            {{ post.date.string }}
+          </div>
         </div>
-      </div><div class="category-divider"></div>
+      </div>
+
+      <div class="category-divider"></div>
     </div>
   </div>
 </template>
@@ -54,6 +65,7 @@ const sortedCategoryGroups = computed(() => {
     .sort((a, b) => b[1][0].date.time - a[1][0].date.time);
 });
 </script>
+
 <style lang="scss" scoped>
 /* ───────── Category Header ───────── */
 .category-header {
@@ -88,6 +100,27 @@ const sortedCategoryGroups = computed(() => {
   opacity: 0.55;
 }
 
+/* ───────── Post Row (Title + Date) ───────── */
+.post-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+/* 📱 Mobile: wrap into two lines */
+@media (max-width: 768px) {
+  .post-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+  }
+
+  .post-date {
+    font-size: 12px;
+  }
+}
+
 /* ───────── Post Title ───────── */
 .post-title {
   margin: 0 !important;
@@ -110,12 +143,14 @@ const sortedCategoryGroups = computed(() => {
 
 /* ───────── Date ───────── */
 .post-date {
-  margin-top: 4px;
-  margin-bottom: 10px;
+  margin: 0 !important;
 
-  font-size: 14px;
+  font-size: 13px;
   letter-spacing: 0.02em;
   color: var(--vp-c-text-3);
+
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 /* ───────── Dividers ───────── */
