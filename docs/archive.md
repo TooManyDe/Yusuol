@@ -78,9 +78,8 @@ const sortedCategoryGroups = computed(() => {
 
 .post-title {
   margin: 0 !important;
-  min-width: 0;               /* 允许 flex 子项截断 */
-  overflow: visible;
-  text-overflow: unset;
+  min-width: 0;               
+  white-space: normal
 
   > a {
     font-family: "Noto Serif SC", "Source Han Serif", serif !important;
