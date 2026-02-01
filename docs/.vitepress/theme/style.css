@@ -87,12 +87,7 @@
   font-size: 22px !important;
 }
 
-.VPNavScreen .divider {
-  height: 2px !important;
-  background-color: #121212 !important;
-  border: none !important; 
-}
-
+.VPNavScreen .divider,
 .VPNavScreen .group,
 .VPNavScreenMenuLink {
   border-top: none !important;
@@ -174,8 +169,6 @@
 .vp-doc strong,
 .vp-doc b {
   font-family: "ChillRoundF", var(--vp-font-family-serif), sans-serif !important;
-  text-decoration: underline dotted #41b349 !important;
-  text-underline-offset: 3px;
 }
 
 h1, h2, h3, h4, h5, h6 {
