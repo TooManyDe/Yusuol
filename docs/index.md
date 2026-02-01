@@ -22,7 +22,7 @@ isNoBackBtn: true
   <div v-if="post.excerpt" class="post-excerpt" v-html="post.excerpt"></div>
 
   <div class="post-date">
-    发表于：{{ formatDate(post.date.time) }}
+    发表于：{{ formatDate(post.date.time || post.date.string) }}
   </div>
 </template>
 
@@ -49,6 +49,18 @@ import {
 
 import { data as posts } from "./.vitepress/theme/posts.data.mts";
 import { isMobile } from "./.vitepress/theme/utils/mobile.ts";
+
+const formatDate = (dateInput: any) => {
+  if (!dateInput) return '';
+  const date = new Date(dateInput);
+  if (isNaN(date.getTime())) return dateInput;
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const day = String(date.getDate()).padStart(2, '0');
+  const hours = String(date.getHours()).padStart(2, '0');
+  const minutes = String(date.getMinutes()).padStart(2, '0');
+  return `${year}-${month}-${day} ${hours}:${minutes}`;
+}
 
 const route = useRoute();
 const router = useRouter();
