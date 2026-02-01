@@ -83,13 +83,6 @@ const onCurrentChange: PaginationProps["onCurrentChange"] = (index) => {
 </script>
 
 <style lang="scss" scoped>
-.post-divider {
-  width: 100%;
-  height: 0.5px; 
-  background-color: var(--vp-c-text-1);
-  margin: 10px 0; 
-}
-
 .post-title {
   margin-top: 0 !important; 
   margin-bottom: 6px !important;
