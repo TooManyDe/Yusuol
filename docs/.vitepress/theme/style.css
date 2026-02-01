@@ -83,7 +83,7 @@
 }
 
 .VPNavBarTitle .title {
-  font-family: "ChillRoundF", sans-serif;
+  font-family: "Noto Serif SC", sans-serif;
   font-size: 22px !important;
 }
 
@@ -107,7 +107,7 @@
 }
 
 .VPFooter a:hover {
-  text-decoration: underline #41b349 !important;
+  text-decoration: underline #326891 !important;
 }
 
 .VPFooter::before,
@@ -166,7 +166,8 @@
 
 .vp-doc strong,
 .vp-doc b {
-  font-family: "ChillRoundF", var(--vp-font-family-serif), sans-serif !important;
+  font-family: "Noto Serif SC", var(--vp-font-family-serif), sans-serif !important;
+  font-weight: 580 !important;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -192,18 +193,8 @@ h3 {
 .vp-doc a {
   text-decoration: none !important;
   color: #41b349;
-  font-family: "ChillRoundF", var(--vp-font-family-serif), sans-serif !important; 
+  font-family: "Noto Serif SC", var(--vp-font-family-serif), sans-serif !important; 
   font-weight: 580 !important;
-}
-
-.vp-doc a:hover {
-  text-decoration: underline !important;
-  color: #1A6840; 
-}
-
-.vp-doc a::after {
-  content: none !important;
-  color: #1A6840;
 }
 
 .VPDoc img {
