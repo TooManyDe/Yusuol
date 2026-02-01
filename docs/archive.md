@@ -20,7 +20,7 @@ isNoBackBtn: true
       <h2 class="post-title">
 <a :href="withBase(post.url)">{{ post.title }}</a>
       </h2>
-      <div v-if="post.excerpt" class="post-excerpt" v-html="post.excerpt"></div><div class="post-date">
+      <div class="post-date">
         {{ post.date.string }}
       </div>
     </div>
