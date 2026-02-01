@@ -7,7 +7,7 @@ isNoBackBtn: true
 ---
 
 <template>
-  <div :key="$route.path" class="category-list"><div class="category-list">
+  <div :key="$route.path" class="category-list">
     <div
       v-for="([category, postGroup], gIndex) in sortedCategoryGroups"
       :key="category"
@@ -37,7 +37,7 @@ isNoBackBtn: true
 
 <script setup lang="ts">
 import { computed } from "vue";
-import { data as posts } from ".vitepress/theme/posts.data.mts";
+import { data as posts } from "./.vitepress/theme/posts.data.mts";
 
 const sortedCategoryGroups = computed(() => {
   const map = new Map<string, typeof posts>();
