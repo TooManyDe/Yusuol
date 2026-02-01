@@ -111,7 +111,7 @@ const onCurrentChange: PaginationProps["onCurrentChange"] = (index) => {
 
   @media (max-width: 425px) {
     > a {
-      font-size: 1.35rem;
+      font-size: 22px;
     }
   }
 }
