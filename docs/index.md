@@ -117,7 +117,7 @@ const onCurrentChange: PaginationProps["onCurrentChange"] = (index) => {
   margin: 0 0 4px; /* 压缩下方间距 */
   font-size: 16px;
   line-height: 1.5;
-  color: var(--vp-c-text-2);
+  color: var(--vp-c-text-1);
 
   :deep(p) {
     margin: 0;
@@ -128,7 +128,7 @@ const onCurrentChange: PaginationProps["onCurrentChange"] = (index) => {
 /* ─── 发表于 (超紧凑) ─── */
 .post-date {
   font-size: 14px;
-  color: var(--vp-c-text-3);
+  color: var(--vp-c-text-2);
   font-weight: 400;
   margin-bottom: 10px; 
   letter-spacing: 0.01em;
