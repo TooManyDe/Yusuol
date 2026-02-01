@@ -8,36 +8,33 @@ isNoBackBtn: true
 
 <template>
   <div class="category-list" :key="route.path">
-    <!-- ✅ Loading 防止首次空白 -->
     <div v-if="posts.length === 0" class="loading">
       Loading...
-    </div>
- <!-- ✅ 分类内容 -->
-    <div
+    </div><div
       v-else
       v-for="[category, postGroup] in sortedCategoryGroups"
       :key="category"
       class="category-block"
-    ><!-- Category Header -->
-      <h1 :id="category" class="category-title">
+    ><h1 :id="category" class="category-title">
         {{ category }}
-        <span class="category-count">{{ postGroup.length }}</span>
-      </h1><!-- Posts -->
+        <span class="category-count">{{ postGroup.length }}</span></h1>
       <div
         v-for="(post, index) in postGroup"
         :key="post.url"
         class="post-item"
-      ><div v-if="index !== 0" class="post-divider"></div><!-- ✅ Title + Date Row -->
+      ><div v-if="index !== 0" class="post-divider"></div>
         <div class="post-row">
-          <h2 class="post-title"><!-- ✅ RouterLink 替代 a，避免 SPA 空白 -->
-            <RouterLink :to="post.url">
+          <h2 class="post-title">
+            <VPLink :href="post.url">
               {{ post.title }}
-            </RouterLink>
-          </h2><div class="post-date">
+            </VPLink>
+          </h2>
+<div class="post-date">
             {{ post.date.string }}
           </div>
         </div>
-      </div><div class="category-divider"></div>
+      </div>
+<div class="category-divider"></div>
     </div>
   </div>
 </template>
@@ -45,7 +42,7 @@ isNoBackBtn: true
 <script setup lang="ts">
 import { ref, computed, onMounted } from "vue";
 import { useRoute } from "vitepress";
-import { RouterLink } from "vue-router";
+import { VPLink } from "vitepress/theme";
 
 const route = useRoute();
 
@@ -86,14 +83,6 @@ const sortedCategoryGroups = computed(() => {
 }
 
 /* ───────── Category Header ───────── */
-.category-header {
-  margin-top: 20px;
-
-  &:first-child {
-    margin-top: 0;
-  }
-}
-
 .category-title {
   margin: 0 0 10px !important;
   padding: 0 !important;
@@ -118,7 +107,7 @@ const sortedCategoryGroups = computed(() => {
   opacity: 0.55;
 }
 
-/* ───────── Post Row (Title + Date) ───────── */
+/* ───────── Post Row ───────── */
 .post-row {
   display: flex;
   align-items: baseline;
@@ -152,15 +141,9 @@ const sortedCategoryGroups = computed(() => {
     font-weight: 580 !important;
     text-decoration: none !important;
 
-    /* 默认颜色 */
     color: var(--vp-c-text-2);
 
-    /* ✅ hover 变深 */
-    &:hover {
-      color: var(--vp-c-text-1);
-    }
-
-    /* ✅ active 点击变深 */
+    &:hover,
     &:active {
       color: var(--vp-c-text-1);
     }
@@ -170,7 +153,6 @@ const sortedCategoryGroups = computed(() => {
 /* ───────── Date ───────── */
 .post-date {
   margin: 0 !important;
-
   font-size: 13px;
   letter-spacing: 0.02em;
   color: var(--vp-c-text-3);
