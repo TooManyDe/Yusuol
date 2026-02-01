@@ -16,12 +16,9 @@ isNoBackBtn: true
           :aria-label="`Permalink to &quot;${category}&quot;`"
         ></a>
         {{ category }}
-      </h2>
-
-      <div v-for="post in postGroup" :key="post.url" class="post-item">
+      </h2><div v-for="post in postGroup" :key="post.url" class="post-item">
         <div class="post-content-main">
-          <h2 class="post-title">
-            <a :href="withBase(post.url)">{{ post.title }}</a>
+          <h2 class="post-title"><a :href="withBase(post.url)">{{ post.title }}</a>
           </h2>
         </div>
         <div class="post-date">
