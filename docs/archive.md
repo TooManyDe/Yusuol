@@ -18,8 +18,8 @@ isNoBackBtn: true
     <div v-if="index !== 0" class="post-divider"></div>
 <div class="post-item">
       <div class="post-content-main">
-        <h3 class="post-title"><a :href="withBase(post.url)">{{ post.title }}</a>
-        </h3>
+        <h2 class="post-title"><a :href="withBase(post.url)">{{ post.title }}</a>
+        </h2>
       </div>
 <div class="post-date">
         {{ post.date.string }}
@@ -61,13 +61,12 @@ const sortedCategoryGroups = computed(() => {
 
 <style lang="scss" scoped>
 .category-title {
-  margin-top: 2.5rem !important;
-  margin-bottom: 1rem !important;
+  margin-top: 10px !important;
+  margin-bottom: 10px !important;
   font-family: "Noto Serif SC", "Source Han Serif", serif;
   font-size: 22px;
   color: var(--vp-c-text-1);
   border-bottom: 2px solid var(--vp-c-brand);
-  display: inline-block;
 }
 
 .post-divider {
@@ -83,7 +82,7 @@ const sortedCategoryGroups = computed(() => {
   flex-direction: row;        /* 默认横向排列 */
   justify-content: space-between; /* 左右两端对齐 */
   align-items: flex-start;    /* 顶部对齐 */
-  gap: 20px;                  /* 标题和日期之间的最小间距 */
+  gap: 10px;                  /* 标题和日期之间的最小间距 */
 }
 
 .post-content-main {
@@ -92,7 +91,7 @@ const sortedCategoryGroups = computed(() => {
 
 .post-title {
   margin: 0 !important;       /* 移除默认边距以配合 Flex 对齐 */
-  line-height: 1.4;
+  line-height: 1.5;
 
   > a {
     font-family: "Noto Serif SC", "Source Han Serif", serif !important;
