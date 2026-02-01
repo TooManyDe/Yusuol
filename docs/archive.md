@@ -9,28 +9,34 @@ isNoBackBtn: true
 <template>
   <div class="category-list">
     <div
-      v-for="[category, postGroup] in sortedCategoryGroups"
+      v-for="([category, postGroup], gIndex) in sortedCategoryGroups"
       :key="category"
       class="category-block"
     >
+      <div v-if="gIndex !== 0" class="category-divider"></div>
+
       <!-- Category Header -->
       <h1 :id="category" class="category-title">
         {{ category }}
         <span class="category-count">{{ postGroup.length }}</span>
-      </h1><!-- Posts -->
+      </h1>
+
+      <!-- Posts -->
       <div
         v-for="(post, index) in postGroup"
         :key="post.url"
         class="post-item"
-      ><div v-if="index !== 0" class="post-divider"></div>
+      >
+        <div v-if="index !== 0" class="post-divider"></div>
         <div class="post-row">
           <h2 class="post-title">
-         <a :href="post.url">{{ post.title }}</a></h2> <div class="post-date">
+            <a :href="post.url">{{ post.title }}</a>
+          </h2>
+          <div class="post-date">
             {{ post.date.string }}
           </div>
         </div>
       </div>
-<div class="category-divider"></div>
     </div>
   </div>
 </template>
@@ -59,36 +65,26 @@ const sortedCategoryGroups = computed(() => {
 
 <style lang="scss" scoped>
 /* ───────── Category Header ───────── */
-.category-header {
-  margin-top: 20px;
-
-  &:first-child {
-    margin-top: 0;
-  }
-}
-
 .category-title {
-  margin: 0 0 10px !important;
+  margin: 0 0 6px !important;
   padding: 0 !important;
   border: none !important;
 
   display: flex;
   align-items: baseline;
-  gap: 10px;
+  gap: 8px;
 
-  font-family: "ChillRoundF", serif;
-  font-size: 24px !important;
-  font-weight: 700 !important;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-
-  color: var(--vp-c-text-1);
+  font-family: "Noto Serif SC", "Source Han Serif", serif !important;
+  font-size: 20px !important;
+  font-weight: 580 !important;
+  line-height: 1.5;
+  color: #326891;
 }
 
 .category-count {
   font-size: 12px;
   font-weight: 400;
-  opacity: 0.55;
+  color: var(--vp-c-text-3);
 }
 
 /* ───────── Post Row (Title + Date) ───────── */
@@ -105,10 +101,6 @@ const sortedCategoryGroups = computed(() => {
     align-items: flex-start;
     gap: 2px;
   }
-
-  .post-date {
-    font-size: 12px;
-  }
 }
 
 /* ───────── Post Title ───────── */
@@ -118,17 +110,19 @@ const sortedCategoryGroups = computed(() => {
   border: none !important;
   line-height: 1.5;
 
-  > a:first-child {
+  > a {
     font-family: "Noto Serif SC", "Source Han Serif", serif !important;
     font-size: 16px !important;
     font-weight: 580 !important;
     text-decoration: none !important;
     color: var(--vp-c-text-2);
+
     &:hover {
-      color: var(--vp-c-text-1);
+      color: var(--vp-c-brand-1);
     }
+
     &:active {
-      color: var(--vp-c-text-1);
+      color: var(--vp-c-brand-1);
     }
   }
 }
@@ -136,13 +130,18 @@ const sortedCategoryGroups = computed(() => {
 /* ───────── Date ───────── */
 .post-date {
   margin: 0 !important;
-
-  font-size: 13px;
-  letter-spacing: 0.02em;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.01em;
   color: var(--vp-c-text-3);
-
   white-space: nowrap;
   flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .post-date {
+    font-size: 12px;
+  }
 }
 
 /* ───────── Dividers ───────── */
@@ -150,13 +149,13 @@ const sortedCategoryGroups = computed(() => {
   width: 100%;
   height: 1px;
   background-color: var(--vp-c-divider);
-  margin: 10px 0;
+  margin: 6px 0;
 }
 
 .category-divider {
   width: 100%;
   height: 1px;
   background-color: var(--vp-c-divider);
-  margin: 10px 0 10px;
+  margin: 10px 0;
 }
 </style>
