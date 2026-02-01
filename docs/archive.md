@@ -14,12 +14,16 @@ isNoBackBtn: true
       :aria-label="`Permalink to &quot;${category}&quot;`"
     ></a>
     {{ category }}
-  </h1><template v-for="(post, index) in postGroup" :key="post.url">
-    <div class="post-divider"></div>
-<div class="post-item">
+  </h1>
+  <template v-for="(post, index) in postGroup" :key="post.url">
+    <!-- 组内非首条，前加分隔线 -->
+    <div v-if="index !== 0" class="post-divider"></div>
+    <div class="post-item">
       <h2 class="post-title"><a :href="withBase(post.url)">{{ post.title }}</a></h2>
       <span class="post-date">{{ post.date.string }}</span>
     </div>
+    <!-- 组内最后一条，后加分隔线 -->
+    <div v-if="index === postGroup.length - 1" class="post-divider"></div>
   </template>
 </template>
 
