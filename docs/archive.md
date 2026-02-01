@@ -72,7 +72,7 @@ const sortedCategoryGroups = computed(() => {
 .category-title {
   margin: 1.5rem 0 0.6rem !important; /* 紧凑的上下边距 */
   font-family: "Noto Serif SC", "Source Han Serif", serif;
-  font-size: 1.25rem; /* 约 20px */
+  font-size: 22px; /* 约 20px */
   color: var(--vp-c-text-1);
   border-bottom: 2px solid var(--vp-c-brand);
   display: inline-block;
@@ -88,10 +88,6 @@ const sortedCategoryGroups = computed(() => {
   padding: 8px 0; /* 控制每一行的紧凑程度 */
   gap: 15px;
   border-bottom: 1px solid var(--vp-c-divider); /* 使用边框代替 divider div */
-
-  &:last-of-type {
-    border-bottom: none; /* 该分类下最后一个条目不显示分割线 */
-  }
 }
 
 .post-content-main {
@@ -109,7 +105,7 @@ const sortedCategoryGroups = computed(() => {
     font-family: "Noto Serif SC", "Source Han Serif", serif !important;
     text-decoration: none !important;
     font-weight: 500 !important;
-    font-size: 1.05rem; /* 约 16.8px，平衡视觉密度 */
+    font-size: 16px; /* 约 16.8px，平衡视觉密度 */
     color: #326891;
     transition: color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     
@@ -120,7 +116,7 @@ const sortedCategoryGroups = computed(() => {
 }
 
 .post-date {
-  font-size: 0.85rem; /* 约 13.6px */
+  font-size: 14px; /* 约 13.6px */
   color: var(--vp-c-text-3);
   font-family: var(--vp-font-family-mono); /* 等宽数字更整齐 */
   white-space: nowrap;
@@ -132,7 +128,7 @@ const sortedCategoryGroups = computed(() => {
   .post-item {
     padding: 10px 0;
     /* 如果手机端想保持一行，注释掉下面这句；如果想换行，保留。建议紧凑型列表不换行 */
-    flex-direction: column;
+    /* flex-direction: column; */
   }
 
   .post-title > a {
