@@ -7,17 +7,17 @@ isNoBackBtn: true
 ---
 
 <template>
-  <div class="category-list" :key="route.path">
-    <div v-if="posts.length === 0" class="loading">
-      Loading...
-    </div><div
-      v-else
+  <div class="category-list">
+    <div
       v-for="[category, postGroup] in sortedCategoryGroups"
       :key="category"
       class="category-block"
-    ><h1 :id="category" class="category-title">
+    >
+      <!-- Category Header -->
+      <h1 :id="category" class="category-title">
         {{ category }}
-        <span class="category-count">{{ postGroup.length }}</span></h1>
+        <span class="category-count">{{ postGroup.length }}</span>
+      </h1><!-- Posts -->
       <div
         v-for="(post, index) in postGroup"
         :key="post.url"
@@ -25,11 +25,7 @@ isNoBackBtn: true
       ><div v-if="index !== 0" class="post-divider"></div>
         <div class="post-row">
           <h2 class="post-title">
-            <VPLink :href="post.url">
-              {{ post.title }}
-            </VPLink>
-          </h2>
-<div class="post-date">
+         <a :href="post.url">{{ post.title }}</a></h2> <div class="post-date">
             {{ post.date.string }}
           </div>
         </div>
@@ -40,25 +36,13 @@ isNoBackBtn: true
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted } from "vue";
-import { useRoute } from "vitepress";
-import { VPLink } from "vitepress/theme";
+import { computed } from "vue";
+import { data as posts } from "./.vitepress/theme/posts.data.mts";
 
-const route = useRoute();
-
-/* ✅ 解决首次进入空白：mounted 后再加载数据 */
-const posts = ref<any[]>([]);
-
-onMounted(async () => {
-  const mod = await import("./.vitepress/theme/posts.data.mts");
-  posts.value = mod.data;
-});
-
-/* ✅ 分类排序 */
 const sortedCategoryGroups = computed(() => {
-  const map = new Map<string, any[]>();
+  const map = new Map<string, typeof posts>();
 
-  posts.value.forEach((post) => {
+  posts.forEach((post) => {
     const category = post.category || "未分类";
     if (!map.has(category)) map.set(category, []);
     map.get(category)!.push(post);
@@ -74,15 +58,15 @@ const sortedCategoryGroups = computed(() => {
 </script>
 
 <style lang="scss" scoped>
-/* ───────── Loading ───────── */
-.loading {
-  padding: 40px 0;
-  font-size: 14px;
-  opacity: 0.6;
-  text-align: center;
+/* ───────── Category Header ───────── */
+.category-header {
+  margin-top: 20px;
+
+  &:first-child {
+    margin-top: 0;
+  }
 }
 
-/* ───────── Category Header ───────── */
 .category-title {
   margin: 0 0 10px !important;
   padding: 0 !important;
@@ -107,7 +91,7 @@ const sortedCategoryGroups = computed(() => {
   opacity: 0.55;
 }
 
-/* ───────── Post Row ───────── */
+/* ───────── Post Row (Title + Date) ───────── */
 .post-row {
   display: flex;
   align-items: baseline;
@@ -115,7 +99,6 @@ const sortedCategoryGroups = computed(() => {
   gap: 12px;
 }
 
-/* 📱 Mobile 换行 */
 @media (max-width: 768px) {
   .post-row {
     flex-direction: column;
@@ -135,15 +118,15 @@ const sortedCategoryGroups = computed(() => {
   border: none !important;
   line-height: 1.5;
 
-  > a {
+  > a:first-child {
     font-family: "Noto Serif SC", "Source Han Serif", serif !important;
     font-size: 16px !important;
     font-weight: 580 !important;
     text-decoration: none !important;
-
     color: var(--vp-c-text-2);
-
-    &:hover,
+    &:hover {
+      color: var(--vp-c-text-1);
+    }
     &:active {
       color: var(--vp-c-text-1);
     }
@@ -153,6 +136,7 @@ const sortedCategoryGroups = computed(() => {
 /* ───────── Date ───────── */
 .post-date {
   margin: 0 !important;
+
   font-size: 13px;
   letter-spacing: 0.02em;
   color: var(--vp-c-text-3);
