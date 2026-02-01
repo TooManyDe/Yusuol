@@ -94,7 +94,7 @@ const onCurrentChange: PaginationProps["onCurrentChange"] = (index) => {
 /* ─── 标题 (紧凑化) ─── */
 .post-title {
   margin-top: 0 !important; 
-  margin-bottom: 4px !important;
+  margin-bottom: 6px !important;
   border-top: none !important;
   padding-top: 0 !important;
   line-height: 1.2;
@@ -104,7 +104,7 @@ const onCurrentChange: PaginationProps["onCurrentChange"] = (index) => {
     text-decoration: none !important;
     font-weight: 580 !important;
     font-size: 22px; 
-    color: var(--vp-c-text-1);
+    color: var(--vp-c-brand-1);
     
     &:hover {
       color: var(--vp-c-brand-1);
