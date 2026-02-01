@@ -93,14 +93,14 @@ const sortedCategoryGroups = computed(() => {
   margin: 0 !important;
   padding: 0 !important;
   border: none !important;
-  line-height: 1.55;
+  line-height: 1.5;
 
   > a:first-child {
     font-family: "Noto Serif SC", "Source Han Serif", serif !important;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 580 !important;
     text-decoration: none !important;
-    color: var(--vp-c-text-1);
+    color: var(--vp-c-text-2);
 
     &:hover {
       opacity: 0.85;
@@ -124,9 +124,9 @@ const sortedCategoryGroups = computed(() => {
 /* ───────── Date ───────── */
 .post-date {
   margin-top: 4px;
-  margin-bottom: 14px;
+  margin-bottom: 10px;
 
-  font-size: 13px;
+  font-size: 14px;
   letter-spacing: 0.02em;
   color: var(--vp-c-text-3);
   opacity: 0.65;
@@ -137,15 +137,13 @@ const sortedCategoryGroups = computed(() => {
   width: 100%;
   height: 1px;
   background-color: var(--vp-c-divider);
-  opacity: 0.25;
-  margin: 14px 0;
+  margin: 10px 0;
 }
 
 .category-divider {
   width: 100%;
   height: 1px;
   background-color: var(--vp-c-text-1);
-  opacity: 0.18;
-  margin: 20px 0 10px;
+  margin: 10px 0 10px;
 }
 </style>
