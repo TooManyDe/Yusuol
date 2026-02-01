@@ -1,117 +1,235 @@
-/* =========================================================
-   NYT Opinion Style for VitePress
-   Target: Serious / Literary / Newspaper Layout
-   ========================================================= */
-
-
-/* -----------------------------
-   Fonts
------------------------------ */
-
 @font-face {
   font-family: "GoogleSansCode";
-  font-display: swap;
+  font-display: swap; 
   src: url("/assets/fonts/GoogleSansCode[wght].ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "PingFang";
+  font-display: swap; 
+  src: url("/assets/fonts/PingFang-Medium.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "ChillRoundF";
+  font-display: swap;
+  src: url("/assets/fonts/ChillRoundF.woff2") format("woff2"), 
+       url("/assets/fonts/ChillRoundF.woff") format("woff"),
+       url("/assets/fonts/ChillRoundF.ttf") format("truetype");
 }
 
 @font-face {
   font-family: "Noto Serif SC";
   font-display: swap;
-  src: url("/assets/fonts/NotoSerifSC-VariableFont_wght.ttf")
-    format("truetype");
+  src: url("/assets/fonts/NotoSerifSC-VariableFont_wght.ttf") format("truetype");
   font-weight: 200 900;
 }
 
-
-/* -----------------------------
-   Root Variables (NYT Black/White)
------------------------------ */
+@font-face {
+  font-family: "mvboli";
+  font-display: swap;
+  src: url("/assets/fonts/mvboli.ttf");
+}
 
 :root {
-  --vp-c-bg: #ffffff;
-
-  --vp-c-text-1: #111111;
-  --vp-c-text-2: #333333;
-  --vp-c-text-3: #666666;
-
-  --vp-c-divider: #e5e5e5;
-
-  /* NYT: no brand color */
-  --vp-c-brand-1: #111111 !important;
-  --vp-c-brand-2: #111111 !important;
-  --vp-c-brand-3: #111111 !important;
-  --vp-c-brand-soft: rgba(0, 0, 0, 0.06) !important;
-
-  /* Typography */
-  --vp-font-family-base: "Noto Serif SC", "Source Han Serif SC", serif;
+  --vp-c-text-1: #495366;
+  --vp-nav-height: 50px;
+  --vp-c-green: #41b349;
+  --vp-c-green-soft: rgba(65, 179, 73, 0.14);
+  --vp-c-green-dark: #41b349;
+  --vp-c-green-dark-soft: rgba(65, 179, 73, 0.14);
+  --vp-c-brand-1: var(--vp-c-green) !important;
+  --vp-c-brand-2: var(--vp-c-green) !important;
+  --vp-c-brand-3: var(--vp-c-green) !important;
+  --vp-c-brand-soft: var(--vp-c-green-soft) !important;
+  --vp-font-family-serif: "PingFang";
+  --vp-font-family-base: var(--vp-font-family-serif), -apple-system, BlinkMacSystemFont,
+                         "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji",
+                         "Segoe UI Emoji", "Segoe UI Symbol";
   --vp-font-family-code: "GoogleSansCode", monospace;
-
-  --vp-nav-height: 56px;
+  --td-border-level-2-color: var(--vp-c-brand-soft) !important;
+  --td-brand-color: var(--vp-c-brand-1) !important;
+  --td-brand-color-light: var(--vp-c-brand-soft) !important;
+  --td-brand-color-hover: var(--vp-c-brand-1) !important;
+  --td-brand-color-active: var(--vp-c-brand-2) !important;
 }
-
-
-/* -----------------------------
-   Dark Mode (NYT Night Reading)
------------------------------ */
 
 .dark {
-  --vp-c-bg: #0f0f0f;
-
-  --vp-c-text-1: #f2f2f2;
-  --vp-c-text-2: #cccccc;
-  --vp-c-text-3: #999999;
-
-  --vp-c-divider: rgba(255, 255, 255, 0.15);
-
-  --vp-c-brand-1: #f2f2f2 !important;
-  --vp-c-brand-2: #f2f2f2 !important;
-  --vp-c-brand-3: #f2f2f2 !important;
+  --vp-c-text-1: #C9D1D9;
+  --vp-c-brand-1: var(--vp-c-green-dark) !important;
+  --vp-c-brand-2: var(--vp-c-green-dark) !important;
+  --vp-c-brand-3: var(--vp-c-green-dark) !important;
+  --vp-c-brand-soft: var(--vp-c-green-dark-soft) !important;
 }
 
+@media (min-width: 960px) {
+  .VPNavBar {
+    width: 100%;
+    justify-content: center;
+    background-color: var(--vp-c-bg);
+  }
 
-/* =========================================================
-   Layout: NYT Narrow Column
-========================================================= */
+  .VPNav[data-v-e4ae072f] {
+    position: absolute;
+  }
 
-.VPDoc.has-aside .content-container {
-  max-width: 680px !important;
-}
-
-.VPDoc {
-  padding-top: 64px !important;
-}
-
-@media (max-width: 959px) {
-  .VPDoc {
-    padding: 32px 18px !important;
+  .VPNavBar .container {
+    max-width: 56vw;
+    width: 100%;
+    margin: 0 auto;
+    padding-left: 0;
+    padding-right: 0;
   }
 }
 
-
-/* =========================================================
-   Navbar: Opinion Masthead
-========================================================= */
-
-.VPNavBar {
-  background: white !important;
-  border-bottom: 1px solid var(--vp-c-divider) !important;
-  justify-content: center;
-}
-
-.VPNavBar .container {
-  max-width: 680px !important;
-  padding: 0 !important;
-}
-
 .VPNavBarTitle .title {
-  font-family: "Noto Serif SC", serif !important;
-  font-size: 20px !important;
-  font-weight: 700 !important;
-  letter-spacing: 0.5px;
+  font-family: "ChillRoundF", sans-serif;
+  font-size: 22px !important;
+}
+
+.VPNavScreen .divider,
+.VPNavScreen .group,
+.VPNavScreenMenuLink {
+  border-top: none !important;
+  border-bottom: none !important;
+  border-color: transparent !important;
+}
+
+.VPNavScreen hr {
+  display: none !important;
+}
+
+/* Footer */
+.VPFooter a {
+  text-decoration: none !important;
+}
+
+.VPFooter {
+  padding: 10px !important;
+}
+
+.VPFooter a:hover {
+  text-decoration: underline #41b349 !important;
+}
+
+.VPFooter::before,
+.VPFooter::after {
+  display: none !important;
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.VPFooter {
+  border-top: none !important;
+  box-shadow: none !important;
+}
+
+.VPDoc {
+  padding-top: 20px !important;
 }
 
 
-/* Remove extra nav clutter */
+@media (max-width: 959px) {
+  .VPDoc {
+    padding: 20px !important;
+    width: 100%;
+  }
+}
+
+.VPDoc.has-aside .content-container {
+  max-width: 50rem !important;
+}
+
+@media (min-width: 960px) {
+  .VPDoc:not(.has-sidebar) .content {
+    max-width: inherit !important;
+  }
+
+  .VPDoc .content {
+    padding: 0 !important; 
+  }
+}
+
+.VPDocFooter {
+  margin-top: 10px !important;
+}
+
+.VPcontent {
+  margin-bottom: 10px !important;
+}
+
+.vp-doc li,
+.vp-doc p {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-weight: 400 !important;
+}
+
+.vp-doc strong,
+.vp-doc b {
+  font-family: "ChillRoundF", var(--vp-font-family-serif), sans-serif !important;
+  text-decoration: underline dotted #41b349 !important;
+  text-underline-offset: 3px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Noto Serif SC", var(--vp-font-family-serif), sans-serif !important;
+  font-weight: 580 !important;
+}
+
+h1 {
+  font-size: 22px !important;
+}
+
+h2 {
+  font-size: 20px !important;
+  margin: inherit !important;
+  border-top: none !important;
+  text-decoration: none !important;
+}
+
+h3 {
+  font-size: 18px !important;
+}
+
+.vp-doc a {
+  text-decoration: none !important;
+  color: #41b349;
+  font-family: "ChillRoundF", var(--vp-font-family-serif), sans-serif !important; 
+  font-weight: 580 !important;
+}
+
+.vp-doc a:hover {
+  text-decoration: underline !important;
+  color: #1A6840; 
+}
+
+.vp-doc a::after {
+  content: none !important;
+  color: #1A6840;
+}
+
+.VPDoc img {
+  border-radius: 16px;
+  cursor: zoom-in;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.vp-doc .table-scroll td,
+.vp-doc .table-scroll th {
+  white-space: nowrap;     
+  word-break: keep-all;    
+}
+
+.table-scroll {
+  overflow-x: auto;
+  display: block;
+  width: 100%;
+  -webkit-overflow-scrolling: touch; 
+}
+
 
 .VPSidebar,
 .VPDocAside,
@@ -125,191 +243,31 @@
 
 .vpi-chevron-down,
 .text-icon {
-  display: none !important;
+  display: none;
 }
 
-
-/* =========================================================
-   Typography: NYT Opinion Hierarchy
-========================================================= */
-
-.vp-doc {
-  font-family: var(--vp-font-family-base);
-  color: var(--vp-c-text-1);
+.VPSwitchAppearance {
+  width: 22px !important;
 }
 
-/* Paragraphs */
-
-.vp-doc p {
-  font-size: 18px;
-  line-height: 1.85;
-  margin: 1.25rem 0;
-  color: var(--vp-c-text-1);
+.VPSwitchAppearance .check {
+  transform: none !important;
 }
 
-/* Lists */
-
-.vp-doc li {
-  font-size: 18px;
-  line-height: 1.75;
-  margin: 0.6rem 0;
+::selection,
+::-moz-selection {
+  background: var(--vp-c-brand-1);
+  color: var(--vp-c-bg);
 }
-
-
-/* Headings */
-
-h1,
-h2,
-h3,
-h4 {
-  font-family: "Noto Serif SC", serif !important;
-  font-weight: 700 !important;
-  color: var(--vp-c-text-1);
-}
-
-h1 {
-  font-size: 42px !important;
-  line-height: 1.15;
-  margin-bottom: 1.8rem;
-}
-
-h2 {
-  font-size: 28px !important;
-  margin-top: 3.2rem !important;
-  margin-bottom: 1.2rem !important;
-  border: none !important;
-}
-
-h3 {
-  font-size: 22px !important;
-  margin-top: 2.4rem !important;
-  margin-bottom: 1rem !important;
-}
-
-
-/* Strong emphasis */
-
-.vp-doc strong,
-.vp-doc b {
-  font-weight: 700 !important;
-  color: var(--vp-c-text-1);
-  text-decoration: none !important;
-}
-
-
-/* =========================================================
-   Links: NYT Underline Style
-========================================================= */
-
-.vp-doc a {
-  color: var(--vp-c-text-1) !important;
-  text-decoration: underline;
-  text-decoration-color: #bbbbbb;
-  text-underline-offset: 3px;
-  transition: text-decoration-color 0.2s ease;
-}
-
-.vp-doc a:hover {
-  text-decoration-color: var(--vp-c-text-1);
-}
-
-.vp-doc a::after {
-  content: none !important;
-}
-
-
-/* =========================================================
-   Blockquote: NYT Vertical Rule
-========================================================= */
-
-.vp-doc blockquote {
-  border-left: 3px solid var(--vp-c-text-1);
-  padding-left: 1.2rem;
-  margin: 2.5rem 0;
-  font-style: italic;
-  font-size: 18px;
-  line-height: 1.75;
-  color: var(--vp-c-text-2);
-}
-
-
-/* =========================================================
-   Images: Flat Newspaper Style
-========================================================= */
-
-.VPDoc img {
-  border-radius: 0 !important;
-  box-shadow: none !important;
-  margin: 2rem 0;
-}
-
-
-/* =========================================================
-   Horizontal Rule: Section Divider
-========================================================= */
-
-.vp-doc hr {
-  border: none;
-  border-top: 1px solid var(--vp-c-divider);
-  margin: 3rem 0;
-}
-
-
-/* =========================================================
-   Footer: Minimal NYT
-========================================================= */
-
-.VPFooter {
-  border-top: 1px solid var(--vp-c-divider) !important;
-  padding: 20px 0 !important;
-  font-size: 14px;
-  color: var(--vp-c-text-3);
-}
-
-.VPFooter a {
-  text-decoration: underline;
-  text-decoration-color: #bbb;
-}
-
-.VPFooter a:hover {
-  text-decoration-color: var(--vp-c-text-1);
-}
-
-
-/* =========================================================
-   Selection
-========================================================= */
-
-::selection {
-  background: rgba(0, 0, 0, 0.15);
-  color: var(--vp-c-text-1);
-}
-
-
-/* =========================================================
-   Code Blocks
-========================================================= */
-
-pre code {
-  font-family: var(--vp-font-family-code);
-  font-size: 15px;
-  white-space: pre-wrap;
-  word-wrap: break-word;
-}
-
-
-/* =========================================================
-   Scrollbar (Minimal)
-========================================================= */
 
 * {
   scrollbar-width: thin;
 }
 
-
-/* =========================================================
-   Tap Highlight Removal
-========================================================= */
+main > div > div > pre > code {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
 
 #app {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
