@@ -7,18 +7,30 @@ isNoBackBtn: true
 ---
 
 <template v-for="[category, postGroup] in sortedCategoryGroups" :key="category">
-  <h2 :id="category" class="post-title">
+  <h2 :id="category" class="category-title">
     <a
       class="header-anchor"
       :href="`#${category}`"
       :aria-label="`Permalink to &quot;${category}&quot;`"
-    >​</a>
-    <div class="post-year hollow-text source-han-serif">{{ category }}</div>
-  </h2><div class="post-container" v-for="post in postGroup" :key="post.url"><a :href="withBase(post.url)">{{ post.title }}</a>
-    <span class="post-date">
-      {{ post.date.string }}
-    </span>
-  </div>
+    ></a>
+    {{ category }}
+  </h2>
+
+  <template v-for="(post, index) in postGroup" :key="post.url">
+    <div v-if="index !== 0" class="post-divider"></div>
+
+    <div class="post-item">
+      <h3 class="post-title">
+        <a :href="withBase(post.url)">{{ post.title }}</a>
+      </h3>
+      
+      <div v-if="post.excerpt" class="post-excerpt" v-html="post.excerpt"></div>
+
+      <div class="post-date">
+        {{ post.date.string }}
+      </div>
+    </div>
+  </template>
 </template>
 
 <script lang="ts" setup>
@@ -31,7 +43,6 @@ const sortedCategoryGroups = computed(() => {
   const groups = new Map<string, typeof posts>();
 
   posts.forEach((post) => {
-    // 默认分类处理
     const category = post.category || "Uncategorized";
     if (!groups.has(category)) {
       groups.set(category, []);
@@ -39,15 +50,12 @@ const sortedCategoryGroups = computed(() => {
     groups.get(category)?.push(post);
   });
 
-  // 转化为数组并排序
   const entries = Array.from(groups.entries());
 
   entries.forEach(([_, group]) => {
-    // 分类内部：按时间倒序排列
     group.sort((a, b) => b.date.time - a.date.time);
   });
 
-  // 分类外部：按该分类下最新一篇文章的时间排序（最新的分类排在最前面）
   entries.sort((a, b) => {
     return b[1][0].date.time - a[1][0].date.time;
   });
@@ -57,64 +65,74 @@ const sortedCategoryGroups = computed(() => {
 </script>
 
 <style lang="scss" scoped>
-.post-title {
-  margin-top: 2rem;
-  margin-bottom: 10px;
-  border-top: 0px;
-  position: relative;
-
-  .post-year {
-    position: absolute;
-    top: 10px;
-    left: -8px;
-    z-index: -1;
-    opacity: 0.12;
-    font-family: "ChillRoundF", "Source Han Serif", serif;
-    font-size: 36px;
-    font-weight: 700;
-    white-space: nowrap;
-    pointer-events: none;
-  }
+.category-title {
+  margin-top: 2.5rem !important;
+  margin-bottom: 1rem !important;
+  font-family: "Noto Serif SC", "Source Han Serif", serif;
+  font-size: 24px;
+  color: var(--vp-c-text-1);
+  border-bottom: 2px solid var(--vp-c-brand);
+  display: inline-block;
 }
 
-.post-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 4px 0;
-  border-bottom: 1px dashed var(--vp-c-divider-light);
+.post-divider {
+  width: 100%;
+  height: 1px; 
+  background-color: var(--vp-c-divider);
+  margin: 6px 0; 
+}
 
-  &:last-of-type {
-    border-bottom: none;
-  }
+.post-item {
+  padding: 8px 0;
+}
+
+.post-title {
+  margin-top: 0 !important; 
+  margin-bottom: 6px !important;
+  border-top: none !important;
+  padding-top: 0 !important;
+  line-height: 1.5;
 
   > a {
-    font-weight: 400;
-    color: var(--vp-c-text-1);
-    transition: color 0.25s;
+    font-family: "Noto Serif SC", "Source Han Serif", serif !important;
     text-decoration: none !important;
-
+    font-weight: 580 !important;
+    font-size: 20px; 
+    color: #326891;
+    
     &:hover {
-      color: var(--vp-c-brand);
+      color: #004488;
     }
   }
+}
 
-  .post-date {
-    font-size: 0.9em;
-    opacity: 0.6;
-    font-variant-numeric: tabular-nums;
+.post-excerpt {
+  margin: 0 0 4px; 
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--vp-c-text-1);
+
+  :deep(p) {
+    margin: 0;
+    font-weight: 400 !important;
   }
 }
 
-.hollow-text {
-  color: var(--vp-c-bg);
-  -webkit-text-stroke: 1px var(--vp-c-text-1);
+.post-date {
+  font-size: 14px;
+  color: var(--vp-c-text-3);
+  font-weight: 400;
+  margin-bottom: 10px; 
+  letter-spacing: 0.01em;
 }
 
-/* 移动端适配优化 */
-@media (max-width: 640px) {
-  .post-year {
-    font-size: 28px !important;
+/* 适配移动端 */
+@media (max-width: 425px) {
+  .post-title > a {
+    font-size: 18px;
+  }
+  .category-title {
+    font-size: 22px;
   }
 }
 </style>
