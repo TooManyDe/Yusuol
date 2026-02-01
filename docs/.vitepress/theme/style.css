@@ -34,14 +34,14 @@
 :root {
   --vp-c-text-1: #121212;
   --vp-nav-height: 50px;
-  --vp-c-green: #000000;
-  --vp-c-green-soft: rgba(65, 179, 73, 0.14);
-  --vp-c-green-dark: #41b349;
-  --vp-c-green-dark-soft: rgba(65, 179, 73, 0.14);
-  --vp-c-brand-1: var(--vp-c-green) !important;
-  --vp-c-brand-2: var(--vp-c-green) !important;
-  --vp-c-brand-3: var(--vp-c-green) !important;
-  --vp-c-brand-soft: var(--vp-c-green-soft) !important;
+  --vp-c-blue: #326891;
+  --vp-c-blue-soft: rgba(65, 179, 73, 0.14);
+  --vp-c-blue-dark: #86B3D1;
+  --vp-c-blue-dark-soft: rgba(65, 179, 73, 0.14);
+  --vp-c-brand-1: var(--vp-c-blue) !important;
+  --vp-c-brand-2: var(--vp-c-blue) !important;
+  --vp-c-brand-3: var(--vp-c-blue) !important;
+  --vp-c-brand-soft: var(--vp-c-blue-soft) !important;
   --vp-font-family-serif: "PingFang";
   --vp-font-family-base: var(--vp-font-family-serif), -apple-system, BlinkMacSystemFont,
                          "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji",
@@ -107,7 +107,7 @@
 }
 
 .VPFooter a:hover {
-  text-decoration: underline #000000 !important;
+  text-decoration: underline !important;
 }
 
 .VPFooter::before,
@@ -167,6 +167,8 @@
 .vp-doc strong,
 .vp-doc b {
   font-family: "ChillRoundF", var(--vp-font-family-serif), sans-serif !important;
+  text-decoration: underline dotted #326891 !important;
+  text-underline-offset: 3px;
   font-weight: 580 !important;
 }
 
@@ -192,7 +194,7 @@ h3 {
 
 .vp-doc a {
   text-decoration: none !important;
-  color: #000000;
+  color: #326891;
   font-family: "ChillRoundF", var(--vp-font-family-serif), sans-serif !important;
   font-weight: 580 !important;
 }
