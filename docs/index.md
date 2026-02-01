@@ -22,7 +22,7 @@ isNoBackBtn: true
   <div v-if="post.excerpt" class="post-excerpt" v-html="post.excerpt"></div>
 
   <div class="post-date">
-    发表时间：{{ post.date.string }}
+    发表于：{{ post.date.string }}
   </div>
 </template>
 
@@ -83,31 +83,33 @@ const onCurrentChange: PaginationProps["onCurrentChange"] = (index) => {
 </script>
 
 <style lang="scss" scoped>
-/* ─── 分隔线 ─── */
+/* ─── 更黑更粗的分隔线 ─── */
 .post-divider {
   width: 100%;
-  height: 1px;
-  background-color: var(--vp-c-divider);
+  height: 1.5px; /* 增加粗度 */
+  background-color: #333; /* 调深颜色，夜间模式会自动适配 */
   margin: 0;
+}
+
+.dark .post-divider {
+  background-color: var(--vp-c-divider); /* 夜间模式保持适中亮度 */
 }
 
 /* ─── 标题 ─── */
 .post-title {
-  margin-top: 28px !important; /* 强制覆盖原有样式 */
-  margin-bottom: 14px !important;
+  margin-top: 24px !important; 
+  margin-bottom: 12px !important;
   border-top: none !important;
   padding-top: 0 !important;
   line-height: 1.3;
-  position: relative;
 
   > a {
     font-family: "Noto Serif SC", "Source Han Serif", serif !important;
     text-decoration: none !important;
-    font-weight: 700 !important;
-    font-size: 1.75rem;
+    font-weight: 800 !important; /* 增加字重，更接近原图 */
+    font-size: 1.85rem;
     color: var(--vp-c-text-1);
-    transition: color 0.2s;
-
+    
     &:hover {
       color: var(--vp-c-brand-1);
     }
@@ -115,45 +117,47 @@ const onCurrentChange: PaginationProps["onCurrentChange"] = (index) => {
 
   @media (max-width: 425px) {
     > a {
-      font-size: 1.4rem;
+      font-size: 1.45rem;
     }
   }
 }
 
 /* ─── 摘要 ─── */
 .post-excerpt {
-  margin: 0 0 14px;
-  font-size: 15px;
-  line-height: 1.7;
-  color: var(--vp-c-text-2);
+  margin: 0 0 10px; /* 进一步压缩与时间的间距 */
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--vp-c-text-1); /* 提高摘要对比度 */
 
   :deep(p) {
     margin: 0;
-    font-size: 15px;
-    color: var(--vp-c-text-2);
     font-weight: 400 !important;
   }
 }
 
-/* ─── 发表时间 ─── */
+/* ─── 发表于 (紧凑型) ─── */
 .post-date {
   font-size: 13px;
-  color: var(--vp-c-text-3);
+  color: #888;
   font-weight: 400;
-  margin-bottom: 32px; /* 拉开与下一条线的距离 */
-  letter-spacing: 0.02em;
+  margin-bottom: 28px; /* 底部预留出与下一道线的空间 */
+  letter-spacing: 0.01em;
 }
 
 /* 分页容器 */
 .pagination-container {
-  margin-top: 32px;
+  margin-top: 10px;
   display: flex;
   justify-content: center;
-  border-top: 1px solid var(--vp-c-divider);
-  padding-top: 32px;
+  border-top: 1.5px solid #333; /* 分页器上方也使用加粗黑线 */
+  padding-top: 30px;
 
   :deep(li) {
     margin-top: 0px !important;
   }
+}
+
+.dark .pagination-container {
+  border-top-color: var(--vp-c-divider);
 }
 </style>
