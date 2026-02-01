@@ -39,6 +39,8 @@ isNoBackBtn: true
 import { computed } from "vue";
 import { data as posts } from "./.vitepress/theme/posts.data.mts";
 
+const postList = ref(posts);
+
 const sortedCategoryGroups = computed(() => {
   const map = new Map<string, typeof posts>();
 
