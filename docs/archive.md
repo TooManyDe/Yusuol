@@ -7,26 +7,20 @@ isNoBackBtn: true
 ---
 
 <template v-for="[category, postGroup] in sortedCategoryGroups" :key="category">
-  <h2 :id="category" class="category-title">
+  <h1 :id="category" class="category-title">
     <a
       class="header-anchor"
       :href="`#${category}`"
       :aria-label="`Permalink to &quot;${category}&quot;`"
     ></a>
     {{ category }}
-  </h2>
-
-  <template v-for="(post, index) in postGroup" :key="post.url">
+  </h1><template v-for="(post, index) in postGroup" :key="post.url">
     <div v-if="index !== 0" class="post-divider"></div>
-
-    <div class="post-item">
-      <h3 class="post-title">
-        <a :href="withBase(post.url)">{{ post.title }}</a>
-      </h3>
-      
-      <div v-if="post.excerpt" class="post-excerpt" v-html="post.excerpt"></div>
-
-      <div class="post-date">
+<div class="post-item">
+      <h2 class="post-title">
+<a :href="withBase(post.url)">{{ post.title }}</a>
+      </h2>
+      <div v-if="post.excerpt" class="post-excerpt" v-html="post.excerpt"></div><div class="post-date">
         {{ post.date.string }}
       </div>
     </div>
