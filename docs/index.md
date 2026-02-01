@@ -94,17 +94,17 @@ const onCurrentChange: PaginationProps["onCurrentChange"] = (index) => {
 /* ─── 标题 (紧凑化) ─── */
 .post-title {
   margin-top: 0 !important; 
-  margin-bottom: 6px !important;
+  margin-bottom: 8px !important;
   border-top: none !important;
   padding-top: 0 !important;
-  line-height: 1.2;
+  line-height: 1.5;
 
   > a {
     font-family: "Noto Serif SC", "Source Han Serif", serif !important;
     text-decoration: none !important;
     font-weight: 580 !important;
     font-size: 22px; 
-    color: var(--vp-c-brand-1);
+    color: var(--vp-c-text-1);
     
     &:hover {
       color: var(--vp-c-brand-1);
@@ -130,7 +130,7 @@ const onCurrentChange: PaginationProps["onCurrentChange"] = (index) => {
   font-size: 14px;
   color: var(--vp-c-text-3);
   font-weight: 400;
-  margin-bottom: 12px; /* 压缩每篇文章底部的留白 */
+  margin-bottom: 10px; 
   letter-spacing: 0.01em;
 }
 
