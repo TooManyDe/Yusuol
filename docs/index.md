@@ -105,7 +105,7 @@ const onCurrentChange: PaginationProps["onCurrentChange"] = (index) => {
     color: var(--vp-c-text-1);
     
     &:hover {
-      color: var(--vp-c-brand-1);
+      color: #000000;
     }
   }
 
