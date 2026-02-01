@@ -82,10 +82,6 @@ const onCurrentChange: PaginationProps["onCurrentChange"] = (index) => {
 };
 </script>
 
-.dark .post-divider {
-  background-color: var(--vp-c-divider); /* 夜间模式保持适中亮度 */
-}
-
 /* ─── 标题 ─── */
 .post-title {
   margin-top: 22px !important; 
