@@ -188,9 +188,7 @@
 .vp-doc strong,
 .vp-doc b {
   font-family: "ChillRoundF", var(--vp-font-family-serif), sans-serif !important;
-  text-decoration: underline var(--vp-c-brand-1) !important;
-  text-underline-offset: 3px;
-  font-weight: 580 !important;
+  text-decoration: none !important;
 }
 
 /* 标题样式 */
@@ -217,7 +215,7 @@ h3 {
 /* 正文链接基础样式 */
 .vp-doc a {
   font-family: "ChillRoundF", var(--vp-font-family-serif), sans-serif !important;
-
+  color: #000000 !important;
   text-decoration-line: underline !important;
   text-decoration-color: var(--vp-c-text-3) !important;
 
