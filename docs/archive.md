@@ -107,17 +107,20 @@ const sortedYearGroups = computed(() => {
   line-height: 1.4;
 
   > a {
-    font-family: "Noto Serif SC", "Source Han Serif", serif !important;
+    font-family: "PingFang", "Noto Serif SC", "Source Han Serif", serif !important;
     text-decoration: none !important;
     font-weight: 500 !important;
     font-size: 1.05rem;
-    color: #41b349;
+    color: var(--vp-c-text-2);
     transition: color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 
     &:hover,
     &:active {
-      color: #1A6840;
+      color: #000000 !important;
       text-decoration: underline !important;
+      text-decoration-color: var(--vp-c-divider) !important;
+      text-underline-offset: 4px;
+      text-decoration-thickness: 1px;
     }
   }
 }
