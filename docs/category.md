@@ -87,16 +87,16 @@ const sortedCategoryGroups = computed(() => {
   line-height: 1.4;
 
   > a {
-    font-family: "Noto Serif SC", "Source Han Serif", serif !important;
+    font-family: "PiangFang", "Noto Serif SC", "Source Han Serif", serif !important;
     text-decoration: none !important;
     font-weight: 500 !important;
     font-size: 1.05rem;
-    color: #41b349;
+    color: var(--vp-c-text-1);
     transition: color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 
     &:hover,
     &:active {
-      color: #1A6840;
+      color: #000000;
       text-decoration: underline !important;
     }
   }
