@@ -94,8 +94,10 @@ const sortedCategoryGroups = computed(() => {
     color: #326891;
     transition: color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 
-    &:hover {
-      color: var(--vp-c-brand-1);
+    &:hover,
+    &:active {
+      color: #1a4a6e;
+      text-decoration: underline !important;
     }
   }
 }
