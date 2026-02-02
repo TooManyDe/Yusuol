@@ -27,16 +27,18 @@ isNoBackBtn: true
 </template>
 
 <div class="pagination-container">
-  <t-pagination
-    v-model="current"
-    v-model:pageSize="pageSize"
-    :total="total"
-    size="small"
-    :showPageSize="false"
-    :showPageNumber="!isMobile()"
-    :showJumper="isMobile()"
-    @current-change="onCurrentChange"
-  />
+  <t-config-provider :global-config="enConfig">
+    <t-pagination
+      v-model="current"
+      v-model:pageSize="pageSize"
+      :total="total"
+      size="small"
+      :showPageSize="false"
+      :showPageNumber="!isMobile()"
+      :showJumper="isMobile()"
+      @current-change="onCurrentChange"
+    />
+  </t-config-provider>
 </div>
 
 <script lang="ts" setup>
