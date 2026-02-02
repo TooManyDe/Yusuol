@@ -102,7 +102,7 @@ const onCurrentChange: PaginationProps["onCurrentChange"] = (index) => {
     text-decoration: none !important;
     font-weight: 580 !important;
     font-size: 20px; 
-    color: #41b349;
+    color: var(--vp-c-text-1);
     
     &:hover {
       color: #1A6840;
@@ -120,7 +120,7 @@ const onCurrentChange: PaginationProps["onCurrentChange"] = (index) => {
   margin: 0 0 4px; 
   font-size: 16px;
   line-height: 1.5;
-  color: var(--vp-c-text-1);
+  color: var(--vp-c-text-2);
 
   :deep(p) {
     margin: 0;
