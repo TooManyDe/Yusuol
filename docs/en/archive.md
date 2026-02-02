@@ -36,21 +36,18 @@ import { data as posts } from "../.vitepress/theme/posts-en.data.mts";
 const formatDate = (timestamp: number) => {
   const date = new Date(timestamp);
 
-  // 配置项：英文语言，锁定上海时区
-  const options: Intl.DateTimeFormatOptions = {
-    month: 'short',
-    day: '2-digit',
-    hour: '2-digit',
-    minute: '2-digit',
-    hour12: false,
-  };
+  // 如果你所谓的“不换算”是指直接显示该时间戳对应的 UTC 时间
+  // 以免受本地浏览器时区干扰，可以使用以下方式：
+  
+  const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  
+  const month = months[date.getUTCMonth()];
+  const day = String(date.getUTCDate()).padStart(2, '0');
+  const hours = String(date.getUTCHours()).padStart(2, '0');
+  const minutes = String(date.getUTCMinutes()).padStart(2, '0');
 
-  // 格式化后的字符串示例: "Feb 02, 10:06"
-  const formattedDate = new Intl.DateTimeFormat('en-US', options).format(date);
-
-  // 拼接后缀
-  return `${formattedDate} (UTC+8)`;
-  // 最终输出: "Feb 02, 10:06 (UTC+8)"
+  // 输出格式示例: "Feb 02, 10:06 (Raw/UTC)"
+  return `${month} ${day}, ${hours}:${minutes}`;
 };
 
 
