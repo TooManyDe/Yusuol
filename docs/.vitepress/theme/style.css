@@ -218,7 +218,7 @@ h3 {
 .vp-doc a {
   font-family: "PingFang", var(--vp-font-family-serif), sans-serif !important;
 
-  color: var(--vp-c-text-1) !important;
+  color: #000000 !important;
 
   text-decoration-line: underline !important;
   text-decoration-color: var(--vp-c-text-3) !important;
