@@ -57,13 +57,13 @@ const sortedCategoryGroups = computed(() => {
 
 <style lang="scss" scoped>
 .category-title {
-  margin-top: 10px !important;      /* 分类之间间距 */
-  margin-bottom: 10px !important;    /* 与列表紧凑衔接 */
+  margin-top: 32px !important;       /* 分类之间：给足够的视觉间隔 */
+  margin-bottom: 12px !important;    /* 与下面的列表衔接 */
   font-family: "Noto Serif SC", "Source Han Serif", serif;
   font-size: 22px;
   
   &:first-of-type {
-    margin-top: 20px !important; 
+    margin-top: 8px !important;      /* 第一个分类不需要大间距 */
   }
 }
 
@@ -74,7 +74,7 @@ const sortedCategoryGroups = computed(() => {
 }
 
 .post-item {
-  padding: 4px 0;
+  padding: 8px 0;                    /* 上下各 8px，行间呼吸感更好 */
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -90,7 +90,7 @@ const sortedCategoryGroups = computed(() => {
     font-family: "Noto Serif SC", "Source Han Serif", serif !important;
     text-decoration: none !important;
     font-weight: 580 !important;
-    font-size: 16px;                /* 稍小字号更紧凑 */
+    font-size: 16px;
     color: #326891;
 
     &:hover {
@@ -101,23 +101,23 @@ const sortedCategoryGroups = computed(() => {
 }
 
 .post-date {
-  font-size: 13.6px;                  /* 日期稍小 */
+  font-size: 13.6px;
   color: var(--vp-c-text-3);
   font-weight: 400;
   white-space: nowrap;
   flex-shrink: 0;
-  margin-left: 12px;
+  margin-left: 16px;                 /* 左侧间距略增，标题和日期分离感更清晰 */
 }
 
 @media (max-width: 768px) {
   .category-title {
-    margin-top: 10px !important;
-    margin-bottom: 5px !important;
+    margin-top: 24px !important;     /* 移动端分类间距适当收缩 */
+    margin-bottom: 10px !important;
     font-size: 20px;
   }
   
   .post-item {
-    padding: 4px 0;
+    padding: 7px 0;                  /* 移动端稍微收紧一点 */
   }
 
   .post-title > a {
