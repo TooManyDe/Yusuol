@@ -15,14 +15,14 @@ isNoBackBtn: true
     ></a>
     {{ category }}
   </h1>
-  <template v-for="(post, index) in postGroup" :key="post.url">
-    <div v-if="index !== 0" class="post-divider"></div>
-    <div class="post-item">
-      <h2 class="post-title"><a :href="withBase(post.url)">{{ post.title }}</a></h2>
-      <span class="post-date">{{ post.date.string }}</span>
-    </div>
-    <div v-if="index === postGroup.length - 1" class="post-divider"></div>
-  </template>
+  <div
+    v-for="(post, index) in postGroup"
+    :key="post.url"
+    class="post-item"
+  ><h2 class="post-title"><a :href="withBase(post.url)">{{ post.title }}</a>
+    </h2>
+    <span class="post-date">{{ post.date.string }}</span>
+  </div>
 </template>
 
 <script lang="ts" setup>
@@ -57,75 +57,71 @@ const sortedCategoryGroups = computed(() => {
 
 <style lang="scss" scoped>
 .category-title {
-  margin-top: 10px !important;      /* 分类之间间距 */
-  margin-bottom: 10px !important;    /* 与列表紧凑衔接 */
+  margin: 1.5rem 0 0.6rem !important;
   font-family: "Noto Serif SC", "Source Han Serif", serif;
-  font-size: 22px;
-  
-  &:first-of-type {
-    margin-top: 20px !important; 
-  }
-}
-
-.post-divider {
-  width: 100%;
-  height: 1px;
-  background-color: var(--vp-c-divider);
+  font-size: 1.25rem;
+  color: var(--vp-c-text-1);
+  border-bottom: 2px solid var(--vp-c-brand);
+  display: inline-block;
+  padding-bottom: 2px;
+  line-height: 1.2;
 }
 
 .post-item {
-  padding: 4px 0;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: baseline;
+  padding: 8px 0;
+  gap: 15px;
+  border-bottom: 1px solid var(--vp-c-divider);
+
+  &:last-of-type {
+    border-bottom: none;
+  }
 }
 
 .post-title {
-  margin: 0 !important;
+  flex: 1;
   min-width: 0;
-  white-space: normal;
+  margin: 0 !important;
+  border: none !important;
+  padding: 0 !important;
+  line-height: 1.4;
 
   > a {
     font-family: "Noto Serif SC", "Source Han Serif", serif !important;
     text-decoration: none !important;
-    font-weight: 580 !important;
-    font-size: 16px;                /* 稍小字号更紧凑 */
+    font-weight: 500 !important;
+    font-size: 1.05rem;
     color: #326891;
+    transition: color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 
     &:hover {
-      color: #326891;
-      text-decoration: underline !important;
+      color: var(--vp-c-brand-1);
     }
   }
 }
 
 .post-date {
-  font-size: 13.6px;                  /* 日期稍小 */
+  font-size: 0.85rem;
   color: var(--vp-c-text-3);
-  font-weight: 400;
+  font-family: var(--vp-font-family-mono);
   white-space: nowrap;
-  flex-shrink: 0;
-  margin-left: 12px;
+  letter-spacing: -0.2px;
 }
 
-@media (max-width: 768px) {
-  .category-title {
-    margin-top: 10px !important;
-    margin-bottom: 5px !important;
-    font-size: 20px;
-  }
-  
+@media (max-width: 640px) {
   .post-item {
-    padding: 4px 0;
+    padding: 10px 0;
   }
 
   .post-title > a {
-    font-size: 16px;
+    font-size: 1rem;
   }
-  
-  .post-date {
-    font-size: 13.6px;
+
+  .category-title {
+    font-size: 1.15rem;
   }
 }
 </style>
