@@ -68,6 +68,7 @@
   --vp-c-brand-2: #666666 !important;
   --vp-c-brand-3: #666666 !important;
   --vp-c-brand-soft: var(--vp-c-gray-soft) !important;
+}
 
 /* 导航栏中心化布局 */
 @media (min-width: 960px) {
