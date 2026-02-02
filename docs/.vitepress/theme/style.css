@@ -212,7 +212,7 @@ h3 {
 /* 正文链接基础样式 */
 .vp-doc a {
   font-family: "ChillRoundF", var(--vp-font-family-serif), sans-serif !important;
-  color: #000000 !important;
+  color: var(--vp-c-text-1) !important;
   text-decoration-line: underline !important;
   text-decoration-color: var(--vp-c-divider) !important;
 
@@ -226,12 +226,11 @@ h3 {
 }
 
 .vp-doc a:hover {
-  text-decoration-color: #000000 !important;
+  text-decoration-color: var(--vp-c-text-1) !important;
 }
 
 .vp-doc a:active {
-  text-decoration-color: #000000 !important;
-}
+  text-decoration-color: var(--vp-c-text-1) !important;
 
 .vp-doc a::after {
   display: none !important;
