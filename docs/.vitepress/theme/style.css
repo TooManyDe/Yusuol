@@ -36,12 +36,14 @@
   --vp-c-text-2: #3c3c3c;
   --vp-nav-height: 50px;
 
-  --vp-c-gray: #666666;
-  --vp-c-gray-soft: rgba(102, 102, 102, 0.1); 
-  --vp-c-brand-1: #666666 !important; 
-  --vp-c-brand-2: #666666 !important; 
-  --vp-c-brand-3: #666666 !important; 
-  --vp-c-brand-soft: var(--vp-c-gray-soft) !important;
+  --vp-c-gray: #333333; 
+  --vp-c-gray-soft: rgba(51, 51, 51, 0.05); 
+  
+  /* 品牌色使用深灰，白色文字在上面会非常锐利 */
+  --vp-c-brand-1: #2d2d2d !important; 
+  --vp-c-brand-2: #4a4a4a !important; 
+  --vp-c-brand-3: #1a1a1a !important; 
+  --vp-c-brand-soft: rgba(0, 0, 0, 0.04) !important;
 
   --vp-font-family-serif: "PingFang";
   --vp-font-family-base: var(--vp-font-family-serif), -apple-system, BlinkMacSystemFont,
