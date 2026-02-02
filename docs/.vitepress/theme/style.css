@@ -217,7 +217,7 @@ h3 {
   font-family: "ChillRoundF", var(--vp-font-family-serif), sans-serif !important;
   color: #000000 !important;
   text-decoration-line: underline !important;
-  text-decoration-color: var(--vp-c-divider) !important;
+  text-decoration-color: var(--vp-c-text-3) !important;
 
   /* 下划线与文字距离 */
   text-underline-offset: 4px;
