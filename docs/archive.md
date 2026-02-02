@@ -60,9 +60,6 @@ const sortedCategoryGroups = computed(() => {
   margin: 1.5rem 0 0.6rem !important;
   font-family: "Noto Serif SC", "Source Han Serif", serif;
   font-size: 1.25rem;
-  color: var(--vp-c-text-1);
-  border-bottom: 2px solid var(--vp-c-brand);
-  display: inline-block;
   padding-bottom: 2px;
   line-height: 1.2;
 }
