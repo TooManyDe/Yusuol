@@ -91,7 +91,7 @@ const sortedCategoryGroups = computed(() => {
     text-decoration: none !important;
     font-weight: 500 !important;
     font-size: 1.05rem;
-    color: var(--vp-c-text-1) !important;
+    color: var(--vp-c-text-2) !important;
     transition: color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 
     &:hover,
