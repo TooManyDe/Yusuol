@@ -248,7 +248,7 @@ h3 {
 
 /* 深色模式下正文链接 */
 .dark .vp-doc a {
-  color: var(--vp-c-text-1) !important;
+  color: #326891 !important;
 
   text-decoration-line: underline !important;
   text-decoration-color: var(--vp-c-divider) !important;
@@ -260,12 +260,10 @@ h3 {
 }
 
 .dark .vp-doc a:hover {
-  color: var(--vp-c-text-1) !important;
   text-decoration-color: var(--vp-c-text-1) !important;
 }
 
 .dark .vp-doc a:active {
-  color: var(--vp-c-text-1) !important;
   text-decoration-color: var(--vp-c-text-1) !important;
 }
 
