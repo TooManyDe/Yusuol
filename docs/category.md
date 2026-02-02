@@ -96,8 +96,11 @@ const sortedCategoryGroups = computed(() => {
 
     &:hover,
     &:active {
-      color: var(--vp-c-text-1) !important;
+      color: #000000 !important;
       text-decoration: underline !important;
+      text-decoration-color: var(--vp-c-divider) !important;
+      text-underline-offset: 4px;
+      text-decoration-thickness: 1px;
     }
   }
 }
