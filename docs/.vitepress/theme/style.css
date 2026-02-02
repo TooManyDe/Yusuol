@@ -236,6 +236,29 @@ h3 {
   display: none !important;
 }
 
+/* 深色模式下正文链接 */
+.dark .vp-doc a {
+  color: var(--vp-c-text-1) !important;
+
+  text-decoration-line: underline !important;
+  text-decoration-color: var(--vp-c-divider) !important;
+
+  text-underline-offset: 4px;
+  text-decoration-thickness: 1px;
+
+  transition: color 0.15s ease, text-decoration-color 0.15s ease;
+}
+
+/* Hover：更亮的纸白 */
+.dark .vp-doc a:hover {
+  text-decoration-color: var(--vp-c-text-1) !important;
+}
+
+/* Active：冷白点击反馈 */
+.dark .vp-doc a:active {
+  text-decoration-color: var(--vp-c-text-1) !important;
+}
+
 /* 图片样式 */
 .VPDoc img {
   border-radius: 16px;
