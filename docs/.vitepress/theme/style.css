@@ -261,6 +261,13 @@ h3 {
   text-decoration-color: var(--vp-c-text-1) !important;
 }
 
+.dark .vp-doc strong,
+.vp-doc b {
+  font-family: "ChillRoundF", var(--vp-font-family-serif), sans-serif !important;
+  color: var(--vp-c-text-1) !important;
+  text-decoration: none !important;
+}
+
 /* 图片样式 */
 .VPDoc img {
   border-radius: 16px;
