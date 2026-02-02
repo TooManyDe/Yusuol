@@ -87,25 +87,29 @@ const onCurrentChange: PaginationProps["onCurrentChange"] = (index) => {
   width: 100%;
   height: 1px; 
   background-color: var(--vp-c-divider);
-  margin: 6px 0; 
+  /* 增加分割线的上下边距，这是呼吸感的主要来源 */
+  margin: 48px 0; 
+  opacity: 0.6;
 }
 
 .post-title {
+  /* 移除强制置顶，给标题上方留一点余地 */
   margin-top: 0 !important; 
-  margin-bottom: 6px !important;
+  margin-bottom: 16px !important;
   border-top: none !important;
   padding-top: 0 !important;
-  line-height: 1.5;
+  line-height: 1.4;
 
   > a {
     font-family: "Noto Serif SC", "Source Han Serif", serif !important;
     text-decoration: none !important;
-    font-weight: 580 !important;
-    font-size: 20px; 
-    color: #326891;
+    font-weight: 600 !important;
+    font-size: 22px; 
+    color: var(--vp-c-text-1); /* 使用变量增强适配性 */
+    transition: color 0.25s;
     
     &:hover {
-      color: #004488;
+      color: var(--vp-c-brand-1);
     }
   }
 
@@ -117,10 +121,11 @@ const onCurrentChange: PaginationProps["onCurrentChange"] = (index) => {
 }
 
 .post-excerpt {
-  margin: 0 0 4px; 
+  /* 增加摘要与标题、日期之间的垂直距离 */
+  margin: 16px 0 20px; 
   font-size: 16px;
-  line-height: 1.5;
-  color: var(--vp-c-text-1);
+  line-height: 1.8; /* 提高行高，让文字块更通透 */
+  color: var(--vp-c-text-2);
 
   :deep(p) {
     margin: 0;
@@ -132,16 +137,18 @@ const onCurrentChange: PaginationProps["onCurrentChange"] = (index) => {
   font-size: 14px;
   color: var(--vp-c-text-3);
   font-weight: 400;
-  margin-bottom: 10px; 
-  letter-spacing: 0.01em;
+  /* 移除底部 margin，由分割线来控制间距 */
+  margin-bottom: 0; 
+  letter-spacing: 0.02em;
 }
 
 .pagination-container {
-  margin-top: 8px;
+  /* 显著增加分页符与内容的间距 */
+  margin-top: 60px;
   display: flex;
   justify-content: center;
   border-top: 1px solid var(--vp-c-divider);
-  padding-top: 6px;
+  padding-top: 24px;
 
   :deep(li) {
     margin-top: 0px !important;
