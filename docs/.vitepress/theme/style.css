@@ -243,6 +243,7 @@ h3 {
 
 .vp-doc a:active {
   text-decoration-color: var(--vp-c-text-1) !important;
+  filter: brightness(0.8);
 }
 
 .vp-doc a::after {
