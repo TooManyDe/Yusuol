@@ -45,9 +45,10 @@ const formatDate = (timestamp: number) => {
   const day = String(date.getUTCDate()).padStart(2, '0');
   const hours = String(date.getUTCHours()).padStart(2, '0');
   const minutes = String(date.getUTCMinutes()).padStart(2, '0');
+  const timezone = '(UTC+8)'
 
   // 输出格式示例: "Feb 02, 10:06 (Raw/UTC)"
-  return `${month} ${day}, ${hours}:${minutes}`;
+  return `${month} ${day}, ${hours}:${minutes} ${timezone}`;
 };
 
 
