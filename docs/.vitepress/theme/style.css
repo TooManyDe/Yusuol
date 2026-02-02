@@ -36,15 +36,14 @@
   --vp-c-text-1: #121212;
   --vp-nav-height: 50px;
 
-  /* 纽约时报蓝 - 亮色模式方案 */
-  --vp-c-blue: #326891;
-  --vp-c-blue-soft: rgba(50, 104, 145, 0.1);
+  --vp-c-green: #41b349;
+  --vp-c-green-soft: rgba(65, 179, 73, 0.14);
   
   /* 品牌色应用 */
-  --vp-c-brand-1: var(--vp-c-blue) !important;
-  --vp-c-brand-2: var(--vp-c-blue) !important;
-  --vp-c-brand-3: var(--vp-c-blue) !important;
-  --vp-c-brand-soft: var(--vp-c-blue-soft) !important;
+  --vp-c-brand-1: var(--vp-c-green) !important;
+  --vp-c-brand-2: var(--vp-c-green) !important;
+  --vp-c-brand-3: var(--vp-c-green) !important;
+  --vp-c-brand-soft: var(--vp-c-green-soft) !important;
 
   /* 字体配置 */
   --vp-font-family-serif: "PingFang";
@@ -65,13 +64,13 @@
   --vp-c-text-1: #C9D1D9;
   
   /* 纽约时报蓝 - 深色模式适配方案 */
-  --vp-c-blue-dark: #86B3D1;
-  --vp-c-blue-dark-soft: rgba(134, 179, 209, 0.1);
+  --vp-c-green-dark: #41b349;
+  --vp-c-green-dark-soft: rgba(65, 179, 73, 0.14);
 
-  --vp-c-brand-1: var(--vp-c-blue-dark) !important;
-  --vp-c-brand-2: var(--vp-c-blue-dark) !important;
-  --vp-c-brand-3: var(--vp-c-blue-dark) !important;
-  --vp-c-brand-soft: var(--vp-c-blue-dark-soft) !important;
+  --vp-c-brand-1: var(--vp-c-green-dark) !important;
+  --vp-c-brand-2: var(--vp-c-green-dark) !important;
+  --vp-c-brand-3: var(--vp-c-green-dark) !important;
+  --vp-c-brand-soft: var(--vp-c-green-dark-soft) !important;
 }
 
 /* 导航栏中心化布局 */
@@ -207,7 +206,6 @@ h3 {
   font-size: 18px !important;
 }
 
-/* 链接样式同步纽约时报蓝 */
 .vp-doc a {
   text-decoration: none !important;
   color: var(--vp-c-brand-1);
