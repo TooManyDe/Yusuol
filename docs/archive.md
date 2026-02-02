@@ -16,13 +16,11 @@ isNoBackBtn: true
     {{ category }}
   </h1>
   <template v-for="(post, index) in postGroup" :key="post.url">
-    <!-- 组内非首条，前加分隔线 -->
     <div v-if="index !== 0" class="post-divider"></div>
     <div class="post-item">
       <h2 class="post-title"><a :href="withBase(post.url)">{{ post.title }}</a></h2>
       <span class="post-date">{{ post.date.string }}</span>
     </div>
-    <!-- 组内最后一条，后加分隔线 -->
     <div v-if="index === postGroup.length - 1" class="post-divider"></div>
   </template>
 </template>
@@ -59,8 +57,8 @@ const sortedCategoryGroups = computed(() => {
 
 <style lang="scss" scoped>
 .category-title {
-  margin-top: 24px !important;      /* 分类之间间距 */
-  margin-bottom: 8px !important;    /* 与列表紧凑衔接 */
+  margin-top: 10px !important;      /* 分类之间间距 */
+  margin-bottom: 10px !important;    /* 与列表紧凑衔接 */
   font-family: "Noto Serif SC", "Source Han Serif", serif;
   font-size: 22px;
   
@@ -76,7 +74,7 @@ const sortedCategoryGroups = computed(() => {
 }
 
 .post-item {
-  padding: 6px 0;                   /* 紧凑行高 */
+  padding: 4px 0;                   /* 紧凑行高 */
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -92,7 +90,7 @@ const sortedCategoryGroups = computed(() => {
     font-family: "Noto Serif SC", "Source Han Serif", serif !important;
     text-decoration: none !important;
     font-weight: 580 !important;
-    font-size: 15px;                /* 稍小字号更紧凑 */
+    font-size: 16px;                /* 稍小字号更紧凑 */
     color: #326891;
 
     &:hover {
@@ -103,7 +101,7 @@ const sortedCategoryGroups = computed(() => {
 }
 
 .post-date {
-  font-size: 13px;                  /* 日期稍小 */
+  font-size: 13.6px;                  /* 日期稍小 */
   color: var(--vp-c-text-3);
   font-weight: 400;
   white-space: nowrap;
@@ -113,21 +111,21 @@ const sortedCategoryGroups = computed(() => {
 
 @media (max-width: 768px) {
   .category-title {
-    margin-top: 20px !important;
-    margin-bottom: 6px !important;
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
     font-size: 20px;
   }
   
   .post-item {
-    padding: 8px 0;
+    padding: 4px 0;
   }
 
   .post-title > a {
-    font-size: 15px;
+    font-size: 16px;
   }
   
   .post-date {
-    font-size: 12px;
+    font-size: 13.6px;
   }
 }
 </style>
