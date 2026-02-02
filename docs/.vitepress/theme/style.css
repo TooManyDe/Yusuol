@@ -251,13 +251,13 @@ h3 {
   transition: color 0.15s ease, text-decoration-color 0.15s ease;
 }
 
-/* Hover：更亮的纸白 */
 .dark .vp-doc a:hover {
+  color: var(--vp-c-text-1) !important;
   text-decoration-color: var(--vp-c-text-1) !important;
 }
 
-/* Active：冷白点击反馈 */
 .dark .vp-doc a:active {
+  color: var(--vp-c-text-1) !important;
   text-decoration-color: var(--vp-c-text-1) !important;
 }
 
