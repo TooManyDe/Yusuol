@@ -231,6 +231,7 @@ h3 {
 
 .vp-doc a:active {
   text-decoration-color: var(--vp-c-text-1) !important;
+}
 
 .vp-doc a::after {
   display: none !important;
