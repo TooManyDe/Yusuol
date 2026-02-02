@@ -72,10 +72,6 @@ const sortedCategoryGroups = computed(() => {
   padding: 8px 0;
   gap: 15px;
   border-bottom: 1px solid var(--vp-c-divider);
-
-  &:last-of-type {
-    border-bottom: none;
-  }
 }
 
 .post-title {
