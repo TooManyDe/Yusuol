@@ -216,9 +216,7 @@ h3 {
 
 /* 正文链接基础样式 */
 .vp-doc a {
-  font-family: "PingFang", var(--vp-font-family-serif), sans-serif !important;
-
-  color: #000000 !important;
+  font-family: "ChillRoundF", var(--vp-font-family-serif), sans-serif !important;
 
   text-decoration-line: underline !important;
   text-decoration-color: var(--vp-c-text-3) !important;
@@ -233,17 +231,10 @@ h3 {
 }
 
 .vp-doc a:hover {
-  color: #000000 !important;
   text-decoration-color: #000000 !important;
 }
 
 .vp-doc a:active {
-  color: #000000 !important;
-  text-decoration-color: #000000 !important;
-}
-
-.vp-doc a:visited {
-  color: #000000 !important;
   text-decoration-color: #000000 !important;
 }
 
