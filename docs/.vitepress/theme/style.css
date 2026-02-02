@@ -36,14 +36,14 @@
   --vp-c-text-2: #3c3c3c;
   --vp-nav-height: 50px;
 
-  --vp-c-green: #41b349;
-  --vp-c-green-soft: rgba(65, 179, 73, 0.14);
-  
-  /* 品牌色应用 */
-  --vp-c-brand-1: #f4f0f6 !important;
-  --vp-c-brand-2: #f4f0f6 !important;
-  --vp-c-brand-3: #f4f0f6 !important;
-  --vp-c-brand-soft: var(--vp-c-green-soft) !important;
+  --vp-c-gray: #666666;
+  --vp-c-gray-soft: rgba(102, 102, 102, 0.1); 
+  --vp-c-brand-1: #333333 !important; 
+  --vp-c-brand-2: #666666 !important; 
+  --vp-c-brand-3: #999999 !important; 
+  --vp-c-brand-soft: var(--vp-c-gray-soft) !important;
+}
+
 
   /* 字体配置 */
   --vp-font-family-serif: "PingFang";
