@@ -221,7 +221,7 @@ h3 {
   color: var(--vp-c-text-1) !important;
 
   text-decoration-line: underline !important;
-  text-decoration-color: var(--vp-c-text-2) !important;
+  text-decoration-color: var(--vp-c-text-3) !important;
 
   /* 下划线与文字距离 */
   text-underline-offset: 3px;
