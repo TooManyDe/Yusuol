@@ -194,6 +194,7 @@
 /* 标题样式 */
 h1, h2, h3, h4, h5, h6 {
   font-family: "Noto Serif SC", var(--vp-font-family-serif), sans-serif !important;
+  color: #000000 !important;
   font-weight: 580 !important;
 }
 
