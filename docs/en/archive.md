@@ -43,7 +43,6 @@ const formatDate = (timestamp: number) => {
     hour: '2-digit',
     minute: '2-digit',
     hour12: false,
-    timeZone: 'Asia/Shanghai'
   };
 
   // 格式化后的字符串示例: "Feb 02, 10:06"
