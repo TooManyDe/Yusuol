@@ -110,7 +110,6 @@ const onCurrentChange: PaginationProps["onCurrentChange"] = (index) => {
       text-decoration-color: var(--vp-c-divider) !important;
       text-underline-offset: 4px;
       text-decoration-thickness: 1px;
-      transition: color 0.15s ease, text-decoration-color 0.15s ease;
     }
   }
 
