@@ -96,7 +96,7 @@ const sortedCategoryGroups = computed(() => {
 
     &:hover,
     &:active {
-      color: #000000 !important;
+      color: var(--vp-c-divider) !important;
       text-decoration: underline !important;
     }
   }
