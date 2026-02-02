@@ -101,6 +101,7 @@ const sortedCategoryGroups = computed(() => {
       text-decoration-color: var(--vp-c-divider) !important;
       text-underline-offset: 4px;
       text-decoration-thickness: 1px;
+      filter: brightness(0.8);
     }
   }
 }
