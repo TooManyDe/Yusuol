@@ -38,9 +38,9 @@
 
   --vp-c-gray: #666666;
   --vp-c-gray-soft: rgba(102, 102, 102, 0.1); 
-  --vp-c-brand-1: #333333 !important; 
+  --vp-c-brand-1: #666666 !important; 
   --vp-c-brand-2: #666666 !important; 
-  --vp-c-brand-3: #999999 !important; 
+  --vp-c-brand-3: #666666 !important; 
   --vp-c-brand-soft: var(--vp-c-gray-soft) !important;
 
   --vp-font-family-serif: "PingFang";
@@ -61,14 +61,13 @@
   --vp-c-text-1: #f4f0f6;
   --vp-c-text-2: #e0e0e0;
   --vp-c-bg: #161618;
-  --vp-c-green-dark: #41b349;
-  --vp-c-green-dark-soft: rgba(65, 179, 73, 0.14);
+  --vp-c-gray: #666666;
+  --vp-c-gray-soft: rgba(102, 102, 102, 0.1);
 
-  --vp-c-brand-1: var(--vp-c-text-1) !important;
-  --vp-c-brand-2: var(--vp-c-text-1) !important;
-  --vp-c-brand-3: var(--vp-c-text-1) !important;
-  --vp-c-brand-soft: var(--vp-c-green-dark-soft) !important;
-}
+  --vp-c-brand-1: #666666 !important;
+  --vp-c-brand-2: #666666 !important;
+  --vp-c-brand-3: #666666 !important;
+  --vp-c-brand-soft: var(--vp-c-gray-soft) !important;
 
 /* 导航栏中心化布局 */
 @media (min-width: 960px) {
