@@ -221,7 +221,7 @@ h3 {
 /* 正文链接基础样式 */
 .vp-doc a {
   font-family: "ChillRoundF", var(--vp-font-family-serif), sans-serif !important;
-  color: var(--vp-c-text-1) !important;
+  color: #326891 !important;
   text-decoration-line: underline !important;
   text-decoration-color: var(--vp-c-divider) !important;
 
