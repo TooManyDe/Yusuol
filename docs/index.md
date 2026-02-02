@@ -107,7 +107,7 @@ const onCurrentChange: PaginationProps["onCurrentChange"] = (index) => {
 
     &:hover,
     &:active{
-      color: #000000 !important;
+      color: var(--vp-c-text-1) !important;
       text-decoration: underline !important;
       text-decoration-color: var(--vp-c-divider) !important;
       text-underline-offset: 4px;
