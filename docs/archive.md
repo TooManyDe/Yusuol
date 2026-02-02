@@ -57,7 +57,7 @@ const sortedCategoryGroups = computed(() => {
 
 <style lang="scss" scoped>
 .category-title {
-  margin: 1.5rem 0 0.6rem !important;
+  margin: 0.6rem 0 0.6rem !important;
   font-family: "Noto Serif SC", "Source Han Serif", serif;
   font-size: 1.25rem;
   padding-bottom: 2px;
