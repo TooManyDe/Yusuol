@@ -40,9 +40,9 @@
   --vp-c-green-soft: rgba(65, 179, 73, 0.14);
   
   /* 品牌色应用 */
-  --vp-c-brand-1: var(--vp-c-green) !important;
-  --vp-c-brand-2: var(--vp-c-green) !important;
-  --vp-c-brand-3: var(--vp-c-green) !important;
+  --vp-c-brand-1: #f4f0f6 !important;
+  --vp-c-brand-2: #f4f0f6 !important;
+  --vp-c-brand-3: #f4f0f6 !important;
   --vp-c-brand-soft: var(--vp-c-green-soft) !important;
 
   /* 字体配置 */
@@ -67,9 +67,9 @@
   --vp-c-green-dark: #41b349;
   --vp-c-green-dark-soft: rgba(65, 179, 73, 0.14);
 
-  --vp-c-brand-1: var(--vp-c-green-dark) !important;
-  --vp-c-brand-2: var(--vp-c-green-dark) !important;
-  --vp-c-brand-3: var(--vp-c-green-dark) !important;
+  --vp-c-brand-1: var(--vp-c-text-1) !important;
+  --vp-c-brand-2: var(--vp-c-text-1) !important;
+  --vp-c-brand-3: var(--vp-c-text-1) !important;
   --vp-c-brand-soft: var(--vp-c-green-dark-soft) !important;
 }
 
