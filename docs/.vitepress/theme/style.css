@@ -34,8 +34,8 @@
 :root {
   /* 基础文字与高度 */
   --vp-c-bg: #fafafa;
-  --vp-c-text-1: #222222;
-  --vp-c-text-2: #666666;
+  --vp-c-text-1: #121212;
+  --vp-c-text-2: #707070;
   --vp-nav-height: 50px;
 
   --vp-c-green: #41b349;
@@ -139,6 +139,11 @@
 /* 文档容器布局 */
 .VPDoc {
   padding-top: 20px !important;
+}
+
+.vp-doc {
+  font-size: 17px !important;
+  line-height: 1.9 !important;
 }
 
 @media (max-width: 959px) {
