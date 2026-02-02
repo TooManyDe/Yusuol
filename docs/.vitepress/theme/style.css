@@ -42,10 +42,7 @@
   --vp-c-brand-2: #666666 !important; 
   --vp-c-brand-3: #999999 !important; 
   --vp-c-brand-soft: var(--vp-c-gray-soft) !important;
-}
 
-
-  /* 字体配置 */
   --vp-font-family-serif: "PingFang";
   --vp-font-family-base: var(--vp-font-family-serif), -apple-system, BlinkMacSystemFont,
                          "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji",
