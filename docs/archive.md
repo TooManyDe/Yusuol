@@ -6,22 +6,24 @@ isNoComment: true
 isNoBackBtn: true
 ---
 
-<template v-for="[category, postGroup] in sortedCategoryGroups" :key="category">
-  <h1 :id="category" class="category-title">
+<template v-for="[year, postGroup] in sortedYearGroups" :key="year">
+  <h1 :id="year" class="category-title">
     <a
       class="header-anchor"
-      :href="`#${category}`"
-      :aria-label="`Permalink to &quot;${category}&quot;`"
+      :href="`#${year}`"
+      :aria-label="`Permalink to &quot;${year}&quot;`"
     ></a>
-    {{ category }}
+    {{ year }}
   </h1>
   <div
     v-for="(post, index) in postGroup"
     :key="post.url"
     class="post-item"
-  ><h2 class="post-title"><a :href="withBase(post.url)">{{ post.title }}</a>
+  >
+    <h2 class="post-title">
+      <a :href="withBase(post.url)">{{ post.title }}</a>
     </h2>
-    <span class="post-date">{{ post.date.string }}</span>
+    <span class="post-date">{{ formatDate(post.date.time) }}</span>
   </div>
 </template>
 
@@ -30,26 +32,44 @@ import { computed } from "vue";
 import { withBase } from "vitepress";
 import { data as posts } from "./.vitepress/theme/posts.data.mts";
 
-const sortedCategoryGroups = computed(() => {
+/**
+ * 格式化日期：月-日 时:分 (例如: 02-02 08:54)
+ * 如果你喜欢英文缩写月 (Feb 02 08:54)，可将 hour12 下方改为:
+ * month: 'short', day: '2-digit', hour: '2-digit', minute: '2-digit'
+ */
+const formatDate = (timestamp: number) => {
+  const date = new Date(timestamp);
+  const M = (date.getMonth() + 1).toString().padStart(2, '0');
+  const D = date.getDate().toString().padStart(2, '0');
+  const h = date.getHours().toString().padStart(2, '0');
+  const m = date.getMinutes().toString().padStart(2, '0');
+  return `${M}月${D}日 ${h}:${m}`;
+};
+
+const sortedYearGroups = computed(() => {
   const groups = new Map<string, typeof posts>();
 
   posts.forEach((post) => {
-    const category = post.category || "Uncategorized";
-    if (!groups.has(category)) {
-      groups.set(category, []);
+    // 提取年份作为标题
+    const year = post.date.time 
+      ? new Date(post.date.time).getFullYear().toString() 
+      : "Unknown";
+      
+    if (!groups.has(year)) {
+      groups.set(year, []);
     }
-    groups.get(category)?.push(post);
+    groups.get(year)?.push(post);
   });
 
   const entries = Array.from(groups.entries());
 
+  // 同一年份内按时间倒序
   entries.forEach(([_, group]) => {
     group.sort((a, b) => b.date.time - a.date.time);
   });
 
-  entries.sort((a, b) => {
-    return b[1][0].date.time - a[1][0].date.time;
-  });
+  // 年份按降序排列
+  entries.sort((a, b) => parseInt(b[0]) - parseInt(a[0]));
 
   return entries;
 });
@@ -114,11 +134,9 @@ const sortedCategoryGroups = computed(() => {
   .post-item {
     padding: 10px 0;
   }
-
   .post-title > a {
     font-size: 1rem;
   }
-
   .category-title {
     font-size: 1.15rem;
   }
