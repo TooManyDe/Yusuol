@@ -224,7 +224,7 @@ h3 {
   text-decoration-color: var(--vp-c-text-3) !important;
 
   /* 下划线与文字距离 */
-  text-underline-offset: 3px;
+  text-underline-offset: 4px;
 
   /* 下划线粗细可选 */
   text-decoration-thickness: 1px;
