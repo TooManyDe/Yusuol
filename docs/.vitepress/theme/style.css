@@ -36,13 +36,16 @@
   --vp-c-text-2: #3c3c3c;
   --vp-nav-height: 50px;
 
-  --vp-c-gray: #333333; 
-  --vp-c-gray-soft: rgba(51, 51, 51, 0.05); 
-  --vp-c-brand-3: rgba(0, 0, 0, 0.8) !important;
-  --vp-c-brand-1: rgba(0, 0, 0, 0.15) !important; 
-  --vp-c-brand-2: rgba(0, 0, 0, 0.25) !important;
-  /* 软背景色 */
-  --vp-c-brand-soft: rgba(255, 255, 255, 0.1) !important;
+  --vp-c-blue: #326891; 
+  --vp-c-brand-1: #326891; /* 主色 */
+  --vp-c-brand-2: #3e7fae; /* 稍浅，用于悬停 */
+  --vp-c-brand-3: #285374; /* 稍深，用于点击激活 */
+  
+  --vp-c-gray-soft: rgba(50, 104, 145, 0.1); /* 使用品牌色的透明度替代纯灰色 */
+
+  /* 软背景色适配 */
+  /* 如果是深色模式，0.1 的白色很高级；如果是浅色模式，建议换成品牌色的极浅色 */
+  --vp-c-brand-soft: rgba(50, 104, 145, 0.08) !important;
 
   --vp-font-family-serif: "PingFang";
   --vp-font-family-base: var(--vp-font-family-serif), -apple-system, BlinkMacSystemFont,
