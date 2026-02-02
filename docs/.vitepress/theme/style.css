@@ -61,8 +61,8 @@
 }
 
 .dark {
-  --vp-c-text-1: #cfcfcf;
-  --vp-c-text-2: #f4f0f6;
+  --vp-c-text-1: #f4f0f6;
+  --vp-c-text-2: #cfcfcf;
   --vp-c-green-dark: #41b349;
   --vp-c-green-dark-soft: rgba(65, 179, 73, 0.14);
 
