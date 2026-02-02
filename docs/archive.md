@@ -63,7 +63,7 @@ const sortedCategoryGroups = computed(() => {
   font-size: 22px;
   
   &:first-of-type {
-    margin-top: 0 !important;       /* 第一个标题无顶部间距 */
+    margin-top: 20px !important; 
   }
 }
 
@@ -74,7 +74,7 @@ const sortedCategoryGroups = computed(() => {
 }
 
 .post-item {
-  padding: 4px 0;                   /* 紧凑行高 */
+  padding: 4px 0;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -112,7 +112,7 @@ const sortedCategoryGroups = computed(() => {
 @media (max-width: 768px) {
   .category-title {
     margin-top: 10px !important;
-    margin-bottom: 10px !important;
+    margin-bottom: 5px !important;
     font-size: 20px;
   }
   
