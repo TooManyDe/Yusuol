@@ -87,7 +87,7 @@ const sortedCategoryGroups = computed(() => {
   line-height: 1.4;
 
   > a {
-    font-family: "PiangFang", "Noto Serif SC", "Source Han Serif", serif !important;
+    font-family: "PingFang", "Noto Serif SC", "Source Han Serif", serif !important;
     text-decoration: none !important;
     font-weight: 500 !important;
     font-size: 1.05rem;
