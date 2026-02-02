@@ -34,6 +34,7 @@
 :root {
   /* 基础文字与高度 */
   --vp-c-text-1: #121212;
+  --vp-c-text-2: #666666;
   --vp-nav-height: 50px;
 
   --vp-c-green: #41b349;
