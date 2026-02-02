@@ -117,12 +117,12 @@ const sortedYearGroups = computed(() => {
     text-decoration: none !important;
     font-weight: 500 !important;
     font-size: 1.05rem;
-    color: #326891;
+    color: #41b349;
     transition: color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 
     &:hover,
     &:active {
-      color: #1a4a6e;
+      color: #1A6840;
       text-decoration: underline !important;
     }
   }
