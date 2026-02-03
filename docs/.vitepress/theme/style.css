@@ -40,8 +40,8 @@
   --vp-c-brand-1: #326891; /* 主色 */
   --vp-c-brand-2: #3e7fae; /* 稍浅，用于悬停 */
   --vp-c-brand-3: #285374; /* 稍深，用于点击激活 */
-  ​--vp-c-gray-soft: rgba(100, 100, 100, 0.1);
-  --vp-c-brand-soft: rgba(65, 179, 73, 0.14);
+  ​--vp-c-gray-soft: rgba(100, 100, 100, 0.08);
+  --vp-c-brand-soft: rgba(65, 179, 73, 0.06);
 
   --vp-font-family-serif: "PingFang";
   --vp-font-family-base: var(--vp-font-family-serif), -apple-system, BlinkMacSystemFont,
