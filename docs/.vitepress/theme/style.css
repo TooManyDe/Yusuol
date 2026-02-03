@@ -117,28 +117,32 @@
   display: none !important;
 }
 
-/* 页脚样式 */
-.VPFooter a {
-  text-decoration: none !important;
-}
-
 .VPFooter {
-  padding: 10px !important;
+  padding: 10px !important; 
   border-top: none !important;
   box-shadow: none !important;
-}
-
-.VPFooter a:hover {
-  text-decoration: underline !important;
+  background: transparent !important; 
 }
 
 .VPFooter::before,
 .VPFooter::after {
   display: none !important;
-  background: none !important;
-  border: none !important;
-  box-shadow: none !important;
+  content: none !important;
 }
+
+.VPFooter a {
+  text-decoration: none !important;
+  transition: color 0.25s ease, text-decoration-color 0.25s ease; 
+}
+
+.VPFooter a:hover {
+  color: #326891 !important;
+  text-decoration: underline !important;
+  text-decoration-color: var(--vp-c-divider) !important;
+  text-underline-offset: 5px; 
+  text-decoration-thickness: 1px;
+}
+
 
 /* 文档容器布局 */
 .VPDoc {
