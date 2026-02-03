@@ -131,12 +131,12 @@
 }
 
 .VPFooter a {
+  color: #326891 !important;
   text-decoration: none !important;
   transition: color 0.25s ease, text-decoration-color 0.25s ease; 
 }
 
 .VPFooter a:hover {
-  color: #326891 !important;
   text-decoration: underline !important;
   text-decoration-color: var(--vp-c-divider) !important;
   text-underline-offset: 5px; 
