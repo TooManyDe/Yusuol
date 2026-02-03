@@ -131,6 +131,7 @@
 }
 
 .VPFooter a {
+  font-family: "ChillRoundF", var(--vp-font-family-serif), sans-serif !important;
   color: #326891 !important;
   text-decoration: none !important;
   transition: color 0.25s ease, text-decoration-color 0.25s ease; 
