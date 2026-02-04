@@ -21,7 +21,7 @@
       reactions-enabled="1"
       emit-metadata="0"
       input-position="bottom"
-      :theme="fro"
+      :theme="isDark ? 'dark' : 'light'"
       :lang="lang"
       loading="lazy"
       crossorigin="anonymous"
