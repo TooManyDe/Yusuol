@@ -92,7 +92,7 @@ const onCurrentChange: PaginationProps["onCurrentChange"] = (index) => {
 
 .post-title {
   margin-top: 0 !important; 
-  margin-bottom: 6px !important;
+  margin-bottom: 3px !important;
   border-top: none !important;
   padding-top: 0 !important;
   line-height: 1.5;
