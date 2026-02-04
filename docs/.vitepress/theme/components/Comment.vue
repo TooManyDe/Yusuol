@@ -17,7 +17,7 @@
       category-id="DIC_kwDOOmIAD84Cp583"
       mapping="specific"
       :term="term"
-      strict="0"
+      strict="1"
       reactions-enabled="1"
       emit-metadata="0"
       input-position="bottom"
