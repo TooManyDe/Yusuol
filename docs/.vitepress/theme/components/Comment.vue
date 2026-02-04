@@ -15,7 +15,7 @@
       repo-id="R_kgDOOmIADw"
       category="Announcements"
       category-id="DIC_kwDOOmIAD84Cp583"
-      mapping="pathname"
+      mapping="specific"
       :term="term"
       strict="0"
       reactions-enabled="1"
