@@ -10,14 +10,14 @@ isNoBackBtn: true
 <template v-for="(post, index) in curPosts" :key="post.url">
   <div v-if="index !== 0" class="post-divider"></div>
 
-  <h1 :id="post.title" class="post-title">
+  <h2 :id="post.title" class="post-title">
     <a :href="post.url">{{ post.title }}</a>
     <a
       class="header-anchor"
       :href="`#${post.title}`"
       :aria-label="`Permalink to &quot;${post.title}&quot;`"
     ></a>
-  </h1>
+  </h2>
 
   <div v-if="post.excerpt" class="post-excerpt" v-html="post.excerpt"></div>
 
