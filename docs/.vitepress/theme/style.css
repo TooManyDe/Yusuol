@@ -101,6 +101,8 @@
 
 /* Footer */
 .VPFooter a {
+  color: #41b349 !important;
+  font-family: "ChillRoundF", var(--vp-font-family-serif), sans-serif !important;
   text-decoration: none !important;
 }
 
