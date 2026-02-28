@@ -169,8 +169,15 @@
   font-weight: 400 !important;
 }
 
-.vp-doc h2 {
-    margin-bottom: 0px;
+/* 正文段落首行缩进（仅文章页） */
+.vp-doc p {
+    text-indent: 2em;
+}
+
+/* 首页摘要段落取消缩进 */
+.vp-doc div[v-html*="excerpt"] p,
+.vp-doc .pagination-container + div p {
+    text-indent: 0 !important;
 }
 
 .vp-doc strong,
