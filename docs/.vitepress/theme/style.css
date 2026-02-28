@@ -164,13 +164,13 @@
 
 .vp-doc li,
 .vp-doc p {
-  margin-top: 10px;
+  margin-top: 5px;
   margin-bottom: 10px;
   font-weight: 400 !important;
 }
 
 .vp-doc h2 {
-    margin-bottom: 15px;
+    margin-bottom: 5px;
 }
 
 .vp-doc strong,
