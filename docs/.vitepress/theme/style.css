@@ -164,8 +164,8 @@
 
 .vp-doc li,
 .vp-doc p {
-  margin-top: 0px;
-  margin-bottom: 0px;
+  margin-top: 3px;
+  margin-bottom: 7px;
   font-weight: 400 !important;
 }
 
