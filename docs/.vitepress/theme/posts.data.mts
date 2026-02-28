@@ -6,7 +6,7 @@ interface Post {
   date: {
     time: number
     string: string
-    year: string
+    year: string 
     monthDay: string
   }
   category: string
@@ -24,7 +24,7 @@ export default createContentLoader('posts/**/*.md', {
         url,
         excerpt,
         date: formatDate(frontmatter.date),
-        category: frontmatter.category || '未分类'
+        category: frontmatter.category || '未分类' 
       }))
       .sort((a, b) => b.date.time - a.date.time)
   }
@@ -34,30 +34,23 @@ function excerptFn(file: { data: { [key: string]: any }; content: string; excerp
   file.excerpt = file.content.split('<!--Yusuol-->')[1];
 }
 
-function formatDate(raw: any): Post['date'] {
-  if (!raw) {
-    return { time: 0, string: '无日期', year: '', monthDay: '' }
-  }
-
-  let date: Date;
-  if (raw instanceof Date) {
-    date = raw;
-  } else {
-    date = new Date(String(raw).replace(/-/g, '/'));
-  }
-
-  if (isNaN(date.getTime())) {
-    date = new Date(raw);
-  }
-
-  const pad = (n: number) => String(n).padStart(2, '0')
-
-  const formattedString = `${date.getFullYear()}年${pad(date.getMonth() + 1)}月${pad(date.getDate())}日 ${pad(date.getHours())}:${pad(date.getMinutes())}`
-
+function formatDate(raw: string): Post['date'] {
+  const date = new Date(raw)
+  date.setUTCHours(12)
   return {
     time: +date,
-    string: formattedString,
-    year: String(date.getFullYear()),
-    monthDay: `${pad(date.getMonth() + 1)}-${pad(date.getDate())}`
+    string: date.toLocaleDateString('zh-Hans', {
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit'
+    }),
+    year: date.toLocaleDateString('zh-Hans', {
+      year: 'numeric'
+    }),
+    monthDay: date.toLocaleDateString('zh-Hans', {
+      month: '2-digit',
+      day: '2-digit'
+    })
   }
 }
+
