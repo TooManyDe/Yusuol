@@ -26,9 +26,9 @@
 }
 
 @font-face {
-  font-family: "NotoSansCJKsc";
+  font-family: "GoogleSans";
   font-display: swap;
-  src: url("/assets/fonts/NotoSansCJKsc-Regular.otf") format("truetype");
+  src: url("/assets/fonts/GoogleSans-Regular.ttf") format("truetype");
 }
 
 @font-face {
