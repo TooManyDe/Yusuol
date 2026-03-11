@@ -1,4 +1,5 @@
 ---
+# https://vitepress.dev/reference/default-theme-home-page
 layout: doc
 editLink: false
 lastUpdated: false
@@ -6,157 +7,96 @@ isNoComment: true
 isNoBackBtn: true
 ---
 
-<template>
-  <div class="category-list">
-    <div
-      v-for="[category, postGroup] in sortedCategoryGroups"
-      :key="category"
-      class="category-block"
+<template v-for="[year, postGroup] in postGroups" :key="year">
+  <h2 :id="year" class="post-title">
+    <a
+      class="header-anchor"
+      :href="`#${year}`"
+      :aria-label="`Permalink to &quot;${year}&quot;`"
+      >​</a
     >
-      <!-- Category Header -->
-      <h1 :id="category" class="category-title">
-        {{ category }}
-        <span class="category-count">{{ postGroup.length }}</span>
-      </h1><!-- Posts -->
-      <div
-        v-for="(post, index) in postGroup"
-        :key="post.url"
-        class="post-item"
-      ><div v-if="index !== 0" class="post-divider"></div>
-        <div class="post-row">
-          <h2 class="post-title">
-         <a :href="post.url">{{ post.title }}</a></h2> <div class="post-date">
-            {{ post.date.string }}
-          </div>
-        </div>
-      </div>
-<div class="category-divider"></div>
-    </div>
-  </div>
+    <div class="post-year hollow-text source-han-serif">{{ parseInt(year).toString() }}</div>
+  </h2>
+  <div class="post-container" v-for="post in postGroup" :key="post.url">
+    <a :href="post.url">{{ post.title }}</a>
+    <span class="post-date">
+      {{ post.date.monthDay }}
+    </span>
+  </div> 
 </template>
 
-<script setup lang="ts">
-import { computed } from "vue";
-import { data as posts } from ".vitepress/theme/posts.data.mts";
 
-const sortedCategoryGroups = computed(() => {
-  const map = new Map<string, typeof posts>();
+<script lang="ts" setup>
+import { ref, computed } from "vue";
+// 非 Vue 组件需要手动引入
+import {
+	MessagePlugin,
+	PaginationProps,
+	Pagination as TPagination,
+} from "tdesign-vue-next";
+import { TimeIcon } from "tdesign-icons-vue-next";
 
+import { data as posts } from "./.vitepress/theme/posts.data.mts";
+import { isMobile } from "./.vitepress/theme/utils/mobile.ts";
+
+const postGroups = computed(() => {
+  const groups = new Map<string, typeof posts>();
   posts.forEach((post) => {
-    const category = post.category || "未分类";
-    if (!map.has(category)) map.set(category, []);
-    map.get(category)!.push(post);
+    const year = post.date.year;
+    if (!groups.has(year)) {
+      groups.set(year, []);
+    }
+    groups.get(year)?.push(post);
   });
-
-  return Array.from(map.entries())
-    .map(([category, group]) => {
-      group.sort((a, b) => b.date.time - a.date.time);
-      return [category, group] as const;
-    })
-    .sort((a, b) => b[1][0].date.time - a[1][0].date.time);
+  return groups;
 });
 </script>
-
 <style lang="scss" scoped>
-/* ───────── Category Header ───────── */
-.category-header {
-  margin-top: 20px;
 
-  &:first-child {
-    margin-top: 0;
-  }
+.mr-2 {
+	margin-right: 2px;
 }
 
-.category-title {
-  margin: 0 0 10px !important;
-  padding: 0 !important;
-  border: none !important;
+.post-title {
+ margin-top: 2px;
+	margin-bottom: 3px;
+	border-top: 0px;
+	position: relative;
+	top: 0;
+	left: 0;
 
+	.post-year {
+		position: absolute;
+		top: 25px;
+		left: -10px;
+		z-index: -1;
+		opacity: .16;
+    font-family: "ChillRoundF";
+		font-size: 40px;
+		font-weight: 600;
+	}
+}
+
+.post-container {
   display: flex;
-  align-items: baseline;
-  gap: 10px;
-
-  font-family: "ChillRoundF", serif;
-  font-size: 24px !important;
-  font-weight: 700 !important;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-
-  color: var(--vp-c-text-1);
-}
-
-.category-count {
-  font-size: 12px;
-  font-weight: 400;
-  opacity: 0.55;
-}
-
-/* ───────── Post Row (Title + Date) ───────── */
-.post-row {
-  display: flex;
-  align-items: baseline;
   justify-content: space-between;
-  gap: 12px;
-}
+  margin: 12px 0;
 
-@media (max-width: 768px) {
-  .post-row {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 2px;
-  }
+  > a {
+		font-weight: 400;
+text-decoration: none !important;
+	}
 
   .post-date {
-    font-size: 12px;
+    opacity: .6;
   }
 }
 
-/* ───────── Post Title ───────── */
-.post-title {
-  margin: 0 !important;
-  padding: 0 !important;
-  border: none !important;
-  line-height: 1.5;
-
-  > a:first-child {
-    font-family: "Noto Serif SC", "Source Han Serif", serif !important;
-    font-size: 16px !important;
-    font-weight: 580 !important;
-    text-decoration: none !important;
-    color: var(--vp-c-text-2);
-    &:hover {
-      color: var(--vp-c-text-1);
-    }
-    &:active {
-      color: var(--vp-c-text-1);
-    }
-  }
-}
-
-/* ───────── Date ───────── */
-.post-date {
-  margin: 0 !important;
-
-  font-size: 13px;
-  letter-spacing: 0.02em;
-  color: var(--vp-c-text-3);
-
-  white-space: nowrap;
-  flex-shrink: 0;
-}
-
-/* ───────── Dividers ───────── */
-.post-divider {
-  width: 100%;
-  height: 1px;
-  background-color: var(--vp-c-divider);
-  margin: 10px 0;
-}
-
-.category-divider {
-  width: 100%;
-  height: 1px;
-  background-color: var(--vp-c-divider);
-  margin: 10px 0 10px;
+.hollow-text {
+  
+  /* 设置文本颜色为透明 */
+  color: var(--vp-c-bg);
+  
+	-webkit-text-stroke: 1px var(--vp-c-text-1);
 }
 </style>
