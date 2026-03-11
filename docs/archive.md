@@ -7,7 +7,6 @@ isNoComment: true
 isNoBackBtn: true
 ---
 
-<!-- 之所以将代码写在 md 里面，而非单独封装为 Vue 组件，因为 aside 不会动态刷新，参考 https://github.com/vuejs/vitepress/issues/2686 -->
 <template v-for="[year, postGroup] in postGroups" :key="year">
   <h2 :id="year" class="post-title">
     <a
@@ -59,7 +58,8 @@ const postGroups = computed(() => {
 }
 
 .post-title {
-	margin-bottom: 6px;
+ margin-top: 2px;
+	margin-bottom: 3px;
 	border-top: 0px;
 	position: relative;
 	top: 0;
