@@ -1,19 +1,19 @@
-// .vitepress/theme/index.ts 或 index.js
+// .vitepress/theme/index.ts
 
 import DefaultTheme from 'vitepress/theme'
 import type { EnhanceApp, Theme } from 'vitepress'
 import { h } from "vue";
-import LicenseInfo from "./components/LicenseInfo.vue";
 
 // --- 样式导入 ---
 // 引入 TDesign 全局样式
-import 'tdesign-vue-next/es/style/index.css' 
+import 'tdesign-vue-next/es/style/index.css'
 // 引入自定义样式
 import './style.css'
 
 // --- 组件导入 ---
 import Comment from './components/Comment.vue'
 import ImageViewer from './components/ImageViewer.vue'
+import LicenseInfo from "./components/LicenseInfo.vue";
 import CustomLayout from './Layout.vue' // 使用 CustomLayout 避免命名冲突
 
 // --- 增强应用逻辑 (Enhance App) ---
@@ -21,15 +21,14 @@ const enhanceApp: EnhanceApp = ({ app }) => {
   // 注册全局组件，可以在 Markdown 文件中直接使用
   app.component('Comment', Comment)
   app.component('ImageViewer', ImageViewer)
-  
-  // 路由切换逻辑已被移除，主题文件更专注。
+  app.component('LicenseInfo', LicenseInfo)
 }
 
 // --- 导出主题配置 ---
 export default {
   // 继承默认主题的所有配置、逻辑和组件
   ...DefaultTheme,
-  
+
   // 覆盖默认布局，使用自定义的 Layout
   Layout() {
     return h(CustomLayout, null, {
