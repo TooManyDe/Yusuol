@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useData } from "vitepress";
 import { computed } from "vue";
-import { licenseConfig } from "../licenseConfig";
+import { licenseConfig } from "./licenseConfig";
 
 const { page, frontmatter } = useData();
 
