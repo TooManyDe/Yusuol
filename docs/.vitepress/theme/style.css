@@ -32,6 +32,14 @@
 }
 
 @font-face {
+  font-family: "GoogleSansPunctuation"; 
+  font-display: swap;
+  src: url("/assets/fonts/GoogleSans-Regular.ttf") format("truetype");
+  unicode-range: U+0020-002F, U+003A-003F, U+005B-0060, U+007B-007E, U+2010-2027, U+3001-301F, U+FF01-FF0F, U+FF1A-FF1F, U+FF3B-FF40, U+FF5B-FF65;
+}
+
+
+@font-face {
   font-family: "mvboli";
   font-display: swap;
   src: url("/assets/fonts/mvboli.ttf");
@@ -48,7 +56,7 @@
   --vp-c-brand-2: var(--vp-c-green) !important;
   --vp-c-brand-3: var(--vp-c-green) !important;
   --vp-c-brand-soft: var(--vp-c-green-soft) !important;
-  --vp-font-family-serif: "GoogleSans";
+  --vp-font-family-serif: "GoogleSansPunctuation", "PingFang", sans-serif;
   --vp-font-family-base: var(--vp-font-family-serif), -apple-system, BlinkMacSystemFont,
                          "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji",
                          "Segoe UI Emoji", "Segoe UI Symbol";
