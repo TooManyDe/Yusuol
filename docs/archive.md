@@ -9,7 +9,6 @@ isNoBackBtn: true
 
 <button :class="{ active: viewMode === 'category' }" @click="viewMode = 'category'"
 {{ parseInt(year).toString() }}
-
 <div class="post-container" v-for="post in postGroup" :key="post.url">
   <a :href="post.url">{{ post.title }}</a>
   <span class="post-date">{{ post.date.monthDay }}</span>
