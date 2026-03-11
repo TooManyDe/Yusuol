@@ -5,7 +5,7 @@ const { frontmatter } = useData()
 const route = useRoute()
 
 const site = 'https://ddbx.org'
-const author = '的的' // 固定作者名
+const author = '的的'
 
 const isPost = route.path.startsWith('/posts/')
 
@@ -13,31 +13,24 @@ const title = frontmatter.value.title
 const date = frontmatter.value.date
 const license = frontmatter.value.license || 'CC BY-NC-SA 4.0'
 
-// 拼接完整 URL
 const url = site + route.path
 </script>
 
 <template>
   <div class="post-license">
-    <div class="license-title">
-      {{ title }}
-    </div>
+    <div class="license-title">{{ title }}</div>
 
-    <a class="license-url" :href="url" target="_blank">
-      {{ url }}
-    </a>
+    <a class="license-url" :href="url" target="_blank">{{ url }}</a>
 
     <div class="license-meta">
       <div class="meta-item">
         <div class="meta-label">作者</div>
         <div class="meta-value">{{ author }}</div>
       </div>
-
       <div class="meta-item">
         <div class="meta-label">发布于</div>
         <div class="meta-value">{{ date }}</div>
       </div>
-
       <div class="meta-item">
         <div class="meta-label">许可协议</div>
         <div class="meta-value license-type">{{ license }}</div>
@@ -48,83 +41,85 @@ const url = site + route.path
 
 <style scoped>
 .post-license {
-  margin-top: 36px;
-  padding: 24px 32px;
-  border-radius: 16px;
-  background: #f6f7f8;
+  margin-top: 24px;
+  padding: 20px 24px;
+  border-radius: 12px;
+  background: #f4f6f8;
   position: relative;
   overflow: hidden;
-  border: 1px solid rgba(0,0,0,0.03);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  max-width: 560px;        /* 限制最大宽度，不撑满整页 */
 }
 
-/* 标题样式 */
 .license-title {
-  font-size: 20px;
-  font-weight: 600;
-  color: #333;
-  margin-bottom: 8px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #2c2c2c;
+  margin-bottom: 6px;
+  line-height: 1.4;
 }
 
-/* 链接样式 */
 .license-url {
-  display: inline-block;
-  font-size: 15px;
-  color: #2ea7ad; /* 匹配图中的青绿色 */
+  display: block;
+  font-size: 14px;
+  color: #2ea7ad;
   text-decoration: none;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
   word-break: break-all;
-  line-height: 1.4;
+  line-height: 1.5;
 }
 
 .license-url:hover {
   text-decoration: underline;
 }
 
-/* 三列布局 */
 .license-meta {
   display: flex;
-  gap: 48px; /* 列间距 */
+  gap: 36px;
 }
 
 .meta-label {
-  font-size: 13px;
-  color: #999; /* 浅灰色标签 */
-  margin-bottom: 4px;
+  font-size: 12px;
+  color: #aaa;
+  margin-bottom: 3px;
 }
 
 .meta-value {
-  font-size: 15px;
-  color: #444;
+  font-size: 14px;
+  color: #333;
   font-weight: 500;
 }
 
-/* 协议高亮色 */
 .license-type {
   color: #2ea7ad;
 }
 
-/* CC 水印背景 */
+/* CC 水印 */
 .post-license::after {
   content: "CC";
   position: absolute;
-  /* 调整位置使其像图片中一样居中偏右 */
-  right: 10%;
+  right: 8%;
   top: 50%;
   transform: translateY(-50%);
-  font-size: 180px;
-  font-weight: 800;
+  font-size: 140px;
+  font-weight: 900;
   color: #000;
-  opacity: 0.03;
+  opacity: 0.04;
   pointer-events: none;
   font-family: sans-serif;
+  line-height: 1;
 }
 
-/* 移动端适配 */
 @media (max-width: 640px) {
+  .post-license {
+    max-width: 100%;
+    padding: 16px 18px;
+  }
+
   .license-meta {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 16px;
+    gap: 12px;
   }
 }
 </style>
