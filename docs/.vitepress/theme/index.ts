@@ -2,7 +2,7 @@
 
 import DefaultTheme from 'vitepress/theme'
 import type { EnhanceApp, Theme } from 'vitepress'
-mport { h } from "vue";
+import { h } from "vue";
 import LicenseInfo from "./components/LicenseInfo.vue";
 
 // --- 样式导入 ---
