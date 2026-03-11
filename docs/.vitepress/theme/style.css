@@ -170,9 +170,14 @@
 
 .vp-doc li,
 .vp-doc p {
-  margin-top: 3px;
-  margin-bottom: 3px;
+  margin-top: 5px;
+  margin-bottom: 5px;
   font-weight: 400 !important;
+}
+
+.VPHome .vp-doc p {
+  margin-top: 2px;
+  margin-bottom: 2px;
 }
 
 .vp-doc strong,
