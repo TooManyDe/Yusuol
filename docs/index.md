@@ -1,6 +1,7 @@
 ---
 # https://vitepress.dev/reference/default-theme-home-page
 layout: doc
+pageClass: is-home-page
 editLink: false
 lastUpdated: false
 isNoComment: true
