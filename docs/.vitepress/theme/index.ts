@@ -2,6 +2,8 @@
 
 import DefaultTheme from 'vitepress/theme'
 import type { EnhanceApp, Theme } from 'vitepress'
+mport { h } from "vue";
+import LicenseInfo from "./components/LicenseInfo.vue";
 
 // --- 样式导入 ---
 // 引入 TDesign 全局样式
@@ -29,7 +31,12 @@ export default {
   ...DefaultTheme,
   
   // 覆盖默认布局，使用自定义的 Layout
-  Layout: CustomLayout, 
+  Layout() {
+    return h(CustomLayout, null, {
+      // 插入到每篇文章正文末尾（文章内容之后，页脚之前）
+      "doc-after": () => h(LicenseInfo),
+    });
+  },
 
   enhanceApp,
 
