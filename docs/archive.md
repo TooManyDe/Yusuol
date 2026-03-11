@@ -53,6 +53,7 @@ const displayGroups = computed(() => {
       <span class="divider">/</span>
       <button :class="{ active: activeTab === 'category' }" @click="activeTab = 'category'">按分类</button>
     </div>
+
     <div v-for="[title, group] in displayGroups" :key="title" class="group-section">
       <h2 :id="title" class="post-title">
         <a class="header-anchor" :href="`#${title}`">​</a>
