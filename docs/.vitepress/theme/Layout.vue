@@ -68,7 +68,6 @@ provide('toggle-appearance', async ({ clientX: x, clientY: y }: MouseEvent) => {
         <ImageViewer />
       </template>
       <template #doc-after>
-        <PostLicense />
         <Comment />
       </template>
     </DefaultTheme.Layout>
