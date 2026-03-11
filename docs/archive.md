@@ -6,6 +6,20 @@ lastUpdated: false
 isNoComment: true
 isNoBackBtn: true
 ---
+
+<button :class="{ active: viewMode === 'category' }" @click="viewMode = 'category'"
+{{ parseInt(year).toString() }}
+
+<div class="post-container" v-for="post in postGroup" :key="post.url">
+  <a :href="post.url">{{ post.title }}</a>
+  <span class="post-date">{{ post.date.monthDay }}</span>
+</div>
+{{ category }}
+<div class="post-container" v-for="post in postGroup" :key="post.url">
+  <a :href="post.url">{{ post.title }}</a>
+  <span class="post-date">{{ post.date.string }}</span>
+</div>
+
 <script lang="ts" setup>
 import { ref, computed } from "vue";
 import { data as posts } from "./.vitepress/theme/posts.data.mts";
