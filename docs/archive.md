@@ -102,12 +102,6 @@ text-decoration: none !important;
 </style>
 
 ---
-layout: doc
-editLink: false
-lastUpdated: false
-isNoComment: true
-isNoBackBtn: true
----
 
 <template v-for="[category, postGroup] in sortedCategoryGroups" :key="category">
   <h2 :id="category" class="post-title">
