@@ -6,6 +6,8 @@ const route = useRoute()
 
 const site = 'https://ddbx.org'
 
+const isPost = route.path.startsWith('/posts/')
+
 const title = frontmatter.value.title
 const author = frontmatter.value.author || '的的'
 const date = frontmatter.value.date
