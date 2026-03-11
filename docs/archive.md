@@ -53,13 +53,10 @@ const displayGroups = computed(() => {
       <span class="divider">/</span>
       <button :class="{ active: activeTab === 'category' }" @click="activeTab = 'category'">按分类</button>
     </div>
-
     <div v-for="[title, group] in displayGroups" :key="title" class="group-section">
       <h2 :id="title" class="post-title">
         <a class="header-anchor" :href="`#${title}`">​</a>
-        <div class="hollow-text source-han-serif big-bg-text">{{ title }}</div>
-      </h2>
-      
+        <div class="hollow-text source-han-serif big-bg-text">{{ title }}</div></h2>
       <div class="post-item" v-for="post in group" :key="post.url">
         <a :href="post.url" class="post-link">{{ post.title }}</a>
         <span class="post-meta">
@@ -104,7 +101,7 @@ const displayGroups = computed(() => {
   margin-bottom: 10px;
   border-top: 0;
   position: relative;
-  height: 60px; /* 给镂空文字留出空间 */
+  height: 60px; 
 
   .big-bg-text {
     position: absolute;
