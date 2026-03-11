@@ -47,47 +47,74 @@ const url = site + route.path
 
 <style scoped>
 .post-license{
-  margin-top:40px;
-  padding:24px;
-  border-radius:16px;
+  margin-top:48px;
+  padding:28px 32px;
+  border-radius:18px;
   background:#f6f7f8;
   position:relative;
+  overflow:hidden;
 }
 
+/* 标题 */
+
 .license-title{
-  font-size:22px;
+  font-size:26px;
   font-weight:600;
+  margin-bottom:8px;
 }
+
+/* 文章链接 */
 
 .license-url{
   display:block;
-  margin-top:8px;
-  color:#18a0ae;
+  font-size:18px;
+  color:#41b349;
   text-decoration:none;
+  margin-bottom:26px;
+  word-break:break-all;
 }
+
+.license-url:hover{
+  text-decoration:underline;
+}
+
+/* 三列布局 */
 
 .license-meta{
-  display:flex;
-  gap:40px;
-  margin-top:20px;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:32px;
 }
 
-.label{
+.meta-label{
   font-size:14px;
-  color:#888;
+  color:#999;
+  margin-bottom:6px;
 }
+
+.meta-value{
+  font-size:18px;
+  color:#222;
+}
+
+/* 协议颜色 */
 
 .license{
-  color:#18a0ae;
+  color:#41b349;
+  font-weight:500;
 }
+
+/* CC 背景水印 */
 
 .post-license::after{
   content:"CC";
   position:absolute;
-  right:30px;
-  top:10px;
-  font-size:140px;
-  opacity:.05;
+  right:-20px;
+  top:-40px;
+  font-size:220px;
   font-weight:700;
+  color:#000;
+  opacity:0.04;
+  pointer-events:none;
 }
 </style>
