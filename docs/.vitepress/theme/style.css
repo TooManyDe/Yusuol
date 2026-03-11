@@ -5,12 +5,6 @@
 }
 
 @font-face {
-  font-family: "PingFang";
-  font-display: swap; 
-  src: url("/assets/fonts/PingFang-Medium.ttf") format("truetype");
-}
-
-@font-face {
   font-family: "ChillRoundF";
   font-display: swap;
   src: url("/assets/fonts/ChillRoundF.woff2") format("woff2"), 
@@ -22,6 +16,13 @@
   font-family: "Noto Serif SC";
   font-display: swap;
   src: url("/assets/fonts/NotoSerifSC-VariableFont_wght.ttf") format("truetype");
+  font-weight: 200 900;
+}
+
+@font-face {
+  font-family: "Noto Sans SC";
+  font-display: swap;
+  src: url("/assets/fonts/NotoSansSC-VariableFont_wght.ttf") format("truetype");
   font-weight: 200 900;
 }
 
@@ -56,7 +57,7 @@
   --vp-c-brand-2: var(--vp-c-green) !important;
   --vp-c-brand-3: var(--vp-c-green) !important;
   --vp-c-brand-soft: var(--vp-c-green-soft) !important;
-  --vp-font-family-serif: "GoogleSansPunctuation", "PingFang", sans-serif;
+  --vp-font-family-serif: "GoogleSansPunctuation", "PingFang","Noto Sans SC", sans-serif;
   --vp-font-family-base: var(--vp-font-family-serif), -apple-system, BlinkMacSystemFont,
                          "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji",
                          "Segoe UI Emoji", "Segoe UI Symbol";
