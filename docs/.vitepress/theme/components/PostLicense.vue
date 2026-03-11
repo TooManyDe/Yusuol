@@ -9,9 +9,8 @@ const site = 'https://ddbx.org'
 const isPost = route.path.startsWith('/posts/')
 
 const title = frontmatter.value.title
-const author = frontmatter.value.author || '的的'
 const date = frontmatter.value.date
-const license = frontmatter.value.license || 'CC BY-NC-SA 4.0'
+const license = frontmatter.value.license || 'CC BY-NC-ND 4.0'
 
 const url = site + route.path
 </script>
@@ -28,11 +27,6 @@ const url = site + route.path
 
     <div class="license-meta">
       <div>
-        <div class="label">作者</div>
-        <div>{{ author }}</div>
-      </div>
-
-      <div>
         <div class="label">发布于</div>
         <div>{{ date }}</div>
       </div>
@@ -47,9 +41,9 @@ const url = site + route.path
 
 <style scoped>
 .post-license{
-  margin-top:48px;
-  padding:28px 32px;
-  border-radius:18px;
+  margin-top:36px;
+  padding:20px 24px;
+  border-radius:16px;
   background:#f6f7f8;
   position:relative;
   overflow:hidden;
@@ -58,19 +52,19 @@ const url = site + route.path
 /* 标题 */
 
 .license-title{
-  font-size:26px;
+  font-size:22px;
   font-weight:600;
-  margin-bottom:8px;
+  margin-bottom:6px;
 }
 
-/* 文章链接 */
+/* 链接 */
 
 .license-url{
   display:block;
-  font-size:18px;
+  font-size:16px;
   color:#41b349;
   text-decoration:none;
-  margin-bottom:26px;
+  margin-bottom:18px;
   word-break:break-all;
 }
 
@@ -78,43 +72,40 @@ const url = site + route.path
   text-decoration:underline;
 }
 
-/* 三列布局 */
+/* 两列布局 */
 
 .license-meta{
   display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:32px;
+  grid-template-columns:1fr 1fr;
+  gap:40px;
 }
 
 .meta-label{
-  font-size:14px;
+  font-size:13px;
   color:#999;
-  margin-bottom:6px;
+  margin-bottom:4px;
 }
 
 .meta-value{
-  font-size:18px;
+  font-size:16px;
   color:#222;
 }
 
-/* 协议颜色 */
-
 .license{
   color:#41b349;
-  font-weight:500;
 }
 
-/* CC 背景水印 */
+/* CC 水印 */
 
 .post-license::after{
   content:"CC";
   position:absolute;
-  right:-20px;
+  right:-40px;
   top:-40px;
-  font-size:220px;
+  font-size:260px;
   font-weight:700;
   color:#000;
-  opacity:0.04;
+  opacity:0.035;
   pointer-events:none;
 }
 </style>
