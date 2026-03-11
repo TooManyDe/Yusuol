@@ -7,13 +7,20 @@ isNoBackBtn: true
 ---
 
 <script lang="ts" setup>
-import { ref, computed } from "vue";
+import { computed } from "vue";
 import { data as posts } from "./.vitepress/theme/posts.data.mts";
 
-// 1. 切换逻辑
-const activeTab = ref<'archive' | 'category'>('archive');
+// 1. 处理分类逻辑：用于顶部的分类索引
+const categories = computed(() => {
+  const map = new Map<string, number>();
+  posts.forEach(post => {
+    const cat = post.category || "未分类";
+    map.set(cat, (map.get(cat) || 0) + 1);
+  });
+  return Array.from(map.entries());
+});
 
-// 2. 归档逻辑 (按年份分组)
+// 2. 处理归档逻辑：按年份分组
 const archiveGroups = computed(() => {
   const groups = new Map<string, typeof posts>();
   posts.forEach((post) => {
@@ -21,10 +28,11 @@ const archiveGroups = computed(() => {
     if (!groups.has(year)) groups.set(year, []);
     groups.get(year)?.push(post);
   });
+  // 年份倒序
   return Array.from(groups.entries()).sort((a, b) => parseInt(b[0]) - parseInt(a[0]));
 });
 
-// 3. 分类逻辑 (按分类分组)
+// 3. 处理分类明细逻辑（你原有的逻辑）
 const categoryGroups = computed(() => {
   const map = new Map<string, typeof posts>();
   posts.forEach((post) => {
@@ -32,109 +40,145 @@ const categoryGroups = computed(() => {
     if (!map.has(category)) map.set(category, []);
     map.get(category)?.push(post);
   });
-  const entries = Array.from(map.entries()).map(([cat, group]) => {
+  const sortedEntries = Array.from(map.entries()).map(([category, group]) => {
     group.sort((a, b) => b.date.time - a.date.time);
-    return [cat, group] as [string, typeof posts];
+    return [category, group] as [string, typeof posts];
   });
-  // 按分类内最新文章时间排序
-  return entries.sort((a, b) => b[1][0].date.time - a[1][0].date.time);
-});
-
-// 4. 统一当前渲染的数据
-const displayGroups = computed(() => {
-  return activeTab.value === 'archive' ? archiveGroups.value : categoryGroups.value;
+  sortedEntries.sort((a, b) => b[1][0].date.time - a[1][0].date.time);
+  return sortedEntries;
 });
 </script>
 
 <template>
-  <div class="custom-container">
-    <div class="tab-switcher">
-      <button :class="{ active: activeTab === 'archive' }" @click="activeTab = 'archive'">按时间</button>
-      <span class="divider">/</span>
-      <button :class="{ active: activeTab === 'category' }" @click="activeTab = 'category'">按分类</button>
-    </div>
-    <div v-for="[title, group] in displayGroups" :key="title" class="group-section">
-      <h2 :id="title" class="post-title">
-        <a class="header-anchor" :href="`#${title}`">​</a>
-        <div class="hollow-text source-han-serif big-bg-text">{{ title }}</div></h2>
-      <div class="post-item" v-for="post in group" :key="post.url">
-        <a :href="post.url" class="post-link">{{ post.title }}</a>
-        <span class="post-meta">
-          {{ activeTab === 'archive' ? post.date.monthDay : post.date.string }}
-        </span>
+  <div class="integrated-page">
+    <div class="category-index">
+      <div class="index-label">分类索引</div>
+      <div class="category-tags">
+        <a v-for="[cat, count] in categories" :key="cat" :href="`#${cat}`" class="cat-tag">
+          {{ cat }} <span class="count">{{ count }}</span>
+        </a>
       </div>
+    </div>
+    <hr class="divider" />
+    <div class="main-content">
+      <h1 class="section-title">分类详情</h1>
+      <template v-for="[category, postGroup] in categoryGroups" :key="category">
+        <h2 :id="category" class="post-title">
+          <a class="header-anchor" :href="`#${category}`">​</a>
+          <div class="hollow-text big-bg-text">{{ category }}</div>
+        </h2>
+        <div class="post-container" v-for="post in postGroup" :key="post.url">
+          <a :href="post.url" class="link">{{ post.title }}</a>
+          <span class="post-date">{{ post.date.string }}</span>
+        </div>
+      </template>
+      <h1 class="section-title archive-title">年度归档</h1>
+      <template v-for="[year, postGroup] in archiveGroups" :key="year">
+        <h2 :id="year" class="post-title">
+          <a class="header-anchor" :href="`#${year}`">​</a>
+          <div class="hollow-text big-bg-text">{{ year }}</div>
+        </h2>
+        <div class="post-container" v-for="post in postGroup" :key="post.url">
+          <a :href="post.url" class="link">{{ post.title }}</a>
+          <span class="post-date">{{ post.date.monthDay }}</span>
+        </div>
+      </template>
     </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
-.tab-switcher {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 40px;
-  font-family: "ChillRoundF";
-  
-  button {
-    font-size: 1.1rem;
-    color: var(--vp-c-text-2);
-    transition: color 0.3s;
-    cursor: pointer;
-
-    &.active {
-      color: var(--vp-c-text-1);
-      font-weight: 600;
-    }
-    &:hover {
-      color: var(--vp-c-brand-1);
-    }
-  }
-  .divider { color: var(--vp-c-divider); }
+.integrated-page {
+  padding-top: 20px;
 }
 
-.group-section {
-  margin-bottom: 30px;
+/* 分类索引样式 */
+.category-index {
+  margin-bottom: 2rem;
+  .index-label {
+    font-size: 0.9rem;
+    opacity: 0.5;
+    margin-bottom: 1rem;
+    font-family: "ChillRoundF";
+  }
+  .category-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .cat-tag {
+    background: var(--vp-c-bg-soft);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    text-decoration: none !important;
+    color: var(--vp-c-text-1);
+    transition: all 0.2s;
+    border: 1px solid transparent;
+    &:hover {
+      border-color: var(--vp-c-brand-1);
+      color: var(--vp-c-brand-1);
+      transform: translateY(-2px);
+    }
+    .count {
+      opacity: 0.4;
+      font-size: 0.8rem;
+      margin-left: 4px;
+    }
+  }
+}
+
+.section-title {
+  font-family: "ChillRoundF";
+  font-size: 1.5rem;
+  margin-top: 4rem;
+  margin-bottom: 2rem;
+  opacity: 0.8;
+  &.archive-title {
+    margin-top: 6rem;
+    border-top: 1px dashed var(--vp-c-divider);
+    padding-top: 2rem;
+  }
 }
 
 .post-title {
-  margin-top: 20px;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
+  margin-top: 40px;
   border-top: 0;
   position: relative;
-  height: 60px; 
-
+  
   .big-bg-text {
     position: absolute;
-    top: 10px;
-    left: -5px;
+    top: 15px;
+    left: -8px;
     z-index: -1;
-    opacity: .16;
+    opacity: .12;
     font-family: "ChillRoundF";
-    font-size: 45px;
+    font-size: 42px;
     font-weight: 600;
-    line-height: 1;
     pointer-events: none;
+    white-space: nowrap;
   }
 }
 
-.post-item {
+.post-container {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
   margin: 14px 0;
-  padding-left: 5px;
+  padding: 0 4px;
 
-  .post-link {
+  .link {
     font-weight: 400;
-    text-decoration: none !important;
     color: var(--vp-c-text-1);
+    text-decoration: none !important;
     &:hover {
       color: var(--vp-c-brand-1);
     }
   }
 
-  .post-meta {
-    font-size: 0.9em;
+  .post-date {
+    font-size: 0.9rem;
     opacity: .5;
     font-family: var(--vp-font-family-mono);
   }
@@ -143,5 +187,11 @@ const displayGroups = computed(() => {
 .hollow-text {
   color: var(--vp-c-bg);
   -webkit-text-stroke: 1px var(--vp-c-text-1);
+}
+
+.divider {
+  border: none;
+  border-top: 1px solid var(--vp-c-divider);
+  margin: 2rem 0;
 }
 </style>
