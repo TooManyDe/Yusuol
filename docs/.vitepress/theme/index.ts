@@ -2,8 +2,6 @@
 
 import DefaultTheme from 'vitepress/theme'
 import type { EnhanceApp, Theme } from 'vitepress'
-import { h } from "vue";
-import LicenseInfo from "./components/LicenseInfo.vue";
 
 // --- 样式导入 ---
 // 引入 TDesign 全局样式
