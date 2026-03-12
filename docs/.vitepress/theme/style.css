@@ -89,7 +89,7 @@
   }
 
   .VPNavBar .container {
-    max-width: 50rem; 
+    max-width: 55rem; 
     width: 100%;
     margin: 0 auto;
     padding: 0 32px; 
@@ -98,7 +98,7 @@
 
 @media (min-width: 960px) {
   .VPNavBar .container {
-    max-width: 50rem;
+    max-width: 55rem;
   }
 }
 
