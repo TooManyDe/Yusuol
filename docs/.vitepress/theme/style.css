@@ -77,7 +77,7 @@
   --vp-c-brand-soft: var(--vp-c-green-dark-soft) !important;
 }
 
-@media (min-width: 960px) {
+@media (min-width: 768px) {
   .VPNavBar {
     width: 100%;
     justify-content: center;
@@ -89,11 +89,16 @@
   }
 
   .VPNavBar .container {
-    max-width: 56vw;
+    max-width: 50rem; 
     width: 100%;
     margin: 0 auto;
-    padding-left: 0;
-    padding-right: 0;
+    padding: 0 32px; 
+  }
+}
+
+@media (min-width: 960px) {
+  .VPNavBar .container {
+    max-width: 50rem;
   }
 }
 
