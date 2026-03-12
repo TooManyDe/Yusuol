@@ -148,26 +148,25 @@
 }
 
 
-/* 针对平板和手机端 (959px 以下) */
+
 @media (max-width: 959px) {
   .VPDoc {
     padding: 20px !important;
-  }
-
-  /* 核心：强制让内容容器铺满 100% */
-  .VPDoc .container,
-  .VPDoc .content-container {
-    max-width: 100% !important;
-    width: 100% !important;
+    width: 100%;
   }
 }
 
-/* 桌面端 (960px 以上) 维持现状 */
-/* 通常不需要额外写，因为默认样式就是生效的 */
+.VPDoc.has-aside .content-container {
+  max-width: 50rem !important;
+}
+
 @media (min-width: 960px) {
-  /* 如果你之前改乱了，可以用这段恢复默认的内边距 */
+  .VPDoc:not(.has-sidebar) .content {
+    max-width: inherit !important;
+  }
+
   .VPDoc .content {
-    padding: 0 32px 128px !important;
+    padding: 0 !important; 
   }
 }
 
