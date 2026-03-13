@@ -57,6 +57,7 @@ const sortedCategoryGroups = computed(() => {
   margin-bottom: 6px;
   position: relative;
   border-top: 0px;
+  font-family: "mvboli";
 
   .post-year {
     position: absolute;
