@@ -212,7 +212,12 @@ h3 {
 }
 
 .gradient-link {
-  background: linear-gradient(to bottom,#6edc7a,#41b349);
+  background: linear-gradient(
+    to bottom,
+    #7ee38c,   /* 上部更浅 */
+    #41b349,   /* 中间 */
+    #1a6840    /* 底部更深 */
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-decoration: none;
@@ -220,7 +225,12 @@ h3 {
 }
 
 .gradient-link:hover {
-  background: linear-gradient(to bottom,#41b349,#1a6840);
+  background: linear-gradient(
+    to bottom,
+    #6edc7a,
+    #2f8f36,
+    #145c34
+  );
 }
 
 .vp-doc a {
