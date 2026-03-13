@@ -245,19 +245,36 @@ h3 {
   -webkit-text-fill-color: transparent;
 }
 
-.vp-doc a {
-  text-decoration: none !important;
-  color: var(--vp-c-brand-1);
+.VPDoc a {
+  display: inline-block;
+  text-decoration: none;
+
+  background: linear-gradient(
+    to bottom,
+    #7ee38c 0%,   /* 浅绿 */
+    #41b349 50%,  /* 绿 */
+    #1a6840 100%  /* 深绿 */
+  );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  transition: background .25s ease;
 }
 
-.vp-doc a:hover {
-  text-decoration: underline !important;
-  color: #1A6840; 
-}
+.VPDoc a:hover,
+.VPDoc a:active {
+  background: linear-gradient(
+    to bottom,
+    #41b349 0%,
+    #2f8f36 50%,
+    #145c34 100%
+  );
 
-.vp-doc a::after {
-  content: none !important;
-  color: #1A6840;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .VPDoc img {
