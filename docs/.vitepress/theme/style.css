@@ -211,11 +211,16 @@ h3 {
   font-size: 18px !important;
 }
 
-a.gradient-link {
-  background: linear-gradient(90deg, #41b349, #7ed957);
+.gradient-link {
+  background: linear-gradient(to bottom,#6edc7a,#41b349);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-decoration: none;
+  transition: all .25s ease;
+}
+
+.gradient-link:hover {
+  background: linear-gradient(to bottom,#41b349,#1a6840);
 }
 
 .vp-doc a {
