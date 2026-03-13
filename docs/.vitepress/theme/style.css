@@ -215,25 +215,29 @@ h3 {
   display: inline-block;
   text-decoration: none;
 
+  /* 默认状态：浅绿 -> 绿 -> 深绿 */
   background: linear-gradient(
     to bottom,
-    #eef7f2,
-    #41b349     
+    #7ee38c 0%,   /* 顶部浅绿 */
+    #41b349 50%,  /* 中间绿色 */
+    #1a6840 100%  /* 底部深绿 */
   );
 
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
 
-  transition: background .25s ease;
+  transition: background 0.25s ease;
 }
 
 .gradient-link:hover,
 .gradient-link:active {
+  /* hover/active状态：整体加深 */
   background: linear-gradient(
     to bottom,
-    #41b349,
-    #1a6840
+    #41b349 0%,   /* 顶部绿 */
+    #2f8f36 50%,  /* 中间深绿 */
+    #145c34 100%  /* 底部更深绿 */
   );
 
   -webkit-background-clip: text;
