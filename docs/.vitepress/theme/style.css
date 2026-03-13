@@ -48,12 +48,6 @@
 
 :root {
   --vp-nav-height: 50px;
-  --color-yusui-light: #67c23a; /* 浅雨水 */
-  --color-yusui-main: #41b349;  /* 标准雨水绿 */
-  --color-yusui-dark: #1a6840;  /* 深雨水/松柏绿 */
-  
-  /* 2. 定义标准渐变（从浅到深） */
-  --vp-brand-gradient: linear-gradient(120deg, var(--color-yusui-light) 0%, var(--color-yusui-main) 100%);
   --vp-c-green: #41b349;
   --vp-c-green-soft: rgba(65, 179, 73, 0.14);
   --vp-c-green-dark: #41b349;
@@ -126,7 +120,7 @@
 
 /* Footer */
 .VPFooter a {
-  color: var(--vp-brand-gradient) !important;
+  color: var(--vp-c-brand-1) !important;
   font-family: "ChillRoundF", var(--vp-font-family-serif), sans-serif !important;
   text-decoration: none !important;
 }
@@ -219,7 +213,7 @@ h3 {
 
 .vp-doc a {
   text-decoration: none !important;
-  color: var(--vp-brand-gradient);
+  color: var(--vp-c-brand-1);
 }
 
 .vp-doc a:hover {
