@@ -211,6 +211,13 @@ h3 {
   font-size: 18px !important;
 }
 
+a.gradient-link {
+  background: linear-gradient(90deg, #41b349, #7ed957);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-decoration: none;
+}
+
 .vp-doc a {
   text-decoration: none !important;
   color: var(--vp-c-brand-1);
