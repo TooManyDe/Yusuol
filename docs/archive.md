@@ -89,6 +89,7 @@ text-decoration: none !important;
 
   .post-date {
     opacity: .6;
+    font-family: "mvboli";
   }
 }
 
