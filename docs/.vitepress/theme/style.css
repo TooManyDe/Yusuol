@@ -120,7 +120,7 @@
 
 /* Footer */
 .VPFooter a {
-  color: #41b349 !important;
+  color: var(--vp-c-brand-1) !important;
   font-family: "ChillRoundF", var(--vp-font-family-serif), sans-serif !important;
   text-decoration: none !important;
 }
@@ -213,7 +213,7 @@ h3 {
 
 .vp-doc a {
   text-decoration: none !important;
-  color: #41b349;
+  color: var(--vp-c-brand-1);
 }
 
 .vp-doc a:hover {
