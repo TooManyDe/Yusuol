@@ -211,70 +211,21 @@ h3 {
   font-size: 18px !important;
 }
 
-.gradient-link {
-  display: inline-block;
-  text-decoration: none;
 
-  /* 默认状态：浅绿 -> 绿 -> 深绿 */
-  background: linear-gradient(
-    to bottom,
-    #7ee38c 0%,   /* 顶部浅绿 */
-    #41b349 50%,  /* 中间绿色 */
-    #1a6840 100%  /* 底部深绿 */
-  );
 
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-
-  transition: background 0.25s ease;
+.vp-doc a {
+  text-decoration: none !important;
+  color: var(--vp-c-brand-1);
 }
 
-.gradient-link:hover,
-.gradient-link:active {
-  /* hover/active状态：整体加深 */
-  background: linear-gradient(
-    to bottom,
-    #41b349 0%,   /* 顶部绿 */
-    #2f8f36 50%,  /* 中间深绿 */
-    #145c34 100%  /* 底部更深绿 */
-  );
-
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+.vp-doc a:hover {
+  text-decoration: underline !important;
+  color: #1A6840; 
 }
 
-.VPDoc a {
-  display: inline-block;
-  text-decoration: none;
-
-  background: linear-gradient(
-    to bottom,
-    #7ee38c 0%,   /* 浅绿 */
-    #41b349 50%,  /* 绿 */
-    #1a6840 100%  /* 深绿 */
-  );
-
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-
-  transition: background .25s ease;
-}
-
-.VPDoc a:hover,
-.VPDoc a:active {
-  background: linear-gradient(
-    to bottom,
-    #41b349 0%,
-    #2f8f36 50%,
-    #145c34 100%
-  );
-
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+.vp-doc a::after {
+  content: none !important;
+  color: #1A6840;
 }
 
 .VPDoc img {
