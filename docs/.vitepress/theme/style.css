@@ -213,16 +213,29 @@ h3 {
 
 .gradient-link {
   display: inline-block;
-  background: linear-gradient(to bottom,#7ee38c,#41b349,#1a6840);
+  text-decoration: none;
+
+  background: linear-gradient(
+    to bottom,
+    rgba(255,255,255,0.6), /* 顶部透明白 */
+    #41b349                 /* 底部 */
+  );
+
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-decoration: none;
+
   transition: background .25s ease;
 }
 
-.gradient-link:hover {
-  background: linear-gradient(to bottom,#6edc7a,#2f8f36,#145c34);
+.gradient-link:hover,
+.gradient-link:active {
+  background: linear-gradient(
+    to bottom,
+    #41b349,
+    #1a6840
+  );
+
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
