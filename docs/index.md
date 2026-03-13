@@ -11,7 +11,7 @@ isNoBackBtn: true
 <!-- 之所以将代码写在 md 里面，而非单独封装为 Vue 组件，因为 aside 不会动态刷新，参考 https://github.com/vuejs/vitepress/issues/2686 -->
 <template v-for="post in curPosts" :key="post.url">
   <h2 :id="post.title" class="post-title">
-    <a :href="post.url">{{ post.title }}</a>
+    <a :href="post.url" class="gradient-link">{{ post.title }}</a>
     <a
       class="header-anchor"
       :href="`#${post.title}`"
