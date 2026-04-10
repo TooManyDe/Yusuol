@@ -32,6 +32,13 @@
   src: url("/assets/fonts/Yozai-Medium.ttf") format("truetype");
 }
 
+@font-face {
+  font-family: "AI";
+  font-display: swap;
+  src: url("/assets/fonts/AI-Regular.woff2") format("woff2"), 
+       url("/assets/fonts/AI-Regular.woff") format("woff");
+}
+
 
 @font-face {
   font-family: "mvboli";
@@ -186,7 +193,7 @@
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Noto Serif SC", var(--vp-font-family-serif), sans-serif !important;
+  font-family: "AI", var(--vp-font-family-serif), sans-serif !important;
 }
 
 h1 {
