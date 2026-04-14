@@ -20,6 +20,13 @@
 }
 
 @font-face {
+  font-family: "SF-Pro";
+  font-display: swap;
+  src: url("/assets/fonts/SF-Pro.ttf") format("truetype");
+  unicode-range: U+201C, U+201D, U+3002, U+FF0C, U+FF01; 
+}
+
+@font-face {
   font-family: "Noto Sans SC";
   font-display: swap;
   src: url("/assets/fonts/NotoSansSC-VariableFont_wght.ttf") format("truetype");
@@ -56,7 +63,7 @@
   --vp-c-brand-2: var(--vp-c-green) !important;
   --vp-c-brand-3: var(--vp-c-green) !important;
   --vp-c-brand-soft: var(--vp-c-green-soft) !important;
-  --vp-font-family-serif: "Yozai", "PingFang","Noto Sans SC", sans-serif;
+  --vp-font-family-serif: "SF-Pro", "Yozai", "PingFang","Noto Sans SC", sans-serif;
   --vp-font-family-base: var(--vp-font-family-serif), -apple-system, BlinkMacSystemFont,
                          "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji",
                          "Segoe UI Emoji", "Segoe UI Symbol";
