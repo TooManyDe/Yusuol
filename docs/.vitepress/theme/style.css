@@ -63,7 +63,7 @@
   --vp-c-brand-2: var(--vp-c-green) !important;
   --vp-c-brand-3: var(--vp-c-green) !important;
   --vp-c-brand-soft: var(--vp-c-green-soft) !important;
-  --vp-font-family-serif: "AI", "SF-Pro", "Yozai", "PingFang","Noto Sans SC", sans-serif;
+  --vp-font-family-serif: "SF-Pro", "Yozai", "PingFang","Noto Sans SC", sans-serif;
   --vp-font-family-base: var(--vp-font-family-serif), -apple-system, BlinkMacSystemFont,
                          "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji",
                          "Segoe UI Emoji", "Segoe UI Symbol";
